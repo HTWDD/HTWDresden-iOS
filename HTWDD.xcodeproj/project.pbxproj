@@ -101,6 +101,7 @@
 		39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */; };
 		5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
+		6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6425B8AF22B7CD4300A85D5F /* RxRelay.framework */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -303,6 +304,7 @@
 		39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeDataSource.swift; path = HTWDD/Components/Grades/Models/GradeDataSource.swift; sourceTree = SOURCE_ROOT; };
 		39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		5B6B4FF5209B693E00A572F8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		6425B8AF22B7CD4300A85D5F /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */,
 				B5461B6A1FA7B82400564D6D /* KeychainAccess.framework in Frameworks */,
 				B52DF0D81E7096F30095C854 /* Marshal.framework in Frameworks */,
 				B52A9B5D1DDB1B7D00313FC3 /* RxCocoa.framework in Frameworks */,
@@ -879,6 +882,7 @@
 		B52A9B5A1DDB1B7C00313FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6425B8AF22B7CD4300A85D5F /* RxRelay.framework */,
 				B5461B691FA7B82400564D6D /* KeychainAccess.framework */,
 				B5B376821FA6161D00FC3A07 /* OpenMensaKit.framework */,
 				B52DF0D71E7096F30095C854 /* Marshal.framework */,
@@ -1216,6 +1220,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				de,
@@ -1295,13 +1300,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Marshal.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		B538EF111E1D63AA0031077C /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
