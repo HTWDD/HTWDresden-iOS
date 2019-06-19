@@ -18,9 +18,9 @@ class GradeService: Service {
     struct Auth: Hashable, Codable {
         let username: String
         let password: String
-
-        var hashValue: Int {
-            return self.username.hashValue ^ self.password.hashValue
+       
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.username.hashValue ^ self.password.hashValue)
         }
 
         static func ==(lhs: Auth, rhs: Auth) -> Bool {

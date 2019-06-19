@@ -14,13 +14,13 @@ struct EventDate: Codable, Hashable {
     let day: Int
     let month: Int
     let year: Int
-
-    var hashValue: Int {
+  
+    func hash(into hasher: inout Hasher) {
         var hash = 5381
         hash = ((hash << 5) &+ hash) &+ day
         hash = ((hash << 5) &+ hash) &+ month
         hash = ((hash << 5) &+ hash) &+ year
-        return hash
+        hasher.combine(hash)
     }
 
     static func ==(lhs: EventDate, rhs: EventDate) -> Bool {

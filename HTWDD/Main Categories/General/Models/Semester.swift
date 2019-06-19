@@ -40,8 +40,8 @@ enum Semester: Hashable, CustomStringConvertible, Comparable {
         }
     }
 
-    var hashValue: Int {
-        return description.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(description.hashValue)
     }
 
     static func <(lhs: Semester, rhs: Semester) -> Bool {
