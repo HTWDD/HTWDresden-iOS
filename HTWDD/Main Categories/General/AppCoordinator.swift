@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import SideMenu
 
 class AppCoordinator: Coordinator {
 	private var window: UIWindow
@@ -35,6 +36,10 @@ class AppCoordinator: Coordinator {
     private lazy var settings = SettingsCoordinator(context: self.appContext, delegate: self)
 
     private let disposeBag = DisposeBag()
+    
+    private lazy var sideMenuManager: SideMenuManager = {
+       return SideMenuManager.default
+    }()
 
 	// MARK: - Init
 
@@ -51,6 +56,30 @@ class AppCoordinator: Coordinator {
         self.window.makeKeyAndVisible()
 		
         self.showOnboarding(animated: false)
+        
+        let vc: UIViewController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as UIViewController
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: vc)
+
+//        sideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        sideMenuManager.apply {
+            $0.menuLeftNavigationController = menuLeftNavigationController
+            $0.menuPresentMode              = .menuSlideIn
+            $0.menuWidth                    = 290
+            $0.menuFadeStatusBar            = false
+            $0.menuPushStyle                = .preserveAndHideBackButton
+            $0.menuAddScreenEdgePanGesturesToPresent(toView: self.rootViewController.view)
+        }
+        
+        
+//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+//
+//        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.rootViewController.view)
+//        SideMenuManager.default.menuPresentMode     = .menuSlideIn
+//        SideMenuManager.default.menuWidth           = 290
+//        SideMenuManager.default.menuFadeStatusBar   = false
+//        SideMenuManager.default.menuPushStyle = .preserveAndHideBackButton
+//
+       
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {

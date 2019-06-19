@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AQr-Fh-z1f">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="03Q-cc-SwC">
+            <objects>
+                <tableViewController id="BOy-yq-2GR" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Nr5-av-JKS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="myx-nF-QLv">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="myx-nF-QLv" id="R0B-tr-V0f">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BOy-yq-2GR" id="oJJ-jf-V4e"/>
+                            <outlet property="delegate" destination="BOy-yq-2GR" id="Mgd-Vr-zuT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Ane-eK-xKS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihj-aJ-7nT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-177" y="117"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="ftJ-M8-C6b">
+            <objects>
+                <viewController storyboardIdentifier="SideMenuVC" id="JhR-iD-IdK" customClass="SideMenuViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcs-0f-NY7">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-AV-ugn">
+                                <rect key="frame" x="0.0" y="44" width="290" height="195"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="DrE-fg-lK7"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
+                                <rect key="frame" x="16" y="247" width="258" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ega-vv-dBc">
+                                        <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Stundenplan" image="Class">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-9b-vZH">
+                                        <rect key="frame" x="0.0" y="30" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Prüfungen" image="Exams">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
+                                        <rect key="frame" x="0.0" y="60" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Noten" image="Grade">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-7s-RF8">
+                                        <rect key="frame" x="0.0" y="90" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Mensen" image="Canteen">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
+                                        <rect key="frame" x="0.0" y="120" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Einstellungen" image="Settings">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2EO-LJ-b3F" firstAttribute="leading" secondItem="Cxk-YJ-EQr" secondAttribute="leading" constant="16" id="0Eu-vX-JzZ"/>
+                            <constraint firstItem="Cxk-YJ-EQr" firstAttribute="trailing" secondItem="2EO-LJ-b3F" secondAttribute="trailing" constant="16" id="6b8-Ak-ZxL"/>
+                            <constraint firstItem="K22-AV-ugn" firstAttribute="leading" secondItem="gcs-0f-NY7" secondAttribute="leading" id="8L9-5W-kKz"/>
+                            <constraint firstItem="2EO-LJ-b3F" firstAttribute="top" secondItem="K22-AV-ugn" secondAttribute="bottom" constant="8" id="BxE-6Q-J3Q"/>
+                            <constraint firstItem="K22-AV-ugn" firstAttribute="centerX" secondItem="2EO-LJ-b3F" secondAttribute="centerX" id="o4Y-fX-uIY"/>
+                            <constraint firstItem="K22-AV-ugn" firstAttribute="top" secondItem="Cxk-YJ-EQr" secondAttribute="top" id="ycg-qw-Dnd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cxk-YJ-EQr"/>
+                    </view>
+                    <size key="freeformSize" width="290" height="896"/>
+                    <connections>
+                        <outlet property="canteenMenuButton" destination="k0s-7s-RF8" id="Sji-cX-Mr5"/>
+                        <outlet property="classMenuButton" destination="ega-vv-dBc" id="Ao2-0u-NLu"/>
+                        <outlet property="examsMenuButton" destination="3dB-9b-vZH" id="Os6-01-cZF"/>
+                        <outlet property="gradesMenuButton" destination="f5X-GZ-r6x" id="vjA-ow-Lce"/>
+                        <outlet property="settingsMenuButton" destination="f8g-6l-PpK" id="xfk-bu-qWi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4k-hb-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1097.1014492753625" y="887.94642857142856"/>
+        </scene>
+        <!--Side Menu Container Navigation Controller-->
+        <scene sceneID="nJ8-eq-kGG">
+            <objects>
+                <navigationController id="AQr-Fh-z1f" customClass="SideMenuContainerNavigationController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SpZ-7A-NNl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BOy-yq-2GR" kind="relationship" relationship="rootViewController" id="ILB-cO-MlA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s6X-62-COT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1096" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Canteen" width="30" height="30"/>
+        <image name="Class" width="30" height="30"/>
+        <image name="Exams" width="30" height="30"/>
+        <image name="Grade" width="30" height="30"/>
+        <image name="Settings" width="30" height="30"/>
+        <image name="navigation" width="900" height="599"/>
+    </resources>
+</document>
