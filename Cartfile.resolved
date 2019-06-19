@@ -1,3 +1,4 @@
 github "ReactiveX/RxSwift" "5.0.1"
+github "jonkykong/SideMenu" "3ca1801cfde66ec14aa67ca484e70c0e00f0b5fc"
 github "kishikawakatsumi/KeychainAccess" "v3.1.2"
 github "utahiosmac/Marshal" "1.2.7"
