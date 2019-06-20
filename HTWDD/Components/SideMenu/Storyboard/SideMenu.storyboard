@@ -47,49 +47,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="290" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
+                                <rect key="frame" x="16" y="247" width="258" height="226"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ega-vv-dBc">
+                                        <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Stundenplan" image="Class"/>
+                                        <connections>
+                                            <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="FOl-aS-G7d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-9b-vZH">
+                                        <rect key="frame" x="0.0" y="45" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Prüfungen" image="Exams"/>
+                                        <connections>
+                                            <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="uG8-iR-2Q3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
+                                        <rect key="frame" x="0.0" y="90" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Noten" image="Grade"/>
+                                        <connections>
+                                            <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="XKW-10-siJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-7s-RF8">
+                                        <rect key="frame" x="0.0" y="135" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Mensen" image="Canteen"/>
+                                        <connections>
+                                            <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="ay2-4J-WEE"/>
+                                        </connections>
+                                    </button>
+                                    <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-8C-Cgh">
+                                        <rect key="frame" x="0.0" y="180" width="258" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="IXV-Kh-5GW"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
+                                        <rect key="frame" x="0.0" y="196" width="258" height="30"/>
+                                        <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <size key="titleShadowOffset" width="25" height="25"/>
+                                        <state key="normal" title="Einstellungen" image="Settings"/>
+                                        <connections>
+                                            <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="n0O-v2-My8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="tPL-8C-Cgh" secondAttribute="trailing" id="PII-VY-r9b"/>
+                                    <constraint firstItem="tPL-8C-Cgh" firstAttribute="leading" secondItem="2EO-LJ-b3F" secondAttribute="leading" id="XZc-1i-ub9"/>
+                                    <constraint firstItem="tPL-8C-Cgh" firstAttribute="top" secondItem="k0s-7s-RF8" secondAttribute="bottom" constant="15" id="Ygx-FI-H09"/>
+                                    <constraint firstItem="f8g-6l-PpK" firstAttribute="top" secondItem="tPL-8C-Cgh" secondAttribute="bottom" constant="15" id="jaD-GS-aqz"/>
+                                </constraints>
+                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-AV-ugn">
                                 <rect key="frame" x="0.0" y="44" width="290" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="195" id="DrE-fg-lK7"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
-                                <rect key="frame" x="16" y="247" width="258" height="210"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ega-vv-dBc">
-                                        <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Stundenplan" image="Class"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-9b-vZH">
-                                        <rect key="frame" x="0.0" y="45" width="258" height="30"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Prüfungen" image="Exams"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
-                                        <rect key="frame" x="0.0" y="90" width="258" height="30"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Noten" image="Grade"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-7s-RF8">
-                                        <rect key="frame" x="0.0" y="135" width="258" height="30"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Mensen" image="Canteen"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
-                                        <rect key="frame" x="0.0" y="180" width="258" height="30"/>
-                                        <inset key="titleEdgeInsets" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Einstellungen" image="Settings">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -109,6 +135,11 @@
                         <outlet property="examsMenuButton" destination="3dB-9b-vZH" id="Os6-01-cZF"/>
                         <outlet property="gradesMenuButton" destination="f5X-GZ-r6x" id="vjA-ow-Lce"/>
                         <outlet property="settingsMenuButton" destination="f8g-6l-PpK" id="xfk-bu-qWi"/>
+                        <outletCollection property="menuButtons" destination="ega-vv-dBc" collectionClass="NSMutableArray" id="ApT-j1-Arf"/>
+                        <outletCollection property="menuButtons" destination="3dB-9b-vZH" collectionClass="NSMutableArray" id="GjV-Eg-SOK"/>
+                        <outletCollection property="menuButtons" destination="f5X-GZ-r6x" collectionClass="NSMutableArray" id="Irs-YG-Ohb"/>
+                        <outletCollection property="menuButtons" destination="f8g-6l-PpK" collectionClass="NSMutableArray" id="49v-sc-AvV"/>
+                        <outletCollection property="menuButtons" destination="k0s-7s-RF8" collectionClass="NSMutableArray" id="SHf-L2-Hsd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4k-hb-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
