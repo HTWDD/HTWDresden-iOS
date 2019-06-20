@@ -20,6 +20,8 @@ public protocol Coordinator: class {
 		⚠️ Highly important. Holds **references** to all child coordinators.
 	*/
 	var childCoordinators: [Coordinator] { get set }
+    
+
 }
 
 public extension Coordinator {

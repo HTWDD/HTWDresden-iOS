@@ -9,6 +9,10 @@
 import UIKit
 
 class ScheduleCoordinator: Coordinator {
+    lazy var tabBarController: UITabBarController? = {
+        return self.rootViewController.tabBarController
+    }()
+    
     var rootViewController: UIViewController {
         return self.scheduleMainViewController.inNavigationController()
     }
@@ -27,7 +31,11 @@ class ScheduleCoordinator: Coordinator {
     init(context: HasSchedule) {
         self.context = context
     }
-
+    
+    func start() {
+        self.tabBarController?.selectedIndex = 0
+    }
+    
     /// Pops the navigation stack back to root.
     func popViewControllers(animated: Bool = true) {
         self.scheduleMainViewController.inNavigationController().popToRootViewController(animated: animated)

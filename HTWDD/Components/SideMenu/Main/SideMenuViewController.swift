@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SideMenuViewController: UIViewController {
+class SideMenuViewController: ViewController {
     
     // MARK: IBOutlet
     @IBOutlet weak var classMenuButton: UIButton!
@@ -18,10 +18,11 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var settingsMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
     
-    
     // MARK: Properties
     private let defaultTintColor: UIColor = .darkGray
-    private let selectedTintColor: UIColor = .blue
+    private let selectedTintColor: UIColor = UIColor.htw.blue
+    
+    var childCoordiantors: [Coordinator] = [Coordinator]()
     
     override func viewDidLoad() {
         prepareMenuButtons()
@@ -36,7 +37,7 @@ class SideMenuViewController: UIViewController {
             }
         }
         
-        setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title)
+        setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title, tintColor: selectedTintColor)
         setTitleAndTintColor(for: &examsMenuButton, title: Loca.Exams.title)
         setTitleAndTintColor(for: &gradesMenuButton, title: Loca.Grades.title)
         setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.title)
@@ -51,5 +52,27 @@ class SideMenuViewController: UIViewController {
         sender.apply {
             $0.tintColor = selectedTintColor
         }
+        
+        switch sender {
+        case classMenuButton:
+            (childCoordiantors.filter { $0 is ScheduleCoordinator}.first as? ScheduleCoordinator)?.start()
+            break
+        case examsMenuButton:
+            (childCoordiantors.filter { $0 is ExamsCoordinator}.first as? ExamsCoordinator)?.start()
+            break
+        case gradesMenuButton:
+            (childCoordiantors.filter { $0 is GradeCoordinator}.first as? GradeCoordinator)?.start()
+            break
+        case canteenMenuButton:
+            (childCoordiantors.filter { $0 is CanteenCoordinator}.first as? CanteenCoordinator)?.start()
+            break
+        case settingsMenuButton:
+            (childCoordiantors.filter { $0 is SettingsCoordinator}.first as? SettingsCoordinator)?.start()
+            break
+        default:
+            break
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
 }

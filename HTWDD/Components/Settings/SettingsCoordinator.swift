@@ -18,7 +18,10 @@ protocol SettingsCoordinatorDelegate: class {
 }
 
 class SettingsCoordinator: Coordinator {
-	
+    lazy var tabBarController: UITabBarController? = {
+        return self.rootViewController.tabBarController
+    }()
+    
     var scheduleAuth: ScheduleService.Auth? {
         didSet {
             self.settingsController.scheduleAuth = self.scheduleAuth
@@ -50,6 +53,10 @@ class SettingsCoordinator: Coordinator {
 		self.context = context
         self.delegate = delegate
 	}
+    
+    func start() {
+        self.tabBarController?.selectedIndex = 4
+    }
 }
 
 extension SettingsCoordinator: SettingsMainVCDelegate {	

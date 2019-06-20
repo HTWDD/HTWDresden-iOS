@@ -45,22 +45,21 @@ class AppCoordinator: Coordinator {
 
 	init(window: UIWindow) {
 		self.window = window
-        
         let viewControllers = self.childCoordinators.map { c in
             c.rootViewController
         }
 		self.tabBarController.setViewControllers(viewControllers, animated: false)
-
-		self.window.rootViewController = self.rootViewController
+        self.window.rootViewController = self.rootViewController
 		self.window.tintColor = UIColor.htw.blue
         self.window.makeKeyAndVisible()
 		
         self.showOnboarding(animated: false)
         
-        let vc: UIViewController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as UIViewController
+        let vc: SideMenuViewController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuViewController
+        vc.childCoordiantors = childCoordinators
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: vc)
-
-//        sideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        
+        
         sideMenuManager.apply {
             $0.menuLeftNavigationController = menuLeftNavigationController
             $0.menuPresentMode              = .menuSlideIn
@@ -69,17 +68,6 @@ class AppCoordinator: Coordinator {
             $0.menuPushStyle                = .preserveAndHideBackButton
             $0.menuAddScreenEdgePanGesturesToPresent(toView: self.rootViewController.view)
         }
-        
-        
-//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
-//
-//        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.rootViewController.view)
-//        SideMenuManager.default.menuPresentMode     = .menuSlideIn
-//        SideMenuManager.default.menuWidth           = 290
-//        SideMenuManager.default.menuFadeStatusBar   = false
-//        SideMenuManager.default.menuPushStyle = .preserveAndHideBackButton
-//
-       
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {

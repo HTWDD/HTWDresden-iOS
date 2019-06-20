@@ -9,6 +9,10 @@
 import UIKit
 
 class GradeCoordinator: Coordinator {
+    lazy var tabBarConroller: UITabBarController? = {
+        return self.rootViewController.tabBarController
+    }()
+    
     var rootViewController: UIViewController {
         return self.gradeMainViewController.inNavigationController()
     }
@@ -26,5 +30,8 @@ class GradeCoordinator: Coordinator {
     init(context: HasGrade) {
         self.context = context
     }
-
+    
+    func start() {
+        tabBarConroller?.selectedIndex = 2
+    }
 }

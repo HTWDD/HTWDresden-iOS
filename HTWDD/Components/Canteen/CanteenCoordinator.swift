@@ -9,6 +9,10 @@
 import UIKit
 
 class CanteenCoordinator: Coordinator {
+    lazy var tabBarController: UITabBarController? = {
+        return self.rootViewController.tabBarController
+    }()
+    
     var rootViewController: UIViewController {
         return self.canteenMainVC.inNavigationController()
     }
@@ -21,4 +25,7 @@ class CanteenCoordinator: Coordinator {
         self.context = context
     }
 
+    func start() {
+        tabBarController?.selectedIndex = 3
+    }
 }

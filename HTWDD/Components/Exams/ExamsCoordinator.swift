@@ -9,6 +9,9 @@
 import UIKit
 
 class ExamsCoordinator: Coordinator {
+    lazy var tabBarController: UITabBarController? = {
+        return self.rootViewController.tabBarController
+    }()
     
     var rootViewController: UIViewController {
         return self.examController.inNavigationController()
@@ -27,6 +30,10 @@ class ExamsCoordinator: Coordinator {
     let context: HasExams
     init(context: HasExams) {
         self.context = context
+    }
+    
+    func start() {
+        self.tabBarController?.selectedIndex = 1
     }
     
 }
