@@ -26,6 +26,9 @@ class SideMenuViewController: ViewController {
     
     override func viewDidLoad() {
         prepareMenuButtons()
+
+        self.title = "HTW Dresden"
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: #selector(dismissSideMenu))
     }
     
     fileprivate func prepareMenuButtons() {
@@ -44,13 +47,15 @@ class SideMenuViewController: ViewController {
         setTitleAndTintColor(for: &settingsMenuButton, title: Loca.Settings.title)
     }
     
+    @objc fileprivate func dismissSideMenu() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func onMenuButtonTouchUpInside(_ sender: UIButton) {
+        sender.apply { $0.tintColor = selectedTintColor }
+        
         menuButtons.filter { $0 != sender }.forEach { (button) in
             button.tintColor = defaultTintColor
-        }
-        
-        sender.apply {
-            $0.tintColor = selectedTintColor
         }
         
         switch sender {

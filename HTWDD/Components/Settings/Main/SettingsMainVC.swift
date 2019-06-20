@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import SideMenu
 
 protocol SettingsMainVCDelegate: class {
     func deleteAllData()
@@ -132,9 +133,16 @@ class SettingsMainVC: TableViewController {
 		self.title = Loca.Settings.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Settings")
         
+        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
+        self.navigationItem.leftBarButtonItem = hamburgerButton
+        
         self.configure()
 	}
 	
+    @objc fileprivate func openSideMenu() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {

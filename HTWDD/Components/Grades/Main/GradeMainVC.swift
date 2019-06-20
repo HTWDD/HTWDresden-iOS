@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import SideMenu
 
 class GradeMainVC: CollectionViewController {
 
@@ -45,6 +46,13 @@ class GradeMainVC: CollectionViewController {
         super.initialSetup()
         self.title = Loca.Grades.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Grade")
+        
+        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
+        self.navigationItem.leftBarButtonItem = hamburgerButton
+    }
+    
+    @objc fileprivate func openSideMenu() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
 
 	// MARK: - ViewController lifecycle
@@ -68,6 +76,8 @@ class GradeMainVC: CollectionViewController {
         } else {
             self.collectionView.add(self.refreshControl)
         }
+        
+        
 
         self.dataSource.collectionView = self.collectionView
         
