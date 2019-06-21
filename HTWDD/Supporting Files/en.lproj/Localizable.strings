@@ -134,3 +134,5 @@
 "Grades.status.ultimatelyFailed" = "ultimately failed";
 "Grades.noResults.title"="No grades";
 "Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
+
+"Management.title"="Management";

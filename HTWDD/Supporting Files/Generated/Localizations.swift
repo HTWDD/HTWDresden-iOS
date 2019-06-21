@@ -527,4 +527,8 @@ public struct Loca {
 
         }
     }
+    
+    public struct Management {
+        public static var title: String = NSLocalizedString("Management.title", comment: "")
+    }
 }

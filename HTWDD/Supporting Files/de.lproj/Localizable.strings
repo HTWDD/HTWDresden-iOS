@@ -134,3 +134,5 @@
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
 "Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+
+"Management.title"="Verwaltung";

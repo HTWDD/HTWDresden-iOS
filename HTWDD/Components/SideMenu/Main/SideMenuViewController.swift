@@ -16,6 +16,7 @@ class SideMenuViewController: ViewController {
     @IBOutlet weak var gradesMenuButton: UIButton!
     @IBOutlet weak var canteenMenuButton: UIButton!
     @IBOutlet weak var settingsMenuButton: UIButton!
+    @IBOutlet weak var managementMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
     
     // MARK: Properties
@@ -45,6 +46,7 @@ class SideMenuViewController: ViewController {
         setTitleAndTintColor(for: &gradesMenuButton, title: Loca.Grades.title)
         setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.title)
         setTitleAndTintColor(for: &settingsMenuButton, title: Loca.Settings.title)
+        setTitleAndTintColor(for: &managementMenuButton, title: Loca.Management.title)
     }
     
     @objc fileprivate func dismissSideMenu() {
