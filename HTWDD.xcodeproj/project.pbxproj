@@ -106,6 +106,9 @@
 		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
 		6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6425B8AF22B7CD4300A85D5F /* RxRelay.framework */; };
+		64E5BFA422BCC636005E92C0 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA322BCC636005E92C0 /* ManagementService.swift */; };
+		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
+		64E5BFA922BCC670005E92C0 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementVC.swift */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -313,6 +316,9 @@
 		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
 		6425B8AF22B7CD4300A85D5F /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		64E5BFA322BCC636005E92C0 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
+		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
+		64E5BFA822BCC670005E92C0 /* ManagementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementVC.swift; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -651,6 +657,7 @@
 				1FC21DC71F8F951B003E244F /* Exams */,
 				B52A9B4E1DDB165B00313FC3 /* Grades */,
 				B5B376841FA6176E00FC3A07 /* Canteen */,
+				64E5BFA222BCC60A005E92C0 /* Management */,
 				1FC21DC81F8F953F003E244F /* Settings */,
 			);
 			path = Components;
@@ -769,6 +776,24 @@
 				6412011622BA2BC700B2090A /* Views */,
 				6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */,
 				6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		64E5BFA222BCC60A005E92C0 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFA322BCC636005E92C0 /* ManagementService.swift */,
+				64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */,
+				64E5BFA722BCC65C005E92C0 /* Main */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		64E5BFA722BCC65C005E92C0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFA822BCC670005E92C0 /* ManagementVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1446,6 +1471,7 @@
 				B5111E281E7206B500D68155 /* LectureTimeView.swift in Sources */,
 				B5B3768E1FA61A2C00FC3A07 /* CanteenCoordinator.swift in Sources */,
 				B52133BB1DEF0E2200955D29 /* NavigationViewController.swift in Sources */,
+				64E5BFA922BCC670005E92C0 /* ManagementVC.swift in Sources */,
 				B5B3768D1FA6192A00FC3A07 /* Canteen.swift in Sources */,
 				B50875481ED40BE6004A320E /* TableViewController.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
@@ -1481,6 +1507,7 @@
 				B5FCAE611E62EAEF00E35DDB /* Array.swift in Sources */,
 				B5461B661FA63E0C00564D6D /* MealCell.swift in Sources */,
 				B538EF101E1D62040031077C /* UserDefaults.swift in Sources */,
+				64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */,
 				B51DB4911FA918D500B1A811 /* ScheduleBaseVC.swift in Sources */,
 				B529EDE81FAB7F40000C1677 /* CodableDictionary.swift in Sources */,
 				B5461B681FA7B4C400564D6D /* PersistenceService.swift in Sources */,
@@ -1500,6 +1527,7 @@
 				B5BE72821E6C809200D05B6D /* SemesterInformation.swift in Sources */,
 				B5BE728A1E6C86A600D05B6D /* EventPeriod.swift in Sources */,
 				B5EA53721E7FD25C00183E07 /* AnimatedViewControllerTransition.swift in Sources */,
+				64E5BFA422BCC636005E92C0 /* ManagementService.swift in Sources */,
 				B5A069102042E7BF0067B8D2 /* GradeAverageCell.swift in Sources */,
 				B5B376891FA6179F00FC3A07 /* Meal.swift in Sources */,
 				1F7E32091FA7B84000CCBDD6 /* ScheduleListVC.swift in Sources */,
