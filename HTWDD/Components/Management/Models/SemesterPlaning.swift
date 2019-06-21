@@ -12,6 +12,8 @@ import Marshal
 
 // MARK: - Semester Planung
 struct SemesterPlaning: Identifiable, Codable {
+    
+    // MARK: - Semester Type
     enum SemeterType: String, Codable {
         case summer = "S"
         case winter = "W"
@@ -24,6 +26,7 @@ struct SemesterPlaning: Identifiable, Codable {
         }
     }
     
+    // MARK: - Properties
     let year: Int
     let type: SemeterType
     let period: Period
@@ -49,7 +52,6 @@ struct FreeDay: Codable {
     let beginDay: String
     let endDay: String
 }
-
 
 // MARK: - extensions
 extension SemesterPlaning {
