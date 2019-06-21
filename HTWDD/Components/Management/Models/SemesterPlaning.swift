@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RxSwift
+import Marshal
 
 // MARK: - Semester Planung
 struct SemesterPlaning: Identifiable, Codable {
@@ -17,6 +19,10 @@ struct SemesterPlaning: Identifiable, Codable {
     let lecturePeriod: Period
     let examsPeriod: Period
     let reregistration: Period
+    
+    static func get(network: Network) -> Observable<[SemesterPlaning]> {
+        return network.getArray(url: SemesterPlaning.url)
+    }
 }
 
 // MARK: - Period
@@ -31,3 +37,23 @@ struct FreeDay: Codable {
     let beginDay: String
     let endDay: String
 }
+
+
+// MARK: - extensions
+extension SemesterPlaning: Unmarshaling {
+    static let url = "https://rubu2.rz.htw-dresden.de/API/v0/semesterplan.json"
+    
+    init(object: MarshaledObject) throws {
+        self.year           = try object.value(for: "year")
+        self.type           = try object.value(for: "type")
+        self.period         = try object.value(for: "period")
+        self.freeDays       = try object.value(for: "freeDays")
+        self.lecturePeriod  = try object.value(for: "lecturePeriod")
+        self.examsPeriod    = try object.value(for: "examsPeriod")
+        self.reregistration = try object.value(for: "reregistration")
+    }
+}
+
+
+extension Period: ValueType {}
+extension FreeDay: ValueType {}
