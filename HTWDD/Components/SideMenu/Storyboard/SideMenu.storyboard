@@ -48,7 +48,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
-                                <rect key="frame" x="16" y="247" width="258" height="271"/>
+                                <rect key="frame" x="16" y="247" width="258" height="265"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ega-vv-dBc">
                                         <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
@@ -87,23 +87,23 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0U-9J-Anx">
-                                        <rect key="frame" x="0.0" y="180" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="180" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
-                                        <state key="normal" title="Verwaltung" image="Canteen"/>
+                                        <state key="normal" title="Verwaltung" image="Management"/>
                                         <connections>
                                             <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="Fv1-d1-hHv"/>
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-8C-Cgh">
-                                        <rect key="frame" x="0.0" y="225" width="258" height="1"/>
+                                        <rect key="frame" x="0.0" y="219" width="258" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SOi-LK-uFh"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
-                                        <rect key="frame" x="0.0" y="241" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="235" width="258" height="30"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Einstellungen" image="Settings"/>
@@ -179,6 +179,7 @@
         <image name="Class" width="30" height="30"/>
         <image name="Exams" width="30" height="30"/>
         <image name="Grade" width="30" height="30"/>
+        <image name="Management" width="24" height="24"/>
         <image name="Settings" width="30" height="30"/>
         <image name="navigation" width="900" height="599"/>
     </resources>
