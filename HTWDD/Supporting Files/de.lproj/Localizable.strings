@@ -136,3 +136,5 @@
 "Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
 
 "Management.title"="Verwaltung";
+"Management.semester.summer"="Sommersemeter";
+"Management.semester.winter"="Wintersemester";

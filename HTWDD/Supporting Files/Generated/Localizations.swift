@@ -529,6 +529,14 @@ public struct Loca {
     }
     
     public struct Management {
+        
         public static var title: String = NSLocalizedString("Management.title", comment: "")
+        
+        public struct Semester {
+            
+            public static var summer: String = "Management.semester.summer".localized
+            
+            public static var winter: String = "Management.semester.winter".localized
+        }
     }
 }

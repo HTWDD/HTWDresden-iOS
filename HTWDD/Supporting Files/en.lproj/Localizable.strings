@@ -136,3 +136,5 @@
 "Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
 
 "Management.title"="Management";
+"Management.semester.summer"="Summer semester";
+"Management.semester.winter"="Winter semester";
