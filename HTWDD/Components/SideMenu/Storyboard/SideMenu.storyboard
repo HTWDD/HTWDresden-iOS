@@ -160,7 +160,7 @@
         <!--Side Menu Container Navigation Controller-->
         <scene sceneID="nJ8-eq-kGG">
             <objects>
-                <navigationController id="AQr-Fh-z1f" customClass="SideMenuContainerNavigationController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavigation" id="AQr-Fh-z1f" customClass="SideMenuContainerNavigationController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SpZ-7A-NNl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

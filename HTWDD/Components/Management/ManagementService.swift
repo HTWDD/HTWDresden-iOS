@@ -2,7 +2,7 @@
 //  ManagementService.swift
 //  HTWDD
 //
-//  Created by Mustafa Karademir on 21.06.19.
+//  Created by Mustafa Karademir on 24.06.19.
 //  Copyright © 2019 HTW Dresden. All rights reserved.
 //
 
@@ -11,16 +11,12 @@ import RxSwift
 
 class ManagementService: Service {
     
-    // MARK: - Properties
-    private let network = Network()
-    
-    func load(parameters: ()) -> Observable<[SemesterPlaning]> {
-        return SemesterPlaning.get(network: self.network)
+    func load(parameters: ()) -> Observable<()> {
+        return Observable.empty()
     }
+
 }
 
-
-//// MARK: - Dependency management
-//extension ManagementService: HasManagement {
-//    var mangementService: ManagementService { return self }
-//}
+extension ManagementService: HasManagement {
+    var managementService: ManagementService { return self }
+}

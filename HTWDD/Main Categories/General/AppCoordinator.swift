@@ -26,9 +26,9 @@ class AppCoordinator: Coordinator {
 		return self.tabBarController
 	}
     
-    private let navigationController: UINavigationController = UINavigationController()
-    var rootNavigationController: UINavigationController {
-        return self.navigationController
+    private let navigationController: UINavigationController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "MainNavigation") as! SideMenuContainerNavigationController
+    var rootNavigationController: SideMenuContainerNavigationController {
+        return self.navigationController as! SideMenuContainerNavigationController
     }
 
     let appContext = AppContext()
@@ -42,49 +42,25 @@ class AppCoordinator: Coordinator {
 
     private let disposeBag = DisposeBag()
     
-    private lazy var sideMenuManager: SideMenuManager = {
-       return SideMenuManager.default
-    }()
-
-	// MARK: - Init
-
+	// MARK: - Lifecycle
 	init(window: UIWindow) {
-		self.window = window
-//        let viewControllers = self.childCoordinators.map { c in
-//            c.rootViewController
-//        }
-		
-//        self.tabBarController.setViewControllers(viewControllers, animated: false)
-        self.window.rootViewController = self.rootNavigationController
-        self.window.tintColor = UIColor.htw.blue
+		self.window                     = window
+        self.rootNavigationController.coordinator = self
+        self.window.rootViewController  = self.rootNavigationController
+        self.window.tintColor           = UIColor.htw.blue
         self.window.makeKeyAndVisible()
 		
         goTo(controller: .schedule)
         
         self.showOnboarding(animated: false)
-        
-        let vc: SideMenuViewController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuViewController
-        vc.childCoordiantors = childCoordinators
-        vc.coordinator = self
-        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: vc)
-        
-        
-        sideMenuManager.apply {
-            $0.menuLeftNavigationController = menuLeftNavigationController
-            $0.menuPresentMode              = .menuSlideIn
-            $0.menuWidth                    = 290
-            $0.menuFadeStatusBar            = false
-            $0.menuPushStyle                = .preserveAndHideBackButton
-            $0.menuAddScreenEdgePanGesturesToPresent(toView: self.rootNavigationController.view)
-        }
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
-        self.schedule.auth = schedule
-        self.exams.auth = schedule
-        self.grades.auth = grade
-        self.settings.scheduleAuth = schedule
-        self.settings.gradeAuth = grade
+        self.schedule.auth          = schedule
+        self.exams.auth             = schedule
+        self.grades.auth            = grade
+        self.settings.scheduleAuth  = schedule
+        self.settings.gradeAuth     = grade
     }
 
 	private func showOnboarding(animated: Bool) {
@@ -131,7 +107,6 @@ class AppCoordinator: Coordinator {
 }
 
 // MARK: - Routing
-
 extension AppCoordinator {
     func selectChild(`for` url: URL) {
         guard let route = url.host?.removingPercentEncoding else { return }
@@ -214,7 +189,7 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
     
 }
 
-// MARK: Routing
+// MARK: - Controller routing
 extension AppCoordinator {
 
     /// # Routing to UIViewController

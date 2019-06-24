@@ -21,7 +21,7 @@ class SideMenuViewController: ViewController {
     @IBOutlet var menuButtons: [UIButton]!
     
     // MARK: Properties
-    private let defaultTintColor: UIColor = .darkGray
+    private let defaultTintColor: UIColor = UIColor.htw.darkGrey
     private let selectedTintColor: UIColor = UIColor.htw.blue
     
     weak var coordinator: AppCoordinator?
@@ -37,7 +37,7 @@ class SideMenuViewController: ViewController {
     
     fileprivate func prepareMenuButtons() {
         
-        func setTitleAndTintColor(for button: inout UIButton, title: String, tintColor: UIColor = .darkGray) {
+        func setTitleAndTintColor(for button: inout UIButton, title: String, tintColor: UIColor = UIColor.htw.darkGrey) {
             button.apply { b in
                 b.setTitle(title, for: .normal)
                 b.tintColor = tintColor
@@ -74,14 +74,6 @@ class SideMenuViewController: ViewController {
             coordinator?.goTo(controller: .grades)
         case canteenMenuButton:
             coordinator?.goTo(controller: .canteen)
-        case managementMenuButton:
-            SemesterPlaning.get(network: Network())
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { [weak self] respone in
-                    guard let self = self else { return }
-                    Log.info("response \(respone)")
-                    }, onError: { [weak self] _ in }).disposed(by: self.disposeBag)
-            break
         case settingsMenuButton:
             coordinator?.goTo(controller: .settings)
         default:
