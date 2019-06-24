@@ -48,10 +48,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
-                                <rect key="frame" x="16" y="247" width="258" height="265"/>
+                                <rect key="frame" x="16" y="247" width="258" height="235"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ega-vv-dBc">
-                                        <rect key="frame" x="0.0" y="0.0" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Stundenplan" image="Class"/>
@@ -60,7 +60,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-9b-vZH">
-                                        <rect key="frame" x="0.0" y="45" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="39" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Prüfungen" image="Exams"/>
@@ -69,7 +69,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
-                                        <rect key="frame" x="0.0" y="90" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="78" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Noten" image="Grade"/>
@@ -78,7 +78,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-7s-RF8">
-                                        <rect key="frame" x="0.0" y="135" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="117" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Mensen" image="Canteen"/>
@@ -87,7 +87,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0U-9J-Anx">
-                                        <rect key="frame" x="0.0" y="180" width="258" height="24"/>
+                                        <rect key="frame" x="0.0" y="156" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Verwaltung" image="Management"/>
@@ -96,14 +96,14 @@
                                         </connections>
                                     </button>
                                     <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-8C-Cgh">
-                                        <rect key="frame" x="0.0" y="219" width="258" height="1"/>
+                                        <rect key="frame" x="0.0" y="195" width="258" height="1"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="SOi-LK-uFh"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
-                                        <rect key="frame" x="0.0" y="235" width="258" height="30"/>
+                                        <rect key="frame" x="0.0" y="211" width="258" height="24"/>
                                         <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <size key="titleShadowOffset" width="25" height="25"/>
                                         <state key="normal" title="Einstellungen" image="Settings"/>
@@ -175,12 +175,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Canteen" width="30" height="30"/>
-        <image name="Class" width="30" height="30"/>
-        <image name="Exams" width="30" height="30"/>
-        <image name="Grade" width="30" height="30"/>
+        <image name="Canteen" width="24" height="24"/>
+        <image name="Class" width="24" height="24"/>
+        <image name="Exams" width="24" height="24"/>
+        <image name="Grade" width="24" height="24"/>
         <image name="Management" width="24" height="24"/>
-        <image name="Settings" width="30" height="30"/>
+        <image name="Settings" width="24" height="24"/>
         <image name="navigation" width="900" height="599"/>
     </resources>
 </document>

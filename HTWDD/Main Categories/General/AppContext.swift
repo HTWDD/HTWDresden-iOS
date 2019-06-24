@@ -33,11 +33,9 @@ protocol HasSettings {
 }
 
 class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings {
-
-    let scheduleService = ScheduleService()
-	let examsService = ExamsService()
-	let gradeService = GradeService()
-    let canteenService = CanteenService()
-	let settingsService = SettingsService()
-	
+    let scheduleService     = ScheduleService()
+	let examsService        = ExamsService()
+	let gradeService        = GradeService()
+    let canteenService      = CanteenService()
+	let settingsService     = SettingsService()
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class SideMenuViewController: ViewController {
     
@@ -44,7 +45,7 @@ class SideMenuViewController: ViewController {
         setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title, tintColor: selectedTintColor)
         setTitleAndTintColor(for: &examsMenuButton, title: Loca.Exams.title)
         setTitleAndTintColor(for: &gradesMenuButton, title: Loca.Grades.title)
-        setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.title)
+        setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.pluralTitle)
         setTitleAndTintColor(for: &settingsMenuButton, title: Loca.Settings.title)
         setTitleAndTintColor(for: &managementMenuButton, title: Loca.Management.title)
     }
@@ -52,6 +53,8 @@ class SideMenuViewController: ViewController {
     @objc fileprivate func dismissSideMenu() {
         dismiss(animated: true, completion: nil)
     }
+    
+    private let disposeBag = DisposeBag()
     
     @IBAction func onMenuButtonTouchUpInside(_ sender: UIButton) {
         sender.apply { $0.tintColor = selectedTintColor }
@@ -72,6 +75,14 @@ class SideMenuViewController: ViewController {
             break
         case canteenMenuButton:
             (childCoordiantors.filter { $0 is CanteenCoordinator}.first as? CanteenCoordinator)?.start()
+            break
+        case managementMenuButton:
+            SemesterPlaning.get(network: Network())
+                .observeOn(MainScheduler.instance)
+                .subscribe(onNext: { [weak self] respone in
+                    guard let self = self else { return }
+                    Log.info("response \(respone)")
+                    }, onError: { [weak self] _ in }).disposed(by: self.disposeBag)
             break
         case settingsMenuButton:
             (childCoordiantors.filter { $0 is SettingsCoordinator}.first as? SettingsCoordinator)?.start()

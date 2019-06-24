@@ -109,6 +109,8 @@
 		64E5BFA422BCC636005E92C0 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA322BCC636005E92C0 /* ManagementService.swift */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementVC.swift */; };
+		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
+		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -319,6 +321,8 @@
 		64E5BFA322BCC636005E92C0 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
 		64E5BFA822BCC670005E92C0 /* ManagementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementVC.swift; sourceTree = "<group>"; };
+		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
+		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -783,8 +787,10 @@
 		64E5BFA222BCC60A005E92C0 /* Management */ = {
 			isa = PBXGroup;
 			children = (
+				64E5BFAD22BD100D005E92C0 /* Storyboard */,
 				64E5BFA322BCC636005E92C0 /* ManagementService.swift */,
 				64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */,
+				64E5BFAA22BCCBF0005E92C0 /* Models */,
 				64E5BFA722BCC65C005E92C0 /* Main */,
 			);
 			path = Management;
@@ -796,6 +802,22 @@
 				64E5BFA822BCC670005E92C0 /* ManagementVC.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		64E5BFAA22BCCBF0005E92C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64E5BFAD22BD100D005E92C0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFAE22BD1078005E92C0 /* Management.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B50EB4FC1E6ADB410022E40C /* DataSource */ = {
@@ -1331,6 +1353,7 @@
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
 				1F36DA5B1FC3244E00BD9B4A /* RxSwift-license.html in Resources */,
+				64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */,
 				1F74531F1FC1D76D00BC0087 /* confetti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1552,6 +1575,7 @@
 				B5EA535D1E7FBA4900183E07 /* Authenticator.swift in Sources */,
 				B59879BC1FB0E87900320091 /* LayoutGuide.swift in Sources */,
 				B5EF31F71FB059F600C848AF /* ExamsCell.swift in Sources */,
+				64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */,
 				B516D8221FA9A47000551556 /* UIView.swift in Sources */,
 				B56957881FAA3F7F00CE2318 /* CollectionHeaderView.swift in Sources */,
 				B5CD5C711E5F37700083D75E /* ScheduleMainVC.swift in Sources */,
