@@ -9,29 +9,20 @@
 import UIKit
 
 class GradeCoordinator: Coordinator {
-    lazy var tabBarConroller: UITabBarController? = {
-        return self.rootViewController.tabBarController
-    }()
     
-    var rootViewController: UIViewController {
-        return self.gradeMainViewController.inNavigationController()
-    }
-
+    // MARK: - Properties
+    let context: HasGrade
+    var rootViewController: UIViewController { return self.gradeMainViewController }
     var childCoordinators: [Coordinator] = []
-
     private lazy var gradeMainViewController = GradeMainVC(context: self.context)
 
     var auth: GradeService.Auth? {
         set { self.gradeMainViewController.auth = newValue }
         get { return nil }
     }
-
-    let context: HasGrade
+    
+    // MARK: Lifecycle
     init(context: HasGrade) {
         self.context = context
-    }
-    
-    func start() {
-        tabBarConroller?.selectedIndex = 2
     }
 }

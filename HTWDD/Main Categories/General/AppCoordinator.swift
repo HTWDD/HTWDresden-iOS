@@ -25,15 +25,20 @@ class AppCoordinator: Coordinator {
 	var rootViewController: UIViewController {
 		return self.tabBarController
 	}
+    
+    private let navigationController: UINavigationController = UINavigationController()
+    var rootNavigationController: UINavigationController {
+        return self.navigationController
+    }
 
     let appContext = AppContext()
     private let persistenceService = PersistenceService()
 
-    private lazy var schedule = ScheduleCoordinator(context: self.appContext)
-	private lazy var exams = ExamsCoordinator(context: self.appContext)
-	private lazy var grades = GradeCoordinator(context: self.appContext)
-    private lazy var canteen = CanteenCoordinator(context: self.appContext)
-    private lazy var settings = SettingsCoordinator(context: self.appContext, delegate: self)
+    private lazy var schedule   = ScheduleCoordinator(context: self.appContext)
+	private lazy var exams      = ExamsCoordinator(context: self.appContext)
+	private lazy var grades     = GradeCoordinator(context: self.appContext)
+    private lazy var canteen    = CanteenCoordinator(context: self.appContext)
+    private lazy var settings   = SettingsCoordinator(context: self.appContext, delegate: self)
 
     private let disposeBag = DisposeBag()
     
@@ -45,18 +50,22 @@ class AppCoordinator: Coordinator {
 
 	init(window: UIWindow) {
 		self.window = window
-        let viewControllers = self.childCoordinators.map { c in
-            c.rootViewController
-        }
-		self.tabBarController.setViewControllers(viewControllers, animated: false)
-        self.window.rootViewController = self.rootViewController
-		self.window.tintColor = UIColor.htw.blue
+//        let viewControllers = self.childCoordinators.map { c in
+//            c.rootViewController
+//        }
+		
+//        self.tabBarController.setViewControllers(viewControllers, animated: false)
+        self.window.rootViewController = self.rootNavigationController
+        self.window.tintColor = UIColor.htw.blue
         self.window.makeKeyAndVisible()
 		
+        goTo(controller: .schedule)
+        
         self.showOnboarding(animated: false)
         
         let vc: SideMenuViewController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuViewController
         vc.childCoordiantors = childCoordinators
+        vc.coordinator = self
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: vc)
         
         
@@ -66,7 +75,7 @@ class AppCoordinator: Coordinator {
             $0.menuWidth                    = 290
             $0.menuFadeStatusBar            = false
             $0.menuPushStyle                = .preserveAndHideBackButton
-            $0.menuAddScreenEdgePanGesturesToPresent(toView: self.rootViewController.view)
+            $0.menuAddScreenEdgePanGesturesToPresent(toView: self.rootNavigationController.view)
         }
 	}
 
@@ -203,4 +212,33 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
         self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
     }
     
+}
+
+// MARK: Routing
+extension AppCoordinator {
+
+    /// # Routing to UIViewController
+    func goTo(controller: CoordinatorRoute) {
+        let viewController: UIViewController
+        
+        switch controller {
+        case .schedule,
+             .scheduleToday:
+            viewController = self.schedule.rootViewController
+        case .exams:
+            viewController = self.exams.rootViewController
+        case .grades:
+            viewController = self.grades.rootViewController
+        case .canteen:
+            viewController = self.canteen.rootViewController
+        case .settings:
+            viewController = self.settings.rootViewController
+        }
+        
+        if self.rootNavigationController.viewControllers.contains(viewController) {
+            self.rootNavigationController.popToViewController(viewController, animated: false)
+        } else {
+            self.rootNavigationController.pushViewController(viewController, animated: false)
+        }
+    }
 }

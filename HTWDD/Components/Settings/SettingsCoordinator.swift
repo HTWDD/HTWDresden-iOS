@@ -34,9 +34,7 @@ class SettingsCoordinator: Coordinator {
         }
     }
     
-	var rootViewController: UIViewController {
-		return self.settingsController.inNavigationController()
-	}
+    var rootViewController: UIViewController { return self.settingsController }
 	
 	var childCoordinators = [Coordinator]()
 	

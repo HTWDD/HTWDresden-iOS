@@ -24,6 +24,8 @@ class SideMenuViewController: ViewController {
     private let defaultTintColor: UIColor = .darkGray
     private let selectedTintColor: UIColor = UIColor.htw.blue
     
+    weak var coordinator: AppCoordinator?
+    
     var childCoordiantors: [Coordinator] = [Coordinator]()
     
     override func viewDidLoad() {
@@ -65,17 +67,13 @@ class SideMenuViewController: ViewController {
         
         switch sender {
         case classMenuButton:
-            (childCoordiantors.filter { $0 is ScheduleCoordinator}.first as? ScheduleCoordinator)?.start()
-            break
+            coordinator?.goTo(controller: .schedule)
         case examsMenuButton:
-            (childCoordiantors.filter { $0 is ExamsCoordinator}.first as? ExamsCoordinator)?.start()
-            break
+            coordinator?.goTo(controller: .exams)
         case gradesMenuButton:
-            (childCoordiantors.filter { $0 is GradeCoordinator}.first as? GradeCoordinator)?.start()
-            break
+            coordinator?.goTo(controller: .grades)
         case canteenMenuButton:
-            (childCoordiantors.filter { $0 is CanteenCoordinator}.first as? CanteenCoordinator)?.start()
-            break
+            coordinator?.goTo(controller: .canteen)
         case managementMenuButton:
             SemesterPlaning.get(network: Network())
                 .observeOn(MainScheduler.instance)
@@ -85,8 +83,7 @@ class SideMenuViewController: ViewController {
                     }, onError: { [weak self] _ in }).disposed(by: self.disposeBag)
             break
         case settingsMenuButton:
-            (childCoordiantors.filter { $0 is SettingsCoordinator}.first as? SettingsCoordinator)?.start()
-            break
+            coordinator?.goTo(controller: .settings)
         default:
             break
         }

@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Tracker.track(.start)
 
-        let window = UIWindow()
+        let window = UIWindow(frame: UIScreen.main.bounds)
 
 		self.appCoordinator = AppCoordinator(window: window)
 		self.window = window
