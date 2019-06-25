@@ -21,9 +21,9 @@ class ScheduleService: Service {
         let major: String
         let group: String
         let degree: Degree
-
-        var hashValue: Int {
-            return self.year.hashValue ^ self.major.hashValue ^ self.group.hashValue ^ self.degree.rawValue.hashValue
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.year.hashValue ^ self.major.hashValue ^ self.group.hashValue ^ self.degree.rawValue.hashValue)
         }
 
         static func ==(lhs: ScheduleService.Auth, rhs: ScheduleService.Auth) -> Bool {

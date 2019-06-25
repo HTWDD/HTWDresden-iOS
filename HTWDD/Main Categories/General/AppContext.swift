@@ -32,12 +32,15 @@ protocol HasSettings {
 	var settingsService: SettingsService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings {
+protocol HasManagement {
+    var managementService: ManagementService { get }
+}
 
-    let scheduleService = ScheduleService()
-	let examsService = ExamsService()
-	let gradeService = GradeService()
-    let canteenService = CanteenService()
-	let settingsService = SettingsService()
-	
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement {
+    let scheduleService     = ScheduleService()
+	let examsService        = ExamsService()
+	let gradeService        = GradeService()
+    let canteenService      = CanteenService()
+	let settingsService     = SettingsService()
+    let managementService   = ManagementService()
 }

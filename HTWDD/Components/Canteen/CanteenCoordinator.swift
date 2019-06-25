@@ -9,16 +9,15 @@
 import UIKit
 
 class CanteenCoordinator: Coordinator {
-    var rootViewController: UIViewController {
-        return self.canteenMainVC.inNavigationController()
-    }
+    
+    // MARK: - Properties
+    let context: HasCanteen
+    var rootViewController: UIViewController { return self.canteenMainVC }
     var childCoordinators: [Coordinator] = []
-
     private lazy var canteenMainVC = CanteenMainVC(context: self.context)
 
-    let context: HasCanteen
+    // MARK: Lifecycle
     init(context: HasCanteen) {
         self.context = context
     }
-
 }

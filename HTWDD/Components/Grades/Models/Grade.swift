@@ -46,7 +46,7 @@ struct Grade: Codable, Identifiable {
             "StgNr": course.stgNr
         ]
 
-        return network.getArrayM(url: Grade.url, params: parameters)
+        return network.getArray(url: Grade.url, params: parameters)
     }
 
 }

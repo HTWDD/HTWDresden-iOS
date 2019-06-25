@@ -12,12 +12,12 @@ import Marshal
 struct Event: Codable, Hashable {
     let name: String
     let period: EventPeriod
-
-    var hashValue: Int {
+  
+    func hash(into hasher: inout Hasher) {
         var hash = 5381
         hash = ((hash << 5) &+ hash) &+ name.hashValue
         hash = ((hash << 5) &+ hash) &+ period.hashValue
-        return hash
+        hasher.combine(hash)
     }
 
     static func ==(lhs: Event, rhs: Event) -> Bool {

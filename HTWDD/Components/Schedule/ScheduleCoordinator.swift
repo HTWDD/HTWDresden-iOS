@@ -9,33 +9,25 @@
 import UIKit
 
 class ScheduleCoordinator: Coordinator {
-    var rootViewController: UIViewController {
-        return self.scheduleMainViewController.inNavigationController()
-    }
-
+    
+    // MARK: Properties
+    let context: HasSchedule
+    var rootViewController: UIViewController { return self.scheduleMainViewController }
     var childCoordinators: [Coordinator] = []
-
     private lazy var scheduleMainViewController = ScheduleMainVC(context: self.context)
-
+    
     var auth: ScheduleService.Auth? {
         didSet {
             self.scheduleMainViewController.auth = self.auth
         }
     }
-
-    let context: HasSchedule
+    
+    // MARK: Lifecycle
     init(context: HasSchedule) {
         self.context = context
     }
-
-    /// Pops the navigation stack back to root.
-    func popViewControllers(animated: Bool = true) {
-        self.scheduleMainViewController.inNavigationController().popToRootViewController(animated: animated)
-    }
     
-    /// Pops the navigation stack back to root and scrolls to the current lecture.
     func jumpToToday(animated: Bool = true) {
-        self.popViewControllers(animated: animated)
         self.scheduleMainViewController.jumpToToday(animated: animated)
     }
 }

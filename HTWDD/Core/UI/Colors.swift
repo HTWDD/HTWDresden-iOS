@@ -39,7 +39,7 @@ extension HTWNamespace where Base: UIColor {
     static var blue: UIColor {
         return UIColor(hex: 0x003DA2)
     }
-	
+    
     static var orange: UIColor {
         return UIColor(hex: 0xF1A13D)
     }

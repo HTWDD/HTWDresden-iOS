@@ -10,12 +10,10 @@ import UIKit
 
 class ExamsCoordinator: Coordinator {
     
-    var rootViewController: UIViewController {
-        return self.examController.inNavigationController()
-    }
-    
+    // MARK: - Properties
+    let context: HasExams
+    var rootViewController: UIViewController { return self.examController }
     var childCoordinators = [Coordinator]()
-    
     private lazy var examController = ExamsMainVC(context: self.context)
     
     var auth: ScheduleService.Auth? {
@@ -24,7 +22,7 @@ class ExamsCoordinator: Coordinator {
         }
     }
     
-    let context: HasExams
+    // MARK: - Lifecycle
     init(context: HasExams) {
         self.context = context
     }

@@ -55,7 +55,6 @@
 		1F8E20D11FB34EC800347DB6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		1F8E20D21FB34ECF00347DB6 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1D1E1D9E6D0031077C /* Date.swift */; };
 		1F8E20D31FB34ED400347DB6 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EA535C1E7FBA4900183E07 /* Authenticator.swift */; };
-		1F8E20D41FB34EDA00347DB6 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
 		1F8E20D51FB34EE100347DB6 /* Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EA535A1E7FBA3D00183E07 /* Parameter.swift */; };
 		1F8E20D61FB34EE500347DB6 /* ExamsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF95771FADB40C006BC7D1 /* ExamsService.swift */; };
 		1F8E20D81FB34EF700347DB6 /* Exam.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EF95891FAF875B006BC7D1 /* Exam.swift */; };
@@ -101,6 +100,18 @@
 		39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */; };
 		5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
+		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
+		6410375A22C10F010084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
+		6410375B22C10F530084FC63 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
+		6412011422BA0C1100B2090A /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6412011322BA0C1100B2090A /* SideMenu.framework */; };
+		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
+		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
+		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
+		6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6425B8AF22B7CD4300A85D5F /* RxRelay.framework */; };
+		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
+		64E5BFA922BCC670005E92C0 /* ManagementVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementVC.swift */; };
+		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
+		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -303,6 +314,16 @@
 		39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeDataSource.swift; path = HTWDD/Components/Grades/Models/GradeDataSource.swift; sourceTree = SOURCE_ROOT; };
 		39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		5B6B4FF5209B693E00A572F8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
+		6412011322BA0C1100B2090A /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
+		6412011822BA2BFA00B2090A /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
+		6425B8AF22B7CD4300A85D5F /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
+		64E5BFA822BCC670005E92C0 /* ManagementVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementVC.swift; sourceTree = "<group>"; };
+		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
+		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -445,6 +466,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6412011422BA0C1100B2090A /* SideMenu.framework in Frameworks */,
+				6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */,
 				B5461B6A1FA7B82400564D6D /* KeychainAccess.framework in Frameworks */,
 				B52DF0D81E7096F30095C854 /* Marshal.framework in Frameworks */,
 				B52A9B5D1DDB1B7D00313FC3 /* RxCocoa.framework in Frameworks */,
@@ -633,11 +656,13 @@
 		1FC21DC51F8F949F003E244F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6412011522BA2A1400B2090A /* SideMenu */,
 				1F77AD181F8FA5A600351A73 /* Onboarding */,
 				B52A9B4D1DDB160700313FC3 /* Schedule */,
 				1FC21DC71F8F951B003E244F /* Exams */,
 				B52A9B4E1DDB165B00313FC3 /* Grades */,
 				B5B376841FA6176E00FC3A07 /* Canteen */,
+				64E5BFA222BCC60A005E92C0 /* Management */,
 				1FC21DC81F8F953F003E244F /* Settings */,
 			);
 			path = Components;
@@ -724,6 +749,76 @@
 				1F4BD5381FAFA895007E0817 /* InfoPlist.strings */,
 			);
 			path = "HTWDD Today";
+			sourceTree = "<group>";
+		};
+		6412011522BA2A1400B2090A /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				6412011722BA2BE000B2090A /* Storyboard */,
+				6412011A22BA2CAC00B2090A /* Main */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		6412011622BA2BC700B2090A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6412011722BA2BE000B2090A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				6412011822BA2BFA00B2090A /* SideMenu.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		6412011A22BA2CAC00B2090A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6412011622BA2BC700B2090A /* Views */,
+				6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */,
+				6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		64E5BFA222BCC60A005E92C0 /* Management */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFAD22BD100D005E92C0 /* Storyboard */,
+				6410375822C10C650084FC63 /* ManagementService.swift */,
+				64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */,
+				64E5BFAA22BCCBF0005E92C0 /* Models */,
+				64E5BFA722BCC65C005E92C0 /* Main */,
+			);
+			path = Management;
+			sourceTree = "<group>";
+		};
+		64E5BFA722BCC65C005E92C0 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFA822BCC670005E92C0 /* ManagementVC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		64E5BFAA22BCCBF0005E92C0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64E5BFAD22BD100D005E92C0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				64E5BFAE22BD1078005E92C0 /* Management.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		B50EB4FC1E6ADB410022E40C /* DataSource */ = {
@@ -879,6 +974,8 @@
 		B52A9B5A1DDB1B7C00313FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6412011322BA0C1100B2090A /* SideMenu.framework */,
+				6425B8AF22B7CD4300A85D5F /* RxRelay.framework */,
 				B5461B691FA7B82400564D6D /* KeychainAccess.framework */,
 				B5B376821FA6161D00FC3A07 /* OpenMensaKit.framework */,
 				B52DF0D71E7096F30095C854 /* Marshal.framework */,
@@ -1128,7 +1225,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B59FA9A41DD09C8400259D7F /* Build configuration list for PBXNativeTarget "HTWDD" */;
 			buildPhases = (
-				1FBC0E2C1FA366D800B2C0E1 /* Laurine */,
 				B59FA9831DD09C8300259D7F /* Sources */,
 				B59FA9841DD09C8300259D7F /* Frameworks */,
 				B52A9B5F1DDB1B8000313FC3 /* Carthage */,
@@ -1216,6 +1312,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 				de,
@@ -1254,8 +1351,10 @@
 				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,
 				1F36DA5D1FC3244E00BD9B4A /* Marshal-license.html in Resources */,
 				B59FA9951DD09C8400259D7F /* LaunchScreen.storyboard in Resources */,
+				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
 				1F36DA5B1FC3244E00BD9B4A /* RxSwift-license.html in Resources */,
+				64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */,
 				1F74531F1FC1D76D00BC0087 /* confetti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1271,20 +1370,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1FBC0E2C1FA366D800B2C0E1 /* Laurine */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Laurine;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -x\n\n# Get base path to project\nBASE_PATH=\"$PROJECT_DIR/$PROJECT_NAME\"\n\n#--------- START OF YOUR CONFIGURATION (change Path_To_.. to fit)\n\n# Get path to Laurine Generator script\nLAURINE_PATH=\"$BASE_PATH/../scripts/LaurineGenerator.swift\"\n\n# Get path to main localization file (usually english).\nSOURCE_PATH=\"$BASE_PATH/Supporting Files/en.lproj/Localizable.strings\"\n\n# Get path to output. If you use ObjC version of output, set implementation file (.m), as header will be generated automatically\nOUTPUT_PATH=\"$BASE_PATH/Supporting Files/Generated/Localizations.swift\"\n\n#--------- END OF YOUR CONFIGURATION\n\n# Add permission to generator for script execution\nchmod 755 \"$LAURINE_PATH\"\n\n# Actually generate output. -- CUSTOMIZE -- parameters to your needs (see documentation).\n# Will only re-generate script if something changed\nif [ \"$OUTPUT_PATH\" -ot \"$SOURCE_PATH\" ]; then\n\"$LAURINE_PATH\" -i \"$SOURCE_PATH\" -o \"$OUTPUT_PATH\"\nfi";
-		};
 		B52A9B5F1DDB1B8000313FC3 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1295,13 +1380,15 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Marshal.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SideMenu.framework",
 			);
 			name = Carthage;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 		B538EF111E1D63AA0031077C /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1337,6 +1424,7 @@
 				1F8E20E21FB34F8E00347DB6 /* Meal.swift in Sources */,
 				1F8E20E01FB34F7900347DB6 /* SettingsService.swift in Sources */,
 				1F8E20CD1FB34E9C00347DB6 /* Semester.swift in Sources */,
+				6410375B22C10F530084FC63 /* AppContext.swift in Sources */,
 				1F8E20E11FB34F8400347DB6 /* Canteen.swift in Sources */,
 				1F8E20DC1FB34F1900347DB6 /* Week.swift in Sources */,
 				1F8E20DD1FB34F4E00347DB6 /* EventDate.swift in Sources */,
@@ -1358,6 +1446,7 @@
 				1F8E20D11FB34EC800347DB6 /* Course.swift in Sources */,
 				1FC730F51FC0F4F2005A04D6 /* BadgeLabel.swift in Sources */,
 				1F8E20D01FB34EC200347DB6 /* DataSourceProtocols.swift in Sources */,
+				6410375A22C10F010084FC63 /* ManagementService.swift in Sources */,
 				1F8E20E41FB34FAD00347DB6 /* TimeInterval.swift in Sources */,
 				1FB3FFD81FFE5E5F00EE695F /* UIView.swift in Sources */,
 				1F8E20D51FB34EE100347DB6 /* Parameter.swift in Sources */,
@@ -1368,7 +1457,6 @@
 				1F8E20E81FB3507800347DB6 /* DateComponents.swift in Sources */,
 				1F8E20CE1FB34EAA00347DB6 /* SemesterInformation.swift in Sources */,
 				1F1491B41FB450A10011B114 /* NoResultsView.swift in Sources */,
-				1F8E20D41FB34EDA00347DB6 /* AppContext.swift in Sources */,
 				1F8E20C81FB34E6D00347DB6 /* ScheduleService.swift in Sources */,
 				1F8E20D81FB34EF700347DB6 /* Exam.swift in Sources */,
 				1F4BD53A1FAFAA68007E0817 /* UserDefaults.swift in Sources */,
@@ -1395,6 +1483,7 @@
 				B5EF958C1FAF8A9E006BC7D1 /* ExamsDataSource.swift in Sources */,
 				B5BE728E1E6C886400D05B6D /* Event.swift in Sources */,
 				B5499A071FE826210043749D /* Tracker.swift in Sources */,
+				6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */,
 				B5111E241E71F7A200D68155 /* CollectionReusableView.swift in Sources */,
 				B50EB4FE1E6ADC0C0022E40C /* LectureCollectionViewCell.swift in Sources */,
 				B5461B631FA63CED00564D6D /* CanteenDataSource.swift in Sources */,
@@ -1407,6 +1496,7 @@
 				B5111E281E7206B500D68155 /* LectureTimeView.swift in Sources */,
 				B5B3768E1FA61A2C00FC3A07 /* CanteenCoordinator.swift in Sources */,
 				B52133BB1DEF0E2200955D29 /* NavigationViewController.swift in Sources */,
+				64E5BFA922BCC670005E92C0 /* ManagementVC.swift in Sources */,
 				B5B3768D1FA6192A00FC3A07 /* Canteen.swift in Sources */,
 				B50875481ED40BE6004A320E /* TableViewController.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
@@ -1442,6 +1532,7 @@
 				B5FCAE611E62EAEF00E35DDB /* Array.swift in Sources */,
 				B5461B661FA63E0C00564D6D /* MealCell.swift in Sources */,
 				B538EF101E1D62040031077C /* UserDefaults.swift in Sources */,
+				64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */,
 				B51DB4911FA918D500B1A811 /* ScheduleBaseVC.swift in Sources */,
 				B529EDE81FAB7F40000C1677 /* CodableDictionary.swift in Sources */,
 				B5461B681FA7B4C400564D6D /* PersistenceService.swift in Sources */,
@@ -1449,6 +1540,7 @@
 				1FE108031F8FDAF5002B8E69 /* StudygroupTextField.swift in Sources */,
 				B50EB5021E6AFFA20022E40C /* Day.swift in Sources */,
 				B5EF95761FADB3B6006BC7D1 /* ExamsMainVC.swift in Sources */,
+				6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */,
 				B5EF958A1FAF875B006BC7D1 /* Exam.swift in Sources */,
 				B5CD5C731E5F37970083D75E /* CollectionViewController.swift in Sources */,
 				B5461B611FA62A2600564D6D /* CanteenService.swift in Sources */,
@@ -1478,12 +1570,14 @@
 				1F36DA561FC323A700BD9B4A /* WebViewController.swift in Sources */,
 				B5EF95741FADB389006BC7D1 /* ExamsCoordinator.swift in Sources */,
 				B5D3E83E1FA5EBBE0055782D /* Service.swift in Sources */,
+				6410375922C10C650084FC63 /* ManagementService.swift in Sources */,
 				B5D3E83A1FA5E7630055782D /* ScheduleCoordinator.swift in Sources */,
 				39FB084B1E9E5375001CC2F5 /* TableViewCell.swift in Sources */,
 				1FC1BDCE1FADDEFF007F9D06 /* SettingsCoordinator.swift in Sources */,
 				B5EA535D1E7FBA4900183E07 /* Authenticator.swift in Sources */,
 				B59879BC1FB0E87900320091 /* LayoutGuide.swift in Sources */,
 				B5EF31F71FB059F600C848AF /* ExamsCell.swift in Sources */,
+				64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */,
 				B516D8221FA9A47000551556 /* UIView.swift in Sources */,
 				B56957881FAA3F7F00CE2318 /* CollectionHeaderView.swift in Sources */,
 				B5CD5C711E5F37700083D75E /* ScheduleMainVC.swift in Sources */,

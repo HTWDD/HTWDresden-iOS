@@ -18,7 +18,14 @@ extension String {
 		let range = NSString(string: self).range(of: string)
 		return range.location != NSNotFound ? range : nil
 	}
-
+    
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+    
+    func localized(with comment: String) -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
 }
 
 enum Constants {

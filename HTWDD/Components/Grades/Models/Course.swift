@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Marshal
 
-struct Course {
+struct Course: Codable {
     let abschlTxt: String
     let POVersion: Int
     let abschlNr: String
@@ -18,7 +18,7 @@ struct Course {
     let stgTxt: String
 
     static func get(network: Network) -> Observable<[Course]> {
-        return network.getArrayM(url: Course.url)
+        return network.getArray(url: Course.url)
     }
 
 }

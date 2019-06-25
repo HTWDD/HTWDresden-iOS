@@ -37,3 +37,22 @@ public extension NSObject {
         }
     }
 }
+
+protocol ScopeFunc {}
+extension ScopeFunc {
+    
+    @inline(__always) func apply(block: (Self) -> ()) {
+        block(self)
+    }
+    
+    @inline(__always) func also(block: (Self) -> ()) -> Self {
+        block(self)
+        return self
+    }
+    
+    @inline(__always) func with<R>(block: (Self) -> R) -> R {
+        return block(self)
+    }
+}
+
+extension NSObject: ScopeFunc {}

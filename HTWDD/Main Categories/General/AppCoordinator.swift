@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import SideMenu
 
 class AppCoordinator: Coordinator {
 	private var window: UIWindow
@@ -24,41 +25,42 @@ class AppCoordinator: Coordinator {
 	var rootViewController: UIViewController {
 		return self.tabBarController
 	}
+    
+    private let navigationController: UINavigationController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "MainNavigation") as! SideMenuContainerNavigationController
+    var rootNavigationController: SideMenuContainerNavigationController {
+        return self.navigationController as! SideMenuContainerNavigationController
+    }
 
     let appContext = AppContext()
     private let persistenceService = PersistenceService()
 
-    private lazy var schedule = ScheduleCoordinator(context: self.appContext)
-	private lazy var exams = ExamsCoordinator(context: self.appContext)
-	private lazy var grades = GradeCoordinator(context: self.appContext)
-    private lazy var canteen = CanteenCoordinator(context: self.appContext)
-    private lazy var settings = SettingsCoordinator(context: self.appContext, delegate: self)
+    private lazy var schedule   = ScheduleCoordinator(context: self.appContext)
+	private lazy var exams      = ExamsCoordinator(context: self.appContext)
+	private lazy var grades     = GradeCoordinator(context: self.appContext)
+    private lazy var canteen    = CanteenCoordinator(context: self.appContext)
+    private lazy var settings   = SettingsCoordinator(context: self.appContext, delegate: self)
 
     private let disposeBag = DisposeBag()
-
-	// MARK: - Init
-
+    
+	// MARK: - Lifecycle
 	init(window: UIWindow) {
-		self.window = window
-        
-        let viewControllers = self.childCoordinators.map { c in
-            c.rootViewController
-        }
-		self.tabBarController.setViewControllers(viewControllers, animated: false)
-
-		self.window.rootViewController = self.rootViewController
-		self.window.tintColor = UIColor.htw.blue
+		self.window                     = window
+        self.rootNavigationController.coordinator = self
+        self.window.rootViewController  = self.rootNavigationController
+        self.window.tintColor           = UIColor.htw.blue
         self.window.makeKeyAndVisible()
 		
+        goTo(controller: .schedule)
+        
         self.showOnboarding(animated: false)
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
-        self.schedule.auth = schedule
-        self.exams.auth = schedule
-        self.grades.auth = grade
-        self.settings.scheduleAuth = schedule
-        self.settings.gradeAuth = grade
+        self.schedule.auth          = schedule
+        self.exams.auth             = schedule
+        self.grades.auth            = grade
+        self.settings.scheduleAuth  = schedule
+        self.settings.gradeAuth     = grade
     }
 
 	private func showOnboarding(animated: Bool) {
@@ -105,7 +107,6 @@ class AppCoordinator: Coordinator {
 }
 
 // MARK: - Routing
-
 extension AppCoordinator {
     func selectChild(`for` url: URL) {
         guard let route = url.host?.removingPercentEncoding else { return }
@@ -186,4 +187,33 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
         self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
     }
     
+}
+
+// MARK: - Controller routing
+extension AppCoordinator {
+
+    /// # Routing to UIViewController
+    func goTo(controller: CoordinatorRoute) {
+        let viewController: UIViewController
+        
+        switch controller {
+        case .schedule,
+             .scheduleToday:
+            viewController = self.schedule.rootViewController
+        case .exams:
+            viewController = self.exams.rootViewController
+        case .grades:
+            viewController = self.grades.rootViewController
+        case .canteen:
+            viewController = self.canteen.rootViewController
+        case .settings:
+            viewController = self.settings.rootViewController
+        }
+        
+        if self.rootNavigationController.viewControllers.contains(viewController) {
+            self.rootNavigationController.popToViewController(viewController, animated: false)
+        } else {
+            self.rootNavigationController.pushViewController(viewController, animated: false)
+        }
+    }
 }
