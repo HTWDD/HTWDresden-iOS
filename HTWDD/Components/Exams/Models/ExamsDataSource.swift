@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class ExamsDataSource: CollectionViewDataSource {
     
@@ -45,7 +46,7 @@ class ExamsDataSource: CollectionViewDataSource {
         return self.data[safe: index.item]
     }
     
-    private let loadingCount = Variable(0)
+    private let loadingCount = BehaviorRelay(value: 0)
     
     lazy var loading = self.loadingCount
                             .asObservable()
@@ -53,10 +54,10 @@ class ExamsDataSource: CollectionViewDataSource {
                             .observeOn(MainScheduler.instance)
     
     func load() {
-        self.loadingCount.value += 1
+        self.loadingCount.accept(self.loadingCount.value + 1)
         guard let auth = self.auth else {
             Log.error("Can't load exams without authentication!")
-            self.loadingCount.value -= 1
+            self.loadingCount.accept(self.loadingCount.value - 1)
             return
         }
         
@@ -64,10 +65,12 @@ class ExamsDataSource: CollectionViewDataSource {
             .load(parameters: auth)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] information in
-                self?.data = information.exams.sorted { $0.day < $1.day }
-                self?.loadingCount.value -= 1
+                guard let self = self else { return }
+                self.data = information.exams.sorted { $0.day < $1.day }
+                self.loadingCount.accept(self.loadingCount.value - 1)
             }, onError: { [weak self] err in
-                self?.loadingCount.value -= 1
+                guard let self = self else { return }
+                self.loadingCount.accept(self.loadingCount.value - 1)
             })
             .disposed(by: self.disposeBag)
     }
