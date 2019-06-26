@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleService.Auth>, AnimatedViewControllerTransitionDataSource {
 
@@ -53,7 +54,7 @@ class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleServi
             return self.year != nil && self.major != nil && self.group != nil
         }
     }
-    private var state = Variable(State())
+    private var state = BehaviorRelay(value: State())
     
     private lazy var yearButton = ReactiveButton()
     private lazy var majorButton = ReactiveButton()
@@ -129,7 +130,9 @@ class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleServi
             .disposed(by: self.disposeBag)
         
         StudyYear.get(network: self.network).subscribe(onNext: { years in
-            self.state.value.years = years
+            var mutableState = self.state.value
+            mutableState.years = years
+            self.state.accept(mutableState)
         }, onError: { [weak self] _ in
             self?.dismissOrPopViewController()
         }).disposed(by: self.disposeBag)
@@ -143,7 +146,10 @@ class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleServi
                 return OnboardStudygroupSelectionController.show(controller: self, data: years)
             })
             .subscribe(onNext: { [weak self] studyYear in
-                self?.state.value.year = studyYear
+                guard let self = self else { return }
+                var mutableState = self.state.value
+                mutableState.year = studyYear
+                self.state.accept(mutableState)
             })
             .disposed(by: self.disposeBag)
         
@@ -157,7 +163,9 @@ class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleServi
                 return OnboardStudygroupSelectionController.show(controller: self, data: majors)
             })
             .subscribe(onNext: { major in
-                self.state.value.major = major
+                var mutableState = self.state.value
+                mutableState.major = major
+                self.state.accept(mutableState)
             })
             .disposed(by: self.disposeBag)
         
@@ -170,7 +178,9 @@ class OnboardStudygroupViewController: OnboardDetailViewController<ScheduleServi
                 return OnboardStudygroupSelectionController.show(controller: self, data: groups)
             })
             .subscribe(onNext: { group in
-                self.state.value.group = group
+                var mutableState = self.state.value
+                mutableState.group = group
+                self.state.accept(mutableState)
             })
             .disposed(by: self.disposeBag)
     }
