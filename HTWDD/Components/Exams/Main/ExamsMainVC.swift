@@ -79,7 +79,7 @@ class ExamsMainVC: CollectionViewController {
             .disposed(by: self.rx_disposeBag)
         
         notLoading
-            .delay(0.5, scheduler: MainScheduler.instance)
+            .delay(DispatchTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.refreshControl.endRefreshing()
                 self?.setLoading(false)

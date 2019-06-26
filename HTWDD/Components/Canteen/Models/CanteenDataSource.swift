@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class CanteenDataSource: CollectionViewDataSource {
 
@@ -18,7 +19,7 @@ class CanteenDataSource: CollectionViewDataSource {
     }
     
     private let disposeBag = DisposeBag()
-    private let loadingCount = Variable(0)
+    private let loadingCount = BehaviorRelay(value: 0)
     
     lazy var loading = self.loadingCount
         .asObservable()
@@ -33,7 +34,8 @@ class CanteenDataSource: CollectionViewDataSource {
     }
 
     func load() {
-        self.loadingCount.value += 1
+        //self.loadingCount.value += 1
+        self.loadingCount.accept(loadingCount.value + 1)
         
         self.date = Date()
         
@@ -41,10 +43,12 @@ class CanteenDataSource: CollectionViewDataSource {
             .load(parameters: .init(ids: Canteen.Id.all))
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] response in
-                    self?.data = response
-                    self?.loadingCount.value -= 1
+                guard let self = self else { return }
+                self.data = response
+                self.loadingCount.accept(self.loadingCount.value - 1)
                 }, onError: { [weak self] _ in
-                    self?.loadingCount.value -= 1
+                    guard let self = self else { return }
+                    self.loadingCount.accept(self.loadingCount.value - 1)
             })
             .disposed(by: self.disposeBag)
     }

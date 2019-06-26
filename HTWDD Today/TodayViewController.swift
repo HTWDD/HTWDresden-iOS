@@ -169,6 +169,8 @@ extension TodayViewController: NCWidgetProviding {
 			self.preferredContentSize = compactSize
 		case .expanded:
 			self.preferredContentSize = CGSize(width: compactSize.width, height: compactSize.height * 2)
-		}
+        @unknown default:
+            Log.verbose("@unknown default")
+        }
 	}
 }
