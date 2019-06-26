@@ -45,9 +45,6 @@ class ScheduleBaseVC: CollectionViewController {
         let todayButton = UIBarButtonItem(title: Loca.Schedule.today, style: .plain, target: self, action: #selector(self.handleJumpToToday))
         self.navigationItem.rightBarButtonItem = todayButton
        
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
-        
         self.dataSource.load()
 
 		DispatchQueue.main.async {
@@ -85,9 +82,6 @@ class ScheduleBaseVC: CollectionViewController {
         }
     }
 
-    @objc func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
     
     @objc
     func handleJumpToToday() {

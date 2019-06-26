@@ -44,9 +44,6 @@ class ExamsMainVC: CollectionViewController {
         
         self.title = Loca.Exams.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Exams")
-        
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
     }
 	
 	// MARK: - ViewController lifecycle
@@ -98,10 +95,6 @@ class ExamsMainVC: CollectionViewController {
         self.dataSource.load()
     }
     
-    @objc func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}

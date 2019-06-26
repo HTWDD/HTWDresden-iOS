@@ -46,15 +46,8 @@ class GradeMainVC: CollectionViewController {
         super.initialSetup()
         self.title = Loca.Grades.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Grade")
-        
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
     }
     
-    @objc fileprivate func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-
 	// MARK: - ViewController lifecycle
 
     override func viewDidLoad() {

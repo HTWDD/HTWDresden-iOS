@@ -45,9 +45,6 @@ class CanteenMainVC: CollectionViewController {
         self.title = Loca.Canteen.pluralTitle
         self.tabBarItem.image = #imageLiteral(resourceName: "Canteen")
         
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
-        
         self.dataSource.collectionView = self.collectionView
         self.dataSource.register(type: MealCell.self)
         self.dataSource.registerSupplementary(CollectionHeaderView.self, kind: .header) { [weak self] view, indexPath in
@@ -70,10 +67,6 @@ class CanteenMainVC: CollectionViewController {
             let dc = MealDetailViewController(viewModel: vm)
             self?.presentDetail(dc, animated: true)
         }
-    }
-    
-    @objc fileprivate func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
 
     override func viewDidLoad() {
