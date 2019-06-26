@@ -42,7 +42,7 @@ class PersistenceService: Service {
     }
 
     private func load<T: Codable>(type: T.Type, key: String) -> T? {
-        let savedData = (try? keychain.getData(key)).flatMap(identity)
+        let savedData = (((try? keychain.getData(key)) as Data??)).flatMap(identity)
 
         guard let data = savedData else {
             return nil
