@@ -83,5 +83,8 @@ extension Date {
         let mine = cal.dateComponents([.day, .month, .year], from: self)
         return mine == other
     }
-
+    
+    func isBetween(_ startDate: Date, and endDate: Date) -> Bool {
+        return (min(startDate, endDate) ... max(startDate, endDate)).contains(self)
+    }
 }
