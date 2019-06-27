@@ -34,7 +34,6 @@ class CanteenDataSource: CollectionViewDataSource {
     }
 
     func load() {
-        //self.loadingCount.value += 1
         self.loadingCount.accept(loadingCount.value + 1)
         
         self.date = Date()
