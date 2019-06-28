@@ -44,6 +44,23 @@ struct SemesterPlaning: Identifiable, Codable {
 struct Period: Codable {
     let beginDay: String
     let endDay: String
+    
+    // MARK: - Formated Dates
+    var beginDayFormated: String {
+        do {
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+        } catch {
+            return ""
+        }
+    }
+    
+    var endDayFormated: String {
+        do {
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+        } catch {
+            return ""
+        }
+    }
 }
 
 // MARK: - FreeDay
@@ -51,6 +68,23 @@ struct FreeDay: Codable {
     let name: String
     let beginDay: String
     let endDay: String
+    
+    // MARK: - Formated Dates
+    var beginDayFormated: String {
+        do {
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+        } catch {
+            return ""
+        }
+    }
+    
+    var endDayFormated: String {
+        do {
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+        } catch {
+            return ""
+        }
+    }
 }
 
 // MARK: - extensions

@@ -14,17 +14,18 @@ class AppCoordinator: Coordinator {
 	private var window: UIWindow
 	private let tabBarController = TabBarController()
 
-	lazy var childCoordinators: [Coordinator] = [
-        self.schedule,
-		self.exams,
-        self.grades,
-        self.canteen,
-		self.settings
-    ]
-
-	var rootViewController: UIViewController {
+    var rootViewController: UIViewController {
 		return self.tabBarController
 	}
+    
+    lazy var childCoordinators: [Coordinator] = [
+        self.schedule,
+        self.exams,
+        self.grades,
+        self.canteen,
+        self.settings,
+        self.management
+    ]
     
     private let navigationController: UINavigationController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "MainNavigation") as! SideMenuContainerNavigationController
     var rootNavigationController: SideMenuContainerNavigationController {
@@ -39,6 +40,7 @@ class AppCoordinator: Coordinator {
 	private lazy var grades     = GradeCoordinator(context: self.appContext)
     private lazy var canteen    = CanteenCoordinator(context: self.appContext)
     private lazy var settings   = SettingsCoordinator(context: self.appContext, delegate: self)
+    private lazy var management = ManagementCoordinator(context: self.appContext)
 
     private let disposeBag = DisposeBag()
     
@@ -208,6 +210,8 @@ extension AppCoordinator {
             viewController = self.canteen.rootViewController
         case .settings:
             viewController = self.settings.rootViewController
+        case .management:
+            viewController = self.management.rootViewController
         }
         
         if self.rootNavigationController.viewControllers.contains(viewController) {

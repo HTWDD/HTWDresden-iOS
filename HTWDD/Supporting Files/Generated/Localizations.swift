@@ -537,6 +537,21 @@ public struct Loca {
             public static var summer: String = "Management.semester.summer".localized
             
             public static var winter: String = "Management.semester.winter".localized
+            
+            
+            public struct Periods {
+                
+                public static var format: String = "Management.semester.periods.format".localized
+                
+                public static var lectures: String = "Management.semester.periods.lectures".localized
+                
+                public static var freedays: String = "Management.semester.periods.freedays".localized
+                
+                public static var exams: String = "Management.semester.periods.exams".localized
+                
+                public static var reRegistration: String = "Management.semester.periods.reregistration".localized
+                
+            }
         }
     }
 }

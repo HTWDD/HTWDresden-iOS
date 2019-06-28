@@ -103,10 +103,14 @@
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410375A22C10F010084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410375B22C10F530084FC63 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
+		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
+		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
 		6412011422BA0C1100B2090A /* SideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6412011322BA0C1100B2090A /* SideMenu.framework */; };
 		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
 		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
+		641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D222C4DEA00041BCB4 /* UITableViewCells.swift */; };
+		641983D522C4E0590041BCB4 /* UITableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D422C4E0590041BCB4 /* UITableViews.swift */; };
 		6425B8B022B7CD4300A85D5F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6425B8AF22B7CD4300A85D5F /* RxRelay.framework */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
@@ -315,10 +319,14 @@
 		39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		5B6B4FF5209B693E00A572F8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
+		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
+		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
 		6412011322BA0C1100B2090A /* SideMenu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SideMenu.framework; path = Carthage/Build/iOS/SideMenu.framework; sourceTree = "<group>"; };
 		6412011822BA2BFA00B2090A /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
+		641983D222C4DEA00041BCB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
+		641983D422C4E0590041BCB4 /* UITableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViews.swift; sourceTree = "<group>"; };
 		6425B8AF22B7CD4300A85D5F /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
@@ -708,6 +716,7 @@
 				B5F58E4A1E1EAC9A006D99AE /* Grade_Tests.swift */,
 				39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */,
 				B5A0690D2042E63A0067B8D2 /* GradeAverage.swift */,
+				1F864E6D1FB732A3002AA79B /* Detail */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -749,6 +758,15 @@
 				1F4BD5381FAFA895007E0817 /* InfoPlist.strings */,
 			);
 			path = "HTWDD Today";
+			sourceTree = "<group>";
+		};
+		6410B73A22C38BE400D8A5BC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */,
+				6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6412011522BA2A1400B2090A /* SideMenu */ = {
@@ -801,6 +819,7 @@
 			isa = PBXGroup;
 			children = (
 				64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */,
+				6410B73A22C38BE400D8A5BC /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -945,6 +964,8 @@
 				B538EF0F1E1D62040031077C /* UserDefaults.swift */,
 				1F5783521FE42BE900956CEB /* UIDevice.swift */,
 				1F5783541FE42C6500956CEB /* MFMailComposeViewController.swift */,
+				641983D222C4DEA00041BCB4 /* UITableViewCells.swift */,
+				641983D422C4E0590041BCB4 /* UITableViews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1097,7 +1118,6 @@
 				B5B376851FA6176E00FC3A07 /* CanteenCoordinator.swift */,
 				B5B376871FA6179400FC3A07 /* Models */,
 				1F864E6B1FB73293002AA79B /* Main */,
-				1F864E6D1FB732A3002AA79B /* Detail */,
 			);
 			path = Canteen;
 			sourceTree = "<group>";
@@ -1345,6 +1365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */,
 				B5111E171E71E68F00D68155 /* Localizable.strings in Resources */,
 				1F36DA5C1FC3244E00BD9B4A /* KeychainAccess-license.html in Resources */,
 				1F0CB4B41FE81DF3002B7744 /* HTW-Impressum.html in Resources */,
@@ -1480,6 +1501,8 @@
 				B5EA535F1E7FBB1500183E07 /* String.swift in Sources */,
 				B5A0D88A1E87B624007827A6 /* TabBarController.swift in Sources */,
 				B5EF95831FAF53F6006BC7D1 /* GenericBasicCollectionViewDataSource.swift in Sources */,
+				6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */,
+				641983D522C4E0590041BCB4 /* UITableViews.swift in Sources */,
 				B5EF958C1FAF8A9E006BC7D1 /* ExamsDataSource.swift in Sources */,
 				B5BE728E1E6C886400D05B6D /* Event.swift in Sources */,
 				B5499A071FE826210043749D /* Tracker.swift in Sources */,
@@ -1514,6 +1537,7 @@
 				B5EA536D1E7FCE8B00183E07 /* ScheduleDetailVC.swift in Sources */,
 				B538EF1C1E1D762E0031077C /* Grade.swift in Sources */,
 				B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */,
+				641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */,
 				B5B3767D1FA6065700FC3A07 /* OnboardDetailViewController.swift in Sources */,
 				B535D828204921CE00440034 /* UICollectionView.swift in Sources */,
 				B5D3E8421FA5FD490055782D /* OnboardUnixLoginViewController.swift in Sources */,

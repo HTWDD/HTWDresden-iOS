@@ -14,8 +14,13 @@ class ManagementCoordinator: Coordinator {
     let context: HasManagement
     var rootViewController: UIViewController { return self.managementVC }
     var childCoordinators: [Coordinator] = []
-    private lazy var managementVC = UIViewController()
+    private lazy var managementVC: ManagementViewController = {
+        let vc = UIStoryboard(name: "Management", bundle: nil).instantiateViewController(withIdentifier: "ManagementMainVC") as! ManagementViewController
+        vc.context = self.context
+        return vc
+    }()
     
+    // MARK: - Lifecycle
     init(context: HasManagement) {
         self.context = context
     }

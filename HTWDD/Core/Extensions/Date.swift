@@ -87,4 +87,11 @@ extension Date {
     func isBetween(_ startDate: Date, and endDate: Date) -> Bool {
         return (min(startDate, endDate) ... max(startDate, endDate)).contains(self)
     }
+    
+    var localized: String {
+        let df = DateFormatter()
+        df.dateFormat = Loca.Management.Semester.Periods.format
+        df.locale = Locale.current
+        return df.string(from: self)
+    }
 }
