@@ -6,12 +6,24 @@ target 'HTWDD' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+  # RX Swift
+  pod 'RxSwift'
+  pod 'RxCocoa'
+
+  # Serial- Deserialization
   pod 'Marshal', '~> 1.2'
+  
+  # Protected Safe Passwords
   pod 'KeychainAccess'
+  
+  # Side Menu
   pod 'SideMenu'
+
+  # R.Swift -> Generating Strong Typed Resources
   pod 'R.swift'
+  
+  # Networking
+  pod 'Moya'
 
   # Pods for HTWDD
 
@@ -27,8 +39,8 @@ target 'HTWDD Today' do
   use_frameworks!
 
   # Pods for HTWDD Today
-  pod 'RxSwift', '~> 5'
-  pod 'RxCocoa', '~> 5'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Marshal', '~> 1.2'
   pod 'KeychainAccess'
   pod 'SideMenu'

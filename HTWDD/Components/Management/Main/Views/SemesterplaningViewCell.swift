@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
     
@@ -59,7 +60,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.contentMode      = .scaleToFill
             $0.numberOfLines    = 0
-            $0.text             = Loca.Management.Semester.Periods.freedays
+            $0.text             = R.string.localizable.managementSemesterPeriodsFreedays()
             $0.textColor        = UIColor.htw.darkGrey
             $0.font             = UIFont.description()
         })
@@ -101,7 +102,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         
         // Exams Period ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
-            $0.text         = Loca.Management.Semester.Periods.exams
+            $0.text         = R.string.localizable.managementSemesterPeriodsExams()
             $0.font         = UIFont.description()
             $0.textColor    = UIColor.htw.darkGrey
         })
@@ -119,7 +120,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         
         // Re-Registration ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
-            $0.text         = Loca.Management.Semester.Periods.reRegistration
+            $0.text         = R.string.localizable.managementSemesterPeriodsReregistration()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.description()
         })
