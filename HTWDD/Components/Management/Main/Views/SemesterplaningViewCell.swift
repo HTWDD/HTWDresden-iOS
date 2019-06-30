@@ -39,7 +39,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         
         // Semesterperiod ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
-            $0.text         = Loca.Management.Semester.Periods.lectures
+            $0.text         = R.string.localizable.managementSemesterPeriodsLectures()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.description()
         })
