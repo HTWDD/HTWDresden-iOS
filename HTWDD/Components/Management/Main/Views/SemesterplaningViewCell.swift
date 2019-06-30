@@ -57,8 +57,8 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Semesterperiod ( From - To )
         self.stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.period.beginDayFormated) - \(data.period.endDayFormated)"
-            $0.backgroundColor  = UIColor(hex: 0xCFCFCF)
-            $0.textColor        = UIColor.htw.darkGrey
+            $0.backgroundColor  = UIColor(hex: 0x1976D2)
+            $0.textColor        = .white
             $0.font             = self.smallFont
         })
         
@@ -121,7 +121,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
             $0.font             = self.smallFont
-            $0.backgroundColor  = UIColor(hex: 0xFF9800, alpha: 0.8)
+            $0.backgroundColor  = UIColor(hex: 0xE65100, alpha: 0.8)
         })
         
         // SPACER
