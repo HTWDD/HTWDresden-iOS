@@ -21,7 +21,7 @@ target 'HTWDD' do
 
   # R.Swift -> Generating Strong Typed Resources
   pod 'R.swift'
-  
+
   # Networking
   pod 'Moya'
 

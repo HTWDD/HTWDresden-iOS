@@ -108,6 +108,9 @@
 		641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D222C4DEA00041BCB4 /* UITableViewCells.swift */; };
 		641983D522C4E0590041BCB4 /* UITableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D422C4E0590041BCB4 /* UITableViews.swift */; };
 		642C956422C922E30096EDD2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956322C922E30096EDD2 /* R.generated.swift */; };
+		642C956822C93D430096EDD2 /* MoyaProvider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */; };
+		642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956922C93D9B0096EDD2 /* Observable+Response.swift */; };
+		642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956C22C93DDD0096EDD2 /* Single+Response.swift */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
@@ -146,9 +149,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade.swift */; };
@@ -324,6 +327,9 @@
 		641983D222C4DEA00041BCB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
 		641983D422C4E0590041BCB4 /* UITableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViews.swift; sourceTree = "<group>"; };
 		642C956322C922E30096EDD2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
+		642C956922C93D9B0096EDD2 /* Observable+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Response.swift"; sourceTree = "<group>"; };
+		642C956C22C93DDD0096EDD2 /* Single+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Response.swift"; sourceTree = "<group>"; };
 		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
@@ -475,9 +481,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,6 +798,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		642C956622C93B5B0096EDD2 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
 		64E5BFA222BCC60A005E92C0 /* Management */ = {
 			isa = PBXGroup;
 			children = (
@@ -955,6 +968,9 @@
 				641983D222C4DEA00041BCB4 /* UITableViewCells.swift */,
 				641983D422C4E0590041BCB4 /* UITableViews.swift */,
 				64F0D3D322C90A2500FE0A68 /* UIFonts.swift */,
+				642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */,
+				642C956922C93D9B0096EDD2 /* Observable+Response.swift */,
+				642C956C22C93DDD0096EDD2 /* Single+Response.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1003,6 +1019,7 @@
 		B538EF161E1D6ACD0031077C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				642C956622C93B5B0096EDD2 /* Provider */,
 				B5EA535C1E7FBA4900183E07 /* Authenticator.swift */,
 				B5EA53621E7FBC3E00183E07 /* Authenticator_TestCase.swift */,
 				B52329001FB890B5000C4F44 /* ImageLoader.swift */,
@@ -1487,7 +1504,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1654,6 +1671,7 @@
 				6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */,
 				B5EF958A1FAF875B006BC7D1 /* Exam.swift in Sources */,
 				B5CD5C731E5F37970083D75E /* CollectionViewController.swift in Sources */,
+				642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */,
 				B5461B611FA62A2600564D6D /* CanteenService.swift in Sources */,
 				1F8874891F8FB07300EE6492 /* ReactiveButton.swift in Sources */,
 				B5A069132042E9600067B8D2 /* Either.swift in Sources */,
@@ -1702,6 +1720,7 @@
 				1FE108061F8FF7A1002B8E69 /* Regex.swift in Sources */,
 				B50EB5001E6ADC720022E40C /* CollectionViewCell.swift in Sources */,
 				B58ECB151F990D5300949F4F /* HTWNamespace.swift in Sources */,
+				642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */,
 				B5EF957B1FADC5B8006BC7D1 /* StudyYear.swift in Sources */,
 				B5F58E461E1EA7C8006D99AE /* Dictionary.swift in Sources */,
 				1FC35F3F1FED1589002CD273 /* SwitchCell.swift in Sources */,
@@ -1716,6 +1735,7 @@
 				39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */,
 				B55507121E601FB400C16F5F /* DateComponents.swift in Sources */,
 				1F94C3FC1F90CD4F00988E72 /* Coordinator.swift in Sources */,
+				642C956822C93D430096EDD2 /* MoyaProvider+Rx.swift in Sources */,
 				1F5783531FE42BE900956CEB /* UIDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
