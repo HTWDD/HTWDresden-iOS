@@ -16,16 +16,6 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var main: UIView!
     @IBOutlet weak var stackContent: UIStackView!
     
-    // MARK: - Properties
-    private lazy var descriptionFont: UIFont = {
-        return UIFont.boldSystemFont(ofSize: 16)
-    }()
-    
-    private lazy var smallFont: UIFont = {
-        return UIFont.systemFont(ofSize: 13.5)
-    }()
-    
-    
     // MARK: - View setup
     func model(for data: SemesterPlaning?) {
         guard let data = data else { return }
@@ -51,7 +41,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = Loca.Management.Semester.Periods.lectures
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = self.descriptionFont
+            $0.font         = UIFont.description()
         })
         
         // Semesterperiod ( From - To )
@@ -59,7 +49,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.period.beginDayFormated) - \(data.period.endDayFormated)"
             $0.backgroundColor  = UIColor(hex: 0x1976D2)
             $0.textColor        = .white
-            $0.font             = self.smallFont
+            $0.font             = UIFont.small(isBold: true)
         })
         
         // SPACER
@@ -71,7 +61,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.numberOfLines    = 0
             $0.text             = Loca.Management.Semester.Periods.freedays
             $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = self.descriptionFont
+            $0.font             = UIFont.description()
         })
         
         // REGION - Freedays
@@ -83,7 +73,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             
             hStack.addArrangedSubview(UILabel().also { label in
                 label.text          = freeDay.name
-                label.font          = self.smallFont
+                label.font          = UIFont.small()
                 label.textColor     = UIColor.htw.darkGrey
                 label.contentMode   = .scaleToFill
                 label.numberOfLines = 0
@@ -95,7 +85,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
                 } else {
                     label.text = "\(freeDay.beginDayFormated) - \(freeDay.endDayFormated)"
                 }
-                label.font              = self.smallFont
+                label.font              = UIFont.small()
                 label.backgroundColor   = UIColor.htw.lightGrey
                 label.textColor         = UIColor.htw.darkGrey
                 label.contentMode       = .scaleToFill
@@ -112,7 +102,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Exams Period ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = Loca.Management.Semester.Periods.exams
-            $0.font         = self.descriptionFont
+            $0.font         = UIFont.description()
             $0.textColor    = UIColor.htw.darkGrey
         })
         
@@ -120,8 +110,8 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
-            $0.font             = self.smallFont
-            $0.backgroundColor  = UIColor(hex: 0xE65100, alpha: 0.8)
+            $0.font             = UIFont.small(isBold: true)
+            $0.backgroundColor  = UIColor(hex: 0x009688, alpha: 0.8)
         })
         
         // SPACER
@@ -131,14 +121,14 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = Loca.Management.Semester.Periods.reRegistration
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = descriptionFont
+            $0.font         = UIFont.description()
         })
         
         self.stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.reregistration.beginDayFormated) - \(data.reregistration.endDayFormated)"
             $0.textColor        = .white
             $0.backgroundColor  = UIColor(hex: 0xF44336, alpha: 0.8)
-            $0.font             = self.smallFont
+            $0.font             = UIFont.small(isBold: true)
         })
     }
 }

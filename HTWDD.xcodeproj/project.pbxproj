@@ -116,6 +116,7 @@
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
 		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
+		64F0D3D422C90A2500FE0A68 /* UIFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0D3D322C90A2500FE0A68 /* UIFonts.swift */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -332,6 +333,7 @@
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
 		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
+		64F0D3D322C90A2500FE0A68 /* UIFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFonts.swift; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 				1F5783541FE42C6500956CEB /* MFMailComposeViewController.swift */,
 				641983D222C4DEA00041BCB4 /* UITableViewCells.swift */,
 				641983D422C4E0590041BCB4 /* UITableViews.swift */,
+				64F0D3D322C90A2500FE0A68 /* UIFonts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1573,6 +1576,7 @@
 				1F5E1A641FED11BC0031ED82 /* LectureManagerViewController.swift in Sources */,
 				1F1491B31FB450A10011B114 /* NoResultsView.swift in Sources */,
 				B5EF95781FADB40C006BC7D1 /* ExamsService.swift in Sources */,
+				64F0D3D422C90A2500FE0A68 /* UIFonts.swift in Sources */,
 				B5BE72821E6C809200D05B6D /* SemesterInformation.swift in Sources */,
 				B5BE728A1E6C86A600D05B6D /* EventPeriod.swift in Sources */,
 				B5EA53721E7FD25C00183E07 /* AnimatedViewControllerTransition.swift in Sources */,
