@@ -164,9 +164,6 @@ final class ScheduleMainVC: ViewController {
         self.currentScheduleVC?.jumpToToday(animated: animated)
     }
     
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 }
 
 extension ScheduleMainVC: TabbarChildViewController {

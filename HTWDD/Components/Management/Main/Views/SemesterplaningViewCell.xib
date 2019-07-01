@@ -19,23 +19,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="313.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semester" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vy-5C-7Jy">
-                        <rect key="frame" x="16" y="40" width="288" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semester" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hk-nM-TEE">
-                        <rect key="frame" x="16" y="11" width="288" height="30"/>
+                        <rect key="frame" x="16" y="16" width="288" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Semester" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vy-5C-7Jy">
+                        <rect key="frame" x="16" y="45" width="288" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkQ-Mz-Ghd">
-                        <rect key="frame" x="16" y="68.5" width="288" height="235"/>
+                        <rect key="frame" x="16" y="73.5" width="288" height="230"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bjf-vu-agH">
-                                <rect key="frame" x="8" y="8" width="272" height="215"/>
+                                <rect key="frame" x="8" y="8" width="272" height="210"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,7 +53,7 @@
                     <constraint firstAttribute="trailing" secondItem="bkQ-Mz-Ghd" secondAttribute="trailing" constant="16" id="GLd-uH-wiW"/>
                     <constraint firstItem="bkQ-Mz-Ghd" firstAttribute="top" secondItem="7Vy-5C-7Jy" secondAttribute="bottom" constant="8" id="LBZ-Al-Jpl"/>
                     <constraint firstItem="8hk-nM-TEE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MXX-xW-aTK"/>
-                    <constraint firstItem="8hk-nM-TEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="NyD-6N-XBE"/>
+                    <constraint firstItem="8hk-nM-TEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="NyD-6N-XBE"/>
                     <constraint firstItem="7Vy-5C-7Jy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="TnF-Hj-5rw"/>
                     <constraint firstItem="7Vy-5C-7Jy" firstAttribute="top" secondItem="8hk-nM-TEE" secondAttribute="bottom" constant="-1" id="U14-Tj-Bqq"/>
                     <constraint firstAttribute="trailing" secondItem="7Vy-5C-7Jy" secondAttribute="trailing" constant="16" id="YMg-h3-90B"/>

@@ -164,9 +164,6 @@ class GradeMainVC: CollectionViewController {
         newCell?.updatedExpanded(true)
     }
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 
 }
 

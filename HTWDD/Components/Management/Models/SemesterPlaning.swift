@@ -8,10 +8,12 @@
 
 import Foundation
 import RxSwift
-import Marshal
+import Moya
 
 // MARK: - Semester Planung
 struct SemesterPlaning: Identifiable, Codable {
+    
+    fileprivate static var bag = DisposeBag()
     
     // MARK: - Semester Type
     enum SemeterType: String, Codable {
@@ -34,10 +36,6 @@ struct SemesterPlaning: Identifiable, Codable {
     let lecturePeriod: Period
     let examsPeriod: Period
     let reregistration: Period
-    
-    static func get(network: Network) -> Observable<[SemesterPlaning]> {
-        return network.getArray(url: SemesterPlaning.url)
-    }
 }
 
 // MARK: - Period

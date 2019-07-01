@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import RxSwift
 
 class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
     
@@ -42,7 +43,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsLectures()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description()
+            $0.font         = UIFont.description(isBold: true)
         })
         
         // Semesterperiod ( From - To )
@@ -62,7 +63,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.numberOfLines    = 0
             $0.text             = R.string.localizable.managementSemesterPeriodsFreedays()
             $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.description()
+            $0.font             = UIFont.description(isBold: true)
         })
         
         // REGION - Freedays
@@ -103,7 +104,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Exams Period ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsExams()
-            $0.font         = UIFont.description()
+            $0.font         = UIFont.description(isBold: true)
             $0.textColor    = UIColor.htw.darkGrey
         })
         
@@ -122,13 +123,14 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsReregistration()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description()
+            $0.font         = UIFont.description(isBold: true)
         })
         
+        // Re-Registration ( From - To )
         self.stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.reregistration.beginDayFormated) - \(data.reregistration.endDayFormated)"
             $0.textColor        = .white
-            $0.backgroundColor  = UIColor(hex: 0xF44336, alpha: 0.8)
+            $0.backgroundColor  = UIColor(hex: 0xF57F17, alpha: 0.8)
             $0.font             = UIFont.small(isBold: true)
         })
     }

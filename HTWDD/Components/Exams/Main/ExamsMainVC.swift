@@ -95,9 +95,6 @@ class ExamsMainVC: CollectionViewController {
         self.dataSource.load()
     }
     
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 	
 }
 

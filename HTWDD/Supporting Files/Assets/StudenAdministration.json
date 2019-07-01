@@ -1,0 +1,43 @@
+{
+    "offeredServices": [
+        "Bewerbung / Immatrikulation",
+        "Rückmeldung",
+        "Bewerbung für höheres Fachsemester",
+        "Gasthörer",
+        "Beurlaubung",
+        "Exmatrikulation"
+    ],
+    "officeHours": [
+        {
+            "day": "Mo",
+            "times": [
+                {
+                    "begin": "12:30",
+                    "end": "15:00"
+                }
+            ]
+        },
+        {
+            "day": "Di",
+            "times": [
+                {
+                    "begin": "08:30",
+                    "end": "11:00"
+                },
+                {
+                    "begin": "12:30",
+                    "end": "17:00"
+                }
+            ]
+        },
+        {
+            "day": "Do",
+            "times": [
+                {
+                    "begin": "12:30",
+                    "end": "15:00"
+                }
+            ]
+        }
+    ]
+}

@@ -39,10 +39,21 @@ target 'HTWDD Today' do
   use_frameworks!
 
   # Pods for HTWDD Today
+  
+  # RX Swift
   pod 'RxSwift'
   pod 'RxCocoa'
+  
+  # Serial- Deserialization
   pod 'Marshal', '~> 1.2'
+  
+  # Protected Safe Passwords
   pod 'KeychainAccess'
+  
+  # Side Menu
   pod 'SideMenu'
+
+  # Networking
+  pod 'Moya'
 
 end

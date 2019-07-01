@@ -109,9 +109,6 @@ class OnboardWelcomeViewController: ViewController {
 			])
 	}
 
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .default
-	}
 	
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait

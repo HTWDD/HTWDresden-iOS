@@ -11,8 +11,10 @@ import RxSwift
 
 class ManagementService: Service {
     
-    func load(parameters: ()) -> Observable<()> {
-        return Observable.empty()
+    private let apiService = ApiService()
+    
+    func load(parameters: ()) -> Observable<[SemesterPlaning]> {
+        return apiService.getSemesterPlaning()
     }
 
 }

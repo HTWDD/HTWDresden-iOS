@@ -117,9 +117,6 @@ class CanteenMainVC: CollectionViewController {
         self.dataSource.load()
     }
 
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
     
     private func register3DTouch() {
         guard self.traitCollection.forceTouchCapability == .available else {

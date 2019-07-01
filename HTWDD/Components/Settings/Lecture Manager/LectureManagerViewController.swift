@@ -59,9 +59,6 @@ class LectureManagerViewController: TableViewController {
         super.viewWillAppear(animated)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     // MARK: - Private
     

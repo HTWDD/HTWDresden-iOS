@@ -150,9 +150,6 @@ class SettingsMainVC: TableViewController {
         self.tableView.tableFooterView = self.footerView
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     // MARK: - Private
     

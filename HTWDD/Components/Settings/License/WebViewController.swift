@@ -71,10 +71,6 @@ class WebViewController: ViewController {
 
 	// MARK: -
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
-	
 }
 
 extension HTWNamespace where Base: WKWebViewConfiguration {

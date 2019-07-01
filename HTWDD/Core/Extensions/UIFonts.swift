@@ -18,7 +18,7 @@ extension UIFont {
         }
     }
     
-    static func description(_ size: CGFloat = 16.0, _ isBold: Bool = false) -> UIFont {
+    static func description(_ size: CGFloat = 16.0, isBold: Bool = false) -> UIFont {
         if (!isBold) {
             return UIFont.systemFont(ofSize: size)
         } else {

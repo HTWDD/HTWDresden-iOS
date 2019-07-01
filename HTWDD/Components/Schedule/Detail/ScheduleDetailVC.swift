@@ -239,10 +239,6 @@ class ScheduleDetailVC: ViewController {
         //self.hideButton.setTitle(viewModel.hidden ? Loca.Schedule.Settings.Hide.otherAction : Loca.Schedule.Settings.Hide.action, for: .normal)
     }
 
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
-	
 	// MARK: - Actions
 	
 	@objc

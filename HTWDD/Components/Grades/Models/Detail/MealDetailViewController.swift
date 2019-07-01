@@ -194,9 +194,6 @@ class MealDetailViewController: ViewController {
         self.view.layoutIfNeeded()
     }
     
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 
     // MARK: - Actions
     

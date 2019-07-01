@@ -213,9 +213,6 @@ class OnboardDetailViewController<Product>: ViewController, UITextFieldDelegate,
         #endif
     }
 
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .default
-	}
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait

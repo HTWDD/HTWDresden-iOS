@@ -13,7 +13,7 @@ import RxCocoa
 class ManagementViewController: UITableViewController {
     enum Item {
         case semesterPlan(model: SemesterPlaning)
-//        case sekInfo(model: Any)
+        case studenAdministation(model: StudentAdministration)
     }
     
     // MARK: - Properties
@@ -26,13 +26,14 @@ class ManagementViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        self.title = Loca.Management.title
+        self.title = R.string.localizable.managementTitle()
         self.tableView.separatorStyle = .none
         self.tableView.allowsSelection = false
         self.tableView.register(SemesterplaningViewCell.self)
+        self.tableView.register(StudenAdministrationViewCell.self)
         self.tableView.backgroundColor = UIColor.htw.veryLightGrey
         
-        SemesterPlaning.get(network: Network())
+        let semesterPlaningItems: Observable<[Item]> = context!.managementService.load(parameters: ())
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
@@ -40,13 +41,19 @@ class ManagementViewController: UITableViewController {
                         let dateFormat = "yyyy-MM-dd"
                         let startPeriod = try Date.from(string: $0.period.beginDay, format: dateFormat)
                         let endPeriod   = try Date.from(string: $0.period.endDay, format: dateFormat)
-//                        return Date().isBetween(startPeriod, and: endPeriod)
-                        return true
+                        return Date().isBetween(startPeriod, and: endPeriod)
+//                        return true
                     } catch {
                         return false
                     }
-                }.map { Item.semesterPlan(model: $0) }
-            }
+                    }.map { Item.semesterPlan(model: $0) }
+        }
+        
+        let studentAdministrationItems: Observable<[Item]> =  StudentAdministration.get()
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .map { [Item.studenAdministation(model: $0)] }
+        
+        Observable.combineLatest(semesterPlaningItems, studentAdministrationItems) { $0 + $1 }
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] items in
 //                self.semesterPlanings.append(contentsOf: $0)
@@ -71,6 +78,11 @@ class ManagementViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(SemesterplaningViewCell.self, for: indexPath)!
             cell.model(for: model)
             return cell
+            
+        case .studenAdministation(let model):
+            let cell = tableView.dequeueReusableCell(StudenAdministrationViewCell.self, for: indexPath)!
+            cell.model(for: model)
+            return cell
         }
     }
     
@@ -78,19 +90,4 @@ class ManagementViewController: UITableViewController {
         cell.backgroundColor = UIColor.clear
     }
     
-    // MARK: - Lifecycle
-//    init(context: HasManagement) {
-//        self.context = context
-//        super.init()
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented.")
-//    }
-//
-//    // MARK: - Initialize Setup
-//    override func initialSetup() {
-//        super.initialSetup()
-//        self.title = Loca.Management.title
-//    }
 }

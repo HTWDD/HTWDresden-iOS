@@ -29,4 +29,7 @@ extension UIViewController {
         return NavigationController(rootViewController: self)
     }
 
+    var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

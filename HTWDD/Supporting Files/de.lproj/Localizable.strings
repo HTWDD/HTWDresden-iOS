@@ -143,3 +143,7 @@
 "Management.semester.periods.freedays" = "Unterbrechungen der Lehrveranstaltungen";
 "Management.semester.periods.exams" = "Prüfungsabschnitt";
 "Management.semester.periods.reregistration" = "Rückmeldung";
+"Management.student.administration" = "Studentensekretariat";
+"Management.student.administration.offered.services" = "Leistungsangebot";
+"Management.student.administration.opening.hours" = "Sprechzeiten";
+
