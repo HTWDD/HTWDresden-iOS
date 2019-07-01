@@ -146,4 +146,5 @@
 "Management.student.administration" = "Studentensekretariat";
 "Management.student.administration.offered.services" = "Leistungsangebot";
 "Management.student.administration.opening.hours" = "Sprechzeiten";
-
+"Management.student.administration.opening.times" = "%@ - %@ Uhr";
+"Management.student.administration.principal.exam.office" = "Zentrales Prüfungsamt";

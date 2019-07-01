@@ -107,7 +107,15 @@
 		6403694622CA069D00FD49EA /* StudenAdministrationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694422CA069D00FD49EA /* StudenAdministrationViewCell.swift */; };
 		6403694722CA069D00FD49EA /* StudenAdministrationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403694522CA069D00FD49EA /* StudenAdministrationViewCell.xib */; };
 		6403694922CA0CA700FD49EA /* StudentAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694822CA0CA700FD49EA /* StudentAdministration.swift */; };
-		6403694C22CA260A00FD49EA /* StudenAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403694B22CA260A00FD49EA /* StudenAdministration.json */; };
+		6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694D22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift */; };
+		6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */; };
+		6403695222CA4EBF00FD49EA /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
+		6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
+		6403695622CA528300FD49EA /* PrincipalExamOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695522CA528300FD49EA /* PrincipalExamOffice.swift */; };
+		6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
+		6403695A22CA5D1A00FD49EA /* StuRaHTW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695922CA5D1A00FD49EA /* StuRaHTW.swift */; };
+		6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */; };
+		6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410375A22C10F010084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410375B22C10F530084FC63 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
@@ -333,7 +341,15 @@
 		6403694422CA069D00FD49EA /* StudenAdministrationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudenAdministrationViewCell.swift; sourceTree = "<group>"; };
 		6403694522CA069D00FD49EA /* StudenAdministrationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StudenAdministrationViewCell.xib; sourceTree = "<group>"; };
 		6403694822CA0CA700FD49EA /* StudentAdministration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAdministration.swift; sourceTree = "<group>"; };
-		6403694B22CA260A00FD49EA /* StudenAdministration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudenAdministration.json; sourceTree = "<group>"; };
+		6403694D22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalExamOfficeViewCell.swift; sourceTree = "<group>"; };
+		6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrincipalExamOfficeViewCell.xib; sourceTree = "<group>"; };
+		6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PrincipalExamOffice.json; sourceTree = "<group>"; };
+		6403695322CA50F300FD49EA /* StuRaHTW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StuRaHTW.json; sourceTree = "<group>"; };
+		6403695522CA528300FD49EA /* PrincipalExamOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalExamOffice.swift; sourceTree = "<group>"; };
+		6403695722CA53A100FD49EA /* StudentAdministration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudentAdministration.json; sourceTree = "<group>"; };
+		6403695922CA5D1A00FD49EA /* StuRaHTW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTW.swift; sourceTree = "<group>"; };
+		6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTWViewCell.swift; sourceTree = "<group>"; };
+		6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StuRaHTWViewCell.xib; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
 		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
@@ -782,7 +798,9 @@
 		6403694A22CA256A00FD49EA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				6403694B22CA260A00FD49EA /* StudenAdministration.json */,
+				6403695722CA53A100FD49EA /* StudentAdministration.json */,
+				6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */,
+				6403695322CA50F300FD49EA /* StuRaHTW.json */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -794,6 +812,10 @@
 				6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */,
 				6403694422CA069D00FD49EA /* StudenAdministrationViewCell.swift */,
 				6403694522CA069D00FD49EA /* StudenAdministrationViewCell.xib */,
+				6403694D22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift */,
+				6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */,
+				6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */,
+				6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -858,6 +880,8 @@
 			children = (
 				64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */,
 				6403694822CA0CA700FD49EA /* StudentAdministration.swift */,
+				6403695522CA528300FD49EA /* PrincipalExamOffice.swift */,
+				6403695922CA5D1A00FD49EA /* StuRaHTW.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1415,17 +1439,21 @@
 			files = (
 				6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */,
 				B5111E171E71E68F00D68155 /* Localizable.strings in Resources */,
-				6403694C22CA260A00FD49EA /* StudenAdministration.json in Resources */,
 				1F36DA5C1FC3244E00BD9B4A /* KeychainAccess-license.html in Resources */,
 				1F0CB4B41FE81DF3002B7744 /* HTW-Impressum.html in Resources */,
 				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,
 				1F36DA5D1FC3244E00BD9B4A /* Marshal-license.html in Resources */,
 				6403694722CA069D00FD49EA /* StudenAdministrationViewCell.xib in Resources */,
 				B59FA9951DD09C8400259D7F /* LaunchScreen.storyboard in Resources */,
+				6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */,
+				6403695222CA4EBF00FD49EA /* PrincipalExamOffice.json in Resources */,
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
+				6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */,
+				6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */,
 				1F36DA5B1FC3244E00BD9B4A /* RxSwift-license.html in Resources */,
 				64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */,
+				6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */,
 				1F74531F1FC1D76D00BC0087 /* confetti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1657,6 +1685,7 @@
 				1F862D271FD1A7FF0051E2DF /* KeyboardPresentationHandler.swift in Sources */,
 				B5A0690E2042E63A0067B8D2 /* GradeAverage.swift in Sources */,
 				B55ADF4B1FC08545004A5BB2 /* LoadingView.swift in Sources */,
+				6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */,
 				B5B3768F1FA61A2F00FC3A07 /* CanteenMainVC.swift in Sources */,
 				B5111E281E7206B500D68155 /* LectureTimeView.swift in Sources */,
 				B5B3768E1FA61A2C00FC3A07 /* CanteenCoordinator.swift in Sources */,
@@ -1666,8 +1695,11 @@
 				B50875481ED40BE6004A320E /* TableViewController.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
 				1F048F461F90095800A1FBD9 /* OnboardingCoordinator.swift in Sources */,
+				6403695A22CA5D1A00FD49EA /* StuRaHTW.swift in Sources */,
+				6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */,
 				B538EF0A1E1D5BD10031077C /* Log.swift in Sources */,
 				B52133B91DEF0DB100955D29 /* GradeMainVC.swift in Sources */,
+				6403695622CA528300FD49EA /* PrincipalExamOffice.swift in Sources */,
 				B52329011FB890B5000C4F44 /* ImageLoader.swift in Sources */,
 				B5EBE3531F6EA20F0073C450 /* AppContext.swift in Sources */,
 				1FC1BDD21FADDF11007F9D06 /* SettingsMainVC.swift in Sources */,

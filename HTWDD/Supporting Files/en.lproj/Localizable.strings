@@ -146,3 +146,5 @@
 "Management.student.administration" = "Student administration";
 "Management.student.administration.offered.services" = "Offered services";
 "Management.student.administration.opening.hours" = "Office hours";
+"Management.student.administration.opening.times" = "%@ to %@";
+"Management.student.administration.principal.exam.office" = "Principal exam office";

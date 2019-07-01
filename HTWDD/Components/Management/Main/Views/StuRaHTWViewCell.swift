@@ -1,5 +1,5 @@
 //
-//  StudenAdministrationViewCell.swift
+//  StuRaHTWViewCell.swift
 //  HTWDD
 //
 //  Created by Mustafa Karademir on 01.07.19.
@@ -8,16 +8,15 @@
 
 import UIKit
 
-class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
+class StuRaHTWViewCell: UITableViewCell, FromNibLoadable {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var main: UIView!
     @IBOutlet weak var stackContent: UIStackView!
     
-    // MARK: - View Setup
-    func model(for data: StudentAdministration?) {
+    func model(for data: StuRaHTW?) {
         guard let data = data else { return }
         self.stackContent.subviews.forEach { $0.removeFromSuperview() }
         
@@ -30,7 +29,6 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
         
         // Title
         self.lblTitle.apply {
-            $0.text         = R.string.localizable.managementStudentAdministration()
             $0.textColor    = UIColor.htw.darkGrey
         }
         
@@ -53,6 +51,8 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
                 $0.backgroundColor  = UIColor(hex: 0xE0E0E0)
                 $0.textColor        = UIColor.htw.darkGrey
                 $0.font             = UIFont.small()
+                $0.contentMode      = .scaleToFill
+                $0.numberOfLines    = 0
             })
         }
         // ENDREGION - Offered Services
@@ -101,17 +101,14 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
             }
             // ENDREGION - Times
             
-             hStack.addArrangedSubview(vStack)
+            hStack.addArrangedSubview(vStack)
             
-             self.stackContent.addArrangedSubview(hStack)
+            self.stackContent.addArrangedSubview(hStack)
         }
         // ENDREGION - Opening Hours
         
         // SPACER
         self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
     }
+    
 }

@@ -12,7 +12,7 @@ import RxSwift
 // MARK: - JSON
 fileprivate var studentAdministrationData: Data {
     // Loading data from file /Supporting Files/Assets/StudenAdministration.json
-    return try! Data(contentsOf: R.file.studenAdministrationJson()!)
+    return try! Data(contentsOf: R.file.studentAdministrationJson()!)
 }
 
 // MARK: - Studen Administration
