@@ -10,6 +10,11 @@ PODS:
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
+  - Realm (3.17.0):
+    - Realm/Headers (= 3.17.0)
+  - Realm/Headers (3.17.0)
+  - RealmSwift (3.17.0):
+    - Realm (= 3.17.0)
   - Result (4.1.0)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
@@ -24,6 +29,7 @@ DEPENDENCIES:
   - Marshal (~> 1.2)
   - Moya
   - R.swift
+  - RealmSwift
   - RxCocoa
   - RxSwift
   - SideMenu
@@ -36,6 +42,8 @@ SPEC REPOS:
     - Moya
     - R.swift
     - R.swift.Library
+    - Realm
+    - RealmSwift
     - Result
     - RxCocoa
     - RxRelay
@@ -49,12 +57,14 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
+  RealmSwift: fe733e459d60dc7b6971d4cbee2eb4854097d12c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
 
-PODFILE CHECKSUM: 4532ae9a901d0e7082cba89e1ae68a26158b2d20
+PODFILE CHECKSUM: 545ca64331f3f2490ba3d99c05e0e298d426044d
 
 COCOAPODS: 1.7.3

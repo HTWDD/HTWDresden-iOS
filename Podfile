@@ -6,6 +6,8 @@ target 'HTWDD' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+  # Pods for HTWDD
+
   # RX Swift
   pod 'RxSwift'
   pod 'RxCocoa'
@@ -25,7 +27,8 @@ target 'HTWDD' do
   # Networking
   pod 'Moya'
 
-  # Pods for HTWDD
+  # Realm Database
+  pod 'RealmSwift'
 
   target 'HTWDDTests' do
     inherit! :search_paths
