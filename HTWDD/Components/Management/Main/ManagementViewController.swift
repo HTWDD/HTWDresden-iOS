@@ -9,8 +9,10 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import SideMenu
 
 class ManagementViewController: UITableViewController {
+    
     enum Item {
         case semesterPlan(model: SemesterPlaning)
         case studenAdministation(model: StudentAdministration)
@@ -20,6 +22,14 @@ class ManagementViewController: UITableViewController {
     
     // MARK: - Properties
     var context: HasManagement?
+    
+    private lazy var sideMenuNavigationButton: UIBarButtonItem = {
+        return UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
+    }()
+    
+    private lazy var sideMenuManager: SideMenuManager = {
+        return SideMenuManager.default
+    }()
     
     private var items = [Item]() {
         didSet {
@@ -36,6 +46,7 @@ class ManagementViewController: UITableViewController {
         self.tableView.register(PrincipalExamOfficeViewCell.self)
         self.tableView.register(StuRaHTWViewCell.self)
         self.tableView.backgroundColor = UIColor.htw.veryLightGrey
+        self.navigationItem.leftBarButtonItem = sideMenuNavigationButton
         
         let semesterPlaningItems: Observable<[Item]> = context!.managementService.load(parameters: ())
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
@@ -131,5 +142,9 @@ class ManagementViewController: UITableViewController {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
+    }
+    
+    @objc func openSideMenu() {
+        present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
 }
