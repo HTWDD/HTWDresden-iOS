@@ -27,7 +27,7 @@ private enum ScheduleLayoutStyle: Int {
     static let cachingKey = "\(ScheduleLayoutStyle.self)_cache"
 }
 
-final class ScheduleMainVC: ViewController {
+final class ScheduleMainVC: ViewController, HasSideBarItem {
 
 	// MARK: - Properties
 

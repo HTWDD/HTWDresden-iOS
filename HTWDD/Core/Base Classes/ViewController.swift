@@ -7,19 +7,10 @@
 //
 
 import UIKit
-import SideMenu
 
 class ViewController: UIViewController {
     
-    private lazy var sideMenuManager: SideMenuManager = {
-       return SideMenuManager.default
-    }()
-    
-    private lazy var sideMenuNavigationButton: UIBarButtonItem = {
-       return UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-    }()
-    
-	init() {
+    init() {
 		super.init(nibName: nil, bundle: nil)
 		self.initialSetup()
 	}
@@ -34,10 +25,9 @@ class ViewController: UIViewController {
 		self.initialSetup()
 	}
 
-	func initialSetup() {
-		// Intentionally left empty
-        self.navigationItem.leftBarButtonItem = sideMenuNavigationButton
-	}
+    func initialSetup() {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,10 +41,6 @@ class ViewController: UIViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
-    }
-    
-    @objc func openSideMenu() {
-        present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
 
 }

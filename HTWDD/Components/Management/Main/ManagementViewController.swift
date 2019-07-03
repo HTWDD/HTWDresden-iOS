@@ -9,27 +9,15 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import SideMenu
 
-class ManagementViewController: UITableViewController {
-    
-    enum Item {
-        case semesterPlan(model: SemesterPlaning)
-        case studenAdministation(model: StudentAdministration)
-        case principalExamOffice(model: PrincipalExamOffice)
-        case stuRaHTW(model: StuRaHTW)
-    }
+
+class ManagementViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
     var context: HasManagement?
     
-    private lazy var sideMenuNavigationButton: UIBarButtonItem = {
-        return UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-    }()
     
-    private lazy var sideMenuManager: SideMenuManager = {
-        return SideMenuManager.default
-    }()
+//    private let refreshControl = UIRefreshControl()
     
     private var items = [Item]() {
         didSet {
@@ -37,54 +25,34 @@ class ManagementViewController: UITableViewController {
         }
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.reload), for: .valueChanged)
+        self.refreshControl?.tintColor = .white
+
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+            self.navigationItem.largeTitleDisplayMode = .automatic
+        }
+        
         self.title = R.string.localizable.managementTitle()
         self.tableView.separatorStyle = .none
-        //self.tableView.allowsSelection = false
         self.tableView.register(SemesterplaningViewCell.self)
         self.tableView.register(StudenAdministrationViewCell.self)
         self.tableView.register(PrincipalExamOfficeViewCell.self)
         self.tableView.register(StuRaHTWViewCell.self)
         self.tableView.backgroundColor = UIColor.htw.veryLightGrey
-        self.navigationItem.leftBarButtonItem = sideMenuNavigationButton
         
-        let semesterPlaningItems: Observable<[Item]> = context!.managementService.load(parameters: ())
-            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { result in
-                result.filter {
-                    do {
-                        let dateFormat = "yyyy-MM-dd"
-                        let startPeriod = try Date.from(string: $0.period.beginDay, format: dateFormat)
-                        let endPeriod   = try Date.from(string: $0.period.endDay, format: dateFormat)
-                        return Date().isBetween(startPeriod, and: endPeriod)
-//                        return true
-                    } catch {
-                        return false
-                    }
-                    }.map { Item.semesterPlan(model: $0) }
-        }
-        
-        let studentAdministrationItems: Observable<[Item]> =  StudentAdministration.get()
-            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { [Item.studenAdministation(model: $0)] }
-        
-        let principalExamOffice: Observable<[Item]> = PrincipalExamOffice.get()
-            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { [Item.principalExamOffice(model: $0)] }
-        
-        let stuRaHTW: Observable<[Item]> = StuRaHTW.get()
-            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { [Item.stuRaHTW(model: $0)] }
-        
-        Observable.combineLatest(semesterPlaningItems, studentAdministrationItems, principalExamOffice, stuRaHTW) { $0 + $1 + $2 + $3 }
+        context?.managementService.load(parameters: ())
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] items in
-//                self.semesterPlanings.append(contentsOf: $0)
                 self?.items = items
             }, onError: { (error) in
             Log.error(error)
         }).disposed(by: self.rx_disposeBag)
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.estimatedRowHeight = 100
@@ -144,7 +112,8 @@ class ManagementViewController: UITableViewController {
         }
     }
     
-    @objc func openSideMenu() {
-        present(sideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+    @objc func reload() {
+        Log.debug("reload")
+        self.refreshControl?.endRefreshing()
     }
 }

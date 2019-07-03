@@ -98,7 +98,6 @@
 		5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		6403693D22C9F0E400FD49EA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
-		6403693E22C9F58F00FD49EA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
 		6403693F22C9F61500FD49EA /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956E22C941D40096EDD2 /* RestApi.swift */; };
 		6403694022C9F61F00FD49EA /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
 		6403694122C9F62E00FD49EA /* Single+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956C22C93DDD0096EDD2 /* Single+Response.swift */; };
@@ -116,9 +115,18 @@
 		6403695A22CA5D1A00FD49EA /* StuRaHTW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695922CA5D1A00FD49EA /* StuRaHTW.swift */; };
 		6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */; };
 		6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */; };
+		6405917322CB345300AA5613 /* StuRaHTW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695922CA5D1A00FD49EA /* StuRaHTW.swift */; };
+		6405917722CB376500AA5613 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
+		6405917822CB377300AA5613 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
+		6405917D22CB438400AA5613 /* PrincipalExamOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695522CA528300FD49EA /* PrincipalExamOffice.swift */; };
+		6405917E22CB438B00AA5613 /* StudentAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694822CA0CA700FD49EA /* StudentAdministration.swift */; };
+		6405918022CC7EAE00AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405917F22CC7EAE00AA5613 /* R.generated.swift */; };
+		6405918122CC7ED500AA5613 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
+		6405918522CC830800AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918422CC830800AA5613 /* R.generated.swift */; };
+		6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
+		6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
+		6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
-		6410375A22C10F010084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
-		6410375B22C10F530084FC63 /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EBE3521F6EA20F0073C450 /* AppContext.swift */; };
 		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
 		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
 		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
@@ -126,7 +134,6 @@
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
 		641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D222C4DEA00041BCB4 /* UITableViewCells.swift */; };
 		641983D522C4E0590041BCB4 /* UITableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D422C4E0590041BCB4 /* UITableViews.swift */; };
-		642C956422C922E30096EDD2 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956322C922E30096EDD2 /* R.generated.swift */; };
 		642C956822C93D430096EDD2 /* MoyaProvider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */; };
 		642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956922C93D9B0096EDD2 /* Observable+Response.swift */; };
 		642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956C22C93DDD0096EDD2 /* Single+Response.swift */; };
@@ -169,9 +176,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade.swift */; };
@@ -350,6 +357,8 @@
 		6403695922CA5D1A00FD49EA /* StuRaHTW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTW.swift; sourceTree = "<group>"; };
 		6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTWViewCell.swift; sourceTree = "<group>"; };
 		6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StuRaHTWViewCell.xib; sourceTree = "<group>"; };
+		6405917F22CC7EAE00AA5613 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		6405918422CC830800AA5613 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
 		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
@@ -358,7 +367,6 @@
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
 		641983D222C4DEA00041BCB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
 		641983D422C4E0590041BCB4 /* UITableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViews.swift; sourceTree = "<group>"; };
-		642C956322C922E30096EDD2 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
 		642C956922C93D9B0096EDD2 /* Observable+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Response.swift"; sourceTree = "<group>"; };
 		642C956C22C93DDD0096EDD2 /* Single+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Response.swift"; sourceTree = "<group>"; };
@@ -513,9 +521,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +786,7 @@
 		1FED52B81FAFA1C000260D5B /* HTWDD Today */ = {
 			isa = PBXGroup;
 			children = (
+				6405917B22CB3BF000AA5613 /* Supporting Files */,
 				1F4BD53B1FAFAAF7007E0817 /* HTWDD Today.entitlements */,
 				1FED52B91FAFA1C000260D5B /* TodayViewController.swift */,
 				1F4BD52F1FAFA58F007E0817 /* Today.storyboard */,
@@ -803,6 +812,22 @@
 				6403695322CA50F300FD49EA /* StuRaHTW.json */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		6405917B22CB3BF000AA5613 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6405917C22CB3BFB00AA5613 /* Generated */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6405917C22CB3BFB00AA5613 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				6405917F22CC7EAE00AA5613 /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		6410B73A22C38BE400D8A5BC /* Views */ = {
@@ -1093,7 +1118,7 @@
 		B54642D91FAA557F00735589 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				642C956322C922E30096EDD2 /* R.generated.swift */,
+				6405918422CC830800AA5613 /* R.generated.swift */,
 				1FCE29301FA7C0F200A66654 /* Localizations.swift */,
 			);
 			path = Generated;
@@ -1298,6 +1323,7 @@
 			buildConfigurationList = 1FED52C41FAFA1C000260D5B /* Build configuration list for PBXNativeTarget "HTWDD Today" */;
 			buildPhases = (
 				536556E7F5130607F6F19D07 /* [CP] Check Pods Manifest.lock */,
+				6405917A22CB3B6B00AA5613 /* R Swift */,
 				1FED52B11FAFA1C000260D5B /* Sources */,
 				1FED52B21FAFA1C000260D5B /* Frameworks */,
 				1FED52B31FAFA1C000260D5B /* Resources */,
@@ -1316,12 +1342,12 @@
 			buildConfigurationList = B59FA9A41DD09C8400259D7F /* Build configuration list for PBXNativeTarget "HTWDD" */;
 			buildPhases = (
 				4E217ECE97AB87D5C7FB2629 /* [CP] Check Pods Manifest.lock */,
+				642C956222C9220B0096EDD2 /* R Swift */,
+				B59FA9831DD09C8300259D7F /* Sources */,
 				B59FA9841DD09C8300259D7F /* Frameworks */,
 				B59FA9851DD09C8300259D7F /* Resources */,
 				1FED52C51FAFA1C000260D5B /* Embed App Extensions */,
 				510DB6FD9A9E069F67EAABB0 /* [CP] Embed Pods Frameworks */,
-				642C956222C9220B0096EDD2 /* R Swift */,
-				B59FA9831DD09C8300259D7F /* Sources */,
 			);
 			buildRules = (
 			);
@@ -1426,8 +1452,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */,
 				1F4BD5301FAFA58F007E0817 /* Today.storyboard in Resources */,
+				6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */,
 				1FD757611FB4D72D007F9CA1 /* Localizable.strings in Resources */,
+				6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */,
 				1F1491B61FB456F70011B114 /* Assets.xcassets in Resources */,
 				1F4BD5361FAFA895007E0817 /* InfoPlist.strings in Resources */,
 			);
@@ -1553,7 +1582,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		642C956222C9220B0096EDD2 /* R Swift */ = {
+		6405917A22CB3B6B00AA5613 /* R Swift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1567,11 +1596,31 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				"$SRCROOT/HTWDD Today/Supporting Files/Generated/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\ndate > \"$TEMP_DIR/rswift-lastrun\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SCRIPT_OUTPUT_FILE_0\"\n";
+		};
+		642C956222C9220B0096EDD2 /* R Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "R Swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/HTWDD/Supporting Files/Generated/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SCRIPT_OUTPUT_FILE_0\"\n";
 		};
 		FD3591A31256D6CB5E82AAAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1604,6 +1653,7 @@
 			files = (
 				1F8E20E51FB34FB300347DB6 /* Colors.swift in Sources */,
 				B5F3F86E1FB8530800F0D1DB /* Log.swift in Sources */,
+				6405918122CC7ED500AA5613 /* ApiService.swift in Sources */,
 				1F8E20D61FB34EE500347DB6 /* ExamsService.swift in Sources */,
 				1FD757601FB4D1BD007F9CA1 /* LectureViewModel.swift in Sources */,
 				B5F3F8711FB85BEF00F0D1DB /* AppLecture.swift in Sources */,
@@ -1613,14 +1663,14 @@
 				1F8E20E21FB34F8E00347DB6 /* Meal.swift in Sources */,
 				1F8E20E01FB34F7900347DB6 /* SettingsService.swift in Sources */,
 				1F8E20CD1FB34E9C00347DB6 /* Semester.swift in Sources */,
-				6410375B22C10F530084FC63 /* AppContext.swift in Sources */,
+				6405918022CC7EAE00AA5613 /* R.generated.swift in Sources */,
 				1F8E20E11FB34F8400347DB6 /* Canteen.swift in Sources */,
 				6403694222C9F63100FD49EA /* Observable+Response.swift in Sources */,
+				6405917722CB376500AA5613 /* AppContext.swift in Sources */,
 				1F8E20DC1FB34F1900347DB6 /* Week.swift in Sources */,
 				1F8E20DD1FB34F4E00347DB6 /* EventDate.swift in Sources */,
 				1F8E20C91FB34E6F00347DB6 /* Service.swift in Sources */,
 				1F8E20DF1FB34F7400347DB6 /* CanteenService.swift in Sources */,
-				6403693E22C9F58F00FD49EA /* ApiService.swift in Sources */,
 				1FB3FFD91FFE5E6700EE695F /* LayoutGuide.swift in Sources */,
 				1F8E20C71FB34E6200347DB6 /* PersistenceService.swift in Sources */,
 				1F8E20CF1FB34EB000347DB6 /* Lecture.swift in Sources */,
@@ -1630,6 +1680,7 @@
 				1F8E20CC1FB34E9700347DB6 /* Network.swift in Sources */,
 				1F1491B51FB451110011B114 /* View.swift in Sources */,
 				5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */,
+				6405917E22CB438B00AA5613 /* StudentAdministration.swift in Sources */,
 				1F8E20E61FB34FC300347DB6 /* Array.swift in Sources */,
 				1F8E20DB1FB34F1000347DB6 /* Event.swift in Sources */,
 				1FA5893A1FB7360A008EE474 /* GlobalFunctions.swift in Sources */,
@@ -1638,8 +1689,10 @@
 				1FC730F51FC0F4F2005A04D6 /* BadgeLabel.swift in Sources */,
 				6403693F22C9F61500FD49EA /* RestApi.swift in Sources */,
 				1F8E20D01FB34EC200347DB6 /* DataSourceProtocols.swift in Sources */,
-				6410375A22C10F010084FC63 /* ManagementService.swift in Sources */,
 				1F8E20E41FB34FAD00347DB6 /* TimeInterval.swift in Sources */,
+				6405917822CB377300AA5613 /* ManagementService.swift in Sources */,
+				6405917D22CB438400AA5613 /* PrincipalExamOffice.swift in Sources */,
+				6405917322CB345300AA5613 /* StuRaHTW.swift in Sources */,
 				6403694322C9F63400FD49EA /* MoyaProvider+Rx.swift in Sources */,
 				1FB3FFD81FFE5E5F00EE695F /* UIView.swift in Sources */,
 				1F8E20D51FB34EE100347DB6 /* Parameter.swift in Sources */,
@@ -1741,6 +1794,7 @@
 				B5ECABA01FBCCFE80017B8F4 /* NSAttributedString.swift in Sources */,
 				1FE108031F8FDAF5002B8E69 /* StudygroupTextField.swift in Sources */,
 				B50EB5021E6AFFA20022E40C /* Day.swift in Sources */,
+				6405918522CC830800AA5613 /* R.generated.swift in Sources */,
 				B5EF95761FADB3B6006BC7D1 /* ExamsMainVC.swift in Sources */,
 				6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */,
 				B5EF958A1FAF875B006BC7D1 /* Exam.swift in Sources */,
@@ -1768,7 +1822,6 @@
 				B5D3E83C1FA5E8D50055782D /* ScheduleService.swift in Sources */,
 				1F88748F1F8FB2BF00EE6492 /* OnboardStudygroupViewController.swift in Sources */,
 				5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */,
-				642C956422C922E30096EDD2 /* R.generated.swift in Sources */,
 				B5EF95851FAF7C8A006BC7D1 /* GenericBasicTableViewDataSource.swift in Sources */,
 				B55507101E601AE300C16F5F /* Lecture.swift in Sources */,
 				B54642DF1FAB228500735589 /* FlatCollectionViewCell.swift in Sources */,

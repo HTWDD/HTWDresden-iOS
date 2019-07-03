@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SideMenu
 
-class ExamsMainVC: CollectionViewController {
+class ExamsMainVC: CollectionViewController, HasSideBarItem {
     
     enum Const {
         static let margin: CGFloat = 15
@@ -41,9 +41,7 @@ class ExamsMainVC: CollectionViewController {
     
     override func initialSetup() {
         super.initialSetup()
-        
         self.title = Loca.Exams.title
-		self.tabBarItem.image = #imageLiteral(resourceName: "Exams")
     }
 	
 	// MARK: - ViewController lifecycle

@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SideMenu
 
-class CanteenMainVC: CollectionViewController {
+class CanteenMainVC: CollectionViewController, HasSideBarItem {
 
     enum Const {
         static let margin: CGFloat = 12

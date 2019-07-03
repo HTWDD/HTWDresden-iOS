@@ -21,7 +21,7 @@ protocol SettingsMainVCDelegate: class {
     func composeMail()
 }
 
-class SettingsMainVC: TableViewController {
+class SettingsMainVC: TableViewController, HasSideBarItem {
 	
     var scheduleAuth: ScheduleService.Auth? {
         didSet {

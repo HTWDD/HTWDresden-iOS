@@ -7,31 +7,11 @@
 //
 
 import Foundation
-import RxSwift
-
-// MARK: - JSON
-fileprivate var studentAdministrationData: Data {
-    // Loading data from file /Supporting Files/Assets/StudenAdministration.json
-    return try! Data(contentsOf: R.file.studentAdministrationJson()!)
-}
 
 // MARK: - Studen Administration
 struct StudentAdministration: Codable {
     let offeredServices: [String]
     let officeHours: [OfficeHour]
-    
-    static func get() -> Observable<StudentAdministration> {
-        return Observable.create { observer in
-            do {
-                let data = try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData)
-                observer.onNext(data)
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
-            }
-            return Disposables.create()
-        }
-    }
 }
 
 // MARK: - Office Hour

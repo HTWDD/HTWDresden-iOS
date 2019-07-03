@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SideMenu
 
-class GradeMainVC: CollectionViewController {
+class GradeMainVC: CollectionViewController, HasSideBarItem {
 
     enum Const {
         static let margin: CGFloat = 10

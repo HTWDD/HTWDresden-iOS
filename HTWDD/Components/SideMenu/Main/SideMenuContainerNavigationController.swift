@@ -22,6 +22,7 @@ class SideMenuContainerNavigationController: NavigationController {
     }()
     
     override func viewDidLoad() {
+        self.delegate = self
         sideMenuManager.apply {
             sideMenuViewController.coordinator = self.coordinator
             $0.menuLeftNavigationController = UISideMenuNavigationController(rootViewController: self.sideMenuViewController)
@@ -35,5 +36,29 @@ class SideMenuContainerNavigationController: NavigationController {
             }
         }
     }
-    
+
 }
+
+protocol HasSideBarItem {
+    func addLeftBarButtonItem()
+}
+
+extension HasSideBarItem where Self: UIViewController {
+    func addLeftBarButtonItem() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: nil, action: nil)
+    }
+}
+
+extension SideMenuContainerNavigationController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if let hasSideMenu = viewController as? HasSideBarItem {
+            hasSideMenu.addLeftBarButtonItem()
+            viewController.navigationItem.leftBarButtonItem?.action = #selector(self.openSideMenu)
+        }
+    }
+    
+    @objc private func openSideMenu() {
+        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+}
+
