@@ -1,6 +1,0 @@
-framework module Pods_HTWDD_Today {
-  umbrella header "Pods-HTWDD Today-umbrella.h"
-
-  export *
-  module * { export * }
-}

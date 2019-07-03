@@ -1,6 +1,0 @@
-framework module Pods_HTWDDTests {
-  umbrella header "Pods-HTWDDTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
