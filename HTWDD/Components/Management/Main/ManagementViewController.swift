@@ -16,9 +16,6 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     // MARK: - Properties
     var context: HasManagement?
     
-    
-//    private let refreshControl = UIRefreshControl()
-    
     private var items = [Item]() {
         didSet {
             self.tableView.reloadData()
@@ -59,6 +56,16 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
         self.tableView.rowHeight = UITableView.automaticDimension
     }
     
+    @objc func reload() {
+        Log.debug("reload")
+        self.refreshControl?.endRefreshing()
+    }
+}
+
+
+// MARK: - TableView
+extension ManagementViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
@@ -94,7 +101,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch items[indexPath.row] {
         case .semesterPlan(_): break
-        
+            
         case .studenAdministation(_):
             if let url = context?.managementService.studentAdministration {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -110,10 +117,5 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
-    }
-    
-    @objc func reload() {
-        Log.debug("reload")
-        self.refreshControl?.endRefreshing()
     }
 }

@@ -21,6 +21,9 @@ def common_pods
   
   # Networking
   pod 'Moya'
+
+  # Realm Database
+  pod 'RealmSwift'
 end
 
 target 'HTWDD' do
@@ -28,9 +31,6 @@ target 'HTWDD' do
   
   # Side Menu
   pod 'SideMenu'
-
-  # Realm Database
-  pod 'RealmSwift'
 
   target 'HTWDDTests' do
     inherit! :search_paths

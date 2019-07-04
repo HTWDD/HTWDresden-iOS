@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
 
 // MARK: - Item Types
 enum Item {
@@ -18,7 +19,6 @@ enum Item {
 }
 
 class ManagementService: Service {
-    
     // MARK: - Properties
     var studentAdministration: URL? {
         return URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/studentensekretariat.html")
@@ -36,6 +36,7 @@ class ManagementService: Service {
     
     // MARK: - Loading
     func load(parameters: ()) -> Observable<[Item]> {
+        
         return Observable.combineLatest(loadSemesterPlaning(),
                                         loadStudentAdminstration(),
                                         loadPrincipalOffice(),
@@ -53,11 +54,14 @@ class ManagementService: Service {
                         let startPeriod = try Date.from(string: $0.period.beginDay, format: dateFormat)
                         let endPeriod   = try Date.from(string: $0.period.endDay, format: dateFormat)
                         return Date().isBetween(startPeriod, and: endPeriod)
-                        //                        return true
+//                        return true
                     } catch {
                         return false
                     }
-                }.map { Item.semesterPlan(model: $0) }
+                }.map { model in
+                    SemesterPlaningRealm.save(from: model)
+                    return Item.semesterPlan(model: model)
+                }
             }
     }
     

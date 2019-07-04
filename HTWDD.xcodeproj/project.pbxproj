@@ -126,6 +126,7 @@
 		6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
 		6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
 		6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
+		6405918C22CCB2DD00AA5613 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
 		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
@@ -138,6 +139,8 @@
 		642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956922C93D9B0096EDD2 /* Observable+Response.swift */; };
 		642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956C22C93DDD0096EDD2 /* Single+Response.swift */; };
 		642C956F22C941D40096EDD2 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956E22C941D40096EDD2 /* RestApi.swift */; };
+		6440EA6A22CE007200C313AE /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
+		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
@@ -359,6 +362,7 @@
 		6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StuRaHTWViewCell.xib; sourceTree = "<group>"; };
 		6405917F22CC7EAE00AA5613 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		6405918422CC830800AA5613 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaningRealm.swift; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
 		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
@@ -830,6 +834,14 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
+		6405918A22CCB29A00AA5613 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		6410B73A22C38BE400D8A5BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +915,7 @@
 		64E5BFAA22BCCBF0005E92C0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6405918A22CCB29A00AA5613 /* Realm */,
 				64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */,
 				6403694822CA0CA700FD49EA /* StudentAdministration.swift */,
 				6403695522CA528300FD49EA /* PrincipalExamOffice.swift */,
@@ -1390,9 +1403,9 @@
 				TargetAttributes = {
 					1FED52B41FAFA1C000260D5B = {
 						CreatedOnToolsVersion = 9.1;
-						DevelopmentTeam = 3E4PGPNR47;
+						DevelopmentTeam = 726GWJGCL9;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1404,9 +1417,9 @@
 					};
 					B59FA9861DD09C8300259D7F = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 3E4PGPNR47;
+						DevelopmentTeam = 726GWJGCL9;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1656,6 +1669,7 @@
 				6405918122CC7ED500AA5613 /* ApiService.swift in Sources */,
 				1F8E20D61FB34EE500347DB6 /* ExamsService.swift in Sources */,
 				1FD757601FB4D1BD007F9CA1 /* LectureViewModel.swift in Sources */,
+				6440EA6A22CE007200C313AE /* NSObject+Rx.swift in Sources */,
 				B5F3F8711FB85BEF00F0D1DB /* AppLecture.swift in Sources */,
 				6403694022C9F61F00FD49EA /* SemesterPlaning.swift in Sources */,
 				1F8E20D91FB34EFD00347DB6 /* Day.swift in Sources */,
@@ -1686,6 +1700,7 @@
 				1FA5893A1FB7360A008EE474 /* GlobalFunctions.swift in Sources */,
 				1F8E20E71FB3502E00347DB6 /* Dictionary.swift in Sources */,
 				1F8E20D11FB34EC800347DB6 /* Course.swift in Sources */,
+				6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */,
 				1FC730F51FC0F4F2005A04D6 /* BadgeLabel.swift in Sources */,
 				6403693F22C9F61500FD49EA /* RestApi.swift in Sources */,
 				1F8E20D01FB34EC200347DB6 /* DataSourceProtocols.swift in Sources */,
@@ -1828,6 +1843,7 @@
 				B5EA53741E7FDA5E00183E07 /* UIViewController.swift in Sources */,
 				B529EDEA1FABA41C000C1677 /* CollectionViewFlowLayout.swift in Sources */,
 				1F36DA561FC323A700BD9B4A /* WebViewController.swift in Sources */,
+				6405918C22CCB2DD00AA5613 /* SemesterPlaningRealm.swift in Sources */,
 				B5EF95741FADB389006BC7D1 /* ExamsCoordinator.swift in Sources */,
 				B5D3E83E1FA5EBBE0055782D /* Service.swift in Sources */,
 				6410375922C10C650084FC63 /* ManagementService.swift in Sources */,
@@ -1942,17 +1958,17 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "HTWDD Today/HTWDD Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3E4PGPNR47;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 726GWJGCL9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "HTWDD Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.htw-dresden.ios.HTWDD-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.develappers.htw-dresden.ios.HTWDD-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ef0b95a2-a2e2-4ede-8338-869c61f82adb";
-				PROVISIONING_PROFILE_SPECIFIER = "HTW Today Widget Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1969,17 +1985,17 @@
 				CODE_SIGN_ENTITLEMENTS = "HTWDD Today/HTWDD Today.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 3E4PGPNR47;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 726GWJGCL9;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "HTWDD Today/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.htw-dresden.ios.HTWDD-Today";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.develappers.htw-dresden.ios.HTWDD-Today";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d1585622-2dd2-42f1-b99f-771ae6d06ec8";
-				PROVISIONING_PROFILE_SPECIFIER = "HTW Today Widget Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2108,7 +2124,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = HTWDD/HTWDD.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 3E4PGPNR47;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 726GWJGCL9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2117,10 +2134,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-Xfrontend -warn-long-function-bodies=250 $(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.htw-dresden.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.develappers.htw-dresden.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "23ac1ed9-d5ff-40dd-b6e6-65676b733551";
-				PROVISIONING_PROFILE_SPECIFIER = "HTW App Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HTWDD/Core/HTWDD-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
@@ -2138,7 +2155,8 @@
 				CODE_SIGN_ENTITLEMENTS = HTWDD/HTWDD.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = 3E4PGPNR47;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 726GWJGCL9;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2147,10 +2165,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "de.htw-dresden.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "de.develappers.htw-dresden.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4be22951-7cfe-4d20-b1f6-7e62e809c6ee";
-				PROVISIONING_PROFILE_SPECIFIER = "HTW App Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "HTWDD/Core/HTWDD-Bridging-Header.h";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = NO;
 				SWIFT_VERSION = 5.0;

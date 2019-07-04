@@ -15,7 +15,8 @@ class AppCoordinator: Coordinator {
 	private let tabBarController = TabBarController()
 
     var rootViewController: UIViewController {
-		return self.tabBarController
+        return self.tabBarController
+//        return self.rootNavigationController
 	}
     
     lazy var childCoordinators: [Coordinator] = [

@@ -11,9 +11,7 @@ import RxSwift
 import Moya
 
 // MARK: - Semester Planung
-struct SemesterPlaning: Identifiable, Codable {
-    
-    fileprivate static var bag = DisposeBag()
+struct SemesterPlaning: Codable {
     
     // MARK: - Semester Type
     enum SemeterType: String, Codable {
@@ -48,6 +46,7 @@ struct Period: Codable {
         do {
             return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
         } catch {
+            Log.error(error)
             return ""
         }
     }
@@ -56,6 +55,7 @@ struct Period: Codable {
         do {
             return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
         } catch {
+            Log.error(error)
             return ""
         }
     }
@@ -72,6 +72,7 @@ struct FreeDay: Codable {
         do {
             return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
         } catch {
+            Log.error(error)
             return ""
         }
     }
@@ -80,12 +81,8 @@ struct FreeDay: Codable {
         do {
             return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
         } catch {
+            Log.error(error)
             return ""
         }
     }
-}
-
-// MARK: - extensions
-extension SemesterPlaning {
-    static let url = "https://rubu2.rz.htw-dresden.de/API/v0/semesterplan.json"
 }
