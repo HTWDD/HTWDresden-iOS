@@ -81,7 +81,7 @@ class GradeDataSource: CollectionViewDataSource {
     func load() {
         self.loadingCount.accept(self.loadingCount.value + 1)
         guard let auth = self._auth else {
-            Log.info("Can't load grades if no authentication is provided. Abort…")
+            Log.warn("Can't load grades if no authentication is provided. Abort…")
             self.loadingCount.accept(self.loadingCount.value - 1)
             return
         }

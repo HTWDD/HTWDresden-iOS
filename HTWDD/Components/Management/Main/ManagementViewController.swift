@@ -18,47 +18,56 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     
     private var items = [Item]() {
         didSet {
-            self.tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
-        self.refreshControl = UIRefreshControl()
-        self.refreshControl?.addTarget(self, action: #selector(self.reload), for: .valueChanged)
-        self.refreshControl?.tintColor = .white
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
+        refreshControl?.tintColor = .white
 
         if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-            self.navigationItem.largeTitleDisplayMode = .automatic
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.largeTitleDisplayMode = .automatic
         }
         
-        self.title = R.string.localizable.managementTitle()
-        self.tableView.separatorStyle = .none
-        self.tableView.register(SemesterplaningViewCell.self)
-        self.tableView.register(StudenAdministrationViewCell.self)
-        self.tableView.register(PrincipalExamOfficeViewCell.self)
-        self.tableView.register(StuRaHTWViewCell.self)
-        self.tableView.backgroundColor = UIColor.htw.veryLightGrey
+        title = R.string.localizable.managementTitle()
+        tableView.separatorStyle = .none
+        tableView.register(SemesterplaningViewCell.self)
+        tableView.register(StudenAdministrationViewCell.self)
+        tableView.register(PrincipalExamOfficeViewCell.self)
+        tableView.register(StuRaHTWViewCell.self)
+        tableView.backgroundColor = UIColor.htw.veryLightGrey
         
-        context?.managementService.load(parameters: ())
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] items in
-                self?.items = items
-            }, onError: { (error) in
-            Log.error(error)
-        }).disposed(by: self.rx_disposeBag)
+      
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight    = 100
+        tableView.rowHeight             = UITableView.automaticDimension
+        load()
+    }
+    
+    fileprivate func load(_ refreshControl: UIRefreshControl? = nil) {
+        context?.managementService.load(parameters: ())
+            .observeOn(MainScheduler.instance)
+            .delay(DispatchTimeInterval.milliseconds(refreshControl == nil ? 5 : 500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] items in
+                guard let self = self else { return }
+                self.items = items
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250), execute: {
+                   refreshControl?.endRefreshing()
+                })
+            }, onError: { (error) in
+                Log.error(error)
+            }).disposed(by: self.rx_disposeBag)
     }
     
     @objc func reload() {
         Log.debug("reload")
-        self.refreshControl?.endRefreshing()
+        load(refreshControl)
     }
 }
 
@@ -67,7 +76,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
 extension ManagementViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
