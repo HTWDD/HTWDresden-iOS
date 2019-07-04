@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import Moya
+import RealmSwift
 
 // MARK: - Semester Planung
 struct SemesterPlaning: Codable {
@@ -84,5 +85,38 @@ struct FreeDay: Codable {
             Log.error(error)
             return ""
         }
+    }
+}
+
+
+// MARK: - Extension
+
+extension SemesterPlaning {
+    static func map(from object: SemesterPlaningRealm?) -> SemesterPlaning? {
+        guard let object = object else { return nil }
+        
+        return SemesterPlaning(year: object.year,
+                               type: SemesterPlaning.SemeterType(rawValue: object.type)!,
+                               period: Period.map(from: object.period!),
+                               freeDays: FreeDay.map(from: object.freeDays),
+                               lecturePeriod:  Period.map(from: object.lecturePeriod!),
+                               examsPeriod:  Period.map(from: object.examsPeriod!),
+                               reregistration:  Period.map(from: object.examsPeriod!))
+    }
+}
+
+extension Period {
+    static func map(from object: PeriodRealm) -> Period {
+        return Period(beginDay: object.beginDay, endDay: object.endDay)
+    }
+}
+
+extension FreeDay {
+    static func map(from objects: List<FreeDayRealm>) -> [FreeDay] {
+        return objects.map { convert(from: $0) }
+    }
+    
+    private static func convert(from object: FreeDayRealm) -> FreeDay {
+        return FreeDay(name: object.name, beginDay: object.beginDay, endDay: object.endDay)
     }
 }

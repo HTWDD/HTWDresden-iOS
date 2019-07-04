@@ -58,6 +58,7 @@ extension SemesterPlaningRealm {
                 model.period = PeriodRealm.map(from: codable.period)
                 
                 // Free Days
+                model.freeDays.removeAll()
                 codable.freeDays.forEach { freeDay in
                     model.freeDays.append(FreeDayRealm.map(from: freeDay))
                 }

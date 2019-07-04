@@ -9,6 +9,8 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RealmSwift
+import RxRealm
 
 
 class ManagementViewController: UITableViewController, HasSideBarItem {
@@ -40,13 +42,27 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
         tableView.register(PrincipalExamOfficeViewCell.self)
         tableView.register(StuRaHTWViewCell.self)
         tableView.backgroundColor = UIColor.htw.veryLightGrey
-        
-      
     }
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.estimatedRowHeight    = 100
         tableView.rowHeight             = UITableView.automaticDimension
+        
+        let realm = try! Realm()
+        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
+            Observable.from(object: rModel)
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] semesterplan in
+                    guard let self = self else { return }
+                    if self.items.count > 0 {
+                        if let sPlan = semesterplan.element, let newElement = SemesterPlaning.map(from: sPlan) {
+                            self.items[0] = Item.semesterPlan(model: newElement)
+                        }
+                    }
+                }
+                .disposed(by: rx_disposeBag)
+        }
+        
         load()
     }
     
@@ -66,11 +82,9 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     }
     
     @objc func reload() {
-        Log.debug("reload")
         load(refreshControl)
     }
 }
-
 
 // MARK: - TableView
 extension ManagementViewController {

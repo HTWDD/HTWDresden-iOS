@@ -20,6 +20,8 @@ enum Item {
 
 class ManagementService: Service {
     // MARK: - Properties
+    private var bag = DisposeBag()
+    
     var studentAdministration: URL? {
         return URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/studentensekretariat.html")
     }
@@ -36,7 +38,7 @@ class ManagementService: Service {
     
     // MARK: - Loading
     func load(parameters: ()) -> Observable<[Item]> {
-        
+        requestSemesterPlaning()
         return Observable.combineLatest(loadSemesterPlaning(),
                                         loadStudentAdminstration(),
                                         loadPrincipalOffice(),
@@ -45,7 +47,19 @@ class ManagementService: Service {
     
     // MARK: - Loading Stuff
     fileprivate func loadSemesterPlaning() -> Observable<[Item]> {
-        return apiService.getSemesterPlaning()
+        let realm = try! Realm()
+        
+        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
+            return Observable.from(optional: rModel)
+                .map {
+                    [Item.semesterPlan(model: SemesterPlaning.map(from: $0)!)]
+                }.catchErrorJustReturn([])
+        }
+        return Observable.empty()
+    }
+    
+    fileprivate func requestSemesterPlaning() {
+        apiService.getSemesterPlaning()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
@@ -54,15 +68,14 @@ class ManagementService: Service {
                         let startPeriod = try Date.from(string: $0.period.beginDay, format: dateFormat)
                         let endPeriod   = try Date.from(string: $0.period.endDay, format: dateFormat)
                         return Date().isBetween(startPeriod, and: endPeriod)
-//                        return true
                     } catch {
                         return false
                     }
-                }.map { model in
-                    SemesterPlaningRealm.save(from: model)
-                    return Item.semesterPlan(model: model)
-                }
-            }
+                }.first
+            }.subscribe { plan in
+                guard let sPlan = plan.element else { return }
+                SemesterPlaningRealm.save(from: sPlan)
+            }.disposed(by: bag)
     }
     
     fileprivate func loadStudentAdminstration() -> Observable<[Item]> {
