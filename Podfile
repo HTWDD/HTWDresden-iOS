@@ -24,6 +24,7 @@ def common_pods
 
   # Realm Database
   pod 'RealmSwift'
+  pod 'RxRealm'
 end
 
 target 'HTWDD' do
