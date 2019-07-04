@@ -43,14 +43,14 @@ extension SemesterPlaningRealm {
         
         let realm = try! Realm()
         
-        let semesterPlaningId = "\(codable.year) \(codable.type)".uid
-        let semesterPlaningRealm = realm.objects(SemesterPlaningRealm.self).filter { $0.id == semesterPlaningId }.first ?? SemesterPlaningRealm()
+        let id = "\(codable.year) \(codable.type)".uid
+        let realmModel = realm.objects(SemesterPlaningRealm.self).filter { $0.id == id }.first ?? SemesterPlaningRealm()
         
         try! realm.write {
             
             // Semesterplaning obj data setting
-            realm.add(semesterPlaningRealm.also { model in
-                model.id   = semesterPlaningId
+            realm.add(realmModel.also { model in
+                model.id   = id
                 model.year = codable.year
                 model.type = codable.type.rawValue
                 
