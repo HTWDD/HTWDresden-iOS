@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Marshal
 
-struct Lecture: Codable {
+struct Lecture {
 
     let rooms: [String]
     let weeks: Set<Int>?
@@ -30,7 +30,7 @@ struct Lecture: Codable {
             "StgGrp": group
         ]
 
-        return network.getArray(url: Lecture.url, params: parameters)
+        return network.getArrayM(url: Lecture.url, params: parameters)
     }
 
     static func groupByDay(lectures: [Lecture]) -> [Day: [Lecture]] {
@@ -78,4 +78,35 @@ extension Lecture: Unmarshaling {
         self.weeks = weeksOnly.map(Set.init)
     }
 
+}
+
+extension Lecture: Codable {
+    
+    private enum CodingKeys: String, CodingKey {
+        case tag = "lessonTag"
+        case name
+        case type
+        case day
+        case begin = "beginTime"
+        case end = "endTime"
+        case week
+        case weeks = "weeksOnly"
+        case professor
+        case rooms
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        tag         = try? container.decode(String.self, forKey: .tag)
+        name        = try container.decode(String.self, forKey: .name)
+        type        = try container.decode(String.self, forKey: .type)
+        day         = try container.decode(Day.self, forKey: .day)
+        begin       = (try? container.decode(DateComponents.self, forKey: .begin)) ?? DateComponents()
+        end         = (try? container.decode(DateComponents.self, forKey: .end)) ?? DateComponents()
+        week        = try container.decode(Week.self, forKey: .week)
+        weeks       = try? container.decode(Set<Int>.self, forKey: .weeks)
+        professor   = try? container.decode(String.self, forKey: .professor)
+        rooms       = try container.decode([String].self, forKey: .rooms)
+    }
+    
 }

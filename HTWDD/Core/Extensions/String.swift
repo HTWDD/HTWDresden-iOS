@@ -30,6 +30,10 @@ extension String {
         return NSLocalizedString(self, comment: comment)
     }
     
+    var urlEscaped: String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+    
     var uid: String {
         return md5()
             .enumerated()
