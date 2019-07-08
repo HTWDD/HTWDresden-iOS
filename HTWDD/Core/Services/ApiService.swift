@@ -45,8 +45,16 @@ fileprivate var stuRaHTWData: Data {
 // MARK: - API Service
 class ApiService {
     private lazy var provider: MoyaProvider<RestApi> = {
-       return MoyaProvider<RestApi>()
+        return MoyaProvider<RestApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
     }()
+    
+    // MARK: - TimeTable
+    func requestTimeTable(for year: String, major: String, group: String) -> Observable<[Lecture]> {
+        return provider.rx.request(.timeTable(year: year, major: major, group: group))
+            .filter(statusCodes: 200...299)
+            .asObservable()
+            .map { try $0.map([Lecture].self) }
+    }
     
     // MARK: - Management
     func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
