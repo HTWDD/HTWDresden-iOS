@@ -128,19 +128,13 @@ extension ManagementViewController {
         case .semesterPlan(_): break
             
         case .studenAdministation(_):
-            if let url = context.managementService.studentAdministration {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+            UIApplication.shared.open(context.managementService.studentAdministration, options: [:], completionHandler: nil)
             
         case .principalExamOffice(_):
-            if let url = context.managementService.principalExamOffice {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+            UIApplication.shared.open(context.managementService.principalExamOffice, options: [:], completionHandler: nil)
             
         case .stuRaHTW(_):
-            if let url = context.managementService.stuRaHTW {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
+            UIApplication.shared.open(context.managementService.stuRaHTW, options: [:], completionHandler: nil)
         }
     }
 }

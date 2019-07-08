@@ -22,17 +22,11 @@ class ManagementService: Service {
     // MARK: - Properties
     private var bag = DisposeBag()
     
-    var studentAdministration: URL? {
-        return URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/studentensekretariat.html")
-    }
+    let studentAdministration = URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/studentensekretariat.html")!
     
-    var principalExamOffice: URL? {
-        return URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/pruefungsamt.html")
-    }
+    let principalExamOffice = URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/pruefungsamt.html")!
     
-    var stuRaHTW: URL? {
-        return URL(string: "https://www.stura.htw-dresden.de")
-    }
+    let stuRaHTW = URL(string: "https://www.stura.htw-dresden.de")!
     
     // MARK: - Loading
     func load(parameters: ()) -> Observable<[Item]> {
