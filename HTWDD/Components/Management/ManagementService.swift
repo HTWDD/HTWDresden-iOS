@@ -28,6 +28,13 @@ class ManagementService: Service {
     
     let stuRaHTW = URL(string: "https://www.stura.htw-dresden.de")!
     
+    private let apiService: ApiService
+    
+    // MARK: - Lifecycle
+    init(apiService: ApiService) {
+        self.apiService = apiService
+    }
+    
     // MARK: - Loading
     func load(parameters: ()) -> Observable<[Item]> {
         requestSemesterPlaning()
@@ -51,7 +58,7 @@ class ManagementService: Service {
     }
     
     fileprivate func requestSemesterPlaning() {
-        ApiService.shared().getSemesterPlaning()
+        apiService.getSemesterPlaning()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
@@ -71,21 +78,21 @@ class ManagementService: Service {
     }
     
     fileprivate func loadStudentAdminstration() -> Observable<[Item]> {
-        return ApiService.shared().getStudentAdministration()
+        return apiService.getStudentAdministration()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.studenAdministation(model: $0)] }
     }
     
     fileprivate func loadPrincipalOffice() -> Observable<[Item]> {
-        return ApiService.shared().getPrincipalExamOffice()
+        return apiService.getPrincipalExamOffice()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.principalExamOffice(model: $0)] }
     }
     
     fileprivate func loadStuRaHTW() -> Observable<[Item]> {
-        return ApiService.shared().getStuRaHTW()
+        return apiService.getStuRaHTW()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.stuRaHTW(model: $0)] }
