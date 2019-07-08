@@ -34,8 +34,6 @@ class ManagementService: Service {
         return URL(string: "https://www.stura.htw-dresden.de")
     }
     
-    private let apiService = ApiService()
-    
     // MARK: - Loading
     func load(parameters: ()) -> Observable<[Item]> {
         requestSemesterPlaning()
@@ -59,7 +57,7 @@ class ManagementService: Service {
     }
     
     fileprivate func requestSemesterPlaning() {
-        apiService.getSemesterPlaning()
+        ApiService.shared().getSemesterPlaning()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
@@ -79,28 +77,24 @@ class ManagementService: Service {
     }
     
     fileprivate func loadStudentAdminstration() -> Observable<[Item]> {
-        return apiService.getStudentAdministration()
+        return ApiService.shared().getStudentAdministration()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.studenAdministation(model: $0)] }
     }
     
     fileprivate func loadPrincipalOffice() -> Observable<[Item]> {
-        return apiService.getPrincipalExamOffice()
+        return ApiService.shared().getPrincipalExamOffice()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.principalExamOffice(model: $0)] }
     }
     
     fileprivate func loadStuRaHTW() -> Observable<[Item]> {
-        return apiService.getStuRaHTW()
+        return ApiService.shared().getStuRaHTW()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.stuRaHTW(model: $0)] }
     }
 
-}
-
-extension ManagementService: HasManagement {
-    var managementService: ManagementService { return self }
 }

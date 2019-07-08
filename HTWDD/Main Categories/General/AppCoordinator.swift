@@ -187,7 +187,8 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
             onboarding?.rootViewController.dismiss(animated: true, completion: nil)
         }
         self.addChildCoordinator(onboarding)
-        self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
+        rootNavigationController.present(onboarding.rootViewController, animated: true, completion: nil)
+//        self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
     }
     
 }

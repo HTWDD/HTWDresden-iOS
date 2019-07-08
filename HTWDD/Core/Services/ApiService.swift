@@ -44,9 +44,22 @@ fileprivate var stuRaHTWData: Data {
 
 // MARK: - API Service
 class ApiService {
-    private lazy var provider: MoyaProvider<RestApi> = {
-        return MoyaProvider<RestApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    
+    // MARK: - Properties
+    private let provider: MoyaProvider<RestApi>
+    
+    private static var sharedApiService: ApiService = {
+        return ApiService()
     }()
+    
+    // MARK: - Lifecycle
+    private init() {
+        provider = MoyaProvider<RestApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
+    }
+    
+    class func shared() -> ApiService {
+        return sharedApiService
+    }
     
     // MARK: - TimeTable
     func requestTimeTable(for year: String, major: String, group: String) -> Observable<[Lecture]> {

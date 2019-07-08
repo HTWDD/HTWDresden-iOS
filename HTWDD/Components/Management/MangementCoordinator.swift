@@ -10,18 +10,21 @@ import Foundation
 
 class ManagementCoordinator: Coordinator {
     
+    // MARK: - Typealias
+    typealias Services = HasManagement & HasApiService
+    
     // MARK: - Properties
-    let context: HasManagement
-    var rootViewController: UIViewController { return self.managementVC }
+    let context: Services
+    var rootViewController: UIViewController { return managementViewController }
     var childCoordinators: [Coordinator] = []
-    private lazy var managementVC: ManagementViewController = {
-        let vc = UIStoryboard(name: "Management", bundle: nil).instantiateViewController(withIdentifier: "ManagementMainVC") as! ManagementViewController
-        vc.context = self.context
+    private lazy var managementViewController: ManagementViewController = {
+        let vc = R.storyboard.management.managementMainVC()!
+        vc.context = context
         return vc
     }()
     
     // MARK: - Lifecycle
-    init(context: HasManagement) {
+    init(context: Services) {
         self.context = context
     }
 }

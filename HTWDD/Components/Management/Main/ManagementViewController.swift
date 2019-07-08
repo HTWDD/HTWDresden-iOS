@@ -16,7 +16,7 @@ import RxRealm
 class ManagementViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
-    var context: HasManagement?
+    var context: HasManagement!
     
     private var items = [Item]() {
         didSet {
@@ -67,7 +67,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     }
     
     fileprivate func load(_ refreshControl: UIRefreshControl? = nil) {
-        context?.managementService.load(parameters: ())
+        context.managementService.load(parameters: ())
             .observeOn(MainScheduler.instance)
             .delay(DispatchTimeInterval.milliseconds(refreshControl == nil ? 5 : 500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] items in
@@ -126,17 +126,17 @@ extension ManagementViewController {
         case .semesterPlan(_): break
             
         case .studenAdministation(_):
-            if let url = context?.managementService.studentAdministration {
+            if let url = context.managementService.studentAdministration {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
             
         case .principalExamOffice(_):
-            if let url = context?.managementService.principalExamOffice {
+            if let url = context.managementService.principalExamOffice {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
             
         case .stuRaHTW(_):
-            if let url = context?.managementService.stuRaHTW {
+            if let url = context.managementService.stuRaHTW {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
