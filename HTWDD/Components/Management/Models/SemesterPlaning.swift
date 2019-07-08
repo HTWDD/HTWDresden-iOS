@@ -94,14 +94,22 @@ struct FreeDay: Codable {
 extension SemesterPlaning {
     static func map(from object: SemesterPlaningRealm?) -> SemesterPlaning? {
         guard let object = object else { return nil }
-        
-        return SemesterPlaning(year: object.year,
-                               type: SemesterPlaning.SemeterType(rawValue: object.type)!,
-                               period: Period.map(from: object.period!),
-                               freeDays: FreeDay.map(from: object.freeDays),
-                               lecturePeriod:  Period.map(from: object.lecturePeriod!),
-                               examsPeriod:  Period.map(from: object.examsPeriod!),
-                               reregistration:  Period.map(from: object.examsPeriod!))
+        if let type = SemesterPlaning.SemeterType(rawValue: object.type),
+            let sPeriod = object.period,
+            let lPeriod = object.lecturePeriod,
+            let ePeriod = object.examsPeriod,
+            let rPeriod = object.reregistration {
+            
+            return SemesterPlaning(year: object.year,
+                                   type: type,
+                                   period: Period.map(from: sPeriod),
+                                   freeDays: FreeDay.map(from: object.freeDays),
+                                   lecturePeriod:  Period.map(from: lPeriod),
+                                   examsPeriod:  Period.map(from: ePeriod),
+                                   reregistration:  Period.map(from: rPeriod))
+        } else {
+           return nil
+        }
     }
 }
 
