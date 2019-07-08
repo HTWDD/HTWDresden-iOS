@@ -64,10 +64,6 @@ class OnboardStudygroupSelectionController<Data: Identifiable>: CollectionViewCo
     
     // MARK: - View Controller Lifecyle
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .default
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }

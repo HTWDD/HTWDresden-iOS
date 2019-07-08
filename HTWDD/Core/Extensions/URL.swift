@@ -15,6 +15,7 @@ enum CoordinatorRoute: String {
     case grades
     case canteen
     case settings
+    case management
 }
 
 extension HTWNamespace where Base == URL {

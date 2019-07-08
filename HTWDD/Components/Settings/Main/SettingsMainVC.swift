@@ -21,7 +21,7 @@ protocol SettingsMainVCDelegate: class {
     func composeMail()
 }
 
-class SettingsMainVC: TableViewController {
+class SettingsMainVC: TableViewController, HasSideBarItem {
 	
     var scheduleAuth: ScheduleService.Auth? {
         didSet {
@@ -133,15 +133,9 @@ class SettingsMainVC: TableViewController {
 		self.title = Loca.Settings.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Settings")
         
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
-        
         self.configure()
 	}
 	
-    @objc fileprivate func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
     
     // MARK: - ViewController lifecycle
     
@@ -156,9 +150,6 @@ class SettingsMainVC: TableViewController {
         self.tableView.tableFooterView = self.footerView
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     // MARK: - Private
     

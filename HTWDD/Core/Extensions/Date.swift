@@ -83,5 +83,15 @@ extension Date {
         let mine = cal.dateComponents([.day, .month, .year], from: self)
         return mine == other
     }
-
+    
+    func isBetween(_ startDate: Date, and endDate: Date) -> Bool {
+        return (min(startDate, endDate) ... max(startDate, endDate)).contains(self)
+    }
+    
+    var localized: String {
+        let df          = DateFormatter()
+        df.dateFormat   = R.string.localizable.managementSemesterPeriodsFormat()
+        df.locale       = Locale.current
+        return df.string(from: self)
+    }
 }

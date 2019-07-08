@@ -8,10 +8,11 @@
 
 import Foundation
 import RxSwift
-import Marshal
+import Moya
+import RealmSwift
 
 // MARK: - Semester Planung
-struct SemesterPlaning: Identifiable, Codable {
+struct SemesterPlaning: Codable {
     
     // MARK: - Semester Type
     enum SemeterType: String, Codable {
@@ -34,16 +35,31 @@ struct SemesterPlaning: Identifiable, Codable {
     let lecturePeriod: Period
     let examsPeriod: Period
     let reregistration: Period
-    
-    static func get(network: Network) -> Observable<[SemesterPlaning]> {
-        return network.getArray(url: SemesterPlaning.url)
-    }
 }
 
 // MARK: - Period
 struct Period: Codable {
     let beginDay: String
     let endDay: String
+    
+    // MARK: - Formated Dates
+    var beginDayFormated: String {
+        do {
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+        } catch {
+            Log.error(error)
+            return ""
+        }
+    }
+    
+    var endDayFormated: String {
+        do {
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+        } catch {
+            Log.error(error)
+            return ""
+        }
+    }
 }
 
 // MARK: - FreeDay
@@ -51,9 +67,64 @@ struct FreeDay: Codable {
     let name: String
     let beginDay: String
     let endDay: String
+    
+    // MARK: - Formated Dates
+    var beginDayFormated: String {
+        do {
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+        } catch {
+            Log.error(error)
+            return ""
+        }
+    }
+    
+    var endDayFormated: String {
+        do {
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+        } catch {
+            Log.error(error)
+            return ""
+        }
+    }
 }
 
-// MARK: - extensions
+
+// MARK: - Extension
+
 extension SemesterPlaning {
-    static let url = "https://rubu2.rz.htw-dresden.de/API/v0/semesterplan.json"
+    static func map(from object: SemesterPlaningRealm?) -> SemesterPlaning? {
+        guard let object = object else { return nil }
+        if let type = SemesterPlaning.SemeterType(rawValue: object.type),
+            let sPeriod = object.period,
+            let lPeriod = object.lecturePeriod,
+            let ePeriod = object.examsPeriod,
+            let rPeriod = object.reregistration {
+            
+            return SemesterPlaning(year: object.year,
+                                   type: type,
+                                   period: Period.map(from: sPeriod),
+                                   freeDays: FreeDay.map(from: object.freeDays),
+                                   lecturePeriod:  Period.map(from: lPeriod),
+                                   examsPeriod:  Period.map(from: ePeriod),
+                                   reregistration:  Period.map(from: rPeriod))
+        } else {
+           return nil
+        }
+    }
+}
+
+extension Period {
+    static func map(from object: PeriodRealm) -> Period {
+        return Period(beginDay: object.beginDay, endDay: object.endDay)
+    }
+}
+
+extension FreeDay {
+    static func map(from objects: List<FreeDayRealm>) -> [FreeDay] {
+        return objects.map { convert(from: $0) }
+    }
+    
+    private static func convert(from object: FreeDayRealm) -> FreeDay {
+        return FreeDay(name: object.name, beginDay: object.beginDay, endDay: object.endDay)
+    }
 }

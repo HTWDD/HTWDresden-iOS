@@ -76,6 +76,8 @@ class SideMenuViewController: ViewController {
             coordinator?.goTo(controller: .canteen)
         case settingsMenuButton:
             coordinator?.goTo(controller: .settings)
+        case managementMenuButton:
+            coordinator?.goTo(controller: .management)
         default:
             break
         }

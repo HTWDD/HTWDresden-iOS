@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="367" id="KGk-i7-Jjw" customClass="PrincipalExamOfficeViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="366.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zentrales Prüfungsamt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWo-xR-6qb">
+                        <rect key="frame" x="16" y="16" width="288" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Z 223, Z 224" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO1-di-oye">
+                        <rect key="frame" x="16" y="45" width="288" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oiO-kR-gkR">
+                        <rect key="frame" x="16" y="74" width="288" height="276.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Sy4-m5-YNT">
+                                <rect key="frame" x="8" y="8" width="272" height="276.5"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Sy4-m5-YNT" secondAttribute="trailing" constant="8" id="0hN-0F-kUF"/>
+                            <constraint firstItem="Sy4-m5-YNT" firstAttribute="leading" secondItem="oiO-kR-gkR" secondAttribute="leading" constant="8" id="5cs-IT-4qj"/>
+                            <constraint firstItem="Sy4-m5-YNT" firstAttribute="top" secondItem="oiO-kR-gkR" secondAttribute="top" constant="8" id="K0b-GW-5Xo"/>
+                            <constraint firstAttribute="height" secondItem="Sy4-m5-YNT" secondAttribute="height" id="P4T-Fi-mSi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iWo-xR-6qb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1pM-zF-Gze"/>
+                    <constraint firstItem="iWo-xR-6qb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="38v-k8-bOY"/>
+                    <constraint firstItem="JO1-di-oye" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="3fW-ej-jd2"/>
+                    <constraint firstItem="oiO-kR-gkR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="BZY-LZ-NRV"/>
+                    <constraint firstItem="JO1-di-oye" firstAttribute="top" secondItem="iWo-xR-6qb" secondAttribute="bottom" constant="-1" id="CTI-hR-m5t"/>
+                    <constraint firstItem="oiO-kR-gkR" firstAttribute="top" secondItem="JO1-di-oye" secondAttribute="bottom" constant="8" id="TIe-Lb-M08"/>
+                    <constraint firstAttribute="trailing" secondItem="oiO-kR-gkR" secondAttribute="trailing" constant="16" id="ge3-cS-BYa"/>
+                    <constraint firstAttribute="trailing" secondItem="iWo-xR-6qb" secondAttribute="trailing" constant="16" id="tBn-oo-0gC"/>
+                    <constraint firstAttribute="trailing" secondItem="JO1-di-oye" secondAttribute="trailing" constant="16" id="umF-Xa-avt"/>
+                    <constraint firstAttribute="bottom" secondItem="oiO-kR-gkR" secondAttribute="bottom" constant="16" id="vPH-NW-ZG5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblSubtitle" destination="JO1-di-oye" id="8XL-Ei-7Ty"/>
+                <outlet property="lblTitle" destination="iWo-xR-6qb" id="hkA-cP-9bM"/>
+                <outlet property="main" destination="oiO-kR-gkR" id="l0F-S8-PEI"/>
+                <outlet property="stackContent" destination="Sy4-m5-YNT" id="JSN-Nv-f73"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="203.23660714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

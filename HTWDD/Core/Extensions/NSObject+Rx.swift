@@ -3,6 +3,7 @@
 import Foundation
 import RxSwift
 import ObjectiveC
+import RealmSwift
 
 public extension NSObject {
     private struct AssociatedKeys {

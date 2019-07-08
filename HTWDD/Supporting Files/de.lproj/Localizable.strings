@@ -135,6 +135,16 @@
 "Grades.noResults.title"="Keine Noten";
 "Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
 
-"Management.title"="Verwaltung";
-"Management.semester.summer"="Sommersemeter";
-"Management.semester.winter"="Wintersemester";
+"Management.title" = "Verwaltung";
+"Management.semester.summer" = "Sommersemester";
+"Management.semester.winter" = "Wintersemester";
+"Management.semester.periods.format" = "dd.MM.yyyy";
+"Management.semester.periods.lectures" = "Lehrveranstaltungen";
+"Management.semester.periods.freedays" = "Unterbrechungen der Lehrveranstaltungen";
+"Management.semester.periods.exams" = "Prüfungsabschnitt";
+"Management.semester.periods.reregistration" = "Rückmeldung";
+"Management.student.administration" = "Studentensekretariat";
+"Management.student.administration.offered.services" = "Leistungsangebot";
+"Management.student.administration.opening.hours" = "Sprechzeiten";
+"Management.student.administration.opening.times" = "%@ - %@ Uhr";
+"Management.student.administration.principal.exam.office" = "Zentrales Prüfungsamt";

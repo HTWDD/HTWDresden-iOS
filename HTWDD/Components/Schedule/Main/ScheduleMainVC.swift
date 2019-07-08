@@ -27,7 +27,7 @@ private enum ScheduleLayoutStyle: Int {
     static let cachingKey = "\(ScheduleLayoutStyle.self)_cache"
 }
 
-final class ScheduleMainVC: ViewController {
+final class ScheduleMainVC: ViewController, HasSideBarItem {
 
 	// MARK: - Properties
 
@@ -164,9 +164,6 @@ final class ScheduleMainVC: ViewController {
         self.currentScheduleVC?.jumpToToday(animated: animated)
     }
     
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 }
 
 extension ScheduleMainVC: TabbarChildViewController {

@@ -18,7 +18,7 @@ struct Course: Codable {
     let stgTxt: String
 
     static func get(network: Network) -> Observable<[Course]> {
-        return network.getArray(url: Course.url)
+        return network.getArrayM(url: Course.url)
     }
 
 }

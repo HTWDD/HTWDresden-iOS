@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class GradeDataSource: CollectionViewDataSource {
 
@@ -31,7 +32,7 @@ class GradeDataSource: CollectionViewDataSource {
     }
     private let service: GradeService
     private let disposeBag = DisposeBag()
-    private let loadingCount = Variable(0)
+    private let loadingCount = BehaviorRelay(value: 0)
     
     lazy var loading = self.loadingCount
         .asObservable()
@@ -78,10 +79,10 @@ class GradeDataSource: CollectionViewDataSource {
     }
 
     func load() {
-        self.loadingCount.value += 1
+        self.loadingCount.accept(self.loadingCount.value + 1)
         guard let auth = self._auth else {
-            Log.info("Can't load grades if no authentication is provided. Abort…")
-            self.loadingCount.value -= 1
+            Log.warn("Can't load grades if no authentication is provided. Abort…")
+            self.loadingCount.accept(self.loadingCount.value - 1)
             return
         }
 
@@ -89,10 +90,12 @@ class GradeDataSource: CollectionViewDataSource {
             .load(parameters: auth)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] semesters in
-                    self?.semesters = semesters
-                    self?.loadingCount.value -= 1
+                guard let self = self else { return }
+                self.semesters = semesters
+                self.loadingCount.accept(self.loadingCount.value - 1)
                 }, onError: { [weak self] _ in
-                    self?.loadingCount.value -= 1
+                    guard let self = self else { return }
+                    self.loadingCount.accept(self.loadingCount.value - 1)
                 })
             .disposed(by: self.disposeBag)
     }

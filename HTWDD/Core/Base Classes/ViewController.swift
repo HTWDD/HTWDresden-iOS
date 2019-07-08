@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-	init() {
+    
+    init() {
 		super.init(nibName: nil, bundle: nil)
 		self.initialSetup()
 	}
@@ -25,9 +25,9 @@ class ViewController: UIViewController {
 		self.initialSetup()
 	}
 
-	func initialSetup() {
-		// Intentionally left empty
-	}
+    func initialSetup() {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

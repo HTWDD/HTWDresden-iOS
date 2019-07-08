@@ -4,11 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.htw-dresden.ios</string>
+		<string>group.develappers.htw-dresden.ios</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>3E4PGPNR47.keychain-group</string>
+		<string>$(AppIdentifierPrefix)de.develappers.htw-dresden.ios.HTWDD-Today</string>
 	</array>
 </dict>
 </plist>

@@ -67,7 +67,6 @@ extension DateComponents {
         copy.second = copy.second ?? 0 - seconds
         return copy
     }
-
 }
 
 extension DateComponents: ValueType {
@@ -82,7 +81,6 @@ extension DateComponents: ValueType {
         }
         return components
     }
-
 }
 
 extension DateComponents: Comparable {
@@ -113,6 +111,4 @@ extension DateComponents: Comparable {
         
         return true
     }
-    
-    
 }

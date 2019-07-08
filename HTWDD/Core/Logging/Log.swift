@@ -15,23 +15,23 @@ final class Log {
     }
 
     static func error(_ error: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("‼️", additionalInformation(file, line, callerFunction), error())
+        print("❤️", additionalInformation(file, line, callerFunction), error(), "\n")
     }
 
     static func info(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("ℹ️", additionalInformation(file, line, callerFunction), text())
+        print("💚", additionalInformation(file, line, callerFunction), text(), "\n")
     }
     
     static func verbose(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("0️⃣", additionalInformation(file, line, callerFunction), text())
+        print("💜", additionalInformation(file, line, callerFunction), text(), "\n")
     }
     
     static func debug(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("❇️", additionalInformation(file, line, callerFunction), text())
+        print("💙", additionalInformation(file, line, callerFunction), text(), "\n")
     }
     
     static func warn(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("⚠️", additionalInformation(file, line, callerFunction), text())
+        print("💛", additionalInformation(file, line, callerFunction), text(), "\n")
     }
 
     static func typeAsString(_ obj: Any) -> String {

@@ -135,6 +135,16 @@
 "Grades.noResults.title"="No grades";
 "Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
 
-"Management.title"="Management";
-"Management.semester.summer"="Summer semester";
-"Management.semester.winter"="Winter semester";
+"Management.title" = "Management";
+"Management.semester.summer" = "Summer semester";
+"Management.semester.winter" = "Winter semester";
+"Management.semester.periods.format" = "MM/dd/yyyy";
+"Management.semester.periods.lectures" = "Lecture period";
+"Management.semester.periods.freedays" = "No lecture courses on official holidays";
+"Management.semester.periods.exams" = "Examination period";
+"Management.semester.periods.reregistration" = "Re-registration";
+"Management.student.administration" = "Student administration";
+"Management.student.administration.offered.services" = "Offered services";
+"Management.student.administration.opening.hours" = "Office hours";
+"Management.student.administration.opening.times" = "%@ to %@";
+"Management.student.administration.principal.exam.office" = "Principal exam office";

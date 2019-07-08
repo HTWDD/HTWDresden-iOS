@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SideMenu
 
-class ExamsMainVC: CollectionViewController {
+class ExamsMainVC: CollectionViewController, HasSideBarItem {
     
     enum Const {
         static let margin: CGFloat = 15
@@ -41,12 +41,7 @@ class ExamsMainVC: CollectionViewController {
     
     override func initialSetup() {
         super.initialSetup()
-        
         self.title = Loca.Exams.title
-		self.tabBarItem.image = #imageLiteral(resourceName: "Exams")
-        
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
     }
 	
 	// MARK: - ViewController lifecycle
@@ -79,7 +74,7 @@ class ExamsMainVC: CollectionViewController {
             .disposed(by: self.rx_disposeBag)
         
         notLoading
-            .delay(0.5, scheduler: MainScheduler.instance)
+            .delay(DispatchTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.refreshControl.endRefreshing()
                 self?.setLoading(false)
@@ -98,13 +93,6 @@ class ExamsMainVC: CollectionViewController {
         self.dataSource.load()
     }
     
-    @objc func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 	
 }
 

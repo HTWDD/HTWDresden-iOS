@@ -1,0 +1,39 @@
+{
+    "offeredServices": [
+        "Beratung zu Prüfungen",
+        "Referat Sport",
+        "Informationen zu und Vermittlung von Angeboten zur Beratung",
+        "Ausstellung der ISIC-Ausweis",
+        "Gruppenausweis für Jugendherbergen",
+        "🥳 Party's"
+    ],
+    "officeHours": [
+        {
+            "day": "Mo",
+            "times": [
+                {
+                    "begin": "10:30",
+                    "end": "15:00"
+                }
+            ]
+        },
+        {
+            "day": "Di",
+            "times": [
+                {
+                    "begin": "09:00",
+                    "end": "15:00"
+                }
+            ]
+        },
+        {
+            "day": "Do",
+            "times": [
+                {
+                    "begin": "10:30",
+                    "end": "15:00"
+                }
+            ]
+        }
+    ]
+}

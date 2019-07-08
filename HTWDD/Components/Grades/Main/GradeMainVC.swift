@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import SideMenu
 
-class GradeMainVC: CollectionViewController {
+class GradeMainVC: CollectionViewController, HasSideBarItem {
 
     enum Const {
         static let margin: CGFloat = 10
@@ -46,15 +46,8 @@ class GradeMainVC: CollectionViewController {
         super.initialSetup()
         self.title = Loca.Grades.title
 		self.tabBarItem.image = #imageLiteral(resourceName: "Grade")
-        
-        let hamburgerButton = UIBarButtonItem(image: #imageLiteral(resourceName: "Hamburger"), style: .plain, target: self, action: #selector(self.openSideMenu))
-        self.navigationItem.leftBarButtonItem = hamburgerButton
     }
     
-    @objc fileprivate func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
-    }
-
 	// MARK: - ViewController lifecycle
 
     override func viewDidLoad() {
@@ -112,7 +105,7 @@ class GradeMainVC: CollectionViewController {
             .disposed(by: self.rx_disposeBag)
         
         notLoading
-            .delay(0.5, scheduler: MainScheduler.instance)
+            .delay(DispatchTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.refreshControl.endRefreshing()
                 self?.setLoading(false)
@@ -171,9 +164,6 @@ class GradeMainVC: CollectionViewController {
         newCell?.updatedExpanded(true)
     }
 	
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 
 }
 

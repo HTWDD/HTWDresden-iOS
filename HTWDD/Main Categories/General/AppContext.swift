@@ -36,11 +36,16 @@ protocol HasManagement {
     var managementService: ManagementService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement {
-    let scheduleService     = ScheduleService()
-	let examsService        = ExamsService()
-	let gradeService        = GradeService()
-    let canteenService      = CanteenService()
-	let settingsService     = SettingsService()
-    let managementService   = ManagementService()
+protocol HasApiService {
+    var apiService: ApiService { get }
+}
+
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement, HasApiService {
+    lazy var scheduleService    = ScheduleService()
+	lazy var examsService       = ExamsService()
+	lazy var gradeService       = GradeService()
+    lazy var canteenService     = CanteenService()
+	lazy var settingsService    = SettingsService()
+    lazy var apiService         = ApiService.shared()
+    lazy var managementService  = ManagementService(apiService: self.apiService)
 }

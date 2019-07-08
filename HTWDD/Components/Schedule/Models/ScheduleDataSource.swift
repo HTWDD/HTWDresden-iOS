@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 protocol ScheduleDataSourceDelegate: class {
     func scheduleDataSourceHasFinishedLoading()
@@ -76,7 +77,7 @@ class ScheduleDataSource: CollectionViewDataSource {
 
     private(set) var indexPathOfToday: IndexPath?
 
-    private let loadingCount = Variable(0)
+    private let loadingCount = BehaviorRelay(value: 0)
     
     lazy var loading = self.loadingCount
         .asObservable()
@@ -91,23 +92,25 @@ class ScheduleDataSource: CollectionViewDataSource {
     }
 
 	func load() {
-        self.loadingCount.value += 1
+        self.loadingCount.accept(self.loadingCount.value + 1)
         guard let auth = self.auth else {
-            Log.info("Can't load schedule if no authentication is provided. Abort…")
-			self.loadingCount.value -= 1
+            Log.warn("Can't load schedule if no authentication is provided. Abort…")
+			self.loadingCount.accept(self.loadingCount.value - 1)
 			return
         }
 
 		self.service.load(parameters: auth)
 			.observeOn(MainScheduler.instance)
 			.subscribe(onNext: { [weak self] information in
-				self?.lectures = information.lectures
-				self?.semesterInformations = information.semesters
-                self?.invalidate()
-				self?.delegate?.scheduleDataSourceHasFinishedLoading()
-				self?.loadingCount.value -= 1
+                guard let self = self else { return }
+                self.lectures = information.lectures
+				self.semesterInformations = information.semesters
+                self.invalidate()
+				self.delegate?.scheduleDataSourceHasFinishedLoading()
+				self.loadingCount.accept(self.loadingCount.value - 1)
 				}, onError: { [weak self] _ in
-					self?.loadingCount.value -= 1
+                    guard let self = self else { return }
+                    self.loadingCount.accept(self.loadingCount.value - 1)
 			}).disposed(by: self.disposeBag)
 	}
     

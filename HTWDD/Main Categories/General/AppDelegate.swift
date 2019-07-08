@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.saveAppVersion()
 
+        realmConfiguration()
+        
         return true
     }
     
@@ -54,4 +57,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if #available(iOS 11.0, *) { UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white] }
 	}
 
+}
+
+// MARK: - Realm
+extension AppDelegate {
+    
+    func realmConfiguration() {
+        let config = Realm.Configuration(
+            schemaVersion: 2,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
+        let _ = try! Realm()
+    }
+    
 }

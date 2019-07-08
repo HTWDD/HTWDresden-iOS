@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import var CommonCrypto.CC_MD5_DIGEST_LENGTH
+import func CommonCrypto.CC_MD5
+import typealias CommonCrypto.CC_LONG
 
 extension String {
 
@@ -26,8 +29,42 @@ extension String {
     func localized(with comment: String) -> String {
         return NSLocalizedString(self, comment: comment)
     }
+    
+    var urlEscaped: String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
+    
+    var uid: String {
+        return md5()
+            .enumerated()
+            .compactMap {
+                if $0.offset % 4 == 0 && $0.offset != 0 {
+                    return String(format: "%02hhx-", $0.element)
+                } else {
+                    return String(format: "%02hhx", $0.element)
+                }
+            }.joined()
+    }
+    
+    fileprivate func md5() -> Data {
+        let length      = Int(CC_MD5_DIGEST_LENGTH)
+        let messageData = self.data(using: .utf8)!
+        var digestData  = Data(count: length)
+        
+        _ = digestData.withUnsafeMutableBytes { digestBytes -> UInt8 in
+            messageData.withUnsafeBytes { messageBytes -> UInt8 in
+                if let messageBytesBaseAddress = messageBytes.baseAddress, let digestBytesBlindMemory = digestBytes.bindMemory(to: UInt8.self).baseAddress {
+                    let messageLength = CC_LONG(messageData.count)
+                    CC_MD5(messageBytesBaseAddress, messageLength, digestBytesBlindMemory)
+                }
+                return 0
+            }
+        }
+        return digestData
+    }
+    
 }
 
 enum Constants {
-	static let groupID = "group.htw-dresden.ios"
+	static let groupID = "group.develappers.htw-dresden.ios"
 }

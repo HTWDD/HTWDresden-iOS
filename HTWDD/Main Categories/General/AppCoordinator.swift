@@ -14,17 +14,19 @@ class AppCoordinator: Coordinator {
 	private var window: UIWindow
 	private let tabBarController = TabBarController()
 
-	lazy var childCoordinators: [Coordinator] = [
+    var rootViewController: UIViewController {
+        return self.tabBarController
+//        return self.rootNavigationController
+	}
+    
+    lazy var childCoordinators: [Coordinator] = [
         self.schedule,
-		self.exams,
+        self.exams,
         self.grades,
         self.canteen,
-		self.settings
+        self.settings,
+        self.management
     ]
-
-	var rootViewController: UIViewController {
-		return self.tabBarController
-	}
     
     private let navigationController: UINavigationController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "MainNavigation") as! SideMenuContainerNavigationController
     var rootNavigationController: SideMenuContainerNavigationController {
@@ -39,6 +41,7 @@ class AppCoordinator: Coordinator {
 	private lazy var grades     = GradeCoordinator(context: self.appContext)
     private lazy var canteen    = CanteenCoordinator(context: self.appContext)
     private lazy var settings   = SettingsCoordinator(context: self.appContext, delegate: self)
+    private lazy var management = ManagementCoordinator(context: self.appContext)
 
     private let disposeBag = DisposeBag()
     
@@ -184,7 +187,8 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
             onboarding?.rootViewController.dismiss(animated: true, completion: nil)
         }
         self.addChildCoordinator(onboarding)
-        self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
+        rootNavigationController.present(onboarding.rootViewController, animated: true, completion: nil)
+//        self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
     }
     
 }
@@ -208,6 +212,8 @@ extension AppCoordinator {
             viewController = self.canteen.rootViewController
         case .settings:
             viewController = self.settings.rootViewController
+        case .management:
+            viewController = self.management.rootViewController
         }
         
         if self.rootNavigationController.viewControllers.contains(viewController) {
