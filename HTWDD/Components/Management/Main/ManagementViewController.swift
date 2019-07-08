@@ -26,6 +26,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
+        super.viewDidLoad()
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
         refreshControl?.tintColor = .white
@@ -45,6 +46,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         tableView.estimatedRowHeight    = 100
         tableView.rowHeight             = UITableView.automaticDimension
         
