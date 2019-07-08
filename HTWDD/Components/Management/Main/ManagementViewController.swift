@@ -49,22 +49,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
         super.viewDidAppear(animated)
         tableView.estimatedRowHeight    = 100
         tableView.rowHeight             = UITableView.automaticDimension
-        
-        let realm = try! Realm()
-        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
-            Observable.from(object: rModel)
-                .observeOn(MainScheduler.instance)
-                .subscribe { [weak self] semesterplan in
-                    guard let self = self else { return }
-                    if self.items.count > 0 {
-                        if let sPlan = semesterplan.element, let newElement = SemesterPlaning.map(from: sPlan) {
-                            self.items[0] = Item.semesterPlan(model: newElement)
-                        }
-                    }
-                }
-                .disposed(by: rx_disposeBag)
-        }
-        
+        observeSemesterPlaning()
         load()
     }
     
@@ -137,4 +122,25 @@ extension ManagementViewController {
             UIApplication.shared.open(context.managementService.stuRaHTW, options: [:], completionHandler: nil)
         }
     }
+}
+
+extension ManagementViewController {
+    
+    private func observeSemesterPlaning() {
+        let realm = try! Realm()
+        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
+            Observable.from(object: rModel)
+                .observeOn(MainScheduler.instance)
+                .subscribe { [weak self] semesterplan in
+                    guard let self = self else { return }
+                    if self.items.count > 0 {
+                        if let sPlan = semesterplan.element, let newElement = SemesterPlaning.map(from: sPlan) {
+                            self.items[0] = Item.semesterPlan(model: newElement)
+                        }
+                    }
+                }
+                .disposed(by: rx_disposeBag)
+        }
+    }
+    
 }
