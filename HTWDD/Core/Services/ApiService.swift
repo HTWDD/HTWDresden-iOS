@@ -46,24 +46,23 @@ fileprivate var stuRaHTWData: Data {
 class ApiService {
     
     // MARK: - Properties
-    private let provider: MoyaProvider<RestApi>
+    private let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true, cURL: true)])
     
     private static var sharedApiService: ApiService = {
         return ApiService()
     }()
     
-    // MARK: - Lifecycle
-    private init() {
-        provider = MoyaProvider<RestApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
-    }
-    
+    // MARK: Shared Instance
     class func shared() -> ApiService {
         return sharedApiService
     }
-    
+}
+
+// MARK: - HTW - Rest
+extension ApiService {
     // MARK: - TimeTable
     func requestTimeTable(for year: String, major: String, group: String) -> Observable<[Lecture]> {
-        return provider.rx.request(.timeTable(year: year, major: major, group: group))
+        return provider.rx.request(MultiTarget(HTWRestApi.timeTable(year: year, major: major, group: group)))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([Lecture].self) }
@@ -71,7 +70,7 @@ class ApiService {
     
     // MARK: - Management
     func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
-        return provider.rx.request(.semesterPlaning)
+        return provider.rx.request(MultiTarget(HTWRestApi.semesterPlaning))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([SemesterPlaning].self) }
@@ -86,7 +85,7 @@ class ApiService {
                 observer.onError(error)
             }
             return Disposables.create()
-        }.asSingle()
+            }.asSingle()
     }
     
     func getPrincipalExamOffice() -> Single<PrincipalExamOffice> {
@@ -98,7 +97,7 @@ class ApiService {
                 observer.onError(error)
             }
             return Disposables.create()
-        }.asSingle()
+            }.asSingle()
     }
     
     func getStuRaHTW() -> Single<StuRaHTW> {
@@ -110,6 +109,35 @@ class ApiService {
                 observer.onError(error)
             }
             return Disposables.create()
-        }.asSingle()
+            }.asSingle()
     }
+}
+
+
+// MARK: - OpenMensa - Rest
+extension ApiService {
+    
+    func requestCanteens(latitude: Double = 51.058583, longitude: Double = 13.738208, distance: Int = 20) -> Single<[Canteens]> {
+        return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Canteens].self) }
+    }
+    
+//    func requestCanteenDetails(id: Int) -> Single<[Meal]> {
+//        return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
+//            .filter(statusCodes: 200...299)
+//            .map { try $0.map([Canteens].self) }
+//    }
+//
+//    func blub() {
+//        return requestCanteens().asObservable()
+//            .flatMap { canteens -> Observable<[Meal]> in
+//                let requests = canteens.map { [unowned self] canteen in self.requestCanteenDetails(id: canteen.id).asObservable() }
+//
+//                return Observable
+//                    .combineLatest(requests).take(1)
+//        }
+//    }
+    
 }

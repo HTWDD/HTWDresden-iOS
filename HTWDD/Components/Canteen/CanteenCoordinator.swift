@@ -9,15 +9,21 @@
 import UIKit
 
 class CanteenCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Services = HasCanteen & HasApiService
     
     // MARK: - Properties
-    let context: HasCanteen
-    var rootViewController: UIViewController { return self.canteenMainVC }
+    let context: Services
+    var rootViewController: UIViewController { return canteenViewController }
     var childCoordinators: [Coordinator] = []
-    private lazy var canteenMainVC = CanteenMainVC(context: self.context)
-
+    private lazy var canteenViewController: CanteenViewController = {
+        return R.storyboard.canteen.canteenViewController()!.also {
+            $0.context = context
+        }
+    }()
+    
     // MARK: Lifecycle
-    init(context: HasCanteen) {
+    init(context: Services) {
         self.context = context
     }
 }

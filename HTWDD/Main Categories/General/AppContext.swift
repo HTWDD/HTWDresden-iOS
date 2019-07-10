@@ -44,8 +44,9 @@ class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasM
     lazy var scheduleService    = ScheduleService()
 	lazy var examsService       = ExamsService()
 	lazy var gradeService       = GradeService()
-    lazy var canteenService     = CanteenService()
+    lazy var canteenService     = CanteenService(apiService: self.apiService)
 	lazy var settingsService    = SettingsService()
     lazy var apiService         = ApiService.shared()
     lazy var managementService  = ManagementService(apiService: self.apiService)
 }
+

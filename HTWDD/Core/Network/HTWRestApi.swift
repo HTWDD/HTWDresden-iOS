@@ -10,13 +10,13 @@ import Foundation
 import Moya
 
 // MARK: - Endpoints
-enum RestApi {
+enum HTWRestApi {
     case timeTable(year: String, major: String, group: String)
     case semesterPlaning
 }
 
 // MARK: - Endpoint Handling
-extension RestApi: TargetType {
+extension HTWRestApi: TargetType {
     var baseURL: URL {
         return URL(string: "https://rubu2.rz.htw-dresden.de/API/v0")!
     }
@@ -40,6 +40,7 @@ extension RestApi: TargetType {
         switch self {
         case .timeTable(let year, let major, let group):
             return .requestParameters(parameters: [ "Stg": "\(major.urlEscaped)", "StgGrp": "\(group.urlEscaped)", "StgJhr": "\(year.urlEscaped)" ], encoding: URLEncoding.default)
+        
         default:
             return .requestPlain
         }
