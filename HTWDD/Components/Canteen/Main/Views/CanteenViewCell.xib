@@ -22,14 +22,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exq-7J-zbx">
                         <rect key="frame" x="8" y="8" width="304" height="75"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZQ-Pf-Ts5">
-                                <rect key="frame" x="8" y="8" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZQ-Pf-Ts5">
+                                <rect key="frame" x="8" y="8" width="246" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y4-wv-7LW">
-                                <rect key="frame" x="14" y="46" width="42" height="21"/>
+                                <rect key="frame" x="12" y="46" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -56,14 +56,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="2Zp-05-FnQ" firstAttribute="leading" secondItem="NZQ-Pf-Ts5" secondAttribute="trailing" constant="8" id="4fx-ue-L7A"/>
+                            <constraint firstItem="hTk-sE-CZo" firstAttribute="centerY" secondItem="NZQ-Pf-Ts5" secondAttribute="centerY" id="5I8-po-yfR"/>
                             <constraint firstItem="1Y4-wv-7LW" firstAttribute="top" secondItem="NZQ-Pf-Ts5" secondAttribute="bottom" constant="8" id="FRD-Av-Tmx"/>
                             <constraint firstItem="2Zp-05-FnQ" firstAttribute="centerY" secondItem="hTk-sE-CZo" secondAttribute="centerY" id="Kc3-7M-tpJ"/>
-                            <constraint firstItem="1Y4-wv-7LW" firstAttribute="leading" secondItem="Exq-7J-zbx" secondAttribute="leading" constant="14" id="NNe-JV-GBT"/>
+                            <constraint firstItem="1Y4-wv-7LW" firstAttribute="leading" secondItem="Exq-7J-zbx" secondAttribute="leading" constant="12" id="NNe-JV-GBT"/>
                             <constraint firstItem="hTk-sE-CZo" firstAttribute="top" secondItem="Exq-7J-zbx" secondAttribute="top" constant="17" id="OLe-OA-mWW"/>
                             <constraint firstAttribute="trailing" secondItem="F3s-Bj-eu7" secondAttribute="trailing" constant="8" id="PyL-no-4uQ"/>
                             <constraint firstItem="F3s-Bj-eu7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1Y4-wv-7LW" secondAttribute="trailing" constant="8" id="Qa6-IX-JeO"/>
                             <constraint firstAttribute="bottom" secondItem="1Y4-wv-7LW" secondAttribute="bottom" constant="8" id="i4S-YN-N8O"/>
-                            <constraint firstAttribute="trailing" secondItem="NZQ-Pf-Ts5" secondAttribute="trailing" constant="8" id="k9h-i6-ev6"/>
                             <constraint firstItem="NZQ-Pf-Ts5" firstAttribute="leading" secondItem="Exq-7J-zbx" secondAttribute="leading" constant="8" id="mDB-Sr-d2V"/>
                             <constraint firstItem="NZQ-Pf-Ts5" firstAttribute="top" secondItem="Exq-7J-zbx" secondAttribute="top" constant="8" id="osq-Mv-LFU"/>
                             <constraint firstItem="F3s-Bj-eu7" firstAttribute="top" secondItem="NZQ-Pf-Ts5" secondAttribute="bottom" constant="8" id="u1L-Y7-bbl"/>

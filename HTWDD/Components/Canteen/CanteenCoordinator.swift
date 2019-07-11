@@ -22,6 +22,13 @@ class CanteenCoordinator: Coordinator {
         }
     }()
     
+    func getMealsViewController(for canteen: Canteens) -> MealsViewController {
+        return R.storyboard.canteen.mealsViewController()!.also {
+            $0.canteen = canteen
+        }
+    }
+    
+    
     // MARK: Lifecycle
     init(context: Services) {
         self.context = context

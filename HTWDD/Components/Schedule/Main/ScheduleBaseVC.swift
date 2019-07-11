@@ -122,7 +122,7 @@ extension ScheduleBaseVC {
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
-extension ScheduleBaseVC: UIViewControllerPreviewingDelegate {
+extension ScheduleBaseVC: UIViewControllerPreviewingDelegate, HasSideBarItem {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
             let indexPath = self.collectionView.indexPathForItem(at: location),

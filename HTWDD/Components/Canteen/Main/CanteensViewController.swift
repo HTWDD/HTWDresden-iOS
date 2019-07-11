@@ -10,9 +10,11 @@ import Foundation
 import RxSwift
 
 class CanteenViewController: UITableViewController, HasSideBarItem {
+    
     // MARK: - Properties
     var context: HasCanteen!
     let bag = DisposeBag()
+    weak var appCoordinator: AppCoordinator?
     
     private var items = [CanteenDetails]() {
         didSet {
@@ -114,6 +116,10 @@ extension CanteenViewController {
         let cell = tableView.dequeueReusableCell(CanteenViewCell.self, for: indexPath)!
         cell.model(for: items[indexPath.row])
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appCoordinator?.goTo(controller: .meals(canteen: items[indexPath.row].canteen), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

@@ -197,7 +197,7 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
 extension AppCoordinator {
 
     /// # Routing to UIViewController
-    func goTo(controller: CoordinatorRoute) {
+    func goTo(controller: CoordinatorRoute, animated: Bool = false) {
         let viewController: UIViewController
         
         switch controller {
@@ -209,7 +209,13 @@ extension AppCoordinator {
         case .grades:
             viewController = self.grades.rootViewController
         case .canteen:
-            viewController = self.canteen.rootViewController
+            viewController = (self.canteen.rootViewController as! CanteenViewController).also {
+                $0.appCoordinator = self
+            }
+        case .meals(let canteen):
+            viewController = self.canteen.getMealsViewController(for: canteen).also {
+                $0.appCoordinator = self
+            }
         case .settings:
             viewController = self.settings.rootViewController
         case .management:
@@ -217,9 +223,9 @@ extension AppCoordinator {
         }
         
         if self.rootNavigationController.viewControllers.contains(viewController) {
-            self.rootNavigationController.popToViewController(viewController, animated: false)
+            self.rootNavigationController.popToViewController(viewController, animated: animated)
         } else {
-            self.rootNavigationController.pushViewController(viewController, animated: false)
+            self.rootNavigationController.pushViewController(viewController, animated: animated)
         }
     }
 }

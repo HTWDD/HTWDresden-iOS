@@ -113,7 +113,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
             $0.font             = UIFont.from(style: .small, isBold: true)
-            $0.backgroundColor  = UIColor(hex: 0x009688, alpha: 0.8)
+            $0.backgroundColor  = UIColor.htw.mediumOrange
         })
         
         // SPACER
