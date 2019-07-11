@@ -23,6 +23,10 @@ class CanteenService {
     func request() -> Observable<[Canteens]> {
         return apiService.requestCanteens().asObservable()
     }
+    
+    func requestMeals(for canteenId: Int = 80, and day: String =  "2019-07-08") -> Observable<[Meals]> {
+        return apiService.requestMeals(for: canteenId, and: day).asObservable()
+    }
 }
 
 extension CanteenService: HasCanteen {

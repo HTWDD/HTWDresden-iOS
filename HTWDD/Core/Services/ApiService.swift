@@ -46,7 +46,7 @@ fileprivate var stuRaHTWData: Data {
 class ApiService {
     
     // MARK: - Properties
-    private let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true, cURL: true)])
+    private let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true /*, cURL: true */ )])
     
     private static var sharedApiService: ApiService = {
         return ApiService()
@@ -122,6 +122,13 @@ extension ApiService {
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([Canteens].self) }
+    }
+    
+    func requestMeals(for canteenId: Int, and forDate: String) -> Single<[Meals]> {
+        return provider.rx.request(MultiTarget(OpenMensaRestApi.meals(canteenId: canteenId, forDate: forDate)))
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Meals].self) }
     }
     
 //    func requestCanteenDetails(id: Int) -> Single<[Meal]> {

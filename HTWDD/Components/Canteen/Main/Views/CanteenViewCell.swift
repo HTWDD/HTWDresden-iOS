@@ -19,7 +19,8 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var iconMeal: UIImageView!
     
     // MARK: - View setup
-    func model(for model: Canteens) {
+    func model(for model: CanteenDetails) {
+        let canteen = model.canteen
         
         // Main View
         main.apply {
@@ -31,12 +32,12 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         // Name
         lblName.apply {
             $0.textColor    = UIColor.htw.darkGrey
-            $0.text         = model.name.components(separatedBy: ",").last ?? model.name
+            $0.text         = canteen.name.components(separatedBy: ",").last ?? canteen.name
         }
         
         // REGION Adress
-        let adressComponents = model.address.components(separatedBy: ",")
-        let street = adressComponents.first ?? model.address
+        let adressComponents = canteen.address.components(separatedBy: ",")
+        let street = adressComponents.first ?? canteen.address
         let city = adressComponents[1].components(separatedBy: " ").last
         
         lblAdress.apply {
@@ -57,7 +58,7 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         
         // Meal Count
         lblMealCount.apply {
-            $0.text             = "\(arc4random() % 20)"
+            $0.text             = "\(model.meals.count)"
             $0.textColor        = UIColor.htw.darkGrey
             $0.backgroundColor  = UIColor.htw.lightGrey
         }

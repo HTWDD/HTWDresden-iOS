@@ -26,3 +26,9 @@ extension HTWNamespace where Base == Double {
     }
 
 }
+
+extension Optional where Wrapped == Double {
+    var asCurrency: String {
+        return self != nil ? currencyFormatter.string(from: NSNumber(value: self!))! : "-,-- €"
+    }
+}
