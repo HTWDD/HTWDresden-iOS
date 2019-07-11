@@ -43,7 +43,7 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOfferedServices()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description(isBold: true)
+            $0.font         = UIFont.from(style: .description, isBold: true)
         })
         
         // REGION - Offered Services
@@ -52,7 +52,7 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
                 $0.text             = service
                 $0.backgroundColor  = UIColor(hex: 0xE0E0E0)
                 $0.textColor        = UIColor.htw.darkGrey
-                $0.font             = UIFont.small()
+                $0.font             = UIFont.from(style: .small)
                 $0.contentMode      = .scaleToFill
                 $0.numberOfLines    = 0
             })
@@ -66,7 +66,7 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOpeningHours()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description(isBold: true)
+            $0.font         = UIFont.from(style: .description, isBold: true)
         })
         
         // REGION - Opening Hours
@@ -80,7 +80,7 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
             hStack.addArrangedSubview(UILabel().also {
                 $0.text         = time.day.localizedDescription
                 $0.textColor    = UIColor.htw.darkGrey
-                $0.font         = UIFont.small()
+                $0.font         = UIFont.from(style: .small)
             })
             
             let vStack = UIStackView().also {
@@ -95,7 +95,7 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
             time.times.forEach { openingTime in
                 vStack.addArrangedSubview(BadgeLabel().also { label in
                     label.text              = R.string.localizable.managementStudentAdministrationOpeningTimes(openingTime.begin, openingTime.end)
-                    label.font              = UIFont.small()
+                    label.font              = UIFont.from(style: .small)
                     label.backgroundColor   = UIColor.htw.lightGrey
                     label.textColor         = UIColor.htw.darkGrey
                     label.contentMode       = .scaleToFill

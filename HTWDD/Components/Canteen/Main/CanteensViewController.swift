@@ -32,7 +32,7 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
         }
-        
+        refreshControl?.beginRefreshing()
         request()
     }
     
@@ -61,31 +61,11 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
                 DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
                     self.refreshControl?.endRefreshing()
                 })
-            }, onError: { error in
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
                 Log.error(error)
+                self.tableView.setEmptyMessage(R.string.localizable.canteenNoResultsErrorTitle(), message: R.string.localizable.canteenNoResultsErrorMessage(), icon: "😖")
             }).disposed(by: bag)
-        
-        
-//        context.canteenService.request()
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] canteens in
-//                guard let self = self else { return }
-//                self.items = canteens
-//                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-//                    self.refreshControl?.endRefreshing()
-//                })
-//            }, onError: { error in
-//                Log.error(error)
-//            }).disposed(by: rx_disposeBag)
-//
-//
-//        context.canteenService.requestMeals()
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: { meals in
-//                Log.debug("\(meals)")
-//            }, onError: { error in
-//                Log.error(error)
-//            }).disposed(by: rx_disposeBag)
     }
 }
 
@@ -122,6 +102,11 @@ extension CanteenViewController {
 extension CanteenViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if items.count == 0 {
+            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍝")
+        } else {
+            tableView.restore()
+        }
         return items.count
     }
     

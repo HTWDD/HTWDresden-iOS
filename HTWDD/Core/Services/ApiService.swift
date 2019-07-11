@@ -44,15 +44,22 @@ fileprivate var stuRaHTWData: Data {
 
 // MARK: - API Service
 class ApiService {
-    
+
     // MARK: - Properties
-    private let provider = MoyaProvider<MultiTarget>(plugins: [NetworkLoggerPlugin(verbose: true /*, cURL: true */ )])
+    private let plugins: [PluginType] = [NetworkLoggerPlugin(verbose: true, cURL: false)]
+    
+    private let provider: MoyaProvider<MultiTarget>
     
     private static var sharedApiService: ApiService = {
         return ApiService()
     }()
     
-    // MARK: Shared Instance
+    // MARK: - Lifecycle
+    private init() {
+        provider = MoyaProvider<MultiTarget>(plugins: plugins)
+    }
+    
+    // MARK: - Shared Instance
     class func shared() -> ApiService {
         return sharedApiService
     }

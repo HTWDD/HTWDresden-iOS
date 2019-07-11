@@ -20,7 +20,8 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
     
     // MARK: - View setup
     func model(for model: CanteenDetails) {
-        let canteen = model.canteen
+        let canteen     = model.canteen
+        let hasMeals    = model.meals.count > 0
         
         // Main View
         main.apply {
@@ -31,7 +32,7 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         
         // Name
         lblName.apply {
-            $0.textColor    = UIColor.htw.darkGrey
+            $0.textColor    = hasMeals ? UIColor.htw.darkGrey : UIColor.htw.grey
             $0.text         = canteen.name.components(separatedBy: ",").last ?? canteen.name
         }
         
@@ -52,15 +53,16 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = city
             $0.backgroundColor  = UIColor.htw.mediumOrange
             $0.textColor        = UIColor.white
-            $0.font             = UIFont.small(isBold: true)
+            $0.font             = UIFont.from(style: .small, isBold: true)
         }
         // ENDREGINO Adress
         
         // Meal Count
         lblMealCount.apply {
             $0.text             = "\(model.meals.count)"
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.backgroundColor  = UIColor.htw.lightGrey
+            $0.textColor        = hasMeals ? UIColor.htw.darkGrey  : .white
+            $0.backgroundColor  = hasMeals ? UIColor.htw.lightGrey : UIColor.htw.redMaterial
+            $0.font             = UIFont.from(style: .verySmall, isBold: true)
         }
         
         // Meal Icon

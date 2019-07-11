@@ -51,7 +51,9 @@
 "Canteen.pluralTitle"="Mensen";
 "Canteen.noCounter"="Ausgabeort nicht bekannt";
 "Canteen.noResults.title"="Kein Essen";
-"Canteen.noResults.message"="Heute gibt's nichts zu essen :-/";
+"Canteen.noResults.message"="Heute gibt es nichts zu essen 😕";
+"Canteen.noResults.error.title"="Ups...";
+"Canteen.noResults.error.message"="Ich konnte keine Mensen finden, irgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
 
 "Exams.title"="Prüfungen";

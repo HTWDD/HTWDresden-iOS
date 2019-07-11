@@ -51,7 +51,9 @@
 "Canteen.pluralTitle"="Canteens";
 "Canteen.noCounter"="Counter not known";
 "Canteen.noResults.title"="No meals";
-"Canteen.noResults.message"="I can't find any food for today :-/";
+"Canteen.noResults.message"="I can't find any food for today 😕";
+"Canteen.noResults.error.title"="Ups...";
+"Canteen.noResults.error.message"="I could not find canteens, something went wrong.";
 "Canteen.Meal.more"="More information";
 
 "Exams.title"="Exams";
