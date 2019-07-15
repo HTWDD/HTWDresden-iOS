@@ -11,7 +11,6 @@ import UIKit
 class MealsViewController: UITableViewController {
 
     // MARK: - Properties
-    weak var appCoordinator: AppCoordinator?
     var canteenDetail: CanteenDetails?
     private var categories: [String]?
     private var meals: [[Meals]?] = []
@@ -35,20 +34,10 @@ class MealsViewController: UITableViewController {
 extension MealsViewController {
     
     private func setup() {
-//        if let canteen = canteenDetail?.canteen {
-//            title = canteen.name.components(separatedBy: ",").last ?? canteen.name
-//        }
-//
-//        if #available(iOS 11.0, *) {
-//            navigationController?.navigationBar.prefersLargeTitles = true
-//            navigationItem.largeTitleDisplayMode = .automatic
-//        }
-        
+
         tableView.apply {
             $0.separatorStyle   = .none
             $0.backgroundColor  = UIColor.htw.veryLightGrey
-//            $0.tableHeaderView  = UIView(frame: CGRect(x: 0, y: 0, width: $0.bounds.size.width, height: 60))
-//            $0.contentInset     = UIEdgeInsets(top: -60, left: 0, bottom: 0, right: 0)
             $0.register(MealViewCell.self)
         }
         
@@ -93,6 +82,8 @@ extension MealsViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        // No Categories? No Meal!
         if categories?.count == 0 {
             tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
         } else {
@@ -102,19 +93,21 @@ extension MealsViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        // Blur Effect for Header
         let wrapper = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 60)).also { wrapperView in
             wrapperView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)).also { effectView in
                 effectView.frame = wrapperView.bounds
             })
         }
         
+        // REGION Header with SubHeader
         let vStack = UIStackView().also {
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.axis         = .vertical
             $0.distribution = .fill
             $0.spacing      = 3
         }
-        
         
         let lblHeader = UILabel().also {
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -128,12 +121,14 @@ extension MealsViewController {
             $0.textColor    = UIColor.htw.grey
             $0.font         = UIFont.from(style: .small)
         }
+        // ENDREGION Header with SubHeader
         
         vStack.addArrangedSubview(lblHeader)
         vStack.addArrangedSubview(lblSubHeader)
         
         wrapper.addSubview(vStack)
         
+        // Header Spacing
         NSLayoutConstraint.activate([
             lblHeader.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             lblHeader.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 10),
