@@ -14,9 +14,10 @@ class MealsTabViewController: TabmanViewController {
 
     // MARK: - Properties
     var canteenDetail: CanteenDetails?
+    weak var canteenCoordinator: CanteenCoordinator?
     private lazy var viewControllers: [UIViewController] = {
-        [ MealsViewController().also { $0.canteenDetail = self.canteenDetail }, UIViewController(), UIViewController() ]
-    }()
+        [ self.canteenCoordinator?.getMealsViewController(for: self.canteenDetail!), UIViewController(), UIViewController() ]
+        }() as! [UIViewController]
     private lazy var bar: TMBar.ButtonBar = {
         return TMBar.ButtonBar().also {
             $0.layout.transitionStyle   = .snap
@@ -29,7 +30,6 @@ class MealsTabViewController: TabmanViewController {
                 button.tintColor            = .white
                 button.selectedTintColor    = .white
             }
-            
         }
     }()
     

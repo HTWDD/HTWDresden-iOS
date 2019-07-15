@@ -30,7 +30,8 @@ class CanteenCoordinator: Coordinator {
     
     func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
         return R.storyboard.canteen.mealsTabViewController()!.also {
-            $0.canteenDetail = canteenDetail
+            $0.canteenDetail        = canteenDetail
+            $0.canteenCoordinator   = self
         }
     }
     

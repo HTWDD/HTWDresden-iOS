@@ -213,9 +213,6 @@ extension AppCoordinator {
                 $0.appCoordinator = self
             }
         case .meals(let canteenDetail):
-//            viewController = self.canteen.getMealsViewController(for: canteenDetail).also {
-//                $0.appCoordinator = self
-//            }
             viewController = canteen.getMealsTabViewController(for: canteenDetail)
         case .settings:
             viewController = self.settings.rootViewController
