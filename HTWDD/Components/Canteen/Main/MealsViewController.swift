@@ -10,93 +10,33 @@ import UIKit
 
 class MealsViewController: UITableViewController {
 
+    // MARK: - Properties
     weak var appCoordinator: AppCoordinator?
-    var canteen: Canteens?
-
+    var canteenDetail: CanteenDetails?
+    private var categories: [String]?
+    private var meals: [[Meals]?] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.apply {
+            $0.estimatedRowHeight   = 200
+            $0.rowHeight            = UITableView.automaticDimension
         }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 // MARK: - Setup
 extension MealsViewController {
     
     private func setup() {
-        if let canteen = canteen {
-            var canteenName = canteen.name.components(separatedBy: ",").last ?? canteen.name
-            if canteenName.contains("Mensa") {
-                canteenName = canteenName.components(separatedBy: " ").last ?? canteenName
-            }
-            title = canteenName
+        if let canteen = canteenDetail?.canteen {
+            title = canteen.name.components(separatedBy: ",").last ?? canteen.name
         }
         
         if #available(iOS 11.0, *) {
@@ -107,8 +47,85 @@ extension MealsViewController {
         tableView.apply {
             $0.separatorStyle   = .none
             $0.backgroundColor  = UIColor.htw.veryLightGrey
+            $0.tableHeaderView  = UIView(frame: CGRect(x: 0, y: 0, width: $0.bounds.size.width, height: 60))
+            $0.contentInset     = UIEdgeInsets(top: -60, left: 0, bottom: 0, right: 0)
             $0.register(MealViewCell.self)
         }
+        
+        prepareDataSource()
     }
     
+    private func prepareDataSource() {
+        if let categories = canteenDetail?.meals.reduce(into: Set<String>(), { categories, meal in categories.insert(meal.category) }) {
+            self.categories = Array(categories.sorted())
+        }
+        
+        categories?.forEach { category in
+            meals.append(canteenDetail?.meals.filter { $0.category == category })
+        }
+    }
+}
+
+
+// MARK: - TableView Datasource
+extension MealsViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals[section]?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
+        cell.model(for: meals[indexPath.section]?[indexPath.row])
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories?[section]
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return categories?.count ?? 0
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let mainView = UIStackView().also {
+            $0.axis         = .vertical
+            $0.distribution = .fill
+            $0.spacing      = 3
+        }
+        
+        
+        let lblHeader = UILabel().also {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.text         = categories?[section] ?? "N/A"
+            $0.textColor    = UIColor.htw.darkGrey
+            $0.font         = UIFont.from(style: .big)
+        }
+        
+        let lblSubHeader = UILabel().also {
+            $0.text         = Date().string(format: "E, dd MMM")
+            $0.textColor    = UIColor.htw.grey
+            $0.font         = UIFont.from(style: .small)
+        }
+        
+        mainView.addArrangedSubview(lblHeader)
+        mainView.addArrangedSubview(lblSubHeader)
+        
+        NSLayoutConstraint.activate([
+            lblHeader.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 10),
+            lblHeader.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: 10),
+            lblHeader.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 8)
+        ])
+        
+        return mainView
+    }
 }

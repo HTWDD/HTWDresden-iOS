@@ -212,8 +212,8 @@ extension AppCoordinator {
             viewController = (self.canteen.rootViewController as! CanteenViewController).also {
                 $0.appCoordinator = self
             }
-        case .meals(let canteen):
-            viewController = self.canteen.getMealsViewController(for: canteen).also {
+        case .meals(let canteenDetail):
+            viewController = self.canteen.getMealsViewController(for: canteenDetail).also {
                 $0.appCoordinator = self
             }
         case .settings:

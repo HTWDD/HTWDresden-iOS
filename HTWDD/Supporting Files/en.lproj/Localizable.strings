@@ -55,6 +55,7 @@
 "Canteen.noResults.error.title"="Ups...";
 "Canteen.noResults.error.message"="I could not find canteens, something went wrong.";
 "Canteen.Meal.more"="More information";
+"Canteen.Meal.contains"="Contains / is";
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";

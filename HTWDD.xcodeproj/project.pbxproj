@@ -158,6 +158,7 @@
 		64E218DB22D7767500004183 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DA22D7767500004183 /* MealsViewController.swift */; };
 		64E218DE22D7769B00004183 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DC22D7769B00004183 /* MealViewCell.swift */; };
 		64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64E218DD22D7769B00004183 /* MealViewCell.xib */; };
+		64E218E122D85BBB00004183 /* CanteenDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetails.swift */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
@@ -1719,6 +1720,7 @@
 				1F8E20E11FB34F8400347DB6 /* Canteen.swift in Sources */,
 				6403694222C9F63100FD49EA /* Observable+Response.swift in Sources */,
 				6405917722CB376500AA5613 /* AppContext.swift in Sources */,
+				64E218E122D85BBB00004183 /* CanteenDetails.swift in Sources */,
 				1F8E20DC1FB34F1900347DB6 /* Week.swift in Sources */,
 				1F8E20DD1FB34F4E00347DB6 /* EventDate.swift in Sources */,
 				1F8E20C91FB34E6F00347DB6 /* Service.swift in Sources */,

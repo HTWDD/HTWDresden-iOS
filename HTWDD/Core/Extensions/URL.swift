@@ -14,7 +14,7 @@ enum CoordinatorRoute {
     case exams
     case grades
     case canteen
-    case meals(canteen: Canteens)
+    case meals(canteenDetail: CanteenDetails)
     case settings
     case management
 }
@@ -29,7 +29,7 @@ extension CoordinatorRoute {
         case "exams": self = .exams
         case "grades": self = .grades
         case "canteen": self = .canteen
-        case "meals": self = .meals(canteen: Canteens(id: 0, name: "", address: "", coordinates: [0, 0]))
+        case "meals": self = .meals(canteenDetail: CanteenDetails(canteen:  Canteens(id: 0, name: "", address: "", coordinates: [0, 0]), meals: []))
         case "settings": self = .settings
         case "management": self = .management
         default:

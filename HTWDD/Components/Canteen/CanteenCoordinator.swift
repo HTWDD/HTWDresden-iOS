@@ -22,9 +22,9 @@ class CanteenCoordinator: Coordinator {
         }
     }()
     
-    func getMealsViewController(for canteen: Canteens) -> MealsViewController {
+    func getMealsViewController(for canteenDetail: CanteenDetails) -> MealsViewController {
         return R.storyboard.canteen.mealsViewController()!.also {
-            $0.canteen = canteen
+            $0.canteenDetail = canteenDetail
         }
     }
     

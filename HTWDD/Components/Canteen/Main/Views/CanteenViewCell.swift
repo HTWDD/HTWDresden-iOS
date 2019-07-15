@@ -32,8 +32,9 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         
         // Name
         lblName.apply {
+            let canteenName = canteen.name.components(separatedBy: ",").last ?? canteen.name
             $0.textColor    = hasMeals ? UIColor.htw.darkGrey : UIColor.htw.grey
-            $0.text         = canteen.name.components(separatedBy: ",").last ?? canteen.name
+            $0.text         = canteenName.replacingOccurrences(of: "Johannesstadt", with: "Johannstadt")
         }
         
         // REGION Adress

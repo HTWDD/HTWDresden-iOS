@@ -100,12 +100,12 @@ extension CanteenViewController {
     }
 }
 
-// MARK: - TableView
+// MARK: - TableView Datasource
 extension CanteenViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍝")
+            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
         } else {
             tableView.restore()
         }
@@ -119,7 +119,7 @@ extension CanteenViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        appCoordinator?.goTo(controller: .meals(canteen: items[indexPath.row].canteen), animated: true)
+        appCoordinator?.goTo(controller: .meals(canteenDetail: items[indexPath.row]), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
