@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - AutoInsetter (1.7.1)
   - KeychainAccess (3.2.0)
   - Marshal (1.2.7)
   - Moya (13.0.1):
@@ -7,6 +8,7 @@ PODS:
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
+  - Pageboy (3.2.3)
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
@@ -26,6 +28,9 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - SideMenu (5.0.3)
+  - Tabman (2.4.2):
+    - AutoInsetter (~> 1.7)
+    - Pageboy (~> 3.2)
 
 DEPENDENCIES:
   - KeychainAccess
@@ -37,13 +42,16 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift
   - SideMenu
+  - Tabman (~> 2.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AutoInsetter
     - KeychainAccess
     - Marshal
     - Moya
+    - Pageboy
     - R.swift
     - R.swift.Library
     - Realm
@@ -54,12 +62,15 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SideMenu
+    - Tabman
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AutoInsetter: 0c40f6505369c7b75cf7ac27e3cce2170293ac27
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  Pageboy: 347c49b3a7f15aa78ddb6bf5c6c3b113e382fe52
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
   Realm: b30db41ff34fc858ffc25ba8d44a82c164e7ccd0
@@ -70,7 +81,8 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
+  Tabman: 6e0888c9b9227d9da03e51a90f1f91f53454bfa1
 
-PODFILE CHECKSUM: 7d17f52873e2e0326d8ccc5fae429d33cbfce239
+PODFILE CHECKSUM: 0ee2f386bf95dccba00d930e646110be97aec043
 
 COCOAPODS: 1.7.3

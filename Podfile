@@ -32,6 +32,9 @@ target 'HTWDD' do
   
   # Side Menu
   pod 'SideMenu'
+  
+  # TabMan
+  pod 'Tabman', '~> 2.4'
 
   target 'HTWDDTests' do
     inherit! :search_paths

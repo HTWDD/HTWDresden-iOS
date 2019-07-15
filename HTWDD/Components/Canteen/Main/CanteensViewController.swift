@@ -119,6 +119,7 @@ extension CanteenViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Log.verbose("didSelectRowAt: \(indexPath.row)")
         appCoordinator?.goTo(controller: .meals(canteenDetail: items[indexPath.row]), animated: true)
     }
     

@@ -150,6 +150,7 @@
 		6440EA6A22CE007200C313AE /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		6446CE9522D5B65E002636A5 /* Canteens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446CE9422D5B65E002636A5 /* Canteens.swift */; };
 		6446CE9622D5B7EC002636A5 /* Canteens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446CE9422D5B65E002636A5 /* Canteens.swift */; };
+		645E635A22DC7252005F18BF /* MealsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635922DC7252005F18BF /* MealsTabViewController.swift */; };
 		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
@@ -400,6 +401,7 @@
 		642C956C22C93DDD0096EDD2 /* Single+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Response.swift"; sourceTree = "<group>"; };
 		642C956E22C941D40096EDD2 /* HTWRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWRestApi.swift; sourceTree = "<group>"; };
 		6446CE9422D5B65E002636A5 /* Canteens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canteens.swift; sourceTree = "<group>"; };
+		645E635922DC7252005F18BF /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
 		64E218D722D722EA00004183 /* CanteenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanteenDetails.swift; sourceTree = "<group>"; };
 		64E218DA22D7767500004183 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 				B5B376861FA6176E00FC3A07 /* CanteenMainVC.swift */,
 				64E218DA22D7767500004183 /* MealsViewController.swift */,
 				B5461B641FA63E0300564D6D /* Views */,
+				645E635922DC7252005F18BF /* MealsTabViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1578,9 +1581,11 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HTWDD/Pods-HTWDD-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -1590,13 +1595,16 @@
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -1606,6 +1614,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1801,6 +1810,7 @@
 				B52329031FB8A029000C4F44 /* CollectionBackgroundView.swift in Sources */,
 				642C956F22C941D40096EDD2 /* HTWRestApi.swift in Sources */,
 				1F862D271FD1A7FF0051E2DF /* KeyboardPresentationHandler.swift in Sources */,
+				645E635A22DC7252005F18BF /* MealsTabViewController.swift in Sources */,
 				B5A0690E2042E63A0067B8D2 /* GradeAverage.swift in Sources */,
 				B55ADF4B1FC08545004A5BB2 /* LoadingView.swift in Sources */,
 				6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */,

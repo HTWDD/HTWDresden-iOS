@@ -28,6 +28,12 @@ class CanteenCoordinator: Coordinator {
         }
     }
     
+    func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
+        return R.storyboard.canteen.mealsTabViewController()!.also {
+            $0.canteenDetail = canteenDetail
+        }
+    }
+    
     
     // MARK: Lifecycle
     init(context: Services) {
