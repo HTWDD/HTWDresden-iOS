@@ -56,6 +56,9 @@
 "Canteen.noResults.error.message"="Ich konnte keine Mensen finden, irgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
 "Canteen.Meal.contains"="Enthält / ist";
+"Canteen.today"="Heute";
+"Canteen.week"="Woche";
+"Canteen.nextWeek"="nächste Woche";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";

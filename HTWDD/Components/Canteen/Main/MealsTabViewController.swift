@@ -25,7 +25,7 @@ class MealsTabViewController: TabmanViewController {
             $0.indicator.tintColor      = .white
             $0.backgroundView.style = .clear
             $0.buttons.customize { button in
-                button.font                 = UIFont.from(style: .small)
+                button.font                 = UIFont.from(style: .small, isBold: true)
                 button.tintColor            = .white
                 button.selectedTintColor    = .white
             }
@@ -60,9 +60,9 @@ extension MealsTabViewController: PageboyViewControllerDataSource, TMBarDataSour
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         let title: String
         switch index {
-        case 0: title = "Heute"
-        case 1: title = "Woche"
-        default: title = "Nächste Woche"
+        case 0: title = R.string.localizable.canteenToday()
+        case 1: title = R.string.localizable.canteenWeek()
+        default: title = R.string.localizable.canteenNextWeek()
         }
         return TMBarItem(title: title)
     }

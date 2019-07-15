@@ -669,8 +669,8 @@
 				6410F72122D5BDD500AA3BA1 /* CanteensViewController.swift */,
 				B5B376861FA6176E00FC3A07 /* CanteenMainVC.swift */,
 				64E218DA22D7767500004183 /* MealsViewController.swift */,
-				B5461B641FA63E0300564D6D /* Views */,
 				645E635922DC7252005F18BF /* MealsTabViewController.swift */,
+				B5461B641FA63E0300564D6D /* Views */,
 			);
 			path = Main;
 			sourceTree = "<group>";

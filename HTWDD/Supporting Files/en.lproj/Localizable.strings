@@ -56,6 +56,9 @@
 "Canteen.noResults.error.message"="I could not find canteens, something went wrong.";
 "Canteen.Meal.more"="More information";
 "Canteen.Meal.contains"="Contains / is";
+"Canteen.today"="Today";
+"Canteen.week"="Week";
+"Canteen.nextWeek"="next Week";
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
