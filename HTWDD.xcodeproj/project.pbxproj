@@ -151,6 +151,9 @@
 		6446CE9522D5B65E002636A5 /* Canteens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446CE9422D5B65E002636A5 /* Canteens.swift */; };
 		6446CE9622D5B7EC002636A5 /* Canteens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6446CE9422D5B65E002636A5 /* Canteens.swift */; };
 		645E635A22DC7252005F18BF /* MealsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635922DC7252005F18BF /* MealsTabViewController.swift */; };
+		645E635C22DCAE8F005F18BF /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635B22DCAE8F005F18BF /* Calendar.swift */; };
+		645E635D22DCB019005F18BF /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635B22DCAE8F005F18BF /* Calendar.swift */; };
+		645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */; };
 		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
@@ -402,6 +405,8 @@
 		642C956E22C941D40096EDD2 /* HTWRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTWRestApi.swift; sourceTree = "<group>"; };
 		6446CE9422D5B65E002636A5 /* Canteens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canteens.swift; sourceTree = "<group>"; };
 		645E635922DC7252005F18BF /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
+		645E635B22DCAE8F005F18BF /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewController.swift; sourceTree = "<group>"; };
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
 		64E218D722D722EA00004183 /* CanteenDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanteenDetails.swift; sourceTree = "<group>"; };
 		64E218DA22D7767500004183 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
@@ -670,6 +675,7 @@
 				B5B376861FA6176E00FC3A07 /* CanteenMainVC.swift */,
 				64E218DA22D7767500004183 /* MealsViewController.swift */,
 				645E635922DC7252005F18BF /* MealsTabViewController.swift */,
+				645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */,
 				B5461B641FA63E0300564D6D /* Views */,
 			);
 			path = Main;
@@ -1068,6 +1074,7 @@
 			children = (
 				B5FCAE601E62EAEF00E35DDB /* Array.swift */,
 				B5EA53641E7FBE8D00183E07 /* Array_TestCase.swift */,
+				645E635B22DCAE8F005F18BF /* Calendar.swift */,
 				B529EDE71FAB7F40000C1677 /* CodableDictionary.swift */,
 				B538EF1D1E1D9E6D0031077C /* Date.swift */,
 				B55507111E601FB400C16F5F /* DateComponents.swift */,
@@ -1743,6 +1750,7 @@
 				1F8E20CC1FB34E9700347DB6 /* Network.swift in Sources */,
 				1F1491B51FB451110011B114 /* View.swift in Sources */,
 				5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */,
+				645E635D22DCB019005F18BF /* Calendar.swift in Sources */,
 				6405917E22CB438B00AA5613 /* StudentAdministration.swift in Sources */,
 				6446CE9622D5B7EC002636A5 /* Canteens.swift in Sources */,
 				1F8E20E61FB34FC300347DB6 /* Array.swift in Sources */,
@@ -1877,6 +1885,7 @@
 				B5CD5C731E5F37970083D75E /* CollectionViewController.swift in Sources */,
 				642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */,
 				B5461B611FA62A2600564D6D /* CanteenService_old.swift in Sources */,
+				645E635C22DCAE8F005F18BF /* Calendar.swift in Sources */,
 				1F8874891F8FB07300EE6492 /* ReactiveButton.swift in Sources */,
 				6403694622CA069D00FD49EA /* StudenAdministrationViewCell.swift in Sources */,
 				B5A069132042E9600067B8D2 /* Either.swift in Sources */,
@@ -1917,6 +1926,7 @@
 				B5EF31F71FB059F600C848AF /* ExamsCell.swift in Sources */,
 				64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */,
 				B516D8221FA9A47000551556 /* UIView.swift in Sources */,
+				645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */,
 				B56957881FAA3F7F00CE2318 /* CollectionHeaderView.swift in Sources */,
 				B5CD5C711E5F37700083D75E /* ScheduleMainVC.swift in Sources */,
 				64E218D822D722EA00004183 /* CanteenDetails.swift in Sources */,

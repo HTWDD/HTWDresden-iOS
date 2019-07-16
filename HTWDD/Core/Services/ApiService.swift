@@ -126,6 +126,7 @@ extension ApiService {
     
     func requestCanteens(latitude: Double = 51.058583, longitude: Double = 13.738208, distance: Int = 20) -> Single<[Canteens]> {
         return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([Canteens].self) }
@@ -133,6 +134,7 @@ extension ApiService {
     
     func requestMeals(for canteenId: Int, and forDate: String) -> Single<[Meals]> {
         return provider.rx.request(MultiTarget(OpenMensaRestApi.meals(canteenId: canteenId, forDate: forDate)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([Meals].self) }

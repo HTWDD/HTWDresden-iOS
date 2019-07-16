@@ -13,6 +13,12 @@ class CanteenService {
     
     // MARK: - Properties
     private let apiService: ApiService
+
+    // MARK: - Week Switch
+    enum WeekState {
+        case current
+        case next
+    }
     
     // MARK: - Lifecycle
     init(apiService: ApiService) {
@@ -24,8 +30,27 @@ class CanteenService {
         return apiService.requestCanteens().asObservable()
     }
     
-    func requestMeals(for canteenId: Int = 80, and day: String =  "2019-07-08") -> Observable<[Meals]> {
+    func requestMeals(for canteenId: Int, and day: String) -> Observable<[Meals]> {
         return apiService.requestMeals(for: canteenId, and: day).asObservable()
+    }
+    
+    func requestMeals(for week: WeekState, and canteenId: Int) -> Observable<[[Meals]]> {
+        switch week {
+        case .current: return requestMealsForCurrentWeek(for: canteenId)
+        case .next: return requestMealsForNextWeek(for: canteenId)
+        }
+    }
+    
+    private func requestMealsForCurrentWeek(for canteenId: Int) -> Observable<[[Meals]]> {
+        return Observable.combineLatest(Date().allDateForWeek()
+            .map { $0.string(format: "yyyy-MM-dd") }
+            .map { requestMeals(for: canteenId, and: $0) })
+    }
+    
+    private func requestMealsForNextWeek(for canteenId: Int) -> Observable<[[Meals]]> {
+        return Observable.combineLatest(Date().allDateForNextWeek()
+            .map { $0.string(format: "yyyy-MM-dd") }
+            .map { requestMeals(for: canteenId, and: $0) })
     }
 }
 

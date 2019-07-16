@@ -59,6 +59,8 @@
 "Canteen.today"="Heute";
 "Canteen.week"="Woche";
 "Canteen.nextWeek"="nächste Woche";
+"Canteen.Meal.noResult.error.title"="Ups...";
+"Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden, irgendwas ist schief gelaufen.";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";

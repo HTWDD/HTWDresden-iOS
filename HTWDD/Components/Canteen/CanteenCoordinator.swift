@@ -22,19 +22,29 @@ class CanteenCoordinator: Coordinator {
         }
     }()
     
+    // MARK: Meals Tab View Controller - Contains Sub ViewControllers
+    func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
+        return R.storyboard.canteen.mealsTabViewController()!.also {
+            $0.context              = context
+            $0.canteenDetail        = canteenDetail
+            $0.canteenCoordinator   = self
+        }
+    }
+    
+    // MARK: Meals View Controller - Detail for Today
     func getMealsViewController(for canteenDetail: CanteenDetails) -> MealsViewController {
         return R.storyboard.canteen.mealsViewController()!.also {
             $0.canteenDetail = canteenDetail
         }
     }
     
-    func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
-        return R.storyboard.canteen.mealsTabViewController()!.also {
-            $0.canteenDetail        = canteenDetail
-            $0.canteenCoordinator   = self
+    func getMealsForWeekViewController(for canteenDetail: CanteenDetails, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
+        return R.storyboard.canteen.mealsForWeekTableViewController()!.also {
+            $0.canteenDetail    = canteenDetail
+            $0.context          = context
+            $0.weekState        = weekState
         }
     }
-    
     
     // MARK: Lifecycle
     init(context: Services) {

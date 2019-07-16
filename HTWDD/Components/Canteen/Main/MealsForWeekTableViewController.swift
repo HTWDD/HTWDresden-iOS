@@ -1,23 +1,46 @@
 //
-//  MealsViewController.swift
+//  MealsForWeekTableViewController.swift
 //  HTWDD
 //
-//  Created by Mustafa Karademir on 11.07.19.
+//  Created by Mustafa Karademir on 15.07.19.
 //  Copyright © 2019 HTW Dresden. All rights reserved.
 //
 
 import UIKit
+import RxSwift
 
-class MealsViewController: UITableViewController {
+class MealsForWeekTableViewController: UITableViewController {
 
     // MARK: - Properties
     var canteenDetail: CanteenDetails?
-    private var categories: [String]?
-    private var meals: [[Meals]?] = []
+    var context: HasCanteen?
+    var weekState: CanteenService.WeekState!
+    private var meals: [[Meals]] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    private var categories = [R.string.localizable.monday(),
+                              R.string.localizable.tuesday(),
+                              R.string.localizable.wednesday(),
+                              R.string.localizable.thursday(),
+                              R.string.localizable.friday()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        context?.canteenService.requestMeals(for: weekState, and: (canteenDetail?.canteen.id)!)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] meals in
+                guard let self = self else { return }
+                Log.debug("\(meals)")
+                self.meals = meals
+            }, onError: { [weak self] in
+                guard let self = self else { return }
+                Log.error($0)
+                self.tableView.setEmptyMessage(R.string.localizable.canteenMealNoResultErrorTitle(), message: R.string.localizable.canteenMealNoResultErrorMessage(), icon: "😖")
+            })
+        .disposed(by: rx_disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,41 +54,38 @@ class MealsViewController: UITableViewController {
 }
 
 // MARK: - Setup
-extension MealsViewController {
+extension MealsForWeekTableViewController {
     
     private func setup() {
-
         tableView.apply {
             $0.separatorStyle   = .none
             $0.backgroundColor  = UIColor.htw.veryLightGrey
             $0.register(MealViewCell.self)
         }
-        
-        prepareDataSource()
     }
     
-    private func prepareDataSource() {
-        if let categories = canteenDetail?.meals.reduce(into: Set<String>(), { categories, meal in categories.insert(meal.category) }) {
-            self.categories = Array(categories.sorted())
-        }
-        
-        categories?.forEach { category in
-            meals.append(canteenDetail?.meals.filter { $0.category == category })
-        }
-    }
 }
 
-
 // MARK: - TableView Datasource
-extension MealsViewController {
+extension MealsForWeekTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if meals.count == 0 {
+            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
+        } else {
+            tableView.restore()
+        }
+        
+        return meals.count
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals[section]?.count ?? 0
+        return meals[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
-        cell.model(for: meals[indexPath.section]?[indexPath.row])
+        cell.model(for: meals[indexPath.section][indexPath.row])
         return cell
     }
     
@@ -74,22 +94,11 @@ extension MealsViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories?[section]
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return categories[section]
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        // No Categories? No Meal!
-        if categories?.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
-        } else {
-            tableView.restore()
-        }
-        return categories?.count ?? 0
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -111,13 +120,22 @@ extension MealsViewController {
         
         let lblHeader = UILabel().also {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.text         = categories?[section] ?? "N/A"
+            $0.text         = categories[section]
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.from(style: .big)
         }
         
+        let day: Date
+        switch section {
+        case 0: day =   weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.beginn)    : Date().dateOfWeek(for: UInt(Date.Week.beginn.rawValue + 7))
+        case 1: day =   weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.second)    : Date().dateOfWeek(for: UInt(Date.Week.second.rawValue + 7))
+        case 2: day =   weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.mid)       : Date().dateOfWeek(for: UInt(Date.Week.mid.rawValue + 7))
+        case 3: day =   weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.lead)      : Date().dateOfWeek(for: UInt(Date.Week.lead.rawValue + 7))
+        default: day =  weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.end)       : Date().dateOfWeek(for: UInt(Date.Week.end.rawValue + 7))
+        }
+        
         let lblSubHeader = UILabel().also {
-            $0.text         = Date().string(format: "EEEE, dd. MMM")
+            $0.text         = day.string(format: "EEEE, dd. MMM")
             $0.textColor    = UIColor.htw.grey
             $0.font         = UIFont.from(style: .small)
         }
@@ -133,7 +151,7 @@ extension MealsViewController {
             lblHeader.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
             lblHeader.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 10),
             lblHeader.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 8)
-        ])
+            ])
         
         return wrapper
     }

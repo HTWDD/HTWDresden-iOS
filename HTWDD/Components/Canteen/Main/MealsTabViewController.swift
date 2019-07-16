@@ -14,10 +14,15 @@ class MealsTabViewController: TabmanViewController {
 
     // MARK: - Properties
     var canteenDetail: CanteenDetails?
+    var context: (HasCanteen & HasApiService)?
     weak var canteenCoordinator: CanteenCoordinator?
+    
     private lazy var viewControllers: [UIViewController] = {
-        [ self.canteenCoordinator?.getMealsViewController(for: self.canteenDetail!), UIViewController(), UIViewController() ]
+        [ self.canteenCoordinator?.getMealsViewController(for: self.canteenDetail!),
+          self.canteenCoordinator?.getMealsForWeekViewController(for: self.canteenDetail!, and: .current),
+          self.canteenCoordinator?.getMealsForWeekViewController(for: self.canteenDetail!, and: .next) ]
         }() as! [UIViewController]
+    
     private lazy var bar: TMBar.ButtonBar = {
         return TMBar.ButtonBar().also {
             $0.layout.transitionStyle   = .snap
