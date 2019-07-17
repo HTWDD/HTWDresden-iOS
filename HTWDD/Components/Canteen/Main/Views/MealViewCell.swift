@@ -129,6 +129,7 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         }
     }
     
+    // MARK: MealTypes [Note]
     enum MealTypes: String {
         case alc    = "Alkohol"
         case cow    = "Rind"
