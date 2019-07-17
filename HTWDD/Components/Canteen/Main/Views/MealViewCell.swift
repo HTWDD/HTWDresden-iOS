@@ -38,21 +38,6 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         }
         
         // REGION Meals
-//        if model.notes.count > 0 {
-//            let lblContains = BadgeLabel().also {
-//                $0.text             = R.string.localizable.canteenMealContains()
-//                $0.font             = UIFont.from(style: .small, isBold: true)
-//                $0.backgroundColor  = UIColor.htw.lightGrey
-//                $0.textColor        = UIColor.htw.grey
-//            }
-//            mealStackView.addArrangedSubview(lblContains)
-//
-//            NSLayoutConstraint.activate([
-//                    lblContains.leadingAnchor.constraint(equalTo: mealStackView.leadingAnchor),
-//                    lblContains.trailingAnchor.constraint(equalTo: mealStackView.trailingAnchor)
-//                ])
-//        }
-        
         let hStack = UIStackView().also {
             $0.axis         = .horizontal
             $0.alignment    = .leading
@@ -121,13 +106,27 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         })
         
         vStack.addArrangedSubview(BadgeLabel().also {
-            $0.text             = containing.components(separatedBy: " ").last ?? containing
+            $0.text             = localizedDescribingFor(note: containing)
             $0.textColor        = .white
             $0.backgroundColor  = UIColor.htw.darkGrey
             $0.font             = UIFont.from(style: .verySmall, isBold: true)
         })
         
         return vStack
+    }
+    
+    private func localizedDescribingFor(note: String) -> String {
+        let contains = note.components(separatedBy: " ").last ?? note
+        switch contains.lowercased().description {
+        case let str where str.contains(MealTypes.alc.rawValue.lowercased()): return R.string.localizable.canteenMealNoteAlkohol()
+        case let str where str.contains(MealTypes.cow.rawValue.lowercased()): return R.string.localizable.canteenMealNoteBeef()
+        case let str where str.contains(MealTypes.garlic.rawValue.lowercased()): return R.string.localizable.canteenMealNoteGarlic()
+        case let str where str.contains(MealTypes.pig.rawValue.lowercased()): return R.string.localizable.canteenMealNotePork()
+        case let str where str.contains(MealTypes.vegan.rawValue.lowercased()): return R.string.localizable.canteenMealNoteVegan()
+        case let str where str.contains(MealTypes.vegie.rawValue.lowercased()): return R.string.localizable.canteenMealNoteVegatarian()
+        default:
+            return contains
+        }
     }
     
     enum MealTypes: String {

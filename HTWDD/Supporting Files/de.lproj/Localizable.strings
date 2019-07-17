@@ -62,6 +62,12 @@
 "Canteen.Meal.noResult.error.title"="Ups...";
 "Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden,\nirgendwas ist schief gelaufen.";
 "Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen 🥺";
+"Canteen.Meal.note.alkohol"="Alkohol";
+"Canteen.Meal.note.beef"="Rindfleisch";
+"Canteen.Meal.note.pork"="Schweinefleisch";
+"Canteen.Meal.note.garlic"="Knoblauch";
+"Canteen.Meal.note.vegan"="Vegan";
+"Canteen.Meal.note.vegatarian"="Vegetarisch";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";

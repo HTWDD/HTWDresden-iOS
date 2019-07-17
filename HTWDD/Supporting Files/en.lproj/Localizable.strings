@@ -62,6 +62,12 @@
 "Canteen.Meal.noResult.error.title"="Ups...";
 "Canteen.Meal.noResult.error.message"="I could not load food,\nsomething went wrong.";
 "Canteen.Meal.noResult.forWeek.error.message"="I can't find any food for this week 🥺";
+"Canteen.Meal.note.alkohol"="Alcohol";
+"Canteen.Meal.note.beef"="Beef";
+"Canteen.Meal.note.pork"="Pork meat";
+"Canteen.Meal.note.garlic"="Garlic";
+"Canteen.Meal.note.vegan"="Vegan";
+"Canteen.Meal.note.vegatarian"="Vegetarian";
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
