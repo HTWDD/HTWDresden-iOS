@@ -57,10 +57,11 @@
 "Canteen.Meal.more"="Mehr Informationen";
 "Canteen.Meal.contains"="Enthält / ist";
 "Canteen.today"="Heute";
-"Canteen.week"="Woche";
+"Canteen.week"="aktuelle Woche";
 "Canteen.nextWeek"="nächste Woche";
 "Canteen.Meal.noResult.error.title"="Ups...";
-"Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden, irgendwas ist schief gelaufen.";
+"Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden,\nirgendwas ist schief gelaufen.";
+"Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen 🥺";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";

@@ -44,6 +44,7 @@ extension UITableView {
             $0.text             = title
             $0.textColor        = UIColor.htw.darkGrey
             $0.numberOfLines    = 0
+            $0.contentMode      = .scaleToFill
             $0.textAlignment    = .center
             $0.font             = UIFont.from(style: .big)
             $0.sizeToFit()
@@ -53,6 +54,7 @@ extension UITableView {
             $0.text             = message
             $0.textColor        = UIColor.htw.grey
             $0.numberOfLines    = 0
+            $0.contentMode      = .scaleToFill
             $0.textAlignment    = .center
             $0.font             = UIFont.from(style: .description)
             $0.sizeToFit()

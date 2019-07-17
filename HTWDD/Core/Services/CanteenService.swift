@@ -27,7 +27,10 @@ class CanteenService {
     
     /// Requesting all canteens Dresden 20 KM Radius
     func request() -> Observable<[Canteens]> {
-        return apiService.requestCanteens().asObservable()
+        return apiService.requestCanteens()
+            .map { $0.sorted(by: { (lhs, rhs) in lhs.name < rhs.name }) }
+            .map { $0.sorted(by: { (lhs, rhs) in lhs.name.contains("Reichenbachstraße") }) }
+            .asObservable()
     }
     
     func requestMeals(for canteenId: Int, and day: String) -> Observable<[Meals]> {

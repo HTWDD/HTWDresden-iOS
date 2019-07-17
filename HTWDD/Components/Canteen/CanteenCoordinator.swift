@@ -18,7 +18,8 @@ class CanteenCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     private lazy var canteenViewController: CanteenViewController = {
         return R.storyboard.canteen.canteenViewController()!.also {
-            $0.context = context
+            $0.context              = context
+            $0.canteenCoordinator   = self
         }
     }()
     

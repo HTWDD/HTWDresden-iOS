@@ -57,7 +57,7 @@ extension Lecture: Equatable {
 
 extension Lecture: Unmarshaling {
 
-    static let url = "https://rubu2.rz.htw-dresden.de/API/v0/studentTimetable.php"
+    static let url = "http://rubu2.rz.htw-dresden.de/API/v0/studentTimetable.php"
 
     init(object: MarshaledObject) throws {
         self.rooms = try object <| "rooms"

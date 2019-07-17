@@ -50,3 +50,10 @@ extension OpenMensaRestApi: TargetType {
         return ["Content-Type": "application/json"]
     }
 }
+
+
+extension OpenMensaRestApi: CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy {
+        return .reloadRevalidatingCacheData
+    }
+}

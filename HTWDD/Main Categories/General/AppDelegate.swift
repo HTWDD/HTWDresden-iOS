@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    
 	// MARK: - UI Apperance
-	
 	private func stylizeUI() {
 		UIRefreshControl.appearance().tintColor = .white
 		UINavigationBar.appearance().tintColor = .white
@@ -74,4 +74,11 @@ extension AppDelegate {
         let _ = try! Realm()
     }
     
+}
+
+// MARK: - URL-Session
+extension NSURLRequest {
+    static func allowsAnyHTTPSCertificateForHost(host: String) -> Bool {
+        return true
+    }
 }

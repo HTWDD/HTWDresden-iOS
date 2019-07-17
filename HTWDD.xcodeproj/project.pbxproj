@@ -121,12 +121,12 @@
 		6405917D22CB438400AA5613 /* PrincipalExamOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695522CA528300FD49EA /* PrincipalExamOffice.swift */; };
 		6405917E22CB438B00AA5613 /* StudentAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694822CA0CA700FD49EA /* StudentAdministration.swift */; };
 		6405918022CC7EAE00AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405917F22CC7EAE00AA5613 /* R.generated.swift */; };
-		6405918122CC7ED500AA5613 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
 		6405918522CC830800AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918422CC830800AA5613 /* R.generated.swift */; };
 		6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
 		6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
 		6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
 		6405918C22CCB2DD00AA5613 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
+		640CC1D022DF0D8F00581AE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
 		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
@@ -1721,7 +1721,7 @@
 			files = (
 				1F8E20E51FB34FB300347DB6 /* Colors.swift in Sources */,
 				B5F3F86E1FB8530800F0D1DB /* Log.swift in Sources */,
-				6405918122CC7ED500AA5613 /* ApiService.swift in Sources */,
+				640CC1D022DF0D8F00581AE4 /* ApiService.swift in Sources */,
 				1F8E20D61FB34EE500347DB6 /* ExamsService.swift in Sources */,
 				1FD757601FB4D1BD007F9CA1 /* LectureViewModel.swift in Sources */,
 				6440EA6A22CE007200C313AE /* NSObject+Rx.swift in Sources */,

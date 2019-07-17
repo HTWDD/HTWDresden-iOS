@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import RxSwift
+import Alamofire
 
 // MARK: - JSON
 fileprivate var studentAdministrationData: Data {
@@ -41,12 +42,41 @@ fileprivate var stuRaHTWData: Data {
     }
 }
 
+// MARK: Caching
+protocol CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy { get }
+}
+
+final class CachePolicyPlugin: PluginType {
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        if let cachePolicyGettable = target as? CachePolicyGettable {
+            var mutableRequest = request
+            mutableRequest.cachePolicy = cachePolicyGettable.cachePolicy
+            return mutableRequest
+        }
+        
+        return request
+    }
+}
+
+class CustomServerTrustPolicyManager: ServerTrustPolicyManager {
+    override func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
+        return .disableEvaluation
+    }
+    
+    public init() {
+        super.init(policies: [:])
+    }
+}
+
 
 // MARK: - API Service
 class ApiService {
 
     // MARK: - Properties
-    private let plugins: [PluginType] = [NetworkLoggerPlugin(verbose: true, cURL: false)]
+    private let plugins: [PluginType] = [NetworkLoggerPlugin(verbose: true, cURL: false), CachePolicyPlugin()]
+    
+    private let manager = Manager(configuration: URLSessionConfiguration.default, serverTrustPolicyManager: CustomServerTrustPolicyManager())
     
     private let provider: MoyaProvider<MultiTarget>
     
@@ -56,7 +86,7 @@ class ApiService {
     
     // MARK: - Lifecycle
     private init() {
-        provider = MoyaProvider<MultiTarget>(plugins: plugins)
+        provider = MoyaProvider<MultiTarget>(manager: manager, plugins: plugins)
     }
     
     // MARK: - Shared Instance
@@ -64,6 +94,7 @@ class ApiService {
         return sharedApiService
     }
 }
+
 
 // MARK: - HTW - Rest
 extension ApiService {
@@ -85,38 +116,44 @@ extension ApiService {
     
     func getStudentAdministration() -> Single<StudentAdministration> {
         return Observable.create { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-            }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
     }
     
     func getPrincipalExamOffice() -> Single<PrincipalExamOffice> {
         return Observable.create { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(PrincipalExamOffice.self, from: principalExamOfficeData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(PrincipalExamOffice.self, from: principalExamOfficeData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-            }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
     }
     
     func getStuRaHTW() -> Single<StuRaHTW> {
         return Observable.create  { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(StuRaHTW.self, from: stuRaHTWData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(StuRaHTW.self, from: stuRaHTWData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-            }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
     }
 }
 
@@ -139,21 +176,4 @@ extension ApiService {
             .filter(statusCodes: 200...299)
             .map { try $0.map([Meals].self) }
     }
-    
-//    func requestCanteenDetails(id: Int) -> Single<[Meal]> {
-//        return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
-//            .filter(statusCodes: 200...299)
-//            .map { try $0.map([Canteens].self) }
-//    }
-//
-//    func blub() {
-//        return requestCanteens().asObservable()
-//            .flatMap { canteens -> Observable<[Meal]> in
-//                let requests = canteens.map { [unowned self] canteen in self.requestCanteenDetails(id: canteen.id).asObservable() }
-//
-//                return Observable
-//                    .combineLatest(requests).take(1)
-//        }
-//    }
-    
 }

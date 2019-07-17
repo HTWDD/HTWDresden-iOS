@@ -18,7 +18,7 @@ enum HTWRestApi {
 // MARK: - Endpoint Handling
 extension HTWRestApi: TargetType {
     var baseURL: URL {
-        return URL(string: "https://rubu2.rz.htw-dresden.de/API/v0")!
+        return URL(string: "http://rubu2.rz.htw-dresden.de/API/v0")!
     }
     
     var path: String {

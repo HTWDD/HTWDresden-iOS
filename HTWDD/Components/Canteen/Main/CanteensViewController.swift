@@ -15,6 +15,7 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
     var context: HasCanteen!
     let bag = DisposeBag()
     weak var appCoordinator: AppCoordinator?
+    var canteenCoordinator: CanteenCoordinator?
     
     private var items = [CanteenDetails]() {
         didSet {
@@ -93,6 +94,8 @@ extension CanteenViewController {
             $0.backgroundColor  = UIColor.htw.veryLightGrey
             $0.register(CanteenViewCell.self)
         }
+        
+        registerForPreviewing(with: self, sourceView: tableView)
     }
     
     @objc func reload() {
@@ -125,5 +128,28 @@ extension CanteenViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
+    }
+}
+
+// MARK: 3D Touch Peek
+extension CanteenViewController: UIViewControllerPreviewingDelegate {
+    
+    private func createDetailController(indexPath: IndexPath) -> MealsTabViewController {
+        
+        return R.storyboard.canteen.mealsTabViewController()!.also {
+            $0.context              = self.context as! (HasApiService & HasCanteen)
+            $0.canteenDetail        = items[indexPath.row]
+            $0.canteenCoordinator   = self.canteenCoordinator
+        }
+        
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        return createDetailController(indexPath: indexPath)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }

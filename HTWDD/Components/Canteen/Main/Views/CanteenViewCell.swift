@@ -17,6 +17,8 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var lblCity: BadgeLabel!
     @IBOutlet weak var lblMealCount: BadgeLabel!
     @IBOutlet weak var iconMeal: UIImageView!
+    @IBOutlet weak var iconStar: UIImageView!
+    @IBOutlet weak var lblNameConstraint: NSLayoutConstraint!
     
     // MARK: - View setup
     func model(for model: CanteenDetails) {
@@ -32,9 +34,19 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         
         // Name
         lblName.apply {
-            let canteenName = canteen.name.components(separatedBy: ",").last ?? canteen.name
-            $0.textColor    = hasMeals ? UIColor.htw.darkGrey : UIColor.htw.grey
-            $0.text         = canteenName.replacingOccurrences(of: "Johannesstadt", with: "Johannstadt")
+            let canteenName     = canteen.name.components(separatedBy: ",").last ?? canteen.name
+            iconStar.isHidden   = !canteenName.contains("Reichenbachstraße")
+            $0.textColor        = hasMeals ? UIColor.htw.darkGrey : UIColor.htw.grey
+            $0.text             = canteenName.replacingOccurrences(of: "Johannesstadt", with: "Johannstadt")
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        if iconStar.isHidden {
+            lblNameConstraint.constant = 8
+            main.layoutIfNeeded()
+        } else {
+            lblNameConstraint.constant = 36
+            main.layoutIfNeeded()
         }
         
         // REGION Adress

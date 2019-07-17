@@ -57,10 +57,11 @@
 "Canteen.Meal.more"="More information";
 "Canteen.Meal.contains"="Contains / is";
 "Canteen.today"="Today";
-"Canteen.week"="Week";
+"Canteen.week"="current Week";
 "Canteen.nextWeek"="next Week";
 "Canteen.Meal.noResult.error.title"="Ups...";
-"Canteen.Meal.noResult.error.message"="I could not load food, something went wrong.";
+"Canteen.Meal.noResult.error.message"="I could not load food,\nsomething went wrong.";
+"Canteen.Meal.noResult.forWeek.error.message"="I can't find any food for this week 🥺";
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";

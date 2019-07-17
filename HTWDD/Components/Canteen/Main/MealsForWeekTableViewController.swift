@@ -17,14 +17,30 @@ class MealsForWeekTableViewController: UITableViewController {
     var weekState: CanteenService.WeekState!
     private var meals: [[Meals]] = [] {
         didSet {
+            if !meals[0].isEmpty {
+                categories.append(R.string.localizable.monday())
+            }
+            
+            if !meals[1].isEmpty {
+                categories.append(R.string.localizable.tuesday())
+            }
+            
+            if !meals[2].isEmpty {
+                categories.append(R.string.localizable.wednesday())
+            }
+            
+            if !meals[3].isEmpty {
+                categories.append(R.string.localizable.thursday())
+            }
+            
+            if !meals[4].isEmpty {
+                categories.append(R.string.localizable.friday())
+            }
+            
             tableView.reloadData()
         }
     }
-    private var categories = [R.string.localizable.monday(),
-                              R.string.localizable.tuesday(),
-                              R.string.localizable.wednesday(),
-                              R.string.localizable.thursday(),
-                              R.string.localizable.friday()]
+    private var categories: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +49,6 @@ class MealsForWeekTableViewController: UITableViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] meals in
                 guard let self = self else { return }
-                Log.debug("\(meals)")
                 self.meals = meals
             }, onError: { [weak self] in
                 guard let self = self else { return }
@@ -70,13 +85,12 @@ extension MealsForWeekTableViewController {
 extension MealsForWeekTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if meals.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
+        if meals.flatMap( { $0 } ).count == 0 {
+            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenMealNoResultForWeekErrorMessage(), icon: "🍽")
         } else {
             tableView.restore()
         }
-        
-        return meals.count
+        return categories.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
