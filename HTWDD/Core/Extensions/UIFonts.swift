@@ -10,20 +10,14 @@ import Foundation
 
 extension UIFont {
     
-    static func small(_ size: CGFloat = 13.5, isBold: Bool = false) -> UIFont {
-        if (!isBold) {
-            return UIFont.systemFont(ofSize: size)
-        } else {
-            return UIFont.boldSystemFont(ofSize: size)
-        }
+    enum Styles: Float {
+        case big            = 25.0
+        case small          = 13.5
+        case verySmall      = 10.0
+        case description    = 16.0
     }
     
-    static func description(_ size: CGFloat = 16.0, isBold: Bool = false) -> UIFont {
-        if (!isBold) {
-            return UIFont.systemFont(ofSize: size)
-        } else {
-            return UIFont.boldSystemFont(ofSize: size)
-        }
+    static func from(style: Styles, isBold: Bool = false) -> UIFont {
+        return isBold ? UIFont.boldSystemFont(ofSize: CGFloat(style.rawValue)) : UIFont.systemFont(ofSize: CGFloat(style.rawValue))
     }
-    
 }

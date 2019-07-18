@@ -39,15 +39,23 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+        <key>NSExceptionRequiresForwardSecrecy</key>
+        <true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>bilderspeiseplan.studentenwerk-dresden.de</key>
+			<key>htw-dresden.de</key>
 			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
-			<key>lucas-vogel.de</key>
+			<key>rubu2.rz.htw-dresden.de</key>
 			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
 				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>

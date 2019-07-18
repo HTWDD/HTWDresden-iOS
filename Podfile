@@ -11,7 +11,7 @@ def common_pods
   pod 'RxCocoa'
   
   # Serial- Deserialization
-  pod 'Marshal', '~> 1.2'
+  pod 'Marshal', '~> 1.2', :inhibit_warnings => true
   
   # Protected Safe Passwords
   pod 'KeychainAccess'
@@ -24,7 +24,7 @@ def common_pods
 
   # Realm Database
   pod 'RealmSwift'
-  pod 'RxRealm'
+  pod 'RxRealm', :inhibit_warnings => true
 end
 
 target 'HTWDD' do
@@ -32,6 +32,9 @@ target 'HTWDD' do
   
   # Side Menu
   pod 'SideMenu'
+  
+  # TabMan
+  pod 'Tabman', '~> 2.4', :inhibit_warnings => true
 
   target 'HTWDDTests' do
     inherit! :search_paths

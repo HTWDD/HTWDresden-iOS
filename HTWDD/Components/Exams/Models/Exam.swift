@@ -79,7 +79,7 @@ struct Exam: Codable, Identifiable, Equatable {
         return lhs.title == rhs.title && lhs.type == rhs.type && lhs.branch == rhs.branch && lhs.examiner == rhs.examiner && lhs.rooms == rhs.rooms
     }
     
-    static let url = "https://www2.htw-dresden.de/~app/API/GetExams.php"
+    static let url = "http://www2.htw-dresden.de/~app/API/GetExams.php"
     
     static func get(network: Network, auth: ScheduleService.Auth) -> Observable<[Exam]> {
         let absc: String

@@ -54,7 +54,7 @@ class ManagementService: Service {
                     [Item.semesterPlan(model: SemesterPlaning.map(from: $0)!)]
                 }.catchErrorJustReturn([])
         }
-        return Observable.empty()
+        return Observable.just([])
     }
     
     fileprivate func requestSemesterPlaning() {

@@ -9,15 +9,46 @@
 import UIKit
 
 class CanteenCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Services = HasCanteen & HasApiService
     
     // MARK: - Properties
-    let context: HasCanteen
-    var rootViewController: UIViewController { return self.canteenMainVC }
+    let context: Services
+    var rootViewController: UIViewController { return canteenViewController }
     var childCoordinators: [Coordinator] = []
-    private lazy var canteenMainVC = CanteenMainVC(context: self.context)
-
+    private lazy var canteenViewController: CanteenViewController = {
+        return R.storyboard.canteen.canteenViewController()!.also {
+            $0.context              = context
+            $0.canteenCoordinator   = self
+        }
+    }()
+    
+    // MARK: Meals Tab View Controller - Contains Sub ViewControllers
+    func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
+        return R.storyboard.canteen.mealsTabViewController()!.also {
+            $0.context              = context
+            $0.canteenDetail        = canteenDetail
+            $0.canteenCoordinator   = self
+        }
+    }
+    
+    // MARK: Meals View Controller - Detail for Today
+    func getMealsViewController(for canteenDetail: CanteenDetails) -> MealsViewController {
+        return R.storyboard.canteen.mealsViewController()!.also {
+            $0.canteenDetail = canteenDetail
+        }
+    }
+    
+    func getMealsForWeekViewController(for canteenDetail: CanteenDetails, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
+        return R.storyboard.canteen.mealsForWeekTableViewController()!.also {
+            $0.canteenDetail    = canteenDetail
+            $0.context          = context
+            $0.weekState        = weekState
+        }
+    }
+    
     // MARK: Lifecycle
-    init(context: HasCanteen) {
+    init(context: Services) {
         self.context = context
     }
 }

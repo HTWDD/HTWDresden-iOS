@@ -43,7 +43,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsLectures()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description(isBold: true)
+            $0.font         = UIFont.from(style: .description, isBold: true)
         })
         
         // Semesterperiod ( From - To )
@@ -51,7 +51,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.period.beginDayFormated) - \(data.period.endDayFormated)"
             $0.backgroundColor  = UIColor(hex: 0x1976D2)
             $0.textColor        = .white
-            $0.font             = UIFont.small(isBold: true)
+            $0.font             = UIFont.from(style: .small, isBold: true)
         })
         
         // SPACER
@@ -63,7 +63,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.numberOfLines    = 0
             $0.text             = R.string.localizable.managementSemesterPeriodsFreedays()
             $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.description(isBold: true)
+            $0.font             = UIFont.from(style: .description, isBold: true)
         })
         
         // REGION - Freedays
@@ -75,7 +75,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             
             hStack.addArrangedSubview(UILabel().also { label in
                 label.text          = freeDay.name
-                label.font          = UIFont.small()
+                label.font          = UIFont.from(style: .small)
                 label.textColor     = UIColor.htw.darkGrey
                 label.contentMode   = .scaleToFill
                 label.numberOfLines = 0
@@ -87,7 +87,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
                 } else {
                     label.text = "\(freeDay.beginDayFormated) - \(freeDay.endDayFormated)"
                 }
-                label.font              = UIFont.small()
+                label.font              = UIFont.from(style: .small)
                 label.backgroundColor   = UIColor.htw.lightGrey
                 label.textColor         = UIColor.htw.darkGrey
                 label.contentMode       = .scaleToFill
@@ -104,7 +104,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Exams Period ( Header )
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsExams()
-            $0.font         = UIFont.description(isBold: true)
+            $0.font         = UIFont.from(style: .description, isBold: true)
             $0.textColor    = UIColor.htw.darkGrey
         })
         
@@ -112,8 +112,8 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
-            $0.font             = UIFont.small(isBold: true)
-            $0.backgroundColor  = UIColor(hex: 0x009688, alpha: 0.8)
+            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.backgroundColor  = UIColor.htw.mediumOrange
         })
         
         // SPACER
@@ -123,7 +123,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         self.stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsReregistration()
             $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.description(isBold: true)
+            $0.font         = UIFont.from(style: .description, isBold: true)
         })
         
         // Re-Registration ( From - To )
@@ -131,7 +131,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.reregistration.beginDayFormated) - \(data.reregistration.endDayFormated)"
             $0.textColor        = .white
             $0.backgroundColor  = UIColor(hex: 0xF57F17, alpha: 0.8)
-            $0.font             = UIFont.small(isBold: true)
+            $0.font             = UIFont.from(style: .small, isBold: true)
         })
     }
 }

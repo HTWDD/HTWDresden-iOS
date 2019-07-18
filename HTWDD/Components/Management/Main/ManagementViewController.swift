@@ -55,6 +55,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     
     fileprivate func load(_ refreshControl: UIRefreshControl? = nil) {
         context.managementService.load(parameters: ())
+            .debug()
             .observeOn(MainScheduler.instance)
             .delay(DispatchTimeInterval.milliseconds(refreshControl == nil ? 5 : 500), scheduler: MainScheduler.instance)
             .subscribe(onNext: { [weak self] items in

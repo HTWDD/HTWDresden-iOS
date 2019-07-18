@@ -11,8 +11,17 @@ import RxSwift
 import RxCocoa
 import Marshal
 
-public class Network {
 
+public class Network: NSObject, URLSessionDelegate {
+
+    lazy var session: URLSession = {
+        return  URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+    }()
+    
+    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        completionHandler(URLSession.AuthChallengeDisposition.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!) )
+    }
+    
     /// Errors that can occur during network requests.
     ///
     /// - invalidURL: the given or created url was not valid.
@@ -53,7 +62,7 @@ public class Network {
     
     private func get(url: String, params: [String: String]) -> Observable<Any> {
         return self.request(url: url, params: params).flatMap { req in
-            return URLSession.shared.rx.json(request: req).map { $0 as Any }
+            return self.session.rx.json(request: req).map { $0 as Any }
         }
     }
 
@@ -98,8 +107,8 @@ public class Network {
     ///   - params: optional parameters to add to the url
     /// - Returns: Observable containing the loaded objects
     public func getArray<T: Decodable>(url: String, params: [String: String] = [:]) -> Observable<[T]> {
-        return self.request(url: url, params: params).flatMap { req in
-            return URLSession.shared.rx.data(request: req).map({ try JSONDecoder().decode([T].self, from: $0) })
+        return self.request(url: url, params: params).flatMap { req -> Observable<[T]> in
+            return self.session.rx.data(request: req).map({ try JSONDecoder().decode([T].self, from: $0) })
         }
     }
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="254" id="KGk-i7-Jjw" customClass="MealViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="219.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc7-Yq-qJb">
+                        <rect key="frame" x="8" y="8" width="304" height="203.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-Zd-nvM">
+                                <rect key="frame" x="36" y="8" width="260" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-kU-pa2">
+                                <rect key="frame" x="8" y="44" width="288" height="49"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pW-ux-pwN">
+                                <rect key="frame" x="8" y="101" width="288" height="75"/>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Canteen" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-2T-gJo">
+                                <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="FtL-We-xte"/>
+                                    <constraint firstAttribute="height" constant="20" id="UeR-Us-37N"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gv6-2T-gJo" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="0Hk-xH-hpv"/>
+                            <constraint firstAttribute="trailing" secondItem="r4e-Zd-nvM" secondAttribute="trailing" constant="8" id="0Z3-Ee-5fx"/>
+                            <constraint firstAttribute="bottom" secondItem="3pW-ux-pwN" secondAttribute="bottom" constant="8" id="D5M-3x-Tx6"/>
+                            <constraint firstItem="PgS-kU-pa2" firstAttribute="top" secondItem="r4e-Zd-nvM" secondAttribute="bottom" constant="8" id="KaF-pq-Qfe"/>
+                            <constraint firstItem="Gv6-2T-gJo" firstAttribute="top" secondItem="wc7-Yq-qJb" secondAttribute="top" constant="8" id="O5M-Tg-ncl"/>
+                            <constraint firstAttribute="trailing" secondItem="PgS-kU-pa2" secondAttribute="trailing" constant="8" id="Uyo-0G-8Qx"/>
+                            <constraint firstItem="PgS-kU-pa2" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="ZBo-tg-JYW"/>
+                            <constraint firstAttribute="trailing" secondItem="3pW-ux-pwN" secondAttribute="trailing" constant="8" id="bJg-oD-o4H"/>
+                            <constraint firstItem="r4e-Zd-nvM" firstAttribute="leading" secondItem="Gv6-2T-gJo" secondAttribute="trailing" constant="8" id="cFw-n2-m4g"/>
+                            <constraint firstItem="3pW-ux-pwN" firstAttribute="top" secondItem="PgS-kU-pa2" secondAttribute="bottom" constant="16" id="cQs-up-51z"/>
+                            <constraint firstItem="r4e-Zd-nvM" firstAttribute="top" secondItem="wc7-Yq-qJb" secondAttribute="top" constant="8" id="iO1-xi-yjW"/>
+                            <constraint firstItem="3pW-ux-pwN" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="ybs-cU-Bq3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="wc7-Yq-qJb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7zg-Mn-zt3"/>
+                    <constraint firstAttribute="trailing" secondItem="wc7-Yq-qJb" secondAttribute="trailing" constant="8" id="C2c-Ek-jPF"/>
+                    <constraint firstItem="wc7-Yq-qJb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RJd-me-Aaj"/>
+                    <constraint firstAttribute="bottom" secondItem="wc7-Yq-qJb" secondAttribute="bottom" constant="8" id="yLp-sr-dhp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblMealName" destination="r4e-Zd-nvM" id="yER-7H-2dj"/>
+                <outlet property="main" destination="wc7-Yq-qJb" id="elh-qP-nu0"/>
+                <outlet property="mealStackView" destination="PgS-kU-pa2" id="3fV-5T-gU2"/>
+                <outlet property="priceStackView" destination="3pW-ux-pwN" id="3n6-5a-hlX"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="93.080357142857139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Canteen" width="24" height="24"/>
+    </resources>
+</document>

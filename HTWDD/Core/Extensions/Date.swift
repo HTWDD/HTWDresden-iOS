@@ -94,4 +94,43 @@ extension Date {
         df.locale       = Locale.current
         return df.string(from: self)
     }
+    
+    // MARK: - Week Position
+    enum Week: Int, CaseIterable {
+        case beginn     = 1
+        case second     = 2
+        case mid        = 3
+        case lead       = 4
+        case end        = 5
+    }
+    
+    // Get Date specified position of Week
+    func dateOfWeek(for weekPosition: Week) -> Date {
+        let saturday = Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
+        return Calendar.gregorian.date(byAdding: .day, value: weekPosition.rawValue, to: saturday!)!
+    }
+    
+    func dateOfWeek(for weekPosition: UInt) -> Date {
+        let saturday = Calendar.gregorian.date(from: Calendar.gregorian.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
+        return Calendar.gregorian.date(byAdding: .day, value: Int(weekPosition), to: saturday!)!
+    }
+    
+    // Get all Dates in Week
+    func allDateForWeek() -> [Date] {
+        var dates: [Date] = []
+        for key in Week.allCases {
+            dates.append(dateOfWeek(for: key))
+        }
+        return dates
+    }
+    
+    // Get all Dates in NextWeek
+    func allDateForNextWeek() -> [Date] {
+        var dates: [Date] = []
+        for i in 8...12 {
+           dates.append(dateOfWeek(for: UInt(i)))
+        }
+        return dates
+    }
+
 }

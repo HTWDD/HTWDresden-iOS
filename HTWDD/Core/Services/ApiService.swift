@@ -9,6 +9,7 @@
 import Foundation
 import Moya
 import RxSwift
+import Alamofire
 
 // MARK: - JSON
 fileprivate var studentAdministrationData: Data {
@@ -41,12 +42,43 @@ fileprivate var stuRaHTWData: Data {
     }
 }
 
+// MARK: Caching
+protocol CachePolicyGettable {
+    var cachePolicy: URLRequest.CachePolicy { get }
+}
+
+final class CachePolicyPlugin: PluginType {
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        if let cachePolicyGettable = target as? CachePolicyGettable {
+            var mutableRequest = request
+            mutableRequest.cachePolicy = cachePolicyGettable.cachePolicy
+            return mutableRequest
+        }
+        
+        return request
+    }
+}
+
+class CustomServerTrustPolicyManager: ServerTrustPolicyManager {
+    override func serverTrustPolicy(forHost host: String) -> ServerTrustPolicy? {
+        return .disableEvaluation
+    }
+    
+    public init() {
+        super.init(policies: [:])
+    }
+}
+
 
 // MARK: - API Service
 class ApiService {
-    
+
     // MARK: - Properties
-    private let provider: MoyaProvider<RestApi>
+    private let plugins: [PluginType] = [NetworkLoggerPlugin(verbose: true, cURL: false), CachePolicyPlugin()]
+    
+    private let manager = Manager(configuration: URLSessionConfiguration.default, serverTrustPolicyManager: CustomServerTrustPolicyManager())
+    
+    private let provider: MoyaProvider<MultiTarget>
     
     private static var sharedApiService: ApiService = {
         return ApiService()
@@ -54,16 +86,21 @@ class ApiService {
     
     // MARK: - Lifecycle
     private init() {
-        provider = MoyaProvider<RestApi>(plugins: [NetworkLoggerPlugin(verbose: true)])
+        provider = MoyaProvider<MultiTarget>(manager: manager, plugins: plugins)
     }
     
+    // MARK: - Shared Instance
     class func shared() -> ApiService {
         return sharedApiService
     }
-    
+}
+
+
+// MARK: - HTW - Rest
+extension ApiService {
     // MARK: - TimeTable
     func requestTimeTable(for year: String, major: String, group: String) -> Observable<[Lecture]> {
-        return provider.rx.request(.timeTable(year: year, major: major, group: group))
+        return provider.rx.request(MultiTarget(HTWRestApi.timeTable(year: year, major: major, group: group)))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([Lecture].self) }
@@ -71,7 +108,7 @@ class ApiService {
     
     // MARK: - Management
     func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
-        return provider.rx.request(.semesterPlaning)
+        return provider.rx.request(MultiTarget(HTWRestApi.semesterPlaning))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([SemesterPlaning].self) }
@@ -79,37 +116,64 @@ class ApiService {
     
     func getStudentAdministration() -> Single<StudentAdministration> {
         return Observable.create { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-        }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
     }
     
     func getPrincipalExamOffice() -> Single<PrincipalExamOffice> {
         return Observable.create { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(PrincipalExamOffice.self, from: principalExamOfficeData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(PrincipalExamOffice.self, from: principalExamOfficeData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-        }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
     }
     
     func getStuRaHTW() -> Single<StuRaHTW> {
         return Observable.create  { observer in
-            do {
-                observer.onNext(try JSONDecoder().decode(StuRaHTW.self, from: stuRaHTWData))
-                observer.onCompleted()
-            } catch {
-                observer.onError(error)
+                do {
+                    observer.onNext(try JSONDecoder().decode(StuRaHTW.self, from: stuRaHTWData))
+                    observer.onCompleted()
+                } catch {
+                    observer.onError(error)
+                }
+                return Disposables.create()
             }
-            return Disposables.create()
-        }.asSingle()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .asSingle()
+    }
+}
+
+
+// MARK: - OpenMensa - Rest
+extension ApiService {
+    
+    func requestCanteens(latitude: Double = 51.058583, longitude: Double = 13.738208, distance: Int = 20) -> Single<[Canteens]> {
+        return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Canteens].self) }
+    }
+    
+    func requestMeals(for canteenId: Int, and forDate: String) -> Single<[Meals]> {
+        return provider.rx.request(MultiTarget(OpenMensaRestApi.meals(canteenId: canteenId, forDate: forDate)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Meals].self) }
     }
 }

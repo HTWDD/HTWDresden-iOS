@@ -51,8 +51,23 @@
 "Canteen.pluralTitle"="Mensen";
 "Canteen.noCounter"="Ausgabeort nicht bekannt";
 "Canteen.noResults.title"="Kein Essen";
-"Canteen.noResults.message"="Heute gibt's nichts zu essen :-/";
+"Canteen.noResults.message"="Heute gibt es nichts zu essen 😕";
+"Canteen.noResults.error.title"="Ups...";
+"Canteen.noResults.error.message"="Ich konnte keine Mensen finden, irgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
+"Canteen.Meal.contains"="Enthält / ist";
+"Canteen.today"="Heute";
+"Canteen.week"="aktuelle Woche";
+"Canteen.nextWeek"="nächste Woche";
+"Canteen.Meal.noResult.error.title"="Ups...";
+"Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden,\nirgendwas ist schief gelaufen.";
+"Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen 🥺";
+"Canteen.Meal.note.alkohol"="Alkohol";
+"Canteen.Meal.note.beef"="Rindfleisch";
+"Canteen.Meal.note.pork"="Schweinefleisch";
+"Canteen.Meal.note.garlic"="Knoblauch";
+"Canteen.Meal.note.vegan"="Vegan";
+"Canteen.Meal.note.vegatarian"="Vegetarisch";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";
