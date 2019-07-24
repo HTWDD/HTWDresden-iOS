@@ -21,6 +21,9 @@
 "Onboarding.UnixLogin.sPlaceholder"="S-Number";
 "Onboarding.UnixLogin.passwordPlaceholder"="Password";
 
+"Dashboard.title"="Overview";
+
+
 "Schedule.title"="Schedule";
 "Schedule.today"="Today";
 "Schedule.Style.week"="Week";
@@ -46,6 +49,11 @@
 "Schedule.LectureType.lecture"="Lecture";
 "Schedule.LectureType.practical"="Practical";
 "Schedule.LectureType.exercise"="Exercise";
+"Schedule.LectureType.block"="Block";
+"Schedule.LectureType.requested"="Requested";
+"Schedule.LectureType.unknown"="Unknown";
+"Schedule.current.lesson"="Current";
+"Schedule.next.lesson"="Next";
 
 "Canteen.title"="Canteen";
 "Canteen.pluralTitle"="Canteens";
@@ -53,7 +61,7 @@
 "Canteen.noResults.title"="No meals";
 "Canteen.noResults.message"="I can't find any food for today 😕";
 "Canteen.noResults.error.title"="Ups...";
-"Canteen.noResults.error.message"="I could not find canteens, something went wrong.";
+"Canteen.noResults.error.message"="I could not find canteens,\nsomething went wrong.";
 "Canteen.Meal.more"="More information";
 "Canteen.Meal.contains"="Contains / is";
 "Canteen.today"="Today";
@@ -149,6 +157,13 @@
 "Grades.status.ultimatelyFailed" = "ultimately failed";
 "Grades.noResults.title"="No grades";
 "Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
+"Grades.numbers.and.credits"="%@ Grade(s) %@ Credit(s)";
+"Grades.numbers.singular"="%d Grade";
+"Grades.numbers.plural"="%d Grades";
+"Grades.credits.number.singular"="%.2f Credit";
+"Grades.credits.number.plural"="%.2f Credits";
+"Grades.last.grade"="Last grade: %@";
+
 
 "Management.title" = "Management";
 "Management.semester.summer" = "Summer semester";

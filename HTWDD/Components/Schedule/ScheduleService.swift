@@ -12,6 +12,8 @@ import RxSwift
 
 class ScheduleService: Service {
     
+    var auth: Auth?
+    
     struct Auth: Hashable, Codable {
         enum Degree: String, Codable {
             case bachelor, diplom, master
@@ -94,6 +96,8 @@ class ScheduleService: Service {
     private let persistenceService = PersistenceService()
 
     func load(parameters: Auth) -> Observable<Information> {
+        self.auth = parameters
+        
         if let cached = self.cachedInformation[parameters] {
             return Observable.just(cached)
         }

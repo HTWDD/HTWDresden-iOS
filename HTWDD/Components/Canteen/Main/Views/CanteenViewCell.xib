@@ -80,6 +80,9 @@
                             <constraint firstItem="hTk-sE-CZo" firstAttribute="leading" secondItem="2Zp-05-FnQ" secondAttribute="trailing" constant="6" id="wpf-ds-obL"/>
                             <constraint firstAttribute="trailing" secondItem="hTk-sE-CZo" secondAttribute="trailing" constant="8" id="wtk-Xc-Z8U"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

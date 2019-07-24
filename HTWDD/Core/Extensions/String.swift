@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit.UIColor
 import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
@@ -63,6 +64,25 @@ extension String {
         return digestData
     }
     
+    func toTimeDate() -> Date {
+        return DateFormatter().also {
+            $0.dateFormat = "HH:mm:ss"
+        }.date(from: self)!
+    }
+    
+    // MARK: - ID-To-UIColor
+    var color: UIColor {
+        
+        let hexColorString = String(String(self.reversed())
+            .md5()
+            .enumerated()
+            .compactMap( { String(format: "%02hhx", $0.element) })
+            .joined()
+            .prefix(6))
+        
+        return UIColor(hex: UInt(hexColorString, radix: 16)!)
+        
+    }
 }
 
 enum Constants {

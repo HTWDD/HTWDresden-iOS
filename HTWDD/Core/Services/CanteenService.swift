@@ -26,31 +26,31 @@ class CanteenService {
     }
     
     /// Requesting all canteens Dresden 20 KM Radius
-    func request() -> Observable<[Canteens]> {
+    func request() -> Observable<[Canteen]> {
         return apiService.requestCanteens()
             .map { $0.sorted(by: { (lhs, rhs) in lhs.name < rhs.name }) }
             .map { $0.sorted(by: { (lhs, rhs) in lhs.name.contains("Reichenbachstraße") }) }
             .asObservable()
     }
     
-    func requestMeals(for canteenId: Int, and day: String) -> Observable<[Meals]> {
+    func requestMeals(for canteenId: Int, and day: String) -> Observable<[Meal]> {
         return apiService.requestMeals(for: canteenId, and: day).asObservable()
     }
     
-    func requestMeals(for week: WeekState, and canteenId: Int) -> Observable<[[Meals]]> {
+    func requestMeals(for week: WeekState, and canteenId: Int) -> Observable<[[Meal]]> {
         switch week {
         case .current: return requestMealsForCurrentWeek(for: canteenId)
         case .next: return requestMealsForNextWeek(for: canteenId)
         }
     }
     
-    private func requestMealsForCurrentWeek(for canteenId: Int) -> Observable<[[Meals]]> {
+    private func requestMealsForCurrentWeek(for canteenId: Int) -> Observable<[[Meal]]> {
         return Observable.combineLatest(Date().allDateForWeek()
             .map { $0.string(format: "yyyy-MM-dd") }
             .map { requestMeals(for: canteenId, and: $0) })
     }
     
-    private func requestMealsForNextWeek(for canteenId: Int) -> Observable<[[Meals]]> {
+    private func requestMealsForNextWeek(for canteenId: Int) -> Observable<[[Meal]]> {
         return Observable.combineLatest(Date().allDateForNextWeek()
             .map { $0.string(format: "yyyy-MM-dd") }
             .map { requestMeals(for: canteenId, and: $0) })

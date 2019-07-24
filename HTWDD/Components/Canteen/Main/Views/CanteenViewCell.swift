@@ -20,17 +20,40 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var iconStar: UIImageView!
     @IBOutlet weak var lblNameConstraint: NSLayoutConstraint!
     
-    // MARK: - View setup
-    func model(for model: CanteenDetails) {
-        let canteen     = model.canteen
-        let hasMeals    = model.meals.count > 0
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         // Main View
         main.apply {
             $0.layer.cornerRadius   = 4
-            $0.layer.borderWidth    = 1
-            $0.layer.borderColor    = UIColor.htw.lightGrey.cgColor
         }
+        
+        lblAdress.apply {
+            $0.textColor        = UIColor.htw.grey
+            $0.numberOfLines    = 0
+            $0.contentMode      = .scaleToFill
+        }
+        
+        lblCity.apply {
+            $0.backgroundColor  = UIColor.htw.mediumOrange
+            $0.textColor        = UIColor.white
+            $0.font             = UIFont.from(style: .small, isBold: true)
+        }
+        
+        lblMealCount.apply {
+            $0.font = UIFont.from(style: .verySmall, isBold: true)
+        }
+        
+        // Meal Icon
+        iconMeal.apply {
+            $0.tintColor = UIColor.htw.darkGrey
+        }
+    }
+    
+    // MARK: - View setup
+    func setup(with model: CanteenDetail) {
+        let canteen     = model.canteen
+        let hasMeals    = model.meals.count > 0
         
         // Name
         lblName.apply {
@@ -54,20 +77,8 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         let street = adressComponents.first ?? canteen.address
         let city = adressComponents[1].components(separatedBy: " ").last
         
-        lblAdress.apply {
-            $0.textColor        = UIColor.htw.grey
-            $0.text             = street
-            $0.numberOfLines    = 0
-            $0.contentMode      = .scaleToFill
-        }
-        
-        // City
-        lblCity.apply {
-            $0.text             = city
-            $0.backgroundColor  = UIColor.htw.mediumOrange
-            $0.textColor        = UIColor.white
-            $0.font             = UIFont.from(style: .small, isBold: true)
-        }
+        lblAdress.text  = street
+        lblCity.text    = city
         // ENDREGINO Adress
         
         // Meal Count
@@ -75,13 +86,11 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(model.meals.count)"
             $0.textColor        = hasMeals ? UIColor.htw.darkGrey  : .white
             $0.backgroundColor  = hasMeals ? UIColor.htw.lightGrey : UIColor.htw.redMaterial
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
         }
         
         // Meal Icon
         iconMeal.apply {
             $0.image        = $0.image?.withRenderingMode(.alwaysTemplate)
-            $0.tintColor    = UIColor.htw.darkGrey
         }
     }
     

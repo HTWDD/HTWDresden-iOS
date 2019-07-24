@@ -12,12 +12,12 @@ import RxSwift
 class CanteenViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
-    var context: HasCanteen!
+    var context: (HasApiService & HasCanteen)!
     let bag = DisposeBag()
     weak var appCoordinator: AppCoordinator?
     var canteenCoordinator: CanteenCoordinator?
     
-    private var items = [CanteenDetails]() {
+    private var items = [CanteenDetail]() {
         didSet {
             tableView.reloadData()
         }
@@ -45,14 +45,14 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
         let currentDay = Date().string(format: "yyyy-MM-dd")
         context.canteenService.request()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))                          // run in background
-            .flatMap { canteens -> Observable<[CanteenDetails]> in
+            .flatMap { canteens -> Observable<[CanteenDetail]> in
                 let requests = canteens.map { [unowned self] canteen in
                     self.context.canteenService
                         .requestMeals(for: canteen.id, and: currentDay)
                         .map { meals in
-                            return CanteenDetails(canteen: canteen, meals: meals)
+                            return CanteenDetail(canteen: canteen, meals: meals)
                         }
-                        .catchErrorJustReturn(CanteenDetails(canteen: canteen, meals: []))
+                        .catchErrorJustReturn(CanteenDetail(canteen: canteen, meals: []))
                 }
                 return Observable.combineLatest(requests)
 //                    .map { $0.filter({!$0.meals.isEmpty }) }
@@ -68,6 +68,9 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
                 guard let self = self else { return }
                 Log.error(error)
                 self.tableView.setEmptyMessage(R.string.localizable.canteenNoResultsErrorTitle(), message: R.string.localizable.canteenNoResultsErrorMessage(), icon: "😖")
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(150), execute: {
+                    self.refreshControl?.endRefreshing()
+                })
             }).disposed(by: bag)
     }
 }
@@ -117,13 +120,13 @@ extension CanteenViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(CanteenViewCell.self, for: indexPath)!
-        cell.model(for: items[indexPath.row])
+        cell.setup(with: items[indexPath.row])
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         Log.verbose("didSelectRowAt: \(indexPath.row)")
-        appCoordinator?.goTo(controller: .meals(canteenDetail: items[indexPath.row]), animated: true)
+        appCoordinator?.goTo(controller: .meal(canteenDetail: items[indexPath.row]), animated: true)
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -137,7 +140,7 @@ extension CanteenViewController: UIViewControllerPreviewingDelegate {
     private func createDetailController(indexPath: IndexPath) -> MealsTabViewController {
         
         return R.storyboard.canteen.mealsTabViewController()!.also {
-            $0.context              = self.context as! (HasApiService & HasCanteen)
+            $0.context              = self.context
             $0.canteenDetail        = items[indexPath.row]
             $0.canteenCoordinator   = self.canteenCoordinator
         }

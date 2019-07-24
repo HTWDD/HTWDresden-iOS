@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="193" id="KGk-i7-Jjw" customClass="DashboardGradeViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="192.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z7g-Jo-zLD">
+                        <rect key="frame" x="8" y="8" width="304" height="176.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vSN-gU-PWA">
+                                <rect key="frame" x="8" y="8" width="288" height="160.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZ1-Z6-bJG" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="58"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHX-eR-SqM" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="288" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vH-YH-E9e">
+                                        <rect key="frame" x="0.0" y="98.5" width="288" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="ynB-bg-fDW"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDT-ht-dpG">
+                                        <rect key="frame" x="0.0" y="109.5" width="288" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGo-P1-xyN" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140" width="288" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vSN-gU-PWA" firstAttribute="leading" secondItem="z7g-Jo-zLD" secondAttribute="leading" constant="8" id="2fJ-AF-Lci"/>
+                            <constraint firstAttribute="trailing" secondItem="vSN-gU-PWA" secondAttribute="trailing" constant="8" id="8Nb-U7-8kc"/>
+                            <constraint firstItem="vSN-gU-PWA" firstAttribute="top" secondItem="z7g-Jo-zLD" secondAttribute="top" constant="8" id="Dxb-Nn-T0s"/>
+                            <constraint firstAttribute="bottom" secondItem="vSN-gU-PWA" secondAttribute="bottom" constant="8" id="hLY-Fe-wRx"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="z7g-Jo-zLD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RA0-tB-obj"/>
+                    <constraint firstAttribute="trailing" secondItem="z7g-Jo-zLD" secondAttribute="trailing" constant="8" id="WeS-IH-31K"/>
+                    <constraint firstAttribute="bottom" secondItem="z7g-Jo-zLD" secondAttribute="bottom" constant="8" id="ZbU-QK-OBa"/>
+                    <constraint firstItem="z7g-Jo-zLD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uac-9t-E9L"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblLastGrade" destination="lGo-P1-xyN" id="trj-XK-oMM"/>
+                <outlet property="lblLastGradeHeader" destination="ZDT-ht-dpG" id="g4H-yz-BrH"/>
+                <outlet property="lblNumberOfCredits" destination="JHX-eR-SqM" id="Vfl-nh-bMx"/>
+                <outlet property="lblNumberOfGrades" destination="UZ1-Z6-bJG" id="OzW-BE-6Ov"/>
+                <outlet property="main" destination="z7g-Jo-zLD" id="vHe-Vg-6y2"/>
+                <outlet property="separator" destination="8vH-YH-E9e" id="fce-Ck-FAP"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="203.23660714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

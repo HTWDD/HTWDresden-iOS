@@ -9,12 +9,13 @@
 import Foundation
 
 enum CoordinatorRoute {
+    case dashboard
     case schedule
     case scheduleToday
     case exams
     case grades
     case canteen
-    case meals(canteenDetail: CanteenDetails)
+    case meal(canteenDetail: CanteenDetail)
     case settings
     case management
 }
@@ -24,12 +25,13 @@ extension CoordinatorRoute {
     
     init?(rawValue: RawValue) {
         switch rawValue {
+        case "dashboard": self  = .dashboard
         case "schedule": self = .schedule
         case "scheduleToday": self = .scheduleToday
         case "exams": self = .exams
         case "grades": self = .grades
         case "canteen": self = .canteen
-        case "meals": self = .meals(canteenDetail: CanteenDetails(canteen:  Canteens(id: 0, name: "", address: "", coordinates: [0, 0]), meals: []))
+        case "meal": self = .meal(canteenDetail: CanteenDetail(canteen:  Canteen(id: 0, name: "", address: "", coordinates: [0, 0]), meals: []))
         case "settings": self = .settings
         case "management": self = .management
         default:
@@ -39,12 +41,13 @@ extension CoordinatorRoute {
     
     public var rawValue: RawValue {
         switch self {
+        case .dashboard: return "dashboard"
         case .schedule: return "schedule"
         case .scheduleToday: return "scheduleToday"
         case .exams: return "exams"
         case .grades: return "grades"
         case .canteen: return "canteen"
-        case .meals(_): return "meals"
+        case .meal(_): return "meal"
         case .settings: return "settings"
         case .management: return "management"
         }

@@ -45,6 +45,9 @@
                             <constraint firstItem="Qlp-MK-lGW" firstAttribute="leading" secondItem="zG4-Xb-moq" secondAttribute="leading" constant="8" id="Y6P-uf-3YJ"/>
                             <constraint firstItem="Qlp-MK-lGW" firstAttribute="height" secondItem="zG4-Xb-moq" secondAttribute="height" constant="20" id="jwj-ge-hfu"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

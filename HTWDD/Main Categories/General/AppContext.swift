@@ -12,6 +12,10 @@ class User {
     
 }
 
+protocol HasDashboard {
+    var dashboardService: DashboardService { get }
+}
+
 protocol HasSchedule {
     var scheduleService: ScheduleService { get }
 }
@@ -40,7 +44,8 @@ protocol HasApiService {
     var apiService: ApiService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement, HasApiService {
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement, HasApiService, HasDashboard {
+    lazy var dashboardService   = DashboardService(apiService: self.apiService, scheduleService: self.scheduleService)
     lazy var scheduleService    = ScheduleService()
 	lazy var examsService       = ExamsService()
 	lazy var gradeService       = GradeService()

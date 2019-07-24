@@ -21,6 +21,9 @@
 "Onboarding.UnixLogin.sPlaceholder"="S-Nummer";
 "Onboarding.UnixLogin.passwordPlaceholder"="Passwort";
 
+"Dashboard.title"="Übersicht";
+
+
 "Schedule.title"="Stundenplan";
 "Schedule.today"="Heute";
 "Schedule.Style.week"="Woche";
@@ -46,6 +49,11 @@
 "Schedule.LectureType.lecture"="Vorlesung";
 "Schedule.LectureType.practical"="Praktikum";
 "Schedule.LectureType.exercise"="Übung";
+"Schedule.LectureType.block"="Block";
+"Schedule.LectureType.requested"="Buchung-angefragt";
+"Schedule.LectureType.unknown"="Unbekannt";
+"Schedule.current.lesson"="Aktuell";
+"Schedule.next.lesson"="Nächste";
 
 "Canteen.title"="Mensa";
 "Canteen.pluralTitle"="Mensen";
@@ -53,7 +61,7 @@
 "Canteen.noResults.title"="Kein Essen";
 "Canteen.noResults.message"="Heute gibt es nichts zu essen 😕";
 "Canteen.noResults.error.title"="Ups...";
-"Canteen.noResults.error.message"="Ich konnte keine Mensen finden, irgendwas ist schief gelaufen.";
+"Canteen.noResults.error.message"="Ich konnte keine Mensen finden,\nirgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
 "Canteen.Meal.contains"="Enthält / ist";
 "Canteen.today"="Heute";
@@ -149,6 +157,12 @@
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
 "Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+"Grades.numbers.and.credits"="%@ Note(n)\n%@ Credit(s)";
+"Grades.numbers.singular"="%d Note";
+"Grades.numbers.plural"="%d Noten";
+"Grades.credits.number.singular"="%.2f Credit";
+"Grades.credits.number.plural"="%.2f Credits";
+"Grades.last.grade"="Letzte Note: %@";
 
 "Management.title" = "Verwaltung";
 "Management.semester.summer" = "Sommersemester";

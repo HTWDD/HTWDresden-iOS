@@ -61,6 +61,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="lblSubtitle" destination="JO1-di-oye" id="8XL-Ei-7Ty"/>
                 <outlet property="lblTitle" destination="iWo-xR-6qb" id="hkA-cP-9bM"/>
