@@ -12,10 +12,10 @@ import RxSwift
 class MealsForWeekTableViewController: UITableViewController {
 
     // MARK: - Properties
-    var canteenDetail: CanteenDetails?
+    var canteenDetail: CanteenDetail?
     var context: HasCanteen?
     var weekState: CanteenService.WeekState!
-    private var meals: [[Meals]] = [] {
+    private var meals: [[Meal]] = [] {
         didSet {
             if !meals[0].isEmpty {
                 categories.append(R.string.localizable.monday())
@@ -36,8 +36,8 @@ class MealsForWeekTableViewController: UITableViewController {
             if !meals[4].isEmpty {
                 categories.append(R.string.localizable.friday())
             }
-            
             tableView.reloadData()
+            scrollToCurrenDay()
         }
     }
     private var categories: [String] = []
@@ -64,6 +64,24 @@ class MealsForWeekTableViewController: UITableViewController {
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
+        }
+    }
+    
+    private func scrollToCurrenDay() {
+        
+        if !(meals.flatMap( { $0 } ).isEmpty) && weekState == CanteenService.WeekState.current {
+            let section: Int
+            switch Date().weekday {
+            case .monday: section       = 0
+            case .tuesday: section      = 1
+            case .wednesday: section    = 2
+            case .thursday: section     = 3
+            case .friday: section       = 4
+            default: section = 0
+            }
+            
+            let indexPath = IndexPath(row: 0, section: section)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }
@@ -99,7 +117,7 @@ extension MealsForWeekTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
-        cell.model(for: meals[indexPath.section][indexPath.row])
+        cell.setup(with: meals[indexPath.section][indexPath.row])
         return cell
     }
     
@@ -116,29 +134,6 @@ extension MealsForWeekTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        // Blur Effect for Header
-        let wrapper = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 60)).also { wrapperView in
-            wrapperView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)).also { effectView in
-                effectView.frame = wrapperView.bounds
-            })
-        }
-        
-        // REGION Header with SubHeader
-        let vStack = UIStackView().also {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.axis         = .vertical
-            $0.distribution = .fill
-            $0.spacing      = 3
-        }
-        
-        let lblHeader = UILabel().also {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.text         = categories[section]
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .big)
-        }
-        
         let day: Date
         switch section {
         case 0: day =   weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.beginn)    : Date().dateOfWeek(for: UInt(Date.Week.beginn.rawValue + 7))
@@ -148,25 +143,6 @@ extension MealsForWeekTableViewController {
         default: day =  weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.end)       : Date().dateOfWeek(for: UInt(Date.Week.end.rawValue + 7))
         }
         
-        let lblSubHeader = UILabel().also {
-            $0.text         = day.string(format: "EEEE, dd. MMM")
-            $0.textColor    = UIColor.htw.grey
-            $0.font         = UIFont.from(style: .small)
-        }
-        // ENDREGION Header with SubHeader
-        
-        vStack.addArrangedSubview(lblHeader)
-        vStack.addArrangedSubview(lblSubHeader)
-        
-        wrapper.addSubview(vStack)
-        
-        // Header Spacing
-        NSLayoutConstraint.activate([
-            lblHeader.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
-            lblHeader.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 10),
-            lblHeader.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 8)
-            ])
-        
-        return wrapper
+        return BlurredSectionHeader(frame: tableView.frame, header: categories[section], subHeader: day.string(format: "EEEE, dd. MMM"))
     }
 }

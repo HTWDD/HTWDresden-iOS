@@ -36,7 +36,10 @@ class SideMenuContainerNavigationController: NavigationController {
             }
         }
     }
-
+    
+    func setTimeTableButtonHighLight() {
+        sideMenuViewController.setTimeTableHighLight()
+    }
 }
 
 protocol HasSideBarItem {

@@ -13,7 +13,7 @@ import Pageboy
 class MealsTabViewController: TabmanViewController {
 
     // MARK: - Properties
-    var canteenDetail: CanteenDetails?
+    var canteenDetail: CanteenDetail?
     var context: (HasCanteen & HasApiService)?
     weak var canteenCoordinator: CanteenCoordinator?
     

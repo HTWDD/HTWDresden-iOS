@@ -24,7 +24,7 @@ class CanteenCoordinator: Coordinator {
     }()
     
     // MARK: Meals Tab View Controller - Contains Sub ViewControllers
-    func getMealsTabViewController(for canteenDetail: CanteenDetails) -> MealsTabViewController {
+    func getMealsTabViewController(for canteenDetail: CanteenDetail) -> MealsTabViewController {
         return R.storyboard.canteen.mealsTabViewController()!.also {
             $0.context              = context
             $0.canteenDetail        = canteenDetail
@@ -33,13 +33,13 @@ class CanteenCoordinator: Coordinator {
     }
     
     // MARK: Meals View Controller - Detail for Today
-    func getMealsViewController(for canteenDetail: CanteenDetails) -> MealsViewController {
+    func getMealsViewController(for canteenDetail: CanteenDetail) -> MealsViewController {
         return R.storyboard.canteen.mealsViewController()!.also {
             $0.canteenDetail = canteenDetail
         }
     }
     
-    func getMealsForWeekViewController(for canteenDetail: CanteenDetails, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
+    func getMealsForWeekViewController(for canteenDetail: CanteenDetail, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
         return R.storyboard.canteen.mealsForWeekTableViewController()!.also {
             $0.canteenDetail    = canteenDetail
             $0.context          = context

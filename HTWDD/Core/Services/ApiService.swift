@@ -106,6 +106,12 @@ extension ApiService {
             .map { try $0.map([Lecture].self) }
     }
     
+    func requestLessons(for year: String, major: String, group: String) -> Single<[Lesson]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.timeTable(year: year, major: major, group: group)))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Lesson].self) }
+    }
+    
     // MARK: - Management
     func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
         return provider.rx.request(MultiTarget(HTWRestApi.semesterPlaning))
@@ -161,19 +167,19 @@ extension ApiService {
 // MARK: - OpenMensa - Rest
 extension ApiService {
     
-    func requestCanteens(latitude: Double = 51.058583, longitude: Double = 13.738208, distance: Int = 20) -> Single<[Canteens]> {
+    func requestCanteens(latitude: Double = 51.058583, longitude: Double = 13.738208, distance: Int = 20) -> Single<[Canteen]> {
         return provider.rx.request(MultiTarget(OpenMensaRestApi.canteens(latitude: latitude, longitude: longitude, distance: distance)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
-            .map { try $0.map([Canteens].self) }
+            .map { try $0.map([Canteen].self) }
     }
     
-    func requestMeals(for canteenId: Int, and forDate: String) -> Single<[Meals]> {
+    func requestMeals(for canteenId: Int, and forDate: String) -> Single<[Meal]> {
         return provider.rx.request(MultiTarget(OpenMensaRestApi.meals(canteenId: canteenId, forDate: forDate)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
-            .map { try $0.map([Meals].self) }
+            .map { try $0.map([Meal].self) }
     }
 }

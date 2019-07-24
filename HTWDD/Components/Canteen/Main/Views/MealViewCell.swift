@@ -16,12 +16,9 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var mealStackView: UIStackView!
     @IBOutlet weak var priceStackView: UIStackView!
     
-    // MARK: - Model Setup
-    func model(for model: Meals?) {
-        guard let model = model else { return }
-        mealStackView.subviews.forEach { $0.removeFromSuperview() }
-        priceStackView.subviews.forEach { $0.removeFromSuperview() }
-        
+    override func awakeFromNib() {
+        super.awakeFromNib()
+       
         // Main View (Background)
         main.apply  {
             $0.layer.cornerRadius   = 4
@@ -31,11 +28,20 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         
         // Meal Name
         lblMealName.apply {
-            $0.text             = model.name.replacingOccurrences(of: "\n", with: " ")
             $0.textColor        = UIColor.htw.darkGrey
             $0.numberOfLines    = 0
             $0.contentMode      = .scaleToFill
         }
+    }
+    
+    // MARK: - Model Setup
+    func setup(with model: Meal?) {
+        guard let model = model else { return }
+        mealStackView.subviews.forEach { $0.removeFromSuperview() }
+        priceStackView.subviews.forEach { $0.removeFromSuperview() }
+
+        // Meal Name
+        lblMealName.text = model.name.replacingOccurrences(of: "\n", with: " ")
         
         // REGION Meals
         let hStack = UIStackView().also {

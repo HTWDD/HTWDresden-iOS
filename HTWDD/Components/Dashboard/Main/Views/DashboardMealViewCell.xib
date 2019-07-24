@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="61" id="KGk-i7-Jjw" customClass="DashboardMealViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlf-K1-XzD">
+                        <rect key="frame" x="8" y="8" width="304" height="44.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="olv-lO-mgX">
+                                <rect key="frame" x="8" y="8" width="288" height="28.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5vK-9q-aUv">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="28.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Canteen" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAN-HU-usk">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="18"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="18" id="8vk-Ns-Lmn"/>
+                                                    <constraint firstAttribute="width" constant="35" id="nLh-yH-nPG"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaa-Um-lX3">
+                                                <rect key="frame" x="35" y="0.0" width="253" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="olv-lO-mgX" secondAttribute="bottom" constant="8" id="BMx-UT-0WR"/>
+                            <constraint firstAttribute="trailing" secondItem="olv-lO-mgX" secondAttribute="trailing" constant="8" id="iru-Hk-6kh"/>
+                            <constraint firstItem="olv-lO-mgX" firstAttribute="leading" secondItem="mlf-K1-XzD" secondAttribute="leading" constant="8" id="rzX-o7-pcR"/>
+                            <constraint firstItem="olv-lO-mgX" firstAttribute="top" secondItem="mlf-K1-XzD" secondAttribute="top" constant="8" id="uXF-Up-bdG"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="mlf-K1-XzD" secondAttribute="trailing" constant="8" id="047-G0-ya5"/>
+                    <constraint firstItem="mlf-K1-XzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BeW-8p-dbv"/>
+                    <constraint firstItem="mlf-K1-XzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="m2q-to-VaS"/>
+                    <constraint firstAttribute="bottom" secondItem="mlf-K1-XzD" secondAttribute="bottom" constant="8" id="rXq-kL-url"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblMealName" destination="Gaa-Um-lX3" id="LMB-cs-7oJ"/>
+                <outlet property="main" destination="mlf-K1-XzD" id="DsG-tg-u8v"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="159.04017857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Canteen" width="24" height="24"/>
+    </resources>
+</document>

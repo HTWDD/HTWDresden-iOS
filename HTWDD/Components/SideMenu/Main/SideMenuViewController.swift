@@ -18,6 +18,7 @@ class SideMenuViewController: ViewController {
     @IBOutlet weak var canteenMenuButton: UIButton!
     @IBOutlet weak var settingsMenuButton: UIButton!
     @IBOutlet weak var managementMenuButton: UIButton!
+    @IBOutlet weak var dashboardMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
     
     // MARK: Properties
@@ -44,12 +45,18 @@ class SideMenuViewController: ViewController {
             }
         }
         
-        setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title, tintColor: selectedTintColor)
+        setTitleAndTintColor(for: &dashboardMenuButton, title: R.string.localizable.dashboardTitle(), tintColor: selectedTintColor)
+        setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title)
         setTitleAndTintColor(for: &examsMenuButton, title: Loca.Exams.title)
         setTitleAndTintColor(for: &gradesMenuButton, title: Loca.Grades.title)
         setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.pluralTitle)
         setTitleAndTintColor(for: &settingsMenuButton, title: Loca.Settings.title)
         setTitleAndTintColor(for: &managementMenuButton, title: Loca.Management.title)
+    }
+    
+    func setTimeTableHighLight() {
+        menuButtons.forEach({ $0.tintColor = defaultTintColor })
+        classMenuButton.tintColor = selectedTintColor
     }
     
     @objc fileprivate func dismissSideMenu() {
@@ -66,18 +73,13 @@ class SideMenuViewController: ViewController {
         }
         
         switch sender {
-        case classMenuButton:
-            coordinator?.goTo(controller: .schedule)
-        case examsMenuButton:
-            coordinator?.goTo(controller: .exams)
-        case gradesMenuButton:
-            coordinator?.goTo(controller: .grades)
-        case canteenMenuButton:
-            coordinator?.goTo(controller: .canteen)
-        case settingsMenuButton:
-            coordinator?.goTo(controller: .settings)
-        case managementMenuButton:
-            coordinator?.goTo(controller: .management)
+        case dashboardMenuButton: coordinator?.goTo(controller: .dashboard)
+        case classMenuButton: coordinator?.goTo(controller: .schedule)
+        case examsMenuButton: coordinator?.goTo(controller: .exams)
+        case gradesMenuButton: coordinator?.goTo(controller: .grades)
+        case canteenMenuButton: coordinator?.goTo(controller: .canteen)
+        case settingsMenuButton: coordinator?.goTo(controller: .settings)
+        case managementMenuButton: coordinator?.goTo(controller: .management)
         default:
             break
         }

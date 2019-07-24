@@ -36,12 +36,13 @@ class AppCoordinator: Coordinator {
     let appContext = AppContext()
     private let persistenceService = PersistenceService()
 
-    private lazy var schedule   = ScheduleCoordinator(context: self.appContext)
-	private lazy var exams      = ExamsCoordinator(context: self.appContext)
-	private lazy var grades     = GradeCoordinator(context: self.appContext)
-    private lazy var canteen    = CanteenCoordinator(context: self.appContext)
-    private lazy var settings   = SettingsCoordinator(context: self.appContext, delegate: self)
-    private lazy var management = ManagementCoordinator(context: self.appContext)
+    private lazy var dashboard  = DashboardCoordinator(context: appContext)
+    private lazy var schedule   = ScheduleCoordinator(context: appContext)
+	private lazy var exams      = ExamsCoordinator(context: appContext)
+	private lazy var grades     = GradeCoordinator(context: appContext)
+    private lazy var canteen    = CanteenCoordinator(context: appContext)
+    private lazy var settings   = SettingsCoordinator(context: appContext, delegate: self)
+    private lazy var management = ManagementCoordinator(context: appContext)
 
     private let disposeBag = DisposeBag()
     
@@ -53,7 +54,7 @@ class AppCoordinator: Coordinator {
         self.window.tintColor           = UIColor.htw.blue
         self.window.makeKeyAndVisible()
 		
-        goTo(controller: .schedule)
+        goTo(controller: .dashboard)
         
         self.showOnboarding(animated: false)
 	}
@@ -201,29 +202,34 @@ extension AppCoordinator {
         let viewController: UIViewController
         
         switch controller {
-        case .schedule,
-             .scheduleToday:
-            viewController = self.schedule.rootViewController
-        case .exams:
-            viewController = self.exams.rootViewController
-        case .grades:
-            viewController = self.grades.rootViewController
-        case .canteen:
-            viewController = (self.canteen.rootViewController as! CanteenViewController).also {
+        case .dashboard:
+            viewController = (dashboard.rootViewController as! DashboardViewController).also {
                 $0.appCoordinator = self
             }
-        case .meals(let canteenDetail):
+        case .schedule,
+             .scheduleToday:
+            viewController = schedule.rootViewController
+            rootNavigationController.setTimeTableButtonHighLight()
+        case .exams:
+            viewController = exams.rootViewController
+        case .grades:
+            viewController = grades.rootViewController
+        case .canteen:
+            viewController = (canteen.rootViewController as! CanteenViewController).also {
+                $0.appCoordinator = self
+            }
+        case .meal(let canteenDetail):
             viewController = canteen.getMealsTabViewController(for: canteenDetail)
         case .settings:
-            viewController = self.settings.rootViewController
+            viewController = settings.rootViewController
         case .management:
-            viewController = self.management.rootViewController
+            viewController = management.rootViewController
         }
         
-        if self.rootNavigationController.viewControllers.contains(viewController) {
-            self.rootNavigationController.popToViewController(viewController, animated: animated)
+        if rootNavigationController.viewControllers.contains(viewController) {
+            rootNavigationController.popToViewController(viewController, animated: animated)
         } else {
-            self.rootNavigationController.pushViewController(viewController, animated: animated)
+            rootNavigationController.pushViewController(viewController, animated: animated)
         }
     }
 }

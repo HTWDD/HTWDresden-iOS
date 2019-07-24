@@ -41,7 +41,9 @@ class ManagementService: Service {
         return Observable.combineLatest(loadSemesterPlaning(),
                                         loadStudentAdminstration(),
                                         loadPrincipalOffice(),
-                                        loadStuRaHTW()) { $0 + $1 + $2 + $3 }
+                                        loadStuRaHTW()) { (sPlaning: [Item], sAdmin: [Item], pOffice: [Item], stuRa: [Item]) in
+                                            sPlaning + sAdmin + pOffice + stuRa
+                                        }
     }
     
     // MARK: - Loading Stuff

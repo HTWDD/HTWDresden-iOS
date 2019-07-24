@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - Canteen Details
-struct CanteenDetails {
-    let canteen: Canteens
-    let meals: [Meals]
+struct CanteenDetail {
+    let canteen: Canteen
+    let meals: [Meal]
 }

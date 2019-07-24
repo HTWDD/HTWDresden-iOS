@@ -45,6 +45,9 @@
                             <constraint firstItem="PNq-iy-TvE" firstAttribute="leading" secondItem="3TA-r7-Ini" secondAttribute="leading" constant="8" id="M6j-LT-Xjm"/>
                             <constraint firstItem="PNq-iy-TvE" firstAttribute="top" secondItem="3TA-r7-Ini" secondAttribute="top" constant="8" id="qwz-WZ-atb"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

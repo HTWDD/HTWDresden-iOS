@@ -45,6 +45,9 @@
                             <constraint firstItem="bjf-vu-agH" firstAttribute="leading" secondItem="bkQ-Mz-Ghd" secondAttribute="leading" constant="8" id="JQV-Jw-MZ8"/>
                             <constraint firstItem="bjf-vu-agH" firstAttribute="top" secondItem="bkQ-Mz-Ghd" secondAttribute="top" constant="8" id="uU4-ro-7Bd"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

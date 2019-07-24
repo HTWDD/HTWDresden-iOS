@@ -11,9 +11,9 @@ import UIKit
 class MealsViewController: UITableViewController {
 
     // MARK: - Properties
-    var canteenDetail: CanteenDetails?
+    var canteenDetail: CanteenDetail?
     private var categories: [String]?
-    private var meals: [[Meals]?] = []
+    private var meals: [[Meal]?] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ extension MealsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
-        cell.model(for: meals[indexPath.section]?[indexPath.row])
+        cell.setup(with: meals[indexPath.section]?[indexPath.row])
         return cell
     }
     
@@ -93,48 +93,6 @@ extension MealsViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        // Blur Effect for Header
-        let wrapper = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 60)).also { wrapperView in
-            wrapperView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)).also { effectView in
-                effectView.frame = wrapperView.bounds
-            })
-        }
-        
-        // REGION Header with SubHeader
-        let vStack = UIStackView().also {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.axis         = .vertical
-            $0.distribution = .fill
-            $0.spacing      = 3
-        }
-        
-        let lblHeader = UILabel().also {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.text         = categories?[section] ?? "N/A"
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .big)
-        }
-        
-        let lblSubHeader = UILabel().also {
-            $0.text         = Date().string(format: "EEEE, dd. MMM")
-            $0.textColor    = UIColor.htw.grey
-            $0.font         = UIFont.from(style: .small)
-        }
-        // ENDREGION Header with SubHeader
-        
-        vStack.addArrangedSubview(lblHeader)
-        vStack.addArrangedSubview(lblSubHeader)
-        
-        wrapper.addSubview(vStack)
-        
-        // Header Spacing
-        NSLayoutConstraint.activate([
-            lblHeader.leadingAnchor.constraint(equalTo: vStack.leadingAnchor, constant: 10),
-            lblHeader.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 10),
-            lblHeader.topAnchor.constraint(equalTo: vStack.topAnchor, constant: 8)
-        ])
-        
-        return wrapper
+        return BlurredSectionHeader(frame: tableView.frame, header: categories?[section] ?? "N/A", subHeader: Date().string(format: "EEEE, dd. MMM"))
     }
 }

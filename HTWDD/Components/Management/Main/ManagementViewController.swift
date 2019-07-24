@@ -85,22 +85,22 @@ extension ManagementViewController {
         switch items[indexPath.row] {
         case .semesterPlan(let model):
             let cell = tableView.dequeueReusableCell(SemesterplaningViewCell.self, for: indexPath)!
-            cell.model(for: model)
+            cell.setup(with: model)
             return cell
             
         case .studenAdministation(let model):
             let cell = tableView.dequeueReusableCell(StudenAdministrationViewCell.self, for: indexPath)!
-            cell.model(for: model)
+            cell.setup(with: model)
             return cell
             
         case .principalExamOffice(let model):
             let cell = tableView.dequeueReusableCell(PrincipalExamOfficeViewCell.self, for: indexPath)!
-            cell.model(for: model)
+            cell.setup(with: model)
             return cell
             
         case .stuRaHTW(let model):
             let cell = tableView.dequeueReusableCell(StuRaHTWViewCell.self, for: indexPath)!
-            cell.model(for: model)
+            cell.setup(with: model)
             return cell
         }
     }

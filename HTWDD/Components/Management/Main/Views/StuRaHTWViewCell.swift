@@ -16,29 +16,32 @@ class StuRaHTWViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var main: UIView!
     @IBOutlet weak var stackContent: UIStackView!
     
-    func model(for data: StuRaHTW?) {
-        guard let data = data else { return }
-        self.stackContent.subviews.forEach { $0.removeFromSuperview() }
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         // Main View (Background)
-        self.main.apply {
+        main.apply {
             $0.layer.cornerRadius   = 4
-            $0.layer.borderWidth    = 1
-            $0.layer.borderColor    = UIColor.htw.lightGrey.cgColor
         }
         
         // Title
-        self.lblTitle.apply {
+        lblTitle.apply {
             $0.textColor    = UIColor.htw.darkGrey
         }
         
         // Subtitle
-        self.lblSubtitle.apply {
+        lblSubtitle.apply {
             $0.textColor = UIColor.htw.grey
         }
+    }
+    
+    // MARK: - Setup
+    func setup(with data: StuRaHTW?) {
+        guard let data = data else { return }
+        stackContent.subviews.forEach { $0.removeFromSuperview() }
         
         // Offered Services
-        self.stackContent.addArrangedSubview(UILabel().also {
+        stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOfferedServices()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.from(style: .description, isBold: true)
@@ -46,7 +49,7 @@ class StuRaHTWViewCell: UITableViewCell, FromNibLoadable {
         
         // REGION - Offered Services
         data.offeredServices.forEach { service in
-            self.stackContent.addArrangedSubview(BadgeLabel().also {
+            stackContent.addArrangedSubview(BadgeLabel().also {
                 $0.text             = service
                 $0.backgroundColor  = UIColor(hex: 0xE0E0E0)
                 $0.textColor        = UIColor.htw.darkGrey
@@ -58,10 +61,10 @@ class StuRaHTWViewCell: UITableViewCell, FromNibLoadable {
         // ENDREGION - Offered Services
         
         // SPACER
-        self.stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
         
         // Opening Hours
-        self.stackContent.addArrangedSubview(UILabel().also {
+        stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOpeningHours()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.from(style: .description, isBold: true)
@@ -103,12 +106,12 @@ class StuRaHTWViewCell: UITableViewCell, FromNibLoadable {
             
             hStack.addArrangedSubview(vStack)
             
-            self.stackContent.addArrangedSubview(hStack)
+            stackContent.addArrangedSubview(hStack)
         }
         // ENDREGION - Opening Hours
         
         // SPACER
-        self.stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
     }
     
 }

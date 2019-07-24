@@ -16,31 +16,36 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var main: UIView!
     @IBOutlet weak var stackContent: UIStackView!
     
-    // MARK: - View Setup
-    func model(for data: StudentAdministration?) {
-        guard let data = data else { return }
-        self.stackContent.subviews.forEach { $0.removeFromSuperview() }
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         // Main View (Background)
-        self.main.apply {
+        main.apply {
             $0.layer.cornerRadius   = 4
-            $0.layer.borderWidth    = 1
-            $0.layer.borderColor    = UIColor.htw.lightGrey.cgColor
         }
         
         // Title
-        self.lblTitle.apply {
-            $0.text         = R.string.localizable.managementStudentAdministration()
+        lblTitle.apply {
             $0.textColor    = UIColor.htw.darkGrey
         }
         
         // Subtitle
-        self.lblSubtitle.apply {
+        lblSubtitle.apply {
             $0.textColor = UIColor.htw.grey
         }
+    }
+    
+    // MARK: - View Setup
+    func setup(with data: StudentAdministration?) {
+        guard let data = data else { return }
+        stackContent.subviews.forEach { $0.removeFromSuperview() }
+        
+        // Title
+        lblTitle.text = R.string.localizable.managementStudentAdministration()
+        
         
         // Offered Services
-        self.stackContent.addArrangedSubview(UILabel().also {
+        stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOfferedServices()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.from(style: .description, isBold: true)
@@ -58,10 +63,10 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
         // ENDREGION - Offered Services
         
         // SPACER
-        self.stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
         
         // Opening Hours
-        self.stackContent.addArrangedSubview(UILabel().also {
+        stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOpeningHours()
             $0.textColor    = UIColor.htw.darkGrey
             $0.font         = UIFont.from(style: .description, isBold: true)
@@ -108,10 +113,10 @@ class StudenAdministrationViewCell: UITableViewCell, FromNibLoadable {
         // ENDREGION - Opening Hours
         
         // SPACER
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
-        self.stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
+        stackContent.addArrangedSubview(UIView())
     }
 }

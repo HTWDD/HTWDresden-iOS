@@ -115,3 +115,34 @@ fileprivate func confettiWithColor(color: UIColor, intensity: CGFloat = 0.5) -> 
 	
 	return confetti
 }
+
+
+// MARK: - Dropshadow
+extension UIView {
+    func dropShadow(scale: Bool = true) {
+        layer.apply {
+            $0.masksToBounds        = false
+            $0.shadowColor          = UIColor.lightGray.cgColor
+            $0.shadowOpacity        = 0.25
+            $0.shadowOffset         = .zero
+            $0.shadowRadius         = 4
+            $0.shouldRasterize      = true
+            $0.rasterizationScale   = scale ? UIScreen.main.scale : 1
+        }
+    }
+    
+    func removeDropShdow() {
+        layer.shadowRadius = 0
+    }
+    
+    @IBInspectable var hasDropShadow: Bool {
+        get { return layer.shadowRadius > 0 }
+        set {
+            if newValue {
+                dropShadow()
+            } else {
+                removeDropShdow()
+            }
+        }
+    }
+}
