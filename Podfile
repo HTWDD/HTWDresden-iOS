@@ -30,6 +30,13 @@ end
 target 'HTWDD' do
   common_pods
   
+  # Firebase
+  pod 'Firebase/Analytics'
+  
+  # Pods for PodTest
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.13.4'
+  
   # Side Menu
   pod 'SideMenu'
   
