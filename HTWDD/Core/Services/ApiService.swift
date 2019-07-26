@@ -161,6 +161,14 @@ extension ApiService {
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .asSingle()
     }
+    
+    // MARK: - Room Occupancy
+    func requestRoom(room: String) -> Single<[Lesson]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.rooms(room: room)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Lesson].self) }
+    }
 }
 
 

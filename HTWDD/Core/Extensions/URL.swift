@@ -12,6 +12,7 @@ enum CoordinatorRoute {
     case dashboard
     case schedule
     case scheduleToday
+    case roomOccupancy
     case exams
     case grades
     case canteen
@@ -27,6 +28,7 @@ extension CoordinatorRoute {
         switch rawValue {
         case "dashboard": self  = .dashboard
         case "schedule": self = .schedule
+        case "roomOccupancy": self = .roomOccupancy
         case "scheduleToday": self = .scheduleToday
         case "exams": self = .exams
         case "grades": self = .grades
@@ -43,6 +45,7 @@ extension CoordinatorRoute {
         switch self {
         case .dashboard: return "dashboard"
         case .schedule: return "schedule"
+        case .roomOccupancy: return "roomOccupancy"
         case .scheduleToday: return "scheduleToday"
         case .exams: return "exams"
         case .grades: return "grades"

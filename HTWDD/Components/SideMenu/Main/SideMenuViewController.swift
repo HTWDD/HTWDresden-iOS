@@ -19,7 +19,7 @@ class SideMenuViewController: ViewController {
     @IBOutlet weak var settingsMenuButton: UIButton!
     @IBOutlet weak var managementMenuButton: UIButton!
     @IBOutlet weak var dashboardMenuButton: UIButton!
-    @IBOutlet weak var bookingMenuButton: UIButton!
+    @IBOutlet weak var roomOccupancyMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
     
     // MARK: Properties
@@ -47,7 +47,7 @@ class SideMenuViewController: ViewController {
         }
         
         setTitleAndTintColor(for: &dashboardMenuButton, title: R.string.localizable.dashboardTitle(), tintColor: selectedTintColor)
-        setTitleAndTintColor(for: &bookingMenuButton, title: R.string.localizable.roomOccupancyTitle())
+        setTitleAndTintColor(for: &roomOccupancyMenuButton, title: R.string.localizable.roomOccupancyTitle())
         setTitleAndTintColor(for: &classMenuButton, title: Loca.Schedule.title)
         setTitleAndTintColor(for: &examsMenuButton, title: Loca.Exams.title)
         setTitleAndTintColor(for: &gradesMenuButton, title: Loca.Grades.title)
@@ -76,6 +76,7 @@ class SideMenuViewController: ViewController {
         
         switch sender {
         case dashboardMenuButton: coordinator?.goTo(controller: .dashboard)
+        case roomOccupancyMenuButton: coordinator?.goTo(controller: .roomOccupancy)
         case classMenuButton: coordinator?.goTo(controller: .schedule)
         case examsMenuButton: coordinator?.goTo(controller: .exams)
         case gradesMenuButton: coordinator?.goTo(controller: .grades)

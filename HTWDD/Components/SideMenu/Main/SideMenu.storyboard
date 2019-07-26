@@ -178,13 +178,13 @@
                     </view>
                     <size key="freeformSize" width="290" height="896"/>
                     <connections>
-                        <outlet property="bookingMenuButton" destination="hWM-zW-2h8" id="dov-Jp-vdk"/>
                         <outlet property="canteenMenuButton" destination="k0s-7s-RF8" id="Sji-cX-Mr5"/>
                         <outlet property="classMenuButton" destination="ega-vv-dBc" id="Ao2-0u-NLu"/>
                         <outlet property="dashboardMenuButton" destination="ZO3-CN-2fM" id="o9d-hM-S5N"/>
                         <outlet property="examsMenuButton" destination="3dB-9b-vZH" id="Os6-01-cZF"/>
                         <outlet property="gradesMenuButton" destination="f5X-GZ-r6x" id="vjA-ow-Lce"/>
                         <outlet property="managementMenuButton" destination="m0U-9J-Anx" id="M0j-gK-Jyv"/>
+                        <outlet property="roomOccupancyMenuButton" destination="hWM-zW-2h8" id="dov-Jp-vdk"/>
                         <outlet property="settingsMenuButton" destination="f8g-6l-PpK" id="xfk-bu-qWi"/>
                         <outletCollection property="menuButtons" destination="f5X-GZ-r6x" collectionClass="NSMutableArray" id="Irs-YG-Ohb"/>
                         <outletCollection property="menuButtons" destination="ega-vv-dBc" collectionClass="NSMutableArray" id="ApT-j1-Arf"/>

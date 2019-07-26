@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="77" id="KGk-i7-Jjw" customClass="RoomViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxX-ZG-eV8">
+                        <rect key="frame" x="8" y="8" width="304" height="60.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z2-74-UDs">
+                                <rect key="frame" x="32" y="8" width="264" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Room" translatesAutoresizingMaskIntoConstraints="NO" id="b92-Wj-xvu">
+                                <rect key="frame" x="8" y="8" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="O5x-k1-ll4"/>
+                                    <constraint firstAttribute="height" constant="16" id="clu-ta-K96"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-IE-U9t" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="32" y="32" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAg-Vu-wNK">
+                                <rect key="frame" x="82" y="32" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6Z2-74-UDs" firstAttribute="leading" secondItem="b92-Wj-xvu" secondAttribute="trailing" constant="8" id="3HA-ws-LLL"/>
+                            <constraint firstItem="9Vm-IE-U9t" firstAttribute="leading" secondItem="cxX-ZG-eV8" secondAttribute="leading" constant="32" id="78i-3A-utf"/>
+                            <constraint firstAttribute="trailing" secondItem="6Z2-74-UDs" secondAttribute="trailing" constant="8" id="EG9-ui-S8D"/>
+                            <constraint firstItem="9Vm-IE-U9t" firstAttribute="top" secondItem="6Z2-74-UDs" secondAttribute="bottom" constant="8" id="Jjc-B1-4pg"/>
+                            <constraint firstItem="b92-Wj-xvu" firstAttribute="leading" secondItem="cxX-ZG-eV8" secondAttribute="leading" constant="8" id="agv-Nh-bOx"/>
+                            <constraint firstAttribute="bottom" secondItem="9Vm-IE-U9t" secondAttribute="bottom" constant="8" id="d5r-hv-PXu"/>
+                            <constraint firstItem="UAg-Vu-wNK" firstAttribute="leading" secondItem="9Vm-IE-U9t" secondAttribute="trailing" constant="8" id="fMb-Mz-DJ4"/>
+                            <constraint firstItem="6Z2-74-UDs" firstAttribute="centerY" secondItem="b92-Wj-xvu" secondAttribute="centerY" id="q6e-Cf-udv"/>
+                            <constraint firstItem="b92-Wj-xvu" firstAttribute="top" secondItem="cxX-ZG-eV8" secondAttribute="top" constant="8" id="qdA-Cd-mrT"/>
+                            <constraint firstItem="UAg-Vu-wNK" firstAttribute="centerY" secondItem="9Vm-IE-U9t" secondAttribute="centerY" id="rpg-Ww-vZl"/>
+                            <constraint firstItem="6Z2-74-UDs" firstAttribute="top" secondItem="cxX-ZG-eV8" secondAttribute="top" constant="8" id="tcd-Tt-QcQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="cxX-ZG-eV8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7cW-3s-jR0"/>
+                    <constraint firstAttribute="bottom" secondItem="cxX-ZG-eV8" secondAttribute="bottom" constant="8" id="Ekx-Jv-9sH"/>
+                    <constraint firstAttribute="trailing" secondItem="cxX-ZG-eV8" secondAttribute="trailing" constant="8" id="FfT-Q6-WzA"/>
+                    <constraint firstItem="cxX-ZG-eV8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cMn-Nd-UD9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="lblCountOfOccupancies" destination="9Vm-IE-U9t" id="Lx3-P3-w2c"/>
+                <outlet property="lblDescriptionOccupancies" destination="UAg-Vu-wNK" id="6Gh-qs-jN0"/>
+                <outlet property="lblRoomName" destination="6Z2-74-UDs" id="FUv-jg-EWm"/>
+                <outlet property="main" destination="cxX-ZG-eV8" id="B5l-Mf-lCi"/>
+            </connections>
+            <point key="canvasLocation" x="153.62318840579712" y="171.09375"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Room" width="16" height="16"/>
+    </resources>
+</document>

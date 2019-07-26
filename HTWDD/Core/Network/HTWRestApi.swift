@@ -13,6 +13,7 @@ import Moya
 enum HTWRestApi {
     case timeTable(year: String, major: String, group: String)
     case semesterPlaning
+    case rooms(room: String)
 }
 
 // MARK: - Endpoint Handling
@@ -25,6 +26,7 @@ extension HTWRestApi: TargetType {
         switch self {
         case .timeTable: return "/studentTimetable.php"
         case .semesterPlaning: return "/semesterplan.json"
+        case .rooms: return "/roomTimetable.php"
         }
     }
     
@@ -40,7 +42,8 @@ extension HTWRestApi: TargetType {
         switch self {
         case .timeTable(let year, let major, let group):
             return .requestParameters(parameters: [ "Stg": "\(major.urlEscaped)", "StgGrp": "\(group.urlEscaped)", "StgJhr": "\(year.urlEscaped)" ], encoding: URLEncoding.default)
-        
+        case .rooms(let room):
+            return .requestParameters(parameters: [ "room": room], encoding: URLEncoding.default)
         default:
             return .requestPlain
         }
