@@ -40,6 +40,10 @@ extension HTWNamespace where Base: UIColor {
         return UIColor(hex: 0x003DA2)
     }
     
+    static var lightBlueMaterial: UIColor {
+        return UIColor(hex: 0x0288D1)
+    }
+    
     static var orange: UIColor {
         return UIColor(hex: 0xF1A13D)
     }
@@ -50,6 +54,10 @@ extension HTWNamespace where Base: UIColor {
     
     static var green: UIColor {
         return UIColor(hex: 0x2ECC5D)
+    }
+    
+    static var greenMaterial: UIColor {
+        return UIColor(hex: 0x43A047)
     }
 	
 	static var red: UIColor {

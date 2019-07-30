@@ -141,6 +141,7 @@
 "attention"="Attention ⚠️";
 "yes"="Yes";
 "loading"="Loading…";
+"add"="Add";
 
 "Grades.title"="Grades";
 "Grades.totalCredits"="%d total credits";
@@ -164,7 +165,6 @@
 "Grades.credits.number.plural"="%.2f Credits";
 "Grades.last.grade"="Last grade: %@";
 
-
 "Management.title" = "Management";
 "Management.semester.summer" = "Summer semester";
 "Management.semester.winter" = "Winter semester";
@@ -178,3 +178,17 @@
 "Management.student.administration.opening.hours" = "Office hours";
 "Management.student.administration.opening.times" = "%@ to %@";
 "Management.student.administration.principal.exam.office" = "Principal exam office";
+
+"Room.occupancy.title"="Room occupancy";
+"Room.occupancy.empty.title"="No rooms";
+"Room.occupancy.empty.message"="New rooms can be\nadded with + ";
+"Room.occupancy.add.title"="Add room";
+"Room.occupancy.add.message"="Please enter the room number with spaces between the building and the room number.";
+"Room.occupancy.add.placeholder"="e.g. s 531";
+"Room.occupancy.invalid"="Invalid room number";
+"Room.occupancy.error.alert.title"="Error";
+"Room.occupancy.error.alert.message"="😖 something went wrong when loading the data, is '%@' a correct room number?";
+"Room.occupancy.description"="occupancies";
+"Room.occupancy.free"="Free";
+"Room.occupancy.no.name"="No information about the course name";
+"Room.occupancy.no.dozent"="No information about the lecturer";

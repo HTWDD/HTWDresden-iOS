@@ -36,13 +36,14 @@ class AppCoordinator: Coordinator {
     let appContext = AppContext()
     private let persistenceService = PersistenceService()
 
-    private lazy var dashboard  = DashboardCoordinator(context: appContext)
-    private lazy var schedule   = ScheduleCoordinator(context: appContext)
-	private lazy var exams      = ExamsCoordinator(context: appContext)
-	private lazy var grades     = GradeCoordinator(context: appContext)
-    private lazy var canteen    = CanteenCoordinator(context: appContext)
-    private lazy var settings   = SettingsCoordinator(context: appContext, delegate: self)
-    private lazy var management = ManagementCoordinator(context: appContext)
+    private lazy var dashboard      = DashboardCoordinator(context: appContext)
+    private lazy var schedule       = ScheduleCoordinator(context: appContext)
+    private lazy var roomOccupancy  = RoomOccupancyCoordinator(context: appContext)
+	private lazy var exams          = ExamsCoordinator(context: appContext)
+	private lazy var grades         = GradeCoordinator(context: appContext)
+    private lazy var canteen        = CanteenCoordinator(context: appContext)
+    private lazy var settings       = SettingsCoordinator(context: appContext, delegate: self)
+    private lazy var management     = ManagementCoordinator(context: appContext)
 
     private let disposeBag = DisposeBag()
     
@@ -210,6 +211,12 @@ extension AppCoordinator {
              .scheduleToday:
             viewController = schedule.rootViewController
             rootNavigationController.setTimeTableButtonHighLight()
+        case .roomOccupancy:
+            viewController = (roomOccupancy.rootViewController as! RoomOccupancyViewController).also {
+                $0.appCoordinator = self
+            }
+        case .roomOccupancyDetail(let room):
+            viewController = roomOccupancy.getDetailRoomOccupancyViewController(with: room)
         case .exams:
             viewController = exams.rootViewController
         case .grades:

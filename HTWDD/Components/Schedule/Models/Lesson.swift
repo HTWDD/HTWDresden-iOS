@@ -11,7 +11,7 @@ import Foundation
 struct Lesson: Codable {
     
     let id: String
-    let moduleId: String
+    let moduleId: String?
     let lessonTag: String?
     let name: String
     let type: LessonType

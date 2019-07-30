@@ -83,6 +83,11 @@ extension String {
         return UIColor(hex: UInt(hexColorString, radix: 16)!)
         
     }
+    
+    var nilWhenEmpty: String? {
+        guard isEmpty else { return self }
+        return nil
+    }
 }
 
 enum Constants {

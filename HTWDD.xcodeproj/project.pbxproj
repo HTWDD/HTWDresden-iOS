@@ -94,6 +94,10 @@
 		39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */; };
 		5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
+		6400734122EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400734022EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift */; };
+		6400734422EF32460028FDC3 /* RoomOccupanciesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400734222EF32460028FDC3 /* RoomOccupanciesViewCell.swift */; };
+		6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6400734322EF32460028FDC3 /* RoomOccupanciesViewCell.xib */; };
+		6400734722EF32FE0028FDC3 /* Occupancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400734622EF32FE0028FDC3 /* Occupancy.swift */; };
 		640306F822E8A83B00099D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640306F722E8A83A00099D68 /* GoogleService-Info.plist */; };
 		640306F922E8A83B00099D68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 640306F722E8A83A00099D68 /* GoogleService-Info.plist */; };
 		6403693D22C9F0E400FD49EA /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
@@ -128,6 +132,12 @@
 		640CC1D022DF0D8F00581AE4 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403693C22C9F0E400FD49EA /* ApiService.swift */; };
 		640CFFA022E639100078C99A /* DashboardGradeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640CFF9E22E639100078C99A /* DashboardGradeViewCell.swift */; };
 		640CFFA122E639100078C99A /* DashboardGradeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 640CFF9F22E639100078C99A /* DashboardGradeViewCell.xib */; };
+		640DB2F322E999490083078E /* RoomOccupancyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F222E999490083078E /* RoomOccupancyCoordinator.swift */; };
+		640DB2F522E999900083078E /* RoomOccupancyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F422E999900083078E /* RoomOccupancyService.swift */; };
+		640DB2F822E99BA90083078E /* RoomOccupancy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640DB2F722E99BA90083078E /* RoomOccupancy.storyboard */; };
+		640DB2FA22E99FB70083078E /* RoomOccupancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */; };
+		640DB2FB22E9A30A0083078E /* RoomOccupancyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F422E999900083078E /* RoomOccupancyService.swift */; };
+		640DB2FF22E9EDE30083078E /* RoomRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2FE22E9EDE30083078E /* RoomRealm.swift */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
 		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
@@ -139,6 +149,8 @@
 		6410F72B22D5D0C200AA3BA1 /* CanteenViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410F72922D5D0C200AA3BA1 /* CanteenViewCell.xib */; };
 		6410F72D22D629E800AA3BA1 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410F72C22D629E800AA3BA1 /* Meal.swift */; };
 		6410F72E22D62AB200AA3BA1 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410F72C22D629E800AA3BA1 /* Meal.swift */; };
+		6411E37B22EAE5C800A55A2B /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6411E37922EAE5C800A55A2B /* RoomViewCell.swift */; };
+		6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */; };
 		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
 		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
@@ -180,6 +192,8 @@
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
 		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
+		64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBEE4E22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift */; };
+		64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */; };
 		64F0D3D422C90A2500FE0A68 /* UIFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0D3D322C90A2500FE0A68 /* UIFonts.swift */; };
 		6F6BDBEE1ADCCA44A87DEAF4 /* Pods_HTWDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB8797D9D60293AC378E22B /* Pods_HTWDD.framework */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
@@ -375,6 +389,10 @@
 		39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeDataSource.swift; path = HTWDD/Components/Grades/Models/GradeDataSource.swift; sourceTree = SOURCE_ROOT; };
 		39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		5B6B4FF5209B693E00A572F8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		6400734022EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyDetailViewController.swift; sourceTree = "<group>"; };
+		6400734222EF32460028FDC3 /* RoomOccupanciesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupanciesViewCell.swift; sourceTree = "<group>"; };
+		6400734322EF32460028FDC3 /* RoomOccupanciesViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomOccupanciesViewCell.xib; sourceTree = "<group>"; };
+		6400734622EF32FE0028FDC3 /* Occupancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Occupancy.swift; sourceTree = "<group>"; };
 		640306F722E8A83A00099D68 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6403693C22C9F0E400FD49EA /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		6403694422CA069D00FD49EA /* StudenAdministrationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudenAdministrationViewCell.swift; sourceTree = "<group>"; };
@@ -394,6 +412,11 @@
 		6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaningRealm.swift; sourceTree = "<group>"; };
 		640CFF9E22E639100078C99A /* DashboardGradeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardGradeViewCell.swift; sourceTree = "<group>"; };
 		640CFF9F22E639100078C99A /* DashboardGradeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardGradeViewCell.xib; sourceTree = "<group>"; };
+		640DB2F222E999490083078E /* RoomOccupancyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyCoordinator.swift; sourceTree = "<group>"; };
+		640DB2F422E999900083078E /* RoomOccupancyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyService.swift; sourceTree = "<group>"; };
+		640DB2F722E99BA90083078E /* RoomOccupancy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomOccupancy.storyboard; sourceTree = "<group>"; };
+		640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyViewController.swift; sourceTree = "<group>"; };
+		640DB2FE22E9EDE30083078E /* RoomRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRealm.swift; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
 		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
@@ -403,6 +426,8 @@
 		6410F72822D5D0C200AA3BA1 /* CanteenViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanteenViewCell.swift; sourceTree = "<group>"; };
 		6410F72922D5D0C200AA3BA1 /* CanteenViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CanteenViewCell.xib; sourceTree = "<group>"; };
 		6410F72C22D629E800AA3BA1 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		6411E37922EAE5C800A55A2B /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
+		6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewCell.xib; sourceTree = "<group>"; };
 		6412011822BA2BFA00B2090A /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
@@ -435,6 +460,8 @@
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
 		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
+		64EBEE4E22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupanciesCollectionViewCell.swift; sourceTree = "<group>"; };
+		64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomOccupanciesCollectionViewCell.xib; sourceTree = "<group>"; };
 		64F0D3D322C90A2500FE0A68 /* UIFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFonts.swift; sourceTree = "<group>"; };
 		6955D1AE6DEE6C92B32F41EE /* Pods-HTWDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTWDDTests.debug.xcconfig"; path = "Target Support Files/Pods-HTWDDTests/Pods-HTWDDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -753,6 +780,7 @@
 				6412011522BA2A1400B2090A /* SideMenu */,
 				1F77AD181F8FA5A600351A73 /* Onboarding */,
 				B52A9B4D1DDB160700313FC3 /* Schedule */,
+				640DB2F122E998C40083078E /* RoomOccupancy */,
 				1FC21DC71F8F951B003E244F /* Exams */,
 				B52A9B4E1DDB165B00313FC3 /* Grades */,
 				B5B376841FA6176E00FC3A07 /* Canteen */,
@@ -853,6 +881,7 @@
 				6410F72522D5C86800AA3BA1 /* CanteenService.swift */,
 				6420E98822E06D3700F13AD3 /* DashboardService.swift */,
 				6410375822C10C650084FC63 /* ManagementService.swift */,
+				640DB2F422E999900083078E /* RoomOccupancyService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -891,6 +920,44 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		640DB2F122E998C40083078E /* RoomOccupancy */ = {
+			isa = PBXGroup;
+			children = (
+				640DB2F222E999490083078E /* RoomOccupancyCoordinator.swift */,
+				640DB2F622E99B920083078E /* Main */,
+				640DB2FC22E9ED8C0083078E /* Models */,
+			);
+			path = RoomOccupancy;
+			sourceTree = "<group>";
+		};
+		640DB2F622E99B920083078E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				640DB2F722E99BA90083078E /* RoomOccupancy.storyboard */,
+				640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */,
+				6400734022EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift */,
+				6411E37822EAE57E00A55A2B /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		640DB2FC22E9ED8C0083078E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6400734622EF32FE0028FDC3 /* Occupancy.swift */,
+				640DB2FD22E9EDC10083078E /* Realm */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		640DB2FD22E9EDC10083078E /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				640DB2FE22E9EDE30083078E /* RoomRealm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		6410B73A22C38BE400D8A5BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +969,19 @@
 				6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */,
 				6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */,
 				6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6411E37822EAE57E00A55A2B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6411E37922EAE5C800A55A2B /* RoomViewCell.swift */,
+				6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */,
+				6400734222EF32460028FDC3 /* RoomOccupanciesViewCell.swift */,
+				6400734322EF32460028FDC3 /* RoomOccupanciesViewCell.xib */,
+				64EBEE4E22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift */,
+				64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -960,8 +1040,8 @@
 			isa = PBXGroup;
 			children = (
 				64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */,
-				64E5BFAA22BCCBF0005E92C0 /* Models */,
 				64E5BFA722BCC65C005E92C0 /* Main */,
+				64E5BFAA22BCCBF0005E92C0 /* Models */,
 			);
 			path = Management;
 			sourceTree = "<group>";
@@ -1547,6 +1627,7 @@
 				6410F72B22D5D0C200AA3BA1 /* CanteenViewCell.xib in Resources */,
 				B5111E171E71E68F00D68155 /* Localizable.strings in Resources */,
 				6420E98322E06BCE00F13AD3 /* Dashboard.storyboard in Resources */,
+				640DB2F822E99BA90083078E /* RoomOccupancy.storyboard in Resources */,
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
 				64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */,
 				1F36DA5C1FC3244E00BD9B4A /* KeychainAccess-license.html in Resources */,
@@ -1559,6 +1640,9 @@
 				640306F822E8A83B00099D68 /* GoogleService-Info.plist in Resources */,
 				6403695222CA4EBF00FD49EA /* PrincipalExamOffice.json in Resources */,
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
+				6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */,
+				6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */,
+				64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
 				6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */,
 				64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */,
@@ -1812,6 +1896,7 @@
 				1F8E20E41FB34FAD00347DB6 /* TimeInterval.swift in Sources */,
 				6405917822CB377300AA5613 /* ManagementService.swift in Sources */,
 				6405917D22CB438400AA5613 /* PrincipalExamOffice.swift in Sources */,
+				640DB2FB22E9A30A0083078E /* RoomOccupancyService.swift in Sources */,
 				6405917322CB345300AA5613 /* StuRaHTW.swift in Sources */,
 				6403694322C9F63400FD49EA /* MoyaProvider+Rx.swift in Sources */,
 				1FB3FFD81FFE5E5F00EE695F /* UIView.swift in Sources */,
@@ -1844,10 +1929,12 @@
 			files = (
 				B59879C01FB0F67800320091 /* BadgeLabel.swift in Sources */,
 				B5B3768B1FA6182800FC3A07 /* Double.swift in Sources */,
+				64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */,
 				B538EF181E1D6AEF0031077C /* Network.swift in Sources */,
 				B5F3F8701FB8552800F0D1DB /* AppLecture.swift in Sources */,
 				B5EF957E1FAF4BAF006BC7D1 /* OnboardStudygroupSelectionController.swift in Sources */,
 				1F94C4011F90DB4200988E72 /* AppCoordinator.swift in Sources */,
+				640DB2FA22E99FB70083078E /* RoomOccupancyViewController.swift in Sources */,
 				B5EA535F1E7FBB1500183E07 /* String.swift in Sources */,
 				6410F72622D5C86800AA3BA1 /* CanteenService.swift in Sources */,
 				B5A0D88A1E87B624007827A6 /* TabBarController.swift in Sources */,
@@ -1877,6 +1964,8 @@
 				64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */,
 				6410F72222D5BDD500AA3BA1 /* CanteensViewController.swift in Sources */,
 				649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */,
+				6400734122EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift in Sources */,
+				6400734722EF32FE0028FDC3 /* Occupancy.swift in Sources */,
 				B50875481ED40BE6004A320E /* TableViewController.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
 				1F048F461F90095800A1FBD9 /* OnboardingCoordinator.swift in Sources */,
@@ -1897,6 +1986,7 @@
 				B54642DD1FAA842100735589 /* FreeDayListCell.swift in Sources */,
 				6420E98922E06D3700F13AD3 /* DashboardService.swift in Sources */,
 				B5EF95871FAF84C8006BC7D1 /* SettingsCell.swift in Sources */,
+				640DB2F322E999490083078E /* RoomOccupancyCoordinator.swift in Sources */,
 				B5EA536D1E7FCE8B00183E07 /* ScheduleDetailVC.swift in Sources */,
 				B538EF1C1E1D762E0031077C /* Grade.swift in Sources */,
 				B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */,
@@ -1925,11 +2015,14 @@
 				B5ECABA01FBCCFE80017B8F4 /* NSAttributedString.swift in Sources */,
 				6446CE9522D5B65E002636A5 /* Canteen.swift in Sources */,
 				1FE108031F8FDAF5002B8E69 /* StudygroupTextField.swift in Sources */,
+				640DB2F522E999900083078E /* RoomOccupancyService.swift in Sources */,
 				B50EB5021E6AFFA20022E40C /* Day.swift in Sources */,
 				6405918522CC830800AA5613 /* R.generated.swift in Sources */,
+				640DB2FF22E9EDE30083078E /* RoomRealm.swift in Sources */,
 				B5EF95761FADB3B6006BC7D1 /* ExamsMainVC.swift in Sources */,
 				6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */,
 				B5EF958A1FAF875B006BC7D1 /* Exam.swift in Sources */,
+				6400734422EF32460028FDC3 /* RoomOccupanciesViewCell.swift in Sources */,
 				B5CD5C731E5F37970083D75E /* CollectionViewController.swift in Sources */,
 				642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */,
 				645E635C22DCAE8F005F18BF /* Calendar.swift in Sources */,
@@ -1974,6 +2067,7 @@
 				B5EF31F71FB059F600C848AF /* ExamsCell.swift in Sources */,
 				6420E98D22E0A0DD00F13AD3 /* DashboardMealViewCell.swift in Sources */,
 				64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */,
+				6411E37B22EAE5C800A55A2B /* RoomViewCell.swift in Sources */,
 				B516D8221FA9A47000551556 /* UIView.swift in Sources */,
 				645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */,
 				B56957881FAA3F7F00CE2318 /* CollectionHeaderView.swift in Sources */,
