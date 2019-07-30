@@ -212,7 +212,11 @@ extension AppCoordinator {
             viewController = schedule.rootViewController
             rootNavigationController.setTimeTableButtonHighLight()
         case .roomOccupancy:
-            viewController = roomOccupancy.rootViewController
+            viewController = (roomOccupancy.rootViewController as! RoomOccupancyViewController).also {
+                $0.appCoordinator = self
+            }
+        case .roomOccupancyDetail(let room):
+            viewController = roomOccupancy.getDetailRoomOccupancyViewController(with: room)
         case .exams:
             viewController = exams.rootViewController
         case .grades:

@@ -20,9 +20,16 @@ class RoomOccupancyCoordinator: Coordinator {
         return R.storyboard.roomOccupancy.roomOccupancyViewController()!.also { $0.context = context }
     }()
     
-    
+    // MARK: - LifeCycle
     init(context: Services) {
         self.context = context
     }
+    
+    // MARK: - Detail ViewController
+    func getDetailRoomOccupancyViewController(with roomName: String) -> RoomOccupancyDetailViewController {
+        return R.storyboard.roomOccupancy.roomOccupancyDetailViewController()!.also {
+            $0.context  = context
+            $0.roomName = roomName
+        }
+    }
 }
-

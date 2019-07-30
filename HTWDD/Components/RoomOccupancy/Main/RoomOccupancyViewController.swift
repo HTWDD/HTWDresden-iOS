@@ -14,8 +14,9 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
     var context: HasRoomOccupancy!
+    weak var appCoordinator: AppCoordinator?
     private var notificationToken: NotificationToken? = nil
-    private var items: [RoomRealm] = [] 
+    private var items: [RoomRealm] = []
     private lazy var addRoomAlertDialog: UIAlertController = {
         return UIAlertController(title: R.string.localizable.roomOccupancyAddTitle(), message: R.string.localizable.roomOccupancyAddMessage(), preferredStyle: .alert).also { alert in
             alert.addAction(UIAlertAction(title: R.string.localizable.close(), style: .cancel, handler: nil))
@@ -30,7 +31,7 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
                         .observeOn(MainScheduler.instance)
                         .subscribe(onNext: { [weak self] in
                             guard let self = self else { return }
-                            RoomRealm.save(room: text, numberOf: $0.count)
+                            RoomRealm.save(room: text, lessons: $0)
                             Log.verbose("Rooms: \($0)")
                         }, onError: { [weak self] error in
                             guard let self = self else { return }
@@ -93,6 +94,8 @@ extension RoomOccupancyViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addRoom))
+        
+        registerForPreviewing(with: self, sourceView: tableView)
     }
     
     @objc private func addRoom() {
@@ -146,7 +149,7 @@ extension RoomOccupancyViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = .clear
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -156,6 +159,10 @@ extension RoomOccupancyViewController {
                 RoomRealm.delete(room: roomItem)
             }
         }.also { $0.backgroundColor = UIColor.htw.veryLightGrey }]
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        appCoordinator?.goTo(controller: .roomOccupancyDetail(room: items[indexPath.row].name), animated: true)
     }
 }
 
@@ -186,5 +193,26 @@ extension RoomOccupancyViewController {
                 Log.error(error)
             }
         }
+    }
+}
+
+// MARK: - 3D Touch Peek
+extension RoomOccupancyViewController: UIViewControllerPreviewingDelegate {
+    
+    private func createDetailController(indexPath: IndexPath) -> RoomOccupancyDetailViewController {
+        
+        return R.storyboard.roomOccupancy.roomOccupancyDetailViewController()!.also {
+            $0.context = context
+            $0.roomName = items[indexPath.row].name
+        }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        return createDetailController(indexPath: indexPath)
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }

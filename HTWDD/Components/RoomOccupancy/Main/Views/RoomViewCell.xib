@@ -22,8 +22,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxX-ZG-eV8">
                         <rect key="frame" x="8" y="8" width="304" height="60.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z2-74-UDs">
-                                <rect key="frame" x="32" y="8" width="264" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z2-74-UDs" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="32" y="8" width="42" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,20 +47,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChevronRight" translatesAutoresizingMaskIntoConstraints="NO" id="wIi-CU-TIf">
+                                <rect key="frame" x="276" y="20.5" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="3Kc-bY-Zft"/>
+                                    <constraint firstAttribute="height" constant="20" id="d5A-s3-ePZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2P-wf-w4h" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="132" y="32" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="gzp-gj-5D9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Z2-74-UDs" firstAttribute="leading" secondItem="b92-Wj-xvu" secondAttribute="trailing" constant="8" id="3HA-ws-LLL"/>
                             <constraint firstItem="9Vm-IE-U9t" firstAttribute="leading" secondItem="cxX-ZG-eV8" secondAttribute="leading" constant="32" id="78i-3A-utf"/>
-                            <constraint firstAttribute="trailing" secondItem="6Z2-74-UDs" secondAttribute="trailing" constant="8" id="EG9-ui-S8D"/>
+                            <constraint firstItem="g2P-wf-w4h" firstAttribute="leading" secondItem="UAg-Vu-wNK" secondAttribute="trailing" constant="8" id="APl-3O-bw6"/>
                             <constraint firstItem="9Vm-IE-U9t" firstAttribute="top" secondItem="6Z2-74-UDs" secondAttribute="bottom" constant="8" id="Jjc-B1-4pg"/>
+                            <constraint firstItem="g2P-wf-w4h" firstAttribute="centerY" secondItem="UAg-Vu-wNK" secondAttribute="centerY" id="ZH6-To-euS"/>
                             <constraint firstItem="b92-Wj-xvu" firstAttribute="leading" secondItem="cxX-ZG-eV8" secondAttribute="leading" constant="8" id="agv-Nh-bOx"/>
                             <constraint firstAttribute="bottom" secondItem="9Vm-IE-U9t" secondAttribute="bottom" constant="8" id="d5r-hv-PXu"/>
+                            <constraint firstItem="wIi-CU-TIf" firstAttribute="centerY" secondItem="cxX-ZG-eV8" secondAttribute="centerY" id="d7M-Of-Bne"/>
                             <constraint firstItem="UAg-Vu-wNK" firstAttribute="leading" secondItem="9Vm-IE-U9t" secondAttribute="trailing" constant="8" id="fMb-Mz-DJ4"/>
                             <constraint firstItem="6Z2-74-UDs" firstAttribute="centerY" secondItem="b92-Wj-xvu" secondAttribute="centerY" id="q6e-Cf-udv"/>
                             <constraint firstItem="b92-Wj-xvu" firstAttribute="top" secondItem="cxX-ZG-eV8" secondAttribute="top" constant="8" id="qdA-Cd-mrT"/>
                             <constraint firstItem="UAg-Vu-wNK" firstAttribute="centerY" secondItem="9Vm-IE-U9t" secondAttribute="centerY" id="rpg-Ww-vZl"/>
                             <constraint firstItem="6Z2-74-UDs" firstAttribute="top" secondItem="cxX-ZG-eV8" secondAttribute="top" constant="8" id="tcd-Tt-QcQ"/>
+                            <constraint firstAttribute="trailing" secondItem="wIi-CU-TIf" secondAttribute="trailing" constant="8" id="yfH-DS-zr5"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
@@ -77,6 +96,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="lblCountOfOccupancies" destination="9Vm-IE-U9t" id="Lx3-P3-w2c"/>
+                <outlet property="lblCurrentLesson" destination="g2P-wf-w4h" id="XIO-Lw-1gl"/>
                 <outlet property="lblDescriptionOccupancies" destination="UAg-Vu-wNK" id="6Gh-qs-jN0"/>
                 <outlet property="lblRoomName" destination="6Z2-74-UDs" id="FUv-jg-EWm"/>
                 <outlet property="main" destination="cxX-ZG-eV8" id="B5l-Mf-lCi"/>
@@ -85,6 +105,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ChevronRight" width="24" height="24"/>
         <image name="Room" width="16" height="16"/>
     </resources>
 </document>

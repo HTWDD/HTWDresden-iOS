@@ -189,3 +189,6 @@
 "Room.occupancy.error.alert.title"="Error";
 "Room.occupancy.error.alert.message"="😖 something went wrong when loading the data, is '%@' a correct room number?";
 "Room.occupancy.description"="occupancies";
+"Room.occupancy.free"="Free";
+"Room.occupancy.no.name"="No information about the course name";
+"Room.occupancy.no.dozent"="No information about the lecturer";

@@ -13,6 +13,7 @@ enum CoordinatorRoute {
     case schedule
     case scheduleToday
     case roomOccupancy
+    case roomOccupancyDetail(room: String)
     case exams
     case grades
     case canteen
@@ -29,6 +30,7 @@ extension CoordinatorRoute {
         case "dashboard": self  = .dashboard
         case "schedule": self = .schedule
         case "roomOccupancy": self = .roomOccupancy
+        case "roomOccupancyDetail": self = .roomOccupancyDetail(room: "")
         case "scheduleToday": self = .scheduleToday
         case "exams": self = .exams
         case "grades": self = .grades
@@ -46,6 +48,7 @@ extension CoordinatorRoute {
         case .dashboard: return "dashboard"
         case .schedule: return "schedule"
         case .roomOccupancy: return "roomOccupancy"
+        case .roomOccupancyDetail(_): return "roomOccupancyDetail"
         case .scheduleToday: return "scheduleToday"
         case .exams: return "exams"
         case .grades: return "grades"
