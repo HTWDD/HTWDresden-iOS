@@ -15,6 +15,7 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
     // MARK: - Properties
     var context: HasRoomOccupancy!
     weak var appCoordinator: AppCoordinator?
+    weak var roomOccupancyCoordinator: RoomOccupancyCoordinator?
     private var notificationToken: NotificationToken? = nil
     private var items: [RoomRealm] = []
     private lazy var addRoomAlertDialog: UIAlertController = {
@@ -199,17 +200,9 @@ extension RoomOccupancyViewController {
 // MARK: - 3D Touch Peek
 extension RoomOccupancyViewController: UIViewControllerPreviewingDelegate {
     
-    private func createDetailController(indexPath: IndexPath) -> RoomOccupancyDetailViewController {
-        
-        return R.storyboard.roomOccupancy.roomOccupancyDetailViewController()!.also {
-            $0.context = context
-            $0.roomName = items[indexPath.row].name
-        }
-    }
-    
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
-        return createDetailController(indexPath: indexPath)
+        return roomOccupancyCoordinator?.getDetailRoomOccupancyViewController(with: items[indexPath.row].name)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {

@@ -80,8 +80,8 @@ extension RoomOccupanciesViewCell: FromNibLoadable {
     func setup(with model: Occupancy?) {
         guard let model = model else { return }
         
-        lblName.text            = model.name.count > 0 ? model.name : R.string.localizable.roomOccupancyNoName()
-        lblProfessorName.text   = model.professor.count > 0 ? model.professor : R.string.localizable.roomOccupancyNoDozent()
+        lblName.text            = model.name.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoName()
+        lblProfessorName.text   = model.professor.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
         lblType.text            = model.type
         lblBeginn.text          = String(model.beginTime.prefix(5))
         lblEnd.text             = String(model.endTime.prefix(5))

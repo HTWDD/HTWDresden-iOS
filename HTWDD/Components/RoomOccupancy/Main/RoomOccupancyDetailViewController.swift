@@ -88,11 +88,7 @@ extension RoomOccupancyDetailViewController {
 extension RoomOccupancyDetailViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = items[section + 1]?.count {
-            return count
-        } else {
-            return 0
-        }
+        return items[section + 1]?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -114,24 +110,18 @@ extension RoomOccupancyDetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let day = items[section + 1]?.first?.day {
-            
-            let localizedDay: String?
-            switch day {
-            case 1: localizedDay = R.string.localizable.monday()
-            case 2: localizedDay = R.string.localizable.tuesday()
-            case 3: localizedDay = R.string.localizable.wednesday()
-            case 4: localizedDay = R.string.localizable.thursday()
-            case 5: localizedDay = R.string.localizable.friday()
-            case 6: localizedDay = R.string.localizable.saturday()
-            case 7: localizedDay = R.string.localizable.sunday()
-            default: localizedDay = nil
-            }
-            
-            guard localizedDay != nil else { return nil }
-            
-            return BlurredSectionHeader(frame: tableView.frame, header: localizedDay!, subHeader: "\(items[section + 1]?.count ?? 0) \(R.string.localizable.roomOccupancyDescription())")
+        guard let day = items[section + 1]?.first else { return nil }
+        let localizedDay: String
+        switch day.day {
+        case 1: localizedDay = R.string.localizable.monday()
+        case 2: localizedDay = R.string.localizable.tuesday()
+        case 3: localizedDay = R.string.localizable.wednesday()
+        case 4: localizedDay = R.string.localizable.thursday()
+        case 5: localizedDay = R.string.localizable.friday()
+        case 6: localizedDay = R.string.localizable.saturday()
+        case 7: localizedDay = R.string.localizable.sunday()
+        default: return nil
         }
-        return nil
+        return BlurredSectionHeader(frame: tableView.frame, header: localizedDay, subHeader: "\(items[section + 1]?.count ?? 0) \(R.string.localizable.roomOccupancyDescription())")
     }
 }

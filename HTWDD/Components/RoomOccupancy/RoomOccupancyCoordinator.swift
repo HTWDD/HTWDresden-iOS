@@ -17,7 +17,10 @@ class RoomOccupancyCoordinator: Coordinator {
     var rootViewController: UIViewController { return self.viewController }
     var childCoordinators: [Coordinator] = []
     private lazy var viewController: RoomOccupancyViewController = {
-        return R.storyboard.roomOccupancy.roomOccupancyViewController()!.also { $0.context = context }
+        return R.storyboard.roomOccupancy.roomOccupancyViewController()!.also {
+            $0.context = context
+            $0.roomOccupancyCoordinator = self
+        }
     }()
     
     // MARK: - LifeCycle
