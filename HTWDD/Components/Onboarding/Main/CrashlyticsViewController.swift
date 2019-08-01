@@ -1,5 +1,5 @@
 //
-//  AnalyticsViewController.swift
+//  CrashlyticsViewController.swift
 //  HTWDD
 //
 //  Created by Mustafa Karademir on 01.08.19.
@@ -9,22 +9,22 @@
 import UIKit
 import Lottie
 
-class AnalyticsViewController: UIViewController {
-    
+class CrashlyticsViewController: UIViewController {
+
     // MARK: - Outlets
-    @IBOutlet weak var lblAnalyticsDescription: UILabel!
-    @IBOutlet weak var lblAnalyticsInformation: UILabel!
-    @IBOutlet weak var lblAnalyticsRevokeDescription: UILabel!
+    @IBOutlet weak var lblCrashlyticsDescription: UILabel!
+    @IBOutlet weak var lblCrashlyticsInformation: UILabel!
+    @IBOutlet weak var lblCrashlyticsHelpQuestion: UILabel!
+    @IBOutlet weak var lblCrashlyticsRevoke: UILabel!
     @IBOutlet weak var animationView: AnimationView!
-    @IBOutlet weak var lblHelpQuestion: UILabel!
     @IBOutlet weak var btnYes: UIButton!
+    
     
     // MARK: - Properties
     weak var delegate: UIPageViewSwipeDelegate?
     private lazy var animation: Animation? = {
         return Animation.named("PulseBlue")
     }()
-    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,21 +47,21 @@ class AnalyticsViewController: UIViewController {
             
             self.animation                  = Animation.named("PulseGrey")
             self.animationView.animation    = self.animation
-            self.btnYes.isEnabled           = false
+            sender.isEnabled                = false
         }
         delegate?.next(animated: true)
     }
 }
 
 // MARK: - Setup
-extension AnalyticsViewController {
+extension CrashlyticsViewController {
     
     private func setup() {
-        lblAnalyticsDescription.text        = R.string.localizable.onboardingAnalyticsDescription()
-        lblAnalyticsInformation.text        = R.string.localizable.onboardingAnalyticsInformation()
-        lblAnalyticsRevokeDescription.text  = R.string.localizable.onboardingAnalyticsRevokeDescription()
-        lblHelpQuestion.text                = R.string.localizable.onboardingAnalyticsHelpQuestion()
-        btnYes.titleLabel?.text             = R.string.localizable.yes()
+        lblCrashlyticsDescription.text  = R.string.localizable.onboardingCrashlyticsDescription()
+        lblCrashlyticsInformation.text  = R.string.localizable.onboardingCrashlyticsInformation()
+        lblCrashlyticsHelpQuestion.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()
+        lblCrashlyticsRevoke.text       = R.string.localizable.onboardingCrashlyticsRevokeDescription()
+        btnYes.titleLabel?.text         = R.string.localizable.yes()
         animationView.apply {
             $0.animation    = animation
             $0.contentMode  = .scaleAspectFit

@@ -17,7 +17,7 @@ class OnboardingPageViewController: UIPageViewController {
     private(set) lazy var orderdViewControllers: [UIViewController] = {
         return [R.storyboard.onboarding.welcomeViewController()!,
                 R.storyboard.onboarding.analyticsViewController()!.also { $0.delegate = self },
-                R.storyboard.onboarding.welcomeViewController()!]
+                R.storyboard.onboarding.crashlyticsViewController()!.also { $0.delegate = self }]
     }()
 
     // MARK: - Lifecycle
