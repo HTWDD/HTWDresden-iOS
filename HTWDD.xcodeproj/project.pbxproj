@@ -138,6 +138,7 @@
 		640DB2FA22E99FB70083078E /* RoomOccupancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */; };
 		640DB2FB22E9A30A0083078E /* RoomOccupancyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F422E999900083078E /* RoomOccupancyService.swift */; };
 		640DB2FF22E9EDE30083078E /* RoomRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2FE22E9EDE30083078E /* RoomRealm.swift */; };
+		640FC57222F359090090E210 /* BarchartsGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 640FC57122F359090090E210 /* BarchartsGrey.json */; };
 		6410375922C10C650084FC63 /* ManagementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410375822C10C650084FC63 /* ManagementService.swift */; };
 		6410B73D22C38C2F00D8A5BC /* SemesterplaningViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */; };
 		6410B73E22C38C2F00D8A5BC /* SemesterplaningViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */; };
@@ -427,6 +428,7 @@
 		640DB2F722E99BA90083078E /* RoomOccupancy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomOccupancy.storyboard; sourceTree = "<group>"; };
 		640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyViewController.swift; sourceTree = "<group>"; };
 		640DB2FE22E9EDE30083078E /* RoomRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRealm.swift; sourceTree = "<group>"; };
+		640FC57122F359090090E210 /* BarchartsGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarchartsGrey.json; sourceTree = "<group>"; };
 		6410375822C10C650084FC63 /* ManagementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementService.swift; sourceTree = "<group>"; };
 		6410B73B22C38C2F00D8A5BC /* SemesterplaningViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterplaningViewCell.swift; sourceTree = "<group>"; };
 		6410B73C22C38C2F00D8A5BC /* SemesterplaningViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SemesterplaningViewCell.xib; sourceTree = "<group>"; };
@@ -1073,6 +1075,7 @@
 		642E5C2022F18ADC00D3A886 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				640FC57122F359090090E210 /* BarchartsGrey.json */,
 				64CC1E8E22F313AB00A45F25 /* PulseGrey.json */,
 				642E5C2122F18B5700D3A886 /* PulseGreen.json */,
 				642E5C2322F18FF200D3A886 /* PulseBlue.json */,
@@ -1700,6 +1703,7 @@
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
 				6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */,
 				6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */,
+				640FC57222F359090090E210 /* BarchartsGrey.json in Resources */,
 				64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
 				6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */,

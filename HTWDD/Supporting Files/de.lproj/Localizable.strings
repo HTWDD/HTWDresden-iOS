@@ -6,14 +6,14 @@
 "Onboarding.Welcome.GradesDescription"="Wer hat denn da eine 1 bekommen? Bestimmt Du!";
 
 "Onboarding.Analytics.description"="Wir würden gerne Google Analytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
-"Onboarding.Analytics.information"="Dabei werden Gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an dritte weitergegeben.";
+"Onboarding.Analytics.information"="Dabei werden gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
 "Onboarding.Analytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
-"Onboarding.Analytics.help.question"="Möchtest Du uns dabei Helfen?";
+"Onboarding.Analytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
-"Onboarding.Crashlytics.information"="Dabei werden beim App-Absturz, Gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an dritte weitergegeben.";
+"Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz, gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
 "Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
-"Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei Helfen?";
+"Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Studygroup.title"="Studiengruppe";
 "Onboarding.Studygroup.body"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.\nDiese Information ist erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";

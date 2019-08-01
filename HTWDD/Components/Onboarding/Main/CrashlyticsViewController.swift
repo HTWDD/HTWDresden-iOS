@@ -16,14 +16,17 @@ class CrashlyticsViewController: UIViewController {
     @IBOutlet weak var lblCrashlyticsInformation: UILabel!
     @IBOutlet weak var lblCrashlyticsHelpQuestion: UILabel!
     @IBOutlet weak var lblCrashlyticsRevoke: UILabel!
+    @IBOutlet weak var chartsAnimationView: AnimationView!
     @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var btnYes: UIButton!
-    
     
     // MARK: - Properties
     weak var delegate: UIPageViewSwipeDelegate?
     private lazy var animation: Animation? = {
-        return Animation.named("PulseBlue")
+        return Animation.named(!UserDefaults.standard.crashlytics ? "PulseBlue" : "PulseGrey")
+    }()
+    private lazy var chartsAnimation: Animation? = {
+        return Animation.named("BarchartsGrey")
     }()
     
     // MARK: - Lifecycle
@@ -37,11 +40,13 @@ class CrashlyticsViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.animationView.play()
+            self.chartsAnimationView.play()
         }
     }
     
     // MARK: - User Interaction
     @IBAction func onYesTouch(_ sender: UIButton) {
+        UserDefaults.standard.crashlytics   = true
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
@@ -57,15 +62,21 @@ class CrashlyticsViewController: UIViewController {
 extension CrashlyticsViewController {
     
     private func setup() {
+        btnYes.isEnabled                = !UserDefaults.standard.crashlytics
         lblCrashlyticsDescription.text  = R.string.localizable.onboardingCrashlyticsDescription()
         lblCrashlyticsInformation.text  = R.string.localizable.onboardingCrashlyticsInformation()
         lblCrashlyticsHelpQuestion.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()
         lblCrashlyticsRevoke.text       = R.string.localizable.onboardingCrashlyticsRevokeDescription()
-        btnYes.titleLabel?.text         = R.string.localizable.yes()
+        btnYes.setTitle(R.string.localizable.yes(), for: .normal)
         animationView.apply {
             $0.animation    = animation
             $0.contentMode  = .scaleAspectFit
             $0.loopMode     = .loop
+        }
+        chartsAnimationView.apply {
+            $0.animation    = chartsAnimation
+            $0.contentMode  = .scaleAspectFit
+            $0.loopMode     = .playOnce
         }
     }
     
