@@ -70,6 +70,12 @@ class AppCoordinator: Coordinator {
 
 	private func showOnboarding(animated: Bool) {
 
+        let vc = R.storyboard.onboarding.mainViewController()!
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        rootNavigationController.present(vc, animated: animated, completion: nil)
+        
+        
         self.loadPersistedAuth { [weak self] schedule, grade in
 
             // If one of them has already been saved
@@ -94,7 +100,9 @@ class AppCoordinator: Coordinator {
             }
 
             self?.addChildCoordinator(onboarding)
-            self?.rootViewController.present(onboarding.rootViewController, animated: animated, completion: nil)
+            
+            
+//            self?.rootViewController.present(onboarding.rootViewController, animated: animated, completion: nil)
         }
 
 	}

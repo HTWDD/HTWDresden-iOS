@@ -42,6 +42,9 @@ target 'HTWDD' do
   
   # TabMan
   pod 'Tabman', '~> 2.4', :inhibit_warnings => true
+  
+  # Lottie
+  pod 'lottie-ios'
 
   target 'HTWDDTests' do
     inherit! :search_paths
