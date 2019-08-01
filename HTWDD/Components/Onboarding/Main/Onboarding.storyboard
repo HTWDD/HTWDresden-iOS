@@ -218,6 +218,7 @@
         <!--Analytics View Controller-->
         <scene sceneID="6nN-OF-Xz3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58R-N3-1Fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="AnalyticsViewController" id="T6f-ny-lJR" customClass="AnalyticsViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="CA2-4w-Zfj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -335,11 +336,13 @@
                     </view>
                     <connections>
                         <outlet property="animationView" destination="egZ-qC-O3m" id="htf-1n-afU"/>
+                        <outlet property="btnYes" destination="CzX-KF-Agm" id="8M4-u1-L8C"/>
                         <outlet property="lblAnalyticsDescription" destination="oWA-gI-lAX" id="v6y-W3-lYB"/>
+                        <outlet property="lblAnalyticsInformation" destination="0K8-tR-9Xg" id="KyI-0k-3Ey"/>
                         <outlet property="lblAnalyticsRevokeDescription" destination="O2n-yg-7wV" id="n9P-dI-sMY"/>
+                        <outlet property="lblHelpQuestion" destination="Mmb-zm-Ch1" id="PFE-cW-v7S"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="58R-N3-1Fg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="-206.25"/>
         </scene>

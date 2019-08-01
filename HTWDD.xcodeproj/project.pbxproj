@@ -187,6 +187,7 @@
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		64CC1E8622F2EC2100A45F25 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */; };
 		64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */; };
+		64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CC1E8E22F313AB00A45F25 /* PulseGrey.json */; };
 		64D9D91422E1AAA7002E71F5 /* BlurredSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9D91322E1AAA7002E71F5 /* BlurredSectionHeader.swift */; };
 		64D9D91922E1E497002E71F5 /* DashboardTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9D91722E1E497002E71F5 /* DashboardTimeTableViewCell.swift */; };
 		64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */; };
@@ -465,6 +466,7 @@
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
 		64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewSwipeDelegate.swift; sourceTree = "<group>"; };
+		64CC1E8E22F313AB00A45F25 /* PulseGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PulseGrey.json; sourceTree = "<group>"; };
 		64D9D91322E1AAA7002E71F5 /* BlurredSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredSectionHeader.swift; sourceTree = "<group>"; };
 		64D9D91722E1E497002E71F5 /* DashboardTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTimeTableViewCell.swift; sourceTree = "<group>"; };
 		64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTimeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1068,6 +1070,7 @@
 		642E5C2022F18ADC00D3A886 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				64CC1E8E22F313AB00A45F25 /* PulseGrey.json */,
 				642E5C2122F18B5700D3A886 /* PulseGreen.json */,
 				642E5C2322F18FF200D3A886 /* PulseBlue.json */,
 			);
@@ -1679,6 +1682,7 @@
 				640DB2F822E99BA90083078E /* RoomOccupancy.storyboard in Resources */,
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
 				64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */,
+				64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */,
 				1F36DA5C1FC3244E00BD9B4A /* KeychainAccess-license.html in Resources */,
 				1F0CB4B41FE81DF3002B7744 /* HTW-Impressum.html in Resources */,
 				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,

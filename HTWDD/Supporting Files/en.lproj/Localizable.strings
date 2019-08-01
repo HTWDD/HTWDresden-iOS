@@ -5,6 +5,11 @@
 "Onboarding.Welcome.CanteenDescription"="See what is being served for lunch in the canteens around you.";
 "Onboarding.Welcome.GradesDescription"="View what your professors graded you in your exams.";
 
+"Onboarding.Analytics.description"="We'd like to use Google Analytics on your device to keep improving the app.";
+"Onboarding.Analytics.information"="This device-specific data is collected and transmitted to the Google Inc. servers. The collected data will not be given to third parties.";
+"Onboarding.Analytics.revoke.description"="You can change your decision at any time in the settings.";
+"Onboarding.Analytics.help.question"="Would you like to help us?";
+
 "Onboarding.Studygroup.title"="Study group";
 "Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule.";
 "Onboarding.Studygroup.notnow"="Not now";
