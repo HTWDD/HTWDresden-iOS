@@ -36,7 +36,7 @@ class FreeDayRealm: Object {
     @objc dynamic var endDay: String    = ""
 }
 
-// MARK: Extensions
+// MARK: - Extensions
 extension SemesterPlaningRealm {
     static func save(from codable: SemesterPlaning?) {
         guard let codable = codable else { return }

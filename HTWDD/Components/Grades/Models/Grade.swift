@@ -45,6 +45,7 @@ struct Grade: Codable, Identifiable {
             "AbschlNr": course.abschlNr,
             "StgNr": course.stgNr
         ]
+        Log.debug("\(parameters)")
 
         return network.getArrayM(url: Grade.url, params: parameters)
     }

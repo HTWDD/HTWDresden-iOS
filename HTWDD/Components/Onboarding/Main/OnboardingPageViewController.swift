@@ -8,16 +8,20 @@
 
 import UIKit
 
-
-
-
 class OnboardingPageViewController: UIPageViewController {
     
     // MARK: - Properties
+    weak var context: AppContext?
     private(set) lazy var orderdViewControllers: [UIViewController] = {
         return [R.storyboard.onboarding.welcomeViewController()!,
                 R.storyboard.onboarding.analyticsViewController()!.also { $0.delegate = self },
-                R.storyboard.onboarding.crashlyticsViewController()!.also { $0.delegate = self }]
+                R.storyboard.onboarding.crashlyticsViewController()!.also { $0.delegate = self },
+                R.storyboard.onboarding.studyGroupViewController()!.also {
+                    $0.context  = self.context
+                    $0.delegate = self
+                },
+                OnboardStudygroupViewController(),
+                OnboardUnixLoginViewController()]
     }()
 
     // MARK: - Lifecycle
@@ -74,11 +78,11 @@ extension OnboardingPageViewController: UIPageViewControllerDataSource {
 // MARK: UIPage Swipe Delegate
 extension OnboardingPageViewController: UIPageViewSwipeDelegate {
     func next(animated: Bool) {
-        self.goToNextPage(animated: animated)
+        goToNextPage(animated: animated)
     }
     
     func previous(animated: Bool) {
-        self.goToPreviousPage(animated: animated)
+        goToPreviousPage(animated: animated)
     }
 }
 

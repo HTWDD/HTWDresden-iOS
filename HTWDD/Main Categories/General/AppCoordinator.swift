@@ -70,9 +70,9 @@ class AppCoordinator: Coordinator {
 
 	private func showOnboarding(animated: Bool) {
 
-        let vc = R.storyboard.onboarding.mainViewController()!
+        let vc = R.storyboard.onboarding.onboardingMainViewController()!
         vc.modalPresentationStyle = .overCurrentContext
-        
+        vc.context = appContext
         rootNavigationController.present(vc, animated: animated, completion: nil)
         
         

@@ -76,7 +76,7 @@ extension AnalyticsViewController {
         chartsAnimationView.apply {
             $0.animation    = chartsAnimation
             $0.contentMode  = .scaleAspectFit
-            $0.loopMode     = .playOnce
+            $0.loopMode     = .repeat(Float.random(in: 1...6))
         }
     }
     

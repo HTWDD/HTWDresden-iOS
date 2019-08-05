@@ -46,7 +46,7 @@ class CrashlyticsViewController: UIViewController {
     
     // MARK: - User Interaction
     @IBAction func onYesTouch(_ sender: UIButton) {
-        UserDefaults.standard.crashlytics   = true
+        UserDefaults.standard.crashlytics = true
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
@@ -76,7 +76,7 @@ extension CrashlyticsViewController {
         chartsAnimationView.apply {
             $0.animation    = chartsAnimation
             $0.contentMode  = .scaleAspectFit
-            $0.loopMode     = .playOnce
+            $0.loopMode     = .repeat(Float.random(in: 1...6))
         }
     }
     

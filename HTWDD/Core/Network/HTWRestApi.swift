@@ -14,6 +14,7 @@ enum HTWRestApi {
     case timeTable(year: String, major: String, group: String)
     case semesterPlaning
     case rooms(room: String)
+    case studyGroups
 }
 
 // MARK: - Endpoint Handling
@@ -27,6 +28,7 @@ extension HTWRestApi: TargetType {
         case .timeTable: return "/studentTimetable.php"
         case .semesterPlaning: return "/semesterplan.json"
         case .rooms: return "/roomTimetable.php"
+        case .studyGroups: return "/studyGroups.php"
         }
     }
     

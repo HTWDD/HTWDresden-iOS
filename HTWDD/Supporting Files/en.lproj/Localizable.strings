@@ -6,17 +6,19 @@
 "Onboarding.Welcome.GradesDescription"="View what your professors graded you in your exams.";
 
 "Onboarding.Analytics.description"="We'd like to use Google Analytics on your device to keep improving the app.";
-"Onboarding.Analytics.information"="This device-specific data is collected and transmitted to the Google Inc. servers. The collected data will not be given to third parties.";
+"Onboarding.Analytics.information"="This device-specific data is collected and transferred anonymously to the Google Inc. servers. The collected data will not be given to third parties.";
 "Onboarding.Analytics.revoke.description"="You can change your decision at any time in the settings.";
 "Onboarding.Analytics.help.question"="Would you like to help us?";
 
 "Onboarding.Crashlytics.description"="We'd like to use Google Chrashlytics on your device to keep improving the app.";
-"Onboarding.Crashlytics.information"="During the app crash, device-specific data is collected and transmitted to the Google Inc. server. The collected data will not be passed on to third parties.";
+"Onboarding.Crashlytics.information"="During the app crash, device-specific data is collected and transferred anonymously to the Google Inc. server. The collected data will not be passed on to third parties.";
 "Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.";
 "Onboarding.Crashlytics.help.question"="Would you like to help us?";
 
 "Onboarding.Studygroup.title"="Study group";
 "Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule.";
+"Onboarding.Studygroup.description"="Select your enrollment year, major and study group here.";
+"Onboarding.Studygroup.information"="This information is necessary in order to show you your schedule.";
 "Onboarding.Studygroup.notnow"="Not now";
 
 "Onboarding.Studygroup.year"="Year";

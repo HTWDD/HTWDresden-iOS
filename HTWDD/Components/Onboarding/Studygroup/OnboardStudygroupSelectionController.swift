@@ -25,8 +25,8 @@ class OnboardStudygroupSelectionController<Data: Identifiable>: CollectionViewCo
 	
 	@available(iOS 10.0, *)
 	private lazy var animator: UIViewPropertyAnimator = {
-		let a = UIViewPropertyAnimator(duration: 0.4, curve: .linear, animations: {
-			self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+		let a = UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
+			self.visualEffectView.effect = UIBlurEffect(style: .light)
 		})
 		return a
 	}()
@@ -54,7 +54,7 @@ class OnboardStudygroupSelectionController<Data: Identifiable>: CollectionViewCo
                 return observer.onNext(item)
             }
             selectionController.modalPresentationStyle = .overCurrentContext
-            selectionController.transition = AnimatedViewControllerTransition(duration: 0.4, back: controller, front: selectionController)
+            selectionController.transition = AnimatedViewControllerTransition(duration: 1.4, back: controller, front: selectionController)
             controller.present(selectionController, animated: true, completion: nil)
             return Disposables.create {
                 selectionController.dismiss(animated: true, completion: nil)
