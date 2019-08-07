@@ -238,17 +238,17 @@ extension StudyGroupViewController {
         
         state.asObservable()
             .map({ $0.completed })
-            .subscribe(onNext: { [weak self] isCompleted in
+            .subscribe(onNext: { [weak self] (isCompleted: Bool) in
                 guard let self = self else { return }
                 if isCompleted {
-                    KeychainService.shared.storeStudyToken(year: self.state.value.year?.studyYear.description, major: self.state.value.major?.studyCourse, group: self.state.value.group?.studyGroup)
+                    KeychainService.shared.storeStudyToken(year: self.state.value.year?.studyYear.description,
+                                                           major: self.state.value.major?.studyCourse,
+                                                           group: self.state.value.group?.studyGroup)
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750), execute: {
                         self.delegate?.next(animated: true)
                     })
-                } else {
-                    StudyYearRealm.clear()
                 }
-                }, onError: { Log.error($0) })
+            }, onError: { Log.error($0) })
             .disposed(by: rx_disposeBag)
     }
     

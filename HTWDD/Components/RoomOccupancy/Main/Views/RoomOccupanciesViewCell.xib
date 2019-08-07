@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vAe-Fa-MfK">
-                        <rect key="frame" x="8" y="8" width="398" height="141.5"/>
+                        <rect key="frame" x="8" y="4" width="398" height="149.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kch-2B-Hra">
                                 <rect key="frame" x="8" y="8" width="382" height="21"/>
@@ -34,25 +34,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxl-g8-s8x" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="8" y="66" width="97" height="34.5"/>
+                                <rect key="frame" x="8" y="66" width="97" height="42.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeginTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVj-AZ-ywN" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="113" y="73" width="80" height="21"/>
+                                <rect key="frame" x="113" y="77" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-EH-aj2" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="201" y="73" width="68" height="21"/>
+                                <rect key="frame" x="201" y="77" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-hH-K00">
-                                <rect key="frame" x="8" y="108.5" width="382" height="25"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-hH-K00">
+                                <rect key="frame" x="8" y="116.5" width="382" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="IEY-RM-WUZ"/>
@@ -91,8 +91,8 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vAe-Fa-MfK" firstAttribute="top" secondItem="3NM-Lw-HOt" secondAttribute="top" constant="8" id="AT4-F8-ETZ"/>
-                    <constraint firstAttribute="bottom" secondItem="vAe-Fa-MfK" secondAttribute="bottom" constant="8" id="Rnu-fE-2zX"/>
+                    <constraint firstItem="vAe-Fa-MfK" firstAttribute="top" secondItem="3NM-Lw-HOt" secondAttribute="top" constant="4" id="AT4-F8-ETZ"/>
+                    <constraint firstAttribute="bottom" secondItem="vAe-Fa-MfK" secondAttribute="bottom" constant="4" id="Rnu-fE-2zX"/>
                     <constraint firstItem="vAe-Fa-MfK" firstAttribute="leading" secondItem="3NM-Lw-HOt" secondAttribute="leading" constant="8" id="amo-7m-pnA"/>
                     <constraint firstAttribute="trailing" secondItem="vAe-Fa-MfK" secondAttribute="trailing" constant="8" id="jtc-Vs-h0o"/>
                 </constraints>

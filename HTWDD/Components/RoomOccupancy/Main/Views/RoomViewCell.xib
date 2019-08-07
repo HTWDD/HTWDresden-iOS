@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxX-ZG-eV8">
-                        <rect key="frame" x="8" y="8" width="304" height="60.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="68.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z2-74-UDs" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="32" y="8" width="42" height="16"/>
@@ -36,26 +36,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Vm-IE-U9t" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="32" y="32" width="42" height="20.5"/>
+                                <rect key="frame" x="32" y="32" width="42" height="28.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAg-Vu-wNK">
-                                <rect key="frame" x="82" y="32" width="42" height="21"/>
+                                <rect key="frame" x="82" y="36" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChevronRight" translatesAutoresizingMaskIntoConstraints="NO" id="wIi-CU-TIf">
-                                <rect key="frame" x="276" y="20.5" width="20" height="20"/>
+                                <rect key="frame" x="276" y="24.5" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3Kc-bY-Zft"/>
                                     <constraint firstAttribute="height" constant="20" id="d5A-s3-ePZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2P-wf-w4h" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="132" y="32" width="42" height="21"/>
+                                <rect key="frame" x="132" y="36" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="gzp-gj-5D9"/>
                                 </constraints>
@@ -87,8 +87,8 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cxX-ZG-eV8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7cW-3s-jR0"/>
-                    <constraint firstAttribute="bottom" secondItem="cxX-ZG-eV8" secondAttribute="bottom" constant="8" id="Ekx-Jv-9sH"/>
+                    <constraint firstItem="cxX-ZG-eV8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="7cW-3s-jR0"/>
+                    <constraint firstAttribute="bottom" secondItem="cxX-ZG-eV8" secondAttribute="bottom" constant="4" id="Ekx-Jv-9sH"/>
                     <constraint firstAttribute="trailing" secondItem="cxX-ZG-eV8" secondAttribute="trailing" constant="8" id="FfT-Q6-WzA"/>
                     <constraint firstItem="cxX-ZG-eV8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="cMn-Nd-UD9"/>
                 </constraints>

@@ -219,6 +219,10 @@ extension AppCoordinator {
             }
         case .schedule,
              .scheduleToday:
+            let studyToken = KeychainService.shared.readStudyToken()
+            if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group  {
+                schedule.auth = ScheduleService.Auth(year: year, major: major, group: group, degree: .bachelor)
+            }
             viewController = schedule.rootViewController
             rootNavigationController.setTimeTableButtonHighLight()
         case .roomOccupancy:

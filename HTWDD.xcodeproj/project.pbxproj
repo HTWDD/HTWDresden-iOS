@@ -200,7 +200,6 @@
 		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
-		64ACE7DF22F8B1C600178E87 /* StudyYearRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64ACE7DE22F8B1C600178E87 /* StudyYearRealm.swift */; };
 		64CC1E8622F2EC2100A45F25 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */; };
 		64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */; };
 		64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CC1E8E22F313AB00A45F25 /* PulseGrey.json */; };
@@ -495,7 +494,6 @@
 		645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewController.swift; sourceTree = "<group>"; };
 		6481AEF522E5A4770068A8C3 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
-		64ACE7DE22F8B1C600178E87 /* StudyYearRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyYearRealm.swift; sourceTree = "<group>"; };
 		64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewSwipeDelegate.swift; sourceTree = "<group>"; };
 		64CC1E8E22F313AB00A45F25 /* PulseGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PulseGrey.json; sourceTree = "<group>"; };
@@ -1139,14 +1137,6 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		64ACE7DD22F8B0DA00178E87 /* Realm */ = {
-			isa = PBXGroup;
-			children = (
-				64ACE7DE22F8B1C600178E87 /* StudyYearRealm.swift */,
-			);
-			path = Realm;
-			sourceTree = "<group>";
-		};
 		64CC1E8722F3075900A45F25 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -1547,7 +1537,6 @@
 		B5EF95791FADC57D006BC7D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				64ACE7DD22F8B0DA00178E87 /* Realm */,
 				B5EF957A1FADC5B8006BC7D1 /* StudyYear.swift */,
 			);
 			path = Models;
@@ -2148,7 +2137,6 @@
 				1F7E32101FA7BB3900CCBDD6 /* ScheduleWeekLayout.swift in Sources */,
 				B52A9B591DDB173600313FC3 /* ViewController.swift in Sources */,
 				B5D3E8381FA5E6C10055782D /* GradeCoordinator.swift in Sources */,
-				64ACE7DF22F8B1C600178E87 /* StudyYearRealm.swift in Sources */,
 				1FC1BDD41FADDF1C007F9D06 /* SettingsService.swift in Sources */,
 				1FA92C711FEACC7400A88B0D /* UIColor.swift in Sources */,
 				B5D3E8361FA5E3620055782D /* GradeService.swift in Sources */,

@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mlf-K1-XzD">
-                        <rect key="frame" x="8" y="8" width="304" height="44.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="52.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="olv-lO-mgX">
-                                <rect key="frame" x="8" y="8" width="288" height="28.5"/>
+                                <rect key="frame" x="8" y="8" width="288" height="36.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5vK-9q-aUv">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="28.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="36.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.75" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Canteen" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAN-HU-usk">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="18"/>
@@ -60,9 +60,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="mlf-K1-XzD" secondAttribute="trailing" constant="8" id="047-G0-ya5"/>
-                    <constraint firstItem="mlf-K1-XzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="BeW-8p-dbv"/>
+                    <constraint firstItem="mlf-K1-XzD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="BeW-8p-dbv"/>
                     <constraint firstItem="mlf-K1-XzD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="m2q-to-VaS"/>
-                    <constraint firstAttribute="bottom" secondItem="mlf-K1-XzD" secondAttribute="bottom" constant="8" id="rXq-kL-url"/>
+                    <constraint firstAttribute="bottom" secondItem="mlf-K1-XzD" secondAttribute="bottom" constant="4" id="rXq-kL-url"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
