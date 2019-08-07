@@ -70,6 +70,11 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+    }
+    
     deinit {
         notificationToken?.invalidate()
     }
