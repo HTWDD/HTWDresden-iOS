@@ -241,7 +241,7 @@ extension StudyGroupViewController {
             .subscribe(onNext: { [weak self] isCompleted in
                 guard let self = self else { return }
                 if isCompleted {
-                    StudyYearRealm.save(year: self.state.value.year?.studyYear, major: self.state.value.major?.studyCourse, group: self.state.value.group?.studyGroup)
+                    KeychainService.shared.storeStudyToken(year: self.state.value.year?.studyYear.description, major: self.state.value.major?.studyCourse, group: self.state.value.group?.studyGroup)
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750), execute: {
                         self.delegate?.next(animated: true)
                     })

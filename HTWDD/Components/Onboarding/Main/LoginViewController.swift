@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     }()
     
     private lazy var errorLoginAlert: UIAlertController = {
-        return UIAlertController(title: R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsMessage(), preferredStyle: .alert).also { alert in
+        return UIAlertController(title: R.string.localizable.gradesNoResultsTitle(), message: R.string.localizable.gradesNoResultsMessage(), preferredStyle: .alert).also { alert in
             alert.addAction(UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: nil))
         }
     }()
@@ -56,6 +56,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        Log.debug("Key: \(KeychainService.shared.readStudyToken())")
+        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.padLockAnimationView.play()
@@ -72,9 +75,8 @@ class LoginViewController: UIViewController {
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { [weak self] result in
                     guard let self = self else { return }
-                    if KeychainWrapper.standard.set(authData.base64EncodedString(options: .lineLength64Characters), forKey: KeychainConstant.authToken) {
-                            self.delegate?.next(animated: true)
-                    }
+                    KeychainService.shared[.authToken] = authData.base64EncodedString(options: .lineLength64Characters)
+                    self.delegate?.next(animated: true)
                 }, onError: { [weak self] in
                     guard let self = self else { return }
                     self.present(self.errorLoginAlert, animated: true, completion: nil)

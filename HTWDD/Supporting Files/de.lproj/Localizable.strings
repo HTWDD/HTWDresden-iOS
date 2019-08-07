@@ -12,7 +12,7 @@
 
 "Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
 "Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz, gerätespezifische Daten erfasst und anonymisiert an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
-"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
+"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.\n\nCrashlytics benötigt Analytics.";
 "Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Studygroup.title"="Studiengruppe";
@@ -178,7 +178,7 @@
 "Grades.status.failed" = "Durchgefallen";
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
-"Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+"Grades.noResults.message"="😖 Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
 "Grades.numbers.and.credits"="%@ Note(n)\n%@ Credit(s)";
 "Grades.numbers.singular"="%d Note";
 "Grades.numbers.plural"="%d Noten";

@@ -12,7 +12,7 @@
 
 "Onboarding.Crashlytics.description"="We'd like to use Google Chrashlytics on your device to keep improving the app.";
 "Onboarding.Crashlytics.information"="During the app crash, device-specific data is collected and transferred anonymously to the Google Inc. server. The collected data will not be passed on to third parties.";
-"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.";
+"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.\n\nCrashlytics needs Analytics.";
 "Onboarding.Crashlytics.help.question"="Would you like to help us?";
 
 "Onboarding.Studygroup.title"="Study group";
@@ -178,7 +178,7 @@
 "Grades.status.failed" = "Failed";
 "Grades.status.ultimatelyFailed" = "ultimately failed";
 "Grades.noResults.title"="No grades";
-"Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
+"Grades.noResults.message"="😖 I can't find any of your grades.\nHave you entered your credentials correctly?";
 "Grades.numbers.and.credits"="%@ Grade(s) %@ Credit(s)";
 "Grades.numbers.singular"="%d Grade";
 "Grades.numbers.plural"="%d Grades";

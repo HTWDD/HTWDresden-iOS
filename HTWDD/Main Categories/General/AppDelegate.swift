@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        analytics()
+        analyticsAndCrashlytics()
+        
+        KeychainService.shared.removeAllKeys()
         
         if NSClassFromString("XCTestCase") != nil {
             return true
@@ -78,10 +80,12 @@ extension AppDelegate {
         let _ = try! Realm()
     }
     
-    // MARK: - Analytics
-    private func analytics() {
-        FirebaseApp.configure()
-        Analytics.setAnalyticsCollectionEnabled(UserDefaults.standard.analytics)
+    // MARK: - Analytics & Crashlytics
+    private func analyticsAndCrashlytics() {
+        if UserDefaults.standard.analytics && UserDefaults.standard.crashlytics {
+            FirebaseApp.configure()
+            Analytics.setAnalyticsCollectionEnabled(true)
+        }
     }
 }
 

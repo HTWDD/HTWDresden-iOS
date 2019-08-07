@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import Firebase
 
 class CrashlyticsViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class CrashlyticsViewController: UIViewController {
     // MARK: - Properties
     weak var delegate: UIPageViewSwipeDelegate?
     private lazy var animation: Animation? = {
-        return Animation.named(!UserDefaults.standard.crashlytics ? "PulseBlue" : "PulseGrey")
+        return Animation.named(!UserDefaults.standard.crashlytics && UserDefaults.standard.analytics ? "PulseBlue" : "PulseGrey")
     }()
     private lazy var chartsAnimation: Animation? = {
         return Animation.named("BarchartsGrey")
@@ -39,7 +40,12 @@ class CrashlyticsViewController: UIViewController {
         super.viewDidAppear(animated)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.animationView.play()
+            if !UserDefaults.standard.crashlytics && UserDefaults.standard.analytics {
+                self.animation = Animation.named("PulseBlue")
+                self.animationView.animation = self.animation
+                self.animationView.play()
+                self.btnYes.isEnabled = true
+            }
             self.chartsAnimationView.play()
         }
     }
@@ -47,6 +53,8 @@ class CrashlyticsViewController: UIViewController {
     // MARK: - User Interaction
     @IBAction func onYesTouch(_ sender: UIButton) {
         UserDefaults.standard.crashlytics = true
+        FirebaseApp.configure()
+        Analytics.setAnalyticsCollectionEnabled(true)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
@@ -62,7 +70,7 @@ class CrashlyticsViewController: UIViewController {
 extension CrashlyticsViewController {
     
     private func setup() {
-        btnYes.isEnabled                = !UserDefaults.standard.crashlytics
+        btnYes.isEnabled                = !UserDefaults.standard.crashlytics && UserDefaults.standard.analytics
         lblCrashlyticsDescription.text  = R.string.localizable.onboardingCrashlyticsDescription()
         lblCrashlyticsInformation.text  = R.string.localizable.onboardingCrashlyticsInformation()
         lblCrashlyticsHelpQuestion.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()

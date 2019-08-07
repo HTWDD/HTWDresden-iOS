@@ -164,6 +164,7 @@
 		6414B74422FAAA4700988AAA /* KeychainConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74322FAAA4700988AAA /* KeychainConstant.swift */; };
 		6414B74622FAAC0400988AAA /* OnboardingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74522FAAC0400988AAA /* OnboardingFinishViewController.swift */; };
 		6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6414B74722FAB4BB00988AAA /* FinishGrey.json */; };
+		6414B74B22FADA0000988AAA /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74A22FADA0000988AAA /* KeychainService.swift */; };
 		64189C2222F961C800E3264D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64189C2122F961C800E3264D /* LoginViewController.swift */; };
 		64189C2422F9705300E3264D /* PadlockGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64189C2322F9705300E3264D /* PadlockGrey.json */; };
 		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
@@ -465,6 +466,7 @@
 		6414B74322FAAA4700988AAA /* KeychainConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstant.swift; sourceTree = "<group>"; };
 		6414B74522FAAC0400988AAA /* OnboardingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishViewController.swift; sourceTree = "<group>"; };
 		6414B74722FAB4BB00988AAA /* FinishGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinishGrey.json; sourceTree = "<group>"; };
+		6414B74A22FADA0000988AAA /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		64189C2122F961C800E3264D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		64189C2322F9705300E3264D /* PadlockGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PadlockGrey.json; sourceTree = "<group>"; };
 		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -929,6 +931,7 @@
 				6403693C22C9F0E400FD49EA /* ApiService.swift */,
 				6410F72522D5C86800AA3BA1 /* CanteenService.swift */,
 				6420E98822E06D3700F13AD3 /* DashboardService.swift */,
+				6414B74A22FADA0000988AAA /* KeychainService.swift */,
 				6410375822C10C650084FC63 /* ManagementService.swift */,
 				640DB2F422E999900083078E /* RoomOccupancyService.swift */,
 			);
@@ -2103,6 +2106,7 @@
 				6400734122EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift in Sources */,
 				6400734722EF32FE0028FDC3 /* Occupancy.swift in Sources */,
 				B50875481ED40BE6004A320E /* TableViewController.swift in Sources */,
+				6414B74B22FADA0000988AAA /* KeychainService.swift in Sources */,
 				64093B3F22F803C8007138B6 /* StudyGroupSelectionViewController.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
 				64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */,
