@@ -11,8 +11,9 @@ import Foundation
 extension UserDefaults {
     
     enum Key: String {
-        case analytics = "HTW_APP_ANALYTICS"
-        case crashlytics = "HTW_APP_CRASHLYTICS"
+        case analytics          = "HTW.Analytics.Enabled"
+        case crashlytics        = "HTW.Crashlytics.Enabled"
+        case needsOnboarding    = "HTW.Onboarding.Needs"
     }
     
     
@@ -58,6 +59,15 @@ extension UserDefaults {
         }
         set {
             set(newValue, forKey: .crashlytics)
+        }
+    }
+    
+    var needsOnboarding: Bool {
+        get {
+            return value(forKey: .needsOnboarding) ?? true
+        }
+        set {
+            set(newValue, forKey: .needsOnboarding)
         }
     }
 }

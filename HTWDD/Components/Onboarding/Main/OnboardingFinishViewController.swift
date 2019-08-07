@@ -31,9 +31,6 @@ class OnboardingFinishViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        Log.debug("Value: \(KeychainService.shared[.authToken] ?? String("Nothing"))")
-        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.lblFinishHeader.emitConfetti(duration: Double.random(in: 1.8...4.2))
@@ -46,6 +43,7 @@ class OnboardingFinishViewController: UIViewController {
     
     // MARK: - User Interaction
     @IBAction func onFinishTap(_ sender: UIButton) {
+        UserDefaults.standard.needsOnboarding = false
         dismiss(animated: true, completion: nil)
     }
 }

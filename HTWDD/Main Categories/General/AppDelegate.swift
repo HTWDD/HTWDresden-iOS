@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         analyticsAndCrashlytics()
         
-        KeychainService.shared.removeAllKeys()
-        
         if NSClassFromString("XCTestCase") != nil {
             return true
         }

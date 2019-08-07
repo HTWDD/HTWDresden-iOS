@@ -56,9 +56,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        Log.debug("Key: \(KeychainService.shared.readStudyToken())")
-        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.padLockAnimationView.play()

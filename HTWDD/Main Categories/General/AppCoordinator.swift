@@ -57,7 +57,9 @@ class AppCoordinator: Coordinator {
 		
         goTo(controller: .dashboard)
         
-        self.showOnboarding(animated: false)
+        if UserDefaults.standard.needsOnboarding {
+            self.showOnboarding(animated: false)
+        }
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
