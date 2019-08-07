@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSM-0v-oLH">
-                        <rect key="frame" x="8" y="8" width="304" height="78.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="86.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sb3-cz-eek">
                                 <rect key="frame" x="8" y="16" width="288" height="20.5"/>
@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gk-th-6BE">
-                                <rect key="frame" x="8" y="44.5" width="288" height="18"/>
+                                <rect key="frame" x="8" y="44.5" width="288" height="26"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -51,9 +51,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="bSM-0v-oLH" secondAttribute="bottom" constant="8" id="8Ra-EL-Ky4"/>
+                    <constraint firstAttribute="bottom" secondItem="bSM-0v-oLH" secondAttribute="bottom" constant="4" id="8Ra-EL-Ky4"/>
                     <constraint firstItem="bSM-0v-oLH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="EJA-Lq-Ze0"/>
-                    <constraint firstItem="bSM-0v-oLH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="KNb-H5-pLO"/>
+                    <constraint firstItem="bSM-0v-oLH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="KNb-H5-pLO"/>
                     <constraint firstAttribute="trailing" secondItem="bSM-0v-oLH" secondAttribute="trailing" constant="8" id="LxI-WB-yfW"/>
                 </constraints>
             </tableViewCellContentView>

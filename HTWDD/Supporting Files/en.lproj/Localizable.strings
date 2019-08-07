@@ -35,6 +35,10 @@
 "Onboarding.UnixLogin.sPlaceholder"="S-Number";
 "Onboarding.UnixLogin.passwordPlaceholder"="Password";
 
+"Onboarding.Login.header"="Login";
+"Onboarding.Login.description"="Log in here with your 's number' and your password.";
+"Onboarding.Login.information"="This information is required to show you your grades.";
+
 "Dashboard.title"="Overview";
 
 
@@ -93,7 +97,7 @@
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
-"Exams.noResults.message"="I can't find any exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.message"="😖 I can't find any exams for you.\nHave you entered your credentials correctly?";
 
 "Exams.Cell.time"="%@ – %@";
 

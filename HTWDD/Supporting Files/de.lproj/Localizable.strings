@@ -18,7 +18,7 @@
 "Onboarding.Studygroup.title"="Studiengruppe";
 "Onboarding.Studygroup.body"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.\nDiese Information ist erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
 "Onboarding.Studygroup.description"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.";
-"Onboarding.Studygroup.information"="Diese Information ist erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
+"Onboarding.Studygroup.information"="Diese Informationen sind erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
 "Onboarding.Studygroup.notnow"="Später";
 
 "Onboarding.Studygroup.year"="Jahr";
@@ -34,6 +34,10 @@
 "Onboarding.UnixLogin.notnow"="Später";
 "Onboarding.UnixLogin.sPlaceholder"="S-Nummer";
 "Onboarding.UnixLogin.passwordPlaceholder"="Passwort";
+
+"Onboarding.Login.header"="Anmelden";
+"Onboarding.Login.description"="Melde dich hier mit deiner 's Nummer' und deinem Passwort an.";
+"Onboarding.Login.information"="Diese Informationen sind erforderlich, um Dir deine Noten anzeigen zu können.";
 
 "Dashboard.title"="Übersicht";
 
@@ -93,7 +97,7 @@
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";
-"Exams.noResults.message"="Ich kann leider keine Prüfungen für Dich finden.\nSind Deine Zugangsdaten korrekt?";
+"Exams.noResults.message"="😖 Ich kann leider keine Prüfungen für Dich finden.\nSind Deine Zugangsdaten korrekt?";
 
 "Exams.Cell.time"="%@ – %@";
 

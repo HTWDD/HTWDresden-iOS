@@ -20,7 +20,10 @@ class OnboardingPageViewController: UIPageViewController {
                     $0.context  = self.context
                     $0.delegate = self
                 },
-                OnboardStudygroupViewController(),
+                R.storyboard.onboarding.loginViewController()!.also {
+                    $0.context  = self.context
+                    $0.delegate = self
+                },
                 OnboardUnixLoginViewController()]
     }()
 

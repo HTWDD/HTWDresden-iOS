@@ -31,6 +31,7 @@ class StudyGroupViewController: UIViewController {
         return Animation.named("UserGrey")
     }()
     weak var delegate: UIPageViewSwipeDelegate?
+    private var state = BehaviorRelay(value: State())
     
     // MARK: - States
     private struct State {
@@ -71,96 +72,23 @@ class StudyGroupViewController: UIViewController {
         }
     }
     
-    private var state = BehaviorRelay(value: State())
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        context?.apiService.requestStudyGroups()
-            .asObservable()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] data in
-                guard let self = self else { return }
-                var mutableState = self.state.value
-                mutableState.years = data
-                self.state.accept(mutableState)
-            }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
-        let stateObservable = state.asObservable()
-        
-        stateObservable
-            .map({ $0.years != nil })
-            .subscribe(onNext: { [weak self] hasYears in
-                guard let self = self else {  return }
-                self.btnYear.setState(with: hasYears ? .active : .inactive) }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
-        stateObservable
-            .map({ $0.year != nil })
-            .subscribe(onNext: { [weak self] hasYear in
-                guard let self = self else {  return }
-                self.btnMajor.setState(with: hasYear ? .active : .inactive)
-                self.lblYear.apply {
-                    $0.isHidden = !hasYear
-                    if let year = self.state.value.year {
-                        $0.text = "\(year.studyYear + 2000)"
-                    }
-                }
-            }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
-        stateObservable
-            .map({ $0.major != nil })
-            .subscribe(onNext: { [weak self] hasMajor in
-                guard let self = self else { return }
-                self.btnGroup.setState(with: hasMajor ? .active : .inactive)
-                self.lblMajor.apply {
-                    $0.isHidden = !hasMajor
-                    if let major = self.state.value.major {
-                        $0.text = "\(major.name.nilWhenEmpty ?? String("---"))\n\(major.studyCourse)"
-                    }
-                }
-            }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
-        stateObservable
-            .map({ $0.group != nil })
-            .subscribe(onNext: { [weak self] hasGroup in
-                guard let self = self else { return }
-                self.lblGroup.apply {
-                    $0.isHidden = !hasGroup
-                    if let group = self.state.value.group {
-                        $0.text = "\(group.name)\n\(group.studyGroup)"
-                    }
-                }
-            }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
-        stateObservable
-            .map({ $0.completed })
-            .subscribe(onNext: { [weak self] isCompleted in
-                guard let self = self else { return }
-                if isCompleted {
-                    StudyYearRealm.save(year: self.state.value.year?.studyYear, major: self.state.value.major?.studyCourse, group: self.state.value.group?.studyGroup)
-                    self.delegate?.next(animated: true)
-                } else {
-                    StudyYearRealm.clear()
-                }
-            }, onError: { Log.error($0) })
-            .disposed(by: rx_disposeBag)
-        
         setup()
+        observe()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.userAnimationView.play()
         }
     }
     
+    // MARK: - User Interaction
     @IBAction func onButtonsTouch(_ sender: UIButton) {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
         impactFeedbackgenerator.prepare()
@@ -245,6 +173,83 @@ extension StudyGroupViewController {
             $0.setTitle(R.string.localizable.onboardingStudygroupGroup(), for: .normal)
             $0.setState(with: .inactive)
         }
+    }
+    
+    private func observe() {
+        
+        context?.apiService.requestStudyGroups()
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                var mutableState = self.state.value
+                mutableState.years = data
+                self.state.accept(mutableState)
+                }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        
+        state.asObservable()
+            .map({ $0.years != nil })
+            .subscribe(onNext: { [weak self] hasYears in
+                guard let self = self else {  return }
+                self.btnYear.setState(with: hasYears ? .active : .inactive) }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        
+        state.asObservable()
+            .map({ $0.year != nil })
+            .subscribe(onNext: { [weak self] hasYear in
+                guard let self = self else {  return }
+                self.btnMajor.setState(with: hasYear ? .active : .inactive)
+                self.lblYear.apply {
+                    $0.isHidden = !hasYear
+                    if let year = self.state.value.year {
+                        $0.text = "\(year.studyYear + 2000)"
+                    }
+                }
+                }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        
+        state.asObservable()
+            .map({ $0.major != nil })
+            .subscribe(onNext: { [weak self] hasMajor in
+                guard let self = self else { return }
+                self.btnGroup.setState(with: hasMajor ? .active : .inactive)
+                self.lblMajor.apply {
+                    $0.isHidden = !hasMajor
+                    if let major = self.state.value.major {
+                        $0.text = "\(major.name.nilWhenEmpty ?? String("---"))\n\(major.studyCourse)"
+                    }
+                }
+                }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        
+        state.asObservable()
+            .map({ $0.group != nil })
+            .subscribe(onNext: { [weak self] hasGroup in
+                guard let self = self else { return }
+                self.lblGroup.apply {
+                    $0.isHidden = !hasGroup
+                    if let group = self.state.value.group {
+                        $0.text = "\(group.name)\n\(group.studyGroup)"
+                    }
+                }
+                }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        
+        state.asObservable()
+            .map({ $0.completed })
+            .subscribe(onNext: { [weak self] isCompleted in
+                guard let self = self else { return }
+                if isCompleted {
+                    StudyYearRealm.save(year: self.state.value.year?.studyYear, major: self.state.value.major?.studyCourse, group: self.state.value.group?.studyGroup)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750), execute: {
+                        self.delegate?.next(animated: true)
+                    })
+                } else {
+                    StudyYearRealm.clear()
+                }
+                }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
     }
     
 }

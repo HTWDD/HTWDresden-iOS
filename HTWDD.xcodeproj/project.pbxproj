@@ -161,6 +161,8 @@
 		6411E37B22EAE5C800A55A2B /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6411E37922EAE5C800A55A2B /* RoomViewCell.swift */; };
 		6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */; };
 		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
+		64189C2222F961C800E3264D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64189C2122F961C800E3264D /* LoginViewController.swift */; };
+		64189C2422F9705300E3264D /* PadlockGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64189C2322F9705300E3264D /* PadlockGrey.json */; };
 		6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */; };
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
 		641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D222C4DEA00041BCB4 /* UITableViewCells.swift */; };
@@ -457,6 +459,8 @@
 		6411E37922EAE5C800A55A2B /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
 		6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewCell.xib; sourceTree = "<group>"; };
 		6412011822BA2BFA00B2090A /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		64189C2122F961C800E3264D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		64189C2322F9705300E3264D /* PadlockGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PadlockGrey.json; sourceTree = "<group>"; };
 		6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
 		641983D222C4DEA00041BCB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
@@ -1098,6 +1102,7 @@
 				64093B4022F80CBC007138B6 /* Views */,
 				1F864E701FB7330A002AA79B /* Welcome */,
 				642E5C2022F18ADC00D3A886 /* Animations */,
+				64189C2122F961C800E3264D /* LoginViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1107,6 +1112,7 @@
 			children = (
 				640FC57122F359090090E210 /* BarchartsGrey.json */,
 				640FC57522F419800090E210 /* UserGrey.json */,
+				64189C2322F9705300E3264D /* PadlockGrey.json */,
 				64CC1E8E22F313AB00A45F25 /* PulseGrey.json */,
 				642E5C2122F18B5700D3A886 /* PulseGreen.json */,
 				642E5C2322F18FF200D3A886 /* PulseBlue.json */,
@@ -1730,6 +1736,7 @@
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
 				640FC57622F419810090E210 /* UserGrey.json in Resources */,
 				64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */,
+				64189C2422F9705300E3264D /* PadlockGrey.json in Resources */,
 				64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */,
 				64093B4422F80D03007138B6 /* StudyGroupSelectionViewCell.xib in Resources */,
 				1F36DA5C1FC3244E00BD9B4A /* KeychainAccess-license.html in Resources */,
@@ -2203,6 +2210,7 @@
 				B58ECB151F990D5300949F4F /* HTWNamespace.swift in Sources */,
 				642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */,
 				B5EF957B1FADC5B8006BC7D1 /* StudyYear.swift in Sources */,
+				64189C2222F961C800E3264D /* LoginViewController.swift in Sources */,
 				B5F58E461E1EA7C8006D99AE /* Dictionary.swift in Sources */,
 				1FC35F3F1FED1589002CD273 /* SwitchCell.swift in Sources */,
 				B5BE72861E6C83A500D05B6D /* EventDate.swift in Sources */,

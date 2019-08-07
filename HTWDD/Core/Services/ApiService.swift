@@ -177,6 +177,13 @@ extension ApiService {
             .filter(statusCodes: 200...299)
             .map { try $0.map([StudyYear].self) }
     }
+    
+    func requestCourses(auth: String) -> Single<[Course]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.courses(auth: auth)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Course].self) }
+    }
 }
 
 
