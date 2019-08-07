@@ -45,6 +45,9 @@ target 'HTWDD' do
   
   # Lottie
   pod 'lottie-ios'
+  
+  # Keychain Wrapper
+  pod 'SwiftKeychainWrapper'
 
   target 'HTWDDTests' do
     inherit! :search_paths

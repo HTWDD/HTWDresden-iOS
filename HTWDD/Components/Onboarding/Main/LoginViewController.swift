@@ -10,6 +10,7 @@ import UIKit
 import Lottie
 import RxSwift
 import RxCocoa
+import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
 
@@ -71,7 +72,9 @@ class LoginViewController: UIViewController {
                 .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { [weak self] result in
                     guard let self = self else { return }
-                    self.delegate?.next(animated: true)
+                    if KeychainWrapper.standard.set(authData.base64EncodedString(options: .lineLength64Characters), forKey: KeychainConstant.authToken) {
+                            self.delegate?.next(animated: true)
+                    }
                 }, onError: { [weak self] in
                     guard let self = self else { return }
                     self.present(self.errorLoginAlert, animated: true, completion: nil)

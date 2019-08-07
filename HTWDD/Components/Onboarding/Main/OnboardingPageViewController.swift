@@ -24,7 +24,7 @@ class OnboardingPageViewController: UIPageViewController {
                     $0.context  = self.context
                     $0.delegate = self
                 },
-                OnboardUnixLoginViewController()]
+                R.storyboard.onboarding.onboardingFinishViewController()!]
     }()
 
     // MARK: - Lifecycle

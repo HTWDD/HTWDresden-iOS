@@ -39,6 +39,9 @@
 "Onboarding.Login.description"="Melde dich hier mit deiner 's Nummer' und deinem Passwort an.";
 "Onboarding.Login.information"="Diese Informationen sind erforderlich, um Dir deine Noten anzeigen zu können.";
 
+"Onboading.Finish.header"="Viel Spaß!";
+"Onboading.Finish.description"="Die Einrichtung ist abgeschlossen.\nViel Erfolg im Studium.";
+
 "Dashboard.title"="Übersicht";
 
 

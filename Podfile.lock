@@ -84,6 +84,7 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
   - SideMenu (5.0.3)
+  - SwiftKeychainWrapper (3.4.0)
   - Tabman (2.4.2):
     - AutoInsetter (~> 1.7)
     - Pageboy (~> 3.2)
@@ -102,6 +103,7 @@ DEPENDENCIES:
   - RxRealm
   - RxSwift
   - SideMenu
+  - SwiftKeychainWrapper
   - Tabman (~> 2.4)
 
 SPEC REPOS:
@@ -132,6 +134,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SideMenu
+    - SwiftKeychainWrapper
     - Tabman
 
 SPEC CHECKSUMS:
@@ -161,8 +164,9 @@ SPEC CHECKSUMS:
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SideMenu: 1dcaabce84538c53325c287f7fe62999379a641c
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   Tabman: 6e0888c9b9227d9da03e51a90f1f91f53454bfa1
 
-PODFILE CHECKSUM: 1f5181e3575d749b5290e5ccc15f9a3fa833c40f
+PODFILE CHECKSUM: a1c2164103e7071f7a32223063f43e95ee79f34d
 
 COCOAPODS: 1.7.5

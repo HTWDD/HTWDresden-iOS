@@ -39,6 +39,9 @@
 "Onboarding.Login.description"="Log in here with your 's number' and your password.";
 "Onboarding.Login.information"="This information is required to show you your grades.";
 
+"Onboading.Finish.header"="Have fun!";
+"Onboading.Finish.description"="The configuration is completed. Good luck in your studies.";
+
 "Dashboard.title"="Overview";
 
 

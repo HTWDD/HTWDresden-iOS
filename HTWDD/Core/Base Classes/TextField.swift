@@ -56,6 +56,7 @@ class PasswordField: TextField {
 		let button = UIButton(type: .custom)
 		button.setImage(#imageLiteral(resourceName: "onepassword-button"), for: .normal)
 		button.addTarget(self, action: #selector(find1PasswordLogin), for: .touchUpInside)
+        button.alpha = 0
 		return button
 	}()
 	
