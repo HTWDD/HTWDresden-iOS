@@ -16,6 +16,12 @@ class ExamsCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     private lazy var examController = ExamsMainVC(context: self.context)
     
+    private lazy var examViewController = {
+        return R.storyboard.exam.examViewController()!.also {
+            $0.context = self.context
+        }
+    }()
+    
     var auth: ScheduleService.Auth? {
         didSet {
             self.examController.auth = self.auth
@@ -28,8 +34,6 @@ class ExamsCoordinator: Coordinator {
     }
     
     func start() -> ExamViewController {
-        return R.storyboard.exam.examViewController()!.also {
-            $0.context = context
-        }
+        return examViewController
     }
 }

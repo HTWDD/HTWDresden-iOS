@@ -141,7 +141,7 @@ extension RoomOccupancyViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), icon: "💡")
+            tableView.setEmptyMessage(R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), icon: "💡", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(addRoom)))
         } else {
             tableView.restore()
         }

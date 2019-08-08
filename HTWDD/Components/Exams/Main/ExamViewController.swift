@@ -14,11 +14,7 @@ class ExamViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
     var context: AppContext!
-    private var items: [ExaminationRealm] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var items: [ExaminationRealm] = []
     private var notificationToken: NotificationToken? = nil
     
     // MARK: - Lifecycle
@@ -154,10 +150,14 @@ extension ExamViewController {
             switch changes {
             case .initial:
                 self.tableView.reloadData()
-            case .update(let collectionResults, _, _, _):
+            case .update(let collectionResults, let deletions, let insertions, let modifications):
                 guard let tableView = self.tableView else { return }
                 self.items = collectionResults.sorted(byKeyPath: "day").map { $0 }
-                tableView.reloadData()
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .none)
+                tableView.endUpdates()
             case .error(let error):
                 Log.error(error)
             }
