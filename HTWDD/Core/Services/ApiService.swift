@@ -178,11 +178,19 @@ extension ApiService {
             .map { try $0.map([StudyYear].self) }
     }
     
+    // MARK: - Courses
     func requestCourses(auth: String) -> Single<[Course]> {
         return provider.rx.request(MultiTarget(HTWRestApi.courses(auth: auth)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([Course].self) }
+    }
+    
+    func requestExams(year: String, major: String, group: String, grade: String) -> Single<[Examination]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.exams(year: year, major: major, group: group, grade: grade)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Examination].self) }
     }
 }
 

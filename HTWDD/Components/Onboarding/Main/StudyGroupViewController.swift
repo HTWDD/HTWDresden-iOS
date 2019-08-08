@@ -24,6 +24,7 @@ class StudyGroupViewController: UIViewController {
     @IBOutlet weak var lblYear: UILabel!
     @IBOutlet weak var lblMajor: UILabel!
     @IBOutlet weak var lblGroup: UILabel!
+    @IBOutlet weak var btnClose: UIButton!
     
     // MARK: - Properties
     weak var context: AppContext?
@@ -31,6 +32,13 @@ class StudyGroupViewController: UIViewController {
         return Animation.named("UserGrey")
     }()
     weak var delegate: UIPageViewSwipeDelegate?
+    var delegateClosure: (() -> Void)? = nil
+    private let visualEffectView = UIVisualEffectView(effect: nil)
+    private lazy var animator: UIViewPropertyAnimator = {
+        return UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
+            self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+        })
+    }()
     private var state = BehaviorRelay(value: State())
     
     // MARK: - States
@@ -81,10 +89,19 @@ class StudyGroupViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.userAnimationView.play()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if delegate == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(25), execute: { [weak self] in
+                guard let self = self else { return }
+                self.animator.startAnimation()
+            })
         }
     }
     
@@ -140,6 +157,26 @@ class StudyGroupViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func onCancelTap(_ sender: UIButton) {
+        UIImpactFeedbackGenerator(style: .medium)
+            .also { $0.prepare() }
+            .apply { $0.impactOccurred() }
+        
+        disolveWithAnimation()
+    }
+    
+    private func disolveWithAnimation() {
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut, animations: { [weak self] in
+            guard let self = self else { return }
+            self.visualEffectView.effect = nil
+        }).apply { $0.startAnimation() }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(170)) { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension StudyGroupViewController {
@@ -172,6 +209,18 @@ extension StudyGroupViewController {
             $0.makeDropShadow()
             $0.setTitle(R.string.localizable.onboardingStudygroupGroup(), for: .normal)
             $0.setState(with: .inactive)
+        }
+        
+        if delegate == nil {
+            btnClose.apply {
+                $0.isHidden = false
+                $0.setTitle(R.string.localizable.cancel(), for: .normal)
+                $0.makeDropShadow()
+            }
+            visualEffectView.apply {
+                $0.frame = self.view.frame
+            }
+            view.insertSubview(visualEffectView, at: 0)
         }
     }
     
@@ -243,9 +292,14 @@ extension StudyGroupViewController {
                 if isCompleted {
                     KeychainService.shared.storeStudyToken(year: self.state.value.year?.studyYear.description,
                                                            major: self.state.value.major?.studyCourse,
-                                                           group: self.state.value.group?.studyGroup)
+                                                           group: self.state.value.group?.studyGroup,
+                                                           graduation: self.state.value.group?.name)
                     DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(750), execute: {
                         self.delegate?.next(animated: true)
+                        if let delegateClosure = self.delegateClosure {
+                            delegateClosure()
+                            self.disolveWithAnimation()
+                        }
                     })
                 }
             }, onError: { Log.error($0) })

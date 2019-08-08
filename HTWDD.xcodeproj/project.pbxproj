@@ -143,6 +143,13 @@
 		640DB2FA22E99FB70083078E /* RoomOccupancyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */; };
 		640DB2FB22E9A30A0083078E /* RoomOccupancyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2F422E999900083078E /* RoomOccupancyService.swift */; };
 		640DB2FF22E9EDE30083078E /* RoomRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DB2FE22E9EDE30083078E /* RoomRealm.swift */; };
+		640DC15022FB56A300E9ED9A /* Examination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DC14F22FB56A300E9ED9A /* Examination.swift */; };
+		640DC15122FB5CDD00E9ED9A /* Examination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DC14F22FB56A300E9ED9A /* Examination.swift */; };
+		640DC15322FB659F00E9ED9A /* Exam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 640DC15222FB659F00E9ED9A /* Exam.storyboard */; };
+		640DC15522FB65E400E9ED9A /* ExamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DC15422FB65E400E9ED9A /* ExamViewController.swift */; };
+		640DC15822FB66EF00E9ED9A /* ExamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640DC15622FB66EF00E9ED9A /* ExamViewCell.swift */; };
+		640DC15922FB66EF00E9ED9A /* ExamViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 640DC15722FB66EF00E9ED9A /* ExamViewCell.xib */; };
+		640F0D7922FC62EE002887AA /* ExaminationRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640F0D7822FC62EE002887AA /* ExaminationRealm.swift */; };
 		640FC57222F359090090E210 /* BarchartsGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 640FC57122F359090090E210 /* BarchartsGrey.json */; };
 		640FC57422F4182B0090E210 /* StudyGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 640FC57322F4182B0090E210 /* StudyGroupViewController.swift */; };
 		640FC57622F419810090E210 /* UserGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 640FC57522F419800090E210 /* UserGrey.json */; };
@@ -161,7 +168,6 @@
 		6411E37B22EAE5C800A55A2B /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6411E37922EAE5C800A55A2B /* RoomViewCell.swift */; };
 		6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */; };
 		6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6412011822BA2BFA00B2090A /* SideMenu.storyboard */; };
-		6414B74422FAAA4700988AAA /* KeychainConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74322FAAA4700988AAA /* KeychainConstant.swift */; };
 		6414B74622FAAC0400988AAA /* OnboardingFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74522FAAC0400988AAA /* OnboardingFinishViewController.swift */; };
 		6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 6414B74722FAB4BB00988AAA /* FinishGrey.json */; };
 		6414B74B22FADA0000988AAA /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6414B74A22FADA0000988AAA /* KeychainService.swift */; };
@@ -446,6 +452,12 @@
 		640DB2F722E99BA90083078E /* RoomOccupancy.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RoomOccupancy.storyboard; sourceTree = "<group>"; };
 		640DB2F922E99FB70083078E /* RoomOccupancyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyViewController.swift; sourceTree = "<group>"; };
 		640DB2FE22E9EDE30083078E /* RoomRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomRealm.swift; sourceTree = "<group>"; };
+		640DC14F22FB56A300E9ED9A /* Examination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examination.swift; sourceTree = "<group>"; };
+		640DC15222FB659F00E9ED9A /* Exam.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Exam.storyboard; sourceTree = "<group>"; };
+		640DC15422FB65E400E9ED9A /* ExamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewController.swift; sourceTree = "<group>"; };
+		640DC15622FB66EF00E9ED9A /* ExamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamViewCell.swift; sourceTree = "<group>"; };
+		640DC15722FB66EF00E9ED9A /* ExamViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamViewCell.xib; sourceTree = "<group>"; };
+		640F0D7822FC62EE002887AA /* ExaminationRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExaminationRealm.swift; sourceTree = "<group>"; };
 		640FC57122F359090090E210 /* BarchartsGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarchartsGrey.json; sourceTree = "<group>"; };
 		640FC57322F4182B0090E210 /* StudyGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyGroupViewController.swift; sourceTree = "<group>"; };
 		640FC57522F419800090E210 /* UserGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserGrey.json; sourceTree = "<group>"; };
@@ -462,7 +474,6 @@
 		6411E37922EAE5C800A55A2B /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
 		6411E37A22EAE5C800A55A2B /* RoomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomViewCell.xib; sourceTree = "<group>"; };
 		6412011822BA2BFA00B2090A /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
-		6414B74322FAAA4700988AAA /* KeychainConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConstant.swift; sourceTree = "<group>"; };
 		6414B74522FAAC0400988AAA /* OnboardingFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFinishViewController.swift; sourceTree = "<group>"; };
 		6414B74722FAB4BB00988AAA /* FinishGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FinishGrey.json; sourceTree = "<group>"; };
 		6414B74A22FADA0000988AAA /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
@@ -741,7 +752,10 @@
 		1F864E671FB73229002AA79B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				640DC15222FB659F00E9ED9A /* Exam.storyboard */,
+				640DC15422FB65E400E9ED9A /* ExamViewController.swift */,
 				B5EF95751FADB3B6006BC7D1 /* ExamsMainVC.swift */,
+				640DC15A22FBF6B600E9ED9A /* ViewModels */,
 				1F864E681FB73243002AA79B /* Views */,
 			);
 			path = Main;
@@ -751,6 +765,8 @@
 			isa = PBXGroup;
 			children = (
 				B5EF31F61FB059F600C848AF /* ExamsCell.swift */,
+				640DC15622FB66EF00E9ED9A /* ExamViewCell.swift */,
+				640DC15722FB66EF00E9ED9A /* ExamViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1003,8 +1019,8 @@
 		640DB2FC22E9ED8C0083078E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				6400734622EF32FE0028FDC3 /* Occupancy.swift */,
 				640DB2FD22E9EDC10083078E /* Realm */,
+				6400734622EF32FE0028FDC3 /* Occupancy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1013,6 +1029,21 @@
 			isa = PBXGroup;
 			children = (
 				640DB2FE22E9EDE30083078E /* RoomRealm.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		640DC15A22FBF6B600E9ED9A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		640F0D7722FC62DA002887AA /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				640F0D7822FC62EE002887AA /* ExaminationRealm.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -1061,14 +1092,6 @@
 				6418FCBA22BA3B3A0009E127 /* SideMenuViewController.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		6414B74222FAAA2500988AAA /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				6414B74322FAAA4700988AAA /* KeychainConstant.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		6420E97F22E06A5600F13AD3 /* Dashboard */ = {
@@ -1258,7 +1281,6 @@
 		B52A9B521DDB16D400313FC3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				6414B74222FAAA2500988AAA /* Constants */,
 				64CC1E8722F3075900A45F25 /* Delegates */,
 				6403693B22C9F0BF00FD49EA /* Services */,
 				B5A069112042E9530067B8D2 /* Types */,
@@ -1564,8 +1586,10 @@
 		B5EF95881FAF8752006BC7D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				640F0D7722FC62DA002887AA /* Realm */,
 				B5EF95891FAF875B006BC7D1 /* Exam.swift */,
 				B5EF958B1FAF8A9E006BC7D1 /* ExamsDataSource.swift */,
+				640DC14F22FB56A300E9ED9A /* Examination.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1745,6 +1769,7 @@
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
 				640FC57622F419810090E210 /* UserGrey.json in Resources */,
 				64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */,
+				640DC15922FB66EF00E9ED9A /* ExamViewCell.xib in Resources */,
 				64189C2422F9705300E3264D /* PadlockGrey.json in Resources */,
 				64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */,
 				64093B4422F80D03007138B6 /* StudyGroupSelectionViewCell.xib in Resources */,
@@ -1769,6 +1794,7 @@
 				6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */,
 				64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */,
 				6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */,
+				640DC15322FB659F00E9ED9A /* Exam.storyboard in Resources */,
 				1F36DA5B1FC3244E00BD9B4A /* RxSwift-license.html in Resources */,
 				640CFFA122E639100078C99A /* DashboardGradeViewCell.xib in Resources */,
 				64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */,
@@ -2003,6 +2029,7 @@
 				1F8E20CB1FB34E9000347DB6 /* Grade.swift in Sources */,
 				1F8E20D21FB34ECF00347DB6 /* Date.swift in Sources */,
 				1F4BD53C1FAFABDD007E0817 /* String.swift in Sources */,
+				640DC15122FB5CDD00E9ED9A /* Examination.swift in Sources */,
 				1F8E20CC1FB34E9700347DB6 /* Network.swift in Sources */,
 				1F1491B51FB451110011B114 /* View.swift in Sources */,
 				5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */,
@@ -2109,7 +2136,6 @@
 				6403695622CA528300FD49EA /* PrincipalExamOffice.swift in Sources */,
 				B52329011FB890B5000C4F44 /* ImageLoader.swift in Sources */,
 				B5EBE3531F6EA20F0073C450 /* AppContext.swift in Sources */,
-				6414B74422FAAA4700988AAA /* KeychainConstant.swift in Sources */,
 				1FC1BDD21FADDF11007F9D06 /* SettingsMainVC.swift in Sources */,
 				B5CE29001F77FA3500A2B77D /* LectureViewModel.swift in Sources */,
 				B556410C1F990CB9006B9B1B /* Colors.swift in Sources */,
@@ -2140,6 +2166,7 @@
 				1FC1BDD41FADDF1C007F9D06 /* SettingsService.swift in Sources */,
 				1FA92C711FEACC7400A88B0D /* UIColor.swift in Sources */,
 				B5D3E8361FA5E3620055782D /* GradeService.swift in Sources */,
+				640F0D7922FC62EE002887AA /* ExaminationRealm.swift in Sources */,
 				B59FA98B1DD09C8400259D7F /* AppDelegate.swift in Sources */,
 				B52DF0DA1E70A8870095C854 /* Week.swift in Sources */,
 				B5FCAE611E62EAEF00E35DDB /* Array.swift in Sources */,
@@ -2149,6 +2176,7 @@
 				B51DB4911FA918D500B1A811 /* ScheduleBaseVC.swift in Sources */,
 				B529EDE81FAB7F40000C1677 /* CodableDictionary.swift in Sources */,
 				B5461B681FA7B4C400564D6D /* PersistenceService.swift in Sources */,
+				640DC15022FB56A300E9ED9A /* Examination.swift in Sources */,
 				B5ECABA01FBCCFE80017B8F4 /* NSAttributedString.swift in Sources */,
 				6446CE9522D5B65E002636A5 /* Canteen.swift in Sources */,
 				1FE108031F8FDAF5002B8E69 /* StudygroupTextField.swift in Sources */,
@@ -2221,6 +2249,7 @@
 				6403694922CA0CA700FD49EA /* StudentAdministration.swift in Sources */,
 				1FE108061F8FF7A1002B8E69 /* Regex.swift in Sources */,
 				B50EB5001E6ADC720022E40C /* CollectionViewCell.swift in Sources */,
+				640DC15822FB66EF00E9ED9A /* ExamViewCell.swift in Sources */,
 				B58ECB151F990D5300949F4F /* HTWNamespace.swift in Sources */,
 				642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */,
 				B5EF957B1FADC5B8006BC7D1 /* StudyYear.swift in Sources */,
@@ -2239,6 +2268,7 @@
 				39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */,
 				B55507121E601FB400C16F5F /* DateComponents.swift in Sources */,
 				1F94C3FC1F90CD4F00988E72 /* Coordinator.swift in Sources */,
+				640DC15522FB65E400E9ED9A /* ExamViewController.swift in Sources */,
 				642C956822C93D430096EDD2 /* MoyaProvider+Rx.swift in Sources */,
 				64E218DB22D7767500004183 /* MealsViewController.swift in Sources */,
 				1F5783531FE42BE900956CEB /* UIDevice.swift in Sources */,

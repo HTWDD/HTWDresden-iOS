@@ -34,6 +34,10 @@ class OnboardingFinishViewController: UIViewController {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.lblFinishHeader.emitConfetti(duration: Double.random(in: 1.8...4.2))
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             self.finishAnimationView.play { [weak self] finish in
                 guard let self = self else { return }
                 self.btnFinish.setState(with: finish ? .active : .inactive)
@@ -62,6 +66,7 @@ extension OnboardingFinishViewController {
         btnFinish.apply {
             $0.setTitle(R.string.localizable.letsgo(), for: .normal)
             $0.setState(with: .inactive)
+            $0.makeDropShadow()
         }
     }
     

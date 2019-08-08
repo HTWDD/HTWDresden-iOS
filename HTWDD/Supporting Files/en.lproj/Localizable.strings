@@ -16,7 +16,7 @@
 "Onboarding.Crashlytics.help.question"="Would you like to help us?";
 
 "Onboarding.Studygroup.title"="Study group";
-"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule.";
+"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule and exams.";
 "Onboarding.Studygroup.description"="Select your enrollment year, major and study group here.";
 "Onboarding.Studygroup.information"="This information is necessary in order to show you your schedule.";
 "Onboarding.Studygroup.notnow"="Not now";
@@ -100,7 +100,10 @@
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
-"Exams.noResults.message"="😖 I can't find any exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.message"="😖 I can't find\nany exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.hint"="🥺 I can't find\nany exams for you.";
+"Exams.noCredentials.title"="No study group";
+"Exams.noCredentials.message"="Please enter your study group\nso that I can show you exams.";
 
 "Exams.Cell.time"="%@ – %@";
 

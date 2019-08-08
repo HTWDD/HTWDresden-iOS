@@ -23,11 +23,14 @@ class ExamsMainVC: CollectionViewController, HasSideBarItem {
     }
     
     private let dataSource: ExamsDataSource
-
+    
+    private let context: HasApiService & HasExams
+    
 	// MARK: - Init
 	
-    init(context: HasExams) {
+    init(context: HasExams & HasApiService) {
         self.dataSource = ExamsDataSource(context: context)
+        self.context = context
         super.init()
         self.dataSource.collectionView = self.collectionView
         self.collectionView.contentInset = UIEdgeInsets(top: Const.margin, left: Const.margin, bottom: Const.margin, right: Const.margin)
@@ -80,6 +83,19 @@ class ExamsMainVC: CollectionViewController, HasSideBarItem {
                 self?.setLoading(false)
             })
             .disposed(by: self.rx_disposeBag)
+        
+        
+        let studyToken = KeychainService.shared.readStudyToken()
+        if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group, let grade = studyToken.graduation {
+            context.apiService.requestExams(year: year, major: major, group: group, grade: String(grade.prefix(1)))
+            .asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[weak self] in
+                guard let self = self else { return }
+                Log.debug("Data \($0)")
+            }, onError: { Log.error($0) })
+            .disposed(by: rx_disposeBag)
+        }
         
         self.reload()
 	}

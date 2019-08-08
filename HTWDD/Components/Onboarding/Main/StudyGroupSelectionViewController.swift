@@ -59,7 +59,8 @@ class StudyGroupSelectionViewController: UITableViewController {
     }
    
     @objc private func onTap() {
-        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut, animations: {
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut, animations: { [weak self] in
+            guard let self = self else { return }
             self.visualEffectView.effect = nil
         }).apply { $0.startAnimation() }
         

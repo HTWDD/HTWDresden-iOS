@@ -162,6 +162,7 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
         self.schedule.auth = nil
         self.exams.auth = nil
         self.grades.auth = nil
+        KeychainService.shared.removeAllKeys()
         self.showOnboarding(animated: true)
     }
     
@@ -232,7 +233,7 @@ extension AppCoordinator {
         case .roomOccupancyDetail(let room):
             viewController = roomOccupancy.getDetailRoomOccupancyViewController(with: room)
         case .exams:
-            viewController = exams.rootViewController
+            viewController = exams.start()
         case .grades:
             viewController = grades.rootViewController
         case .canteen:

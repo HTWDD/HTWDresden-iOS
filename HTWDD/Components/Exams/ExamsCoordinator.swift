@@ -11,7 +11,7 @@ import UIKit
 class ExamsCoordinator: Coordinator {
     
     // MARK: - Properties
-    let context: HasExams
+    let context: AppContext
     var rootViewController: UIViewController { return self.examController }
     var childCoordinators = [Coordinator]()
     private lazy var examController = ExamsMainVC(context: self.context)
@@ -23,8 +23,13 @@ class ExamsCoordinator: Coordinator {
     }
     
     // MARK: - Lifecycle
-    init(context: HasExams) {
+    init(context: AppContext) {
         self.context = context
     }
     
+    func start() -> ExamViewController {
+        return R.storyboard.exam.examViewController()!.also {
+            $0.context = context
+        }
+    }
 }

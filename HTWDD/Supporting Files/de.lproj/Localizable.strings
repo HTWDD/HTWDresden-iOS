@@ -2,7 +2,7 @@
 "Onboarding.welcome.greeting"="Schön, dass Du die HTW Dresden App verwendest.";
 "Onboarding.welcome.welcome"="Willkommen";
 "Onboarding.Welcome.ScheduleDescription"="Hab immer den Überblick, wann Du welche Vorlesung, Übung etc. hast.";
-"Onboarding.Welcome.CanteenDescription"="Was gibt's heute zu Mittag? 🍏🍕🍜";
+"Onboarding.Welcome.CanteenDescription"="Was gibt es heute zum Mittag? 🍏🍕🍜";
 "Onboarding.Welcome.GradesDescription"="Wer hat denn da eine 1 bekommen? Bestimmt Du!";
 
 "Onboarding.Analytics.description"="Wir würden gerne Google Analytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
@@ -18,7 +18,7 @@
 "Onboarding.Studygroup.title"="Studiengruppe";
 "Onboarding.Studygroup.body"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.\nDiese Information ist erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
 "Onboarding.Studygroup.description"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.";
-"Onboarding.Studygroup.information"="Diese Informationen sind erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
+"Onboarding.Studygroup.information"="Diese Informationen sind erforderlich, um Dir Deinen Stundenplan und Prüfungen anzeigen zu können.";
 "Onboarding.Studygroup.notnow"="Später";
 
 "Onboarding.Studygroup.year"="Jahr";
@@ -36,7 +36,7 @@
 "Onboarding.UnixLogin.passwordPlaceholder"="Passwort";
 
 "Onboarding.Login.header"="Anmelden";
-"Onboarding.Login.description"="Melde dich hier mit deiner 's Nummer' und deinem Passwort an.";
+"Onboarding.Login.description"="Melde Dich hier mit deiner 's Nummer' und deinem Passwort an.";
 "Onboarding.Login.information"="Diese Informationen sind erforderlich, um Dir deine Noten anzeigen zu können.";
 
 "Onboading.Finish.header"="Viel Spaß!";
@@ -100,7 +100,10 @@
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";
-"Exams.noResults.message"="😖 Ich kann leider keine Prüfungen für Dich finden.\nSind Deine Zugangsdaten korrekt?";
+"Exams.noResults.message"="😖 Ich kann leider\nkeine Prüfungen für Dich finden.\nSind Deine Zugangsdaten korrekt?";
+"Exams.noResults.hint"="🥺 Ich kann leider\nkeine Prüfungen für Dich finden.";
+"Exams.noCredentials.title"="Keine Studiengruppe";
+"Exams.noCredentials.message"="Bitte trage deine Studiengruppe ein,\ndamit ich Dir Prüfungen anzeigen kann.";
 
 "Exams.Cell.time"="%@ – %@";
 
