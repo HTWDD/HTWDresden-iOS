@@ -14,7 +14,7 @@ class ExamViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
     var context: ExamsCoordinator.Services!
-    private var items: [ExaminationRealm] = []
+    private var items: [ExamRealm] = []
     private var notificationToken: NotificationToken? = nil
     
     // MARK: - Lifecycle
@@ -76,7 +76,7 @@ extension ExamViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] exams in
                 guard (self != nil) else { return }
-                ExaminationRealm.save(from: exams)
+                ExamRealm.save(from: exams)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 Log.error(error)
@@ -140,7 +140,7 @@ extension ExamViewController {
     
     private func observeExams() {
         let realm = try! Realm()
-        let results = realm.objects(ExaminationRealm.self).sorted(byKeyPath: "day")
+        let results = realm.objects(ExamRealm.self).sorted(byKeyPath: "day")
         items = results.map { $0 }
         
         // Observe

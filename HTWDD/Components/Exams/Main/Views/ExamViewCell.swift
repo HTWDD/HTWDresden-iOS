@@ -61,7 +61,7 @@ class ExamViewCell: UITableViewCell {
 // MARK: From Nibloadable
 extension ExamViewCell: FromNibLoadable {
     
-    func setup(with model: ExaminationRealm) {
+    func setup(with model: ExamRealm) {
         lblExamName.text    = model.title
         lblExamDate.text    = model.day
         lblExamTime.text    = "\(model.startTime) - \(model.endTime)"

@@ -158,7 +158,7 @@ extension AppCoordinator {
 extension AppCoordinator: SettingsCoordinatorDelegate {
     
     func deleteAllData() {
-        ExaminationRealm.clear()
+        ExamRealm.clear()
         self.persistenceService.clear()
         self.schedule.auth = nil
 //        self.exams.auth = nil

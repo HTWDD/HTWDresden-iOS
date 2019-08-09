@@ -19,7 +19,7 @@ class ExamService {
         self.apiService = apiService
     }
     
-    func loadExams() -> Observable<[Examination]> {
+    func loadExams() -> Observable<[Exam]> {
         let studyToken = KeychainService.shared.readStudyToken()
         if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group, let grade = studyToken.graduation {
             return apiService

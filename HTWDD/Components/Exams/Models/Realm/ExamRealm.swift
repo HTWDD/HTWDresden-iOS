@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ExaminationRealm: Object {
+class ExamRealm: Object {
     @objc dynamic var id: String            = ""
     @objc dynamic var title: String         = ""
     @objc dynamic var examType: String      = ""
@@ -23,13 +23,13 @@ class ExaminationRealm: Object {
 }
 
 // MARK: - Handling
-extension ExaminationRealm {
+extension ExamRealm {
     
-    static func save(from codables: [Examination]) {
+    static func save(from codables: [Exam]) {
         let realm = try! Realm()
         codables.forEach { codable in
             let id = "\(codable.title):\(codable.examType)".uid
-            let realmModel = realm.objects(ExaminationRealm.self).filter { $0.id == id }.first ?? ExaminationRealm()
+            let realmModel = realm.objects(ExamRealm.self).filter { $0.id == id }.first ?? ExamRealm()
             try! realm.write {
                 realm.add(realmModel.also { model in
                     model.id            = id
@@ -51,7 +51,7 @@ extension ExaminationRealm {
     static func clear() {
         let realm = try! Realm()
         try! realm.write {
-            let content = realm.objects(ExaminationRealm.self)
+            let content = realm.objects(ExamRealm.self)
             realm.delete(content)
         }
     }

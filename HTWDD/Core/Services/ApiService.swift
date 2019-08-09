@@ -186,11 +186,11 @@ extension ApiService {
             .map { try $0.map([Course].self) }
     }
     
-    func requestExams(year: String, major: String, group: String, grade: String) -> Single<[Examination]> {
+    func requestExams(year: String, major: String, group: String, grade: String) -> Single<[Exam]> {
         return provider.rx.request(MultiTarget(HTWRestApi.exams(year: year, major: major, group: group, grade: grade)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
-            .map { try $0.map([Examination].self) }
+            .map { try $0.map([Exam].self) }
     }
 }
 

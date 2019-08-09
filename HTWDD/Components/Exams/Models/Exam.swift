@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Examination: Decodable {
+struct Exam: Decodable {
     let title: String
     let examType: String
     let studyBranch: String
