@@ -13,7 +13,7 @@ import RealmSwift
 class ExamViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
-    var context: AppContext!
+    var context: ExamsCoordinator.Services!
     private var items: [ExaminationRealm] = []
     private var notificationToken: NotificationToken? = nil
     
@@ -70,36 +70,35 @@ extension ExamViewController {
     }
     
     @objc private func load() {
-        
-        let studyToken = KeychainService.shared.readStudyToken()
-        if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group, let grade = studyToken.graduation {
-             context?.apiService
-                .requestExams(year: year, major: major, group: group, grade: String(grade.prefix(1)))
-                .asObservable()
-                .observeOn(MainScheduler.instance)
-                .subscribe(onNext: { [weak self] exams in
-                    guard (self != nil) else { return }
-                    ExaminationRealm.save(from: exams)
-                }, onError: { [weak self] in
-                    guard let self = self else { return }
-                    self.tableView.setEmptyMessage(R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsMessage(), icon: "🤯")
-                    Log.error($0)
-                }, onDisposed: { [weak self] in
-                    guard let self = self else { return }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+        context
+            .examService
+            .loadExams()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] exams in
+                guard (self != nil) else { return }
+                ExaminationRealm.save(from: exams)
+            }, onError: { [weak self] error in
+                guard let self = self else { return }
+                Log.error(error)
+                let nsError = error as NSError
+                switch nsError.code {
+                case 704:
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50), execute: { [weak self] in
+                        guard let self = self else { return }
+                        self.tableView.restore()
+                        self.tableView.setEmptyMessage(R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), icon: "🤯", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(self.onTap)))
                         self.refreshControl?.endRefreshing()
                     })
-                })
-                .disposed(by: rx_disposeBag)
-        } else {
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50), execute: { [weak self] in
+                    default:
+                    self.tableView.setEmptyMessage(R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsMessage(), icon: "🤯")
+                }
+            }, onDisposed: { [weak self] in
                 guard let self = self else { return }
-                self.tableView.restore()
-                self.tableView.setEmptyMessage(R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), icon: "🤯", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(self.onTap)))
-                self.refreshControl?.endRefreshing()
+                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
+                    self.refreshControl?.endRefreshing()
+                })
             })
-        }
+            .disposed(by: rx_disposeBag)
     }
     
 }

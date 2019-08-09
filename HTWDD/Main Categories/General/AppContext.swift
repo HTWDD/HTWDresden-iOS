@@ -24,8 +24,8 @@ protocol HasRoomOccupancy {
     var roomOccupanyService: RoomOccupancyService { get }
 }
 
-protocol HasExams {
-	var examsService: ExamsService { get }
+protocol HasExam {
+    var examService: ExamService { get }
 }
 
 protocol HasGrade {
@@ -48,12 +48,12 @@ protocol HasApiService {
     var apiService: ApiService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings, HasManagement, HasApiService, HasDashboard, HasRoomOccupancy {
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExam, HasSettings, HasManagement, HasApiService, HasDashboard, HasRoomOccupancy {
     lazy var dashboardService       = DashboardService(apiService: self.apiService, scheduleService: self.scheduleService)
     lazy var scheduleService        = ScheduleService()
     lazy var roomOccupanyService    = RoomOccupancyService(apiService: self.apiService)
-	lazy var examsService           = ExamsService()
-	lazy var gradeService           = GradeService()
+	lazy var examService            = ExamService(apiService: self.apiService)
+    lazy var gradeService           = GradeService()
     lazy var canteenService         = CanteenService(apiService: self.apiService)
 	lazy var settingsService        = SettingsService()
     lazy var apiService             = ApiService.shared()

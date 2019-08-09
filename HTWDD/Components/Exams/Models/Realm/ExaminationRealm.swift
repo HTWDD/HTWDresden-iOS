@@ -22,7 +22,7 @@ class ExaminationRealm: Object {
     @objc dynamic var rooms: String         = ""
 }
 
-// MARK: - Save from Codable
+// MARK: - Handling
 extension ExaminationRealm {
     
     static func save(from codables: [Examination]) {
@@ -48,4 +48,11 @@ extension ExaminationRealm {
         }
     }
     
+    static func clear() {
+        let realm = try! Realm()
+        try! realm.write {
+            let content = realm.objects(ExaminationRealm.self)
+            realm.delete(content)
+        }
+    }
 }
