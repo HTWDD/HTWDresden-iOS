@@ -58,7 +58,7 @@ class AppCoordinator: Coordinator {
         goTo(controller: .dashboard)
         
         if UserDefaults.standard.needsOnboarding {
-            self.showOnboarding(animated: false)
+            //self.showOnboarding(animated: false)
         }
 	}
 

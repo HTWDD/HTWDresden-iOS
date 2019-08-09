@@ -17,6 +17,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
     var context: HasManagement!
+    private var notificationToken: NotificationToken? = nil
     
     private var items = [Item]() {
         didSet {
@@ -27,9 +28,10 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshControl = UIRefreshControl()
-        refreshControl?.addTarget(self, action: #selector(reload), for: .valueChanged)
-        refreshControl?.tintColor = .white
+        refreshControl = UIRefreshControl().also {
+            $0.addTarget(self, action: #selector(reload), for: .valueChanged)
+            $0.tintColor = .white
+        }
 
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
@@ -37,20 +39,28 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
         }
         
         title = R.string.localizable.managementTitle()
-        tableView.separatorStyle = .none
-        tableView.register(SemesterplaningViewCell.self)
-        tableView.register(StudenAdministrationViewCell.self)
-        tableView.register(PrincipalExamOfficeViewCell.self)
-        tableView.register(StuRaHTWViewCell.self)
-        tableView.backgroundColor = UIColor.htw.veryLightGrey
+        tableView.apply {
+            $0.separatorStyle = .none
+            $0.register(SemesterplaningViewCell.self)
+            $0.register(StudenAdministrationViewCell.self)
+            $0.register(PrincipalExamOfficeViewCell.self)
+            $0.register(StuRaHTWViewCell.self)
+            $0.backgroundColor = UIColor.htw.veryLightGrey
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        tableView.estimatedRowHeight    = 100
-        tableView.rowHeight             = UITableView.automaticDimension
+        tableView.apply {
+            $0.estimatedRowHeight    = 100
+            $0.rowHeight             = UITableView.automaticDimension
+        }
         observeSemesterPlaning()
         load()
+    }
+    
+    deinit {
+        notificationToken?.invalidate()
     }
     
     fileprivate func load(_ refreshControl: UIRefreshControl? = nil) {
@@ -129,18 +139,22 @@ extension ManagementViewController {
     
     private func observeSemesterPlaning() {
         let realm = try! Realm()
-        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
-            Observable.from(object: rModel)
-                .observeOn(MainScheduler.instance)
-                .subscribe { [weak self] semesterplan in
-                    guard let self = self else { return }
-                    if self.items.count > 0 {
-                        if let sPlan = semesterplan.element, let newElement = SemesterPlaning.map(from: sPlan) {
-                            self.items[0] = Item.semesterPlan(model: newElement)
-                        }
-                    }
+        let results = realm.objects(SemesterPlaningRealm.self)
+
+        notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
+            guard let self = self else { return }
+            switch changes {
+            case .initial:
+                self.tableView.reloadData()
+            case .update(_, _, let insertions, _):
+                guard let tableView = self.tableView else { return }
+                insertions.forEach { _ in
+                    self.load()
                 }
-                .disposed(by: rx_disposeBag)
+                tableView.reloadData()
+            case .error(let error):
+                Log.error(error)
+            }
         }
     }
     

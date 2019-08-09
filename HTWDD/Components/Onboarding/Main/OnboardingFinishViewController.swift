@@ -31,7 +31,7 @@ class OnboardingFinishViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { [weak self] in
             guard let self = self else { return }
             self.lblFinishHeader.emitConfetti(duration: Double.random(in: 1.8...4.2))
         }
