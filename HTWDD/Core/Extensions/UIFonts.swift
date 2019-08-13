@@ -11,7 +11,7 @@ import Foundation
 extension UIFont {
     
     enum Styles: Float {
-        case big            = 25.0
+        case big            = 23.0
         case small          = 13.5
         case verySmall      = 10.0
         case description    = 16.0

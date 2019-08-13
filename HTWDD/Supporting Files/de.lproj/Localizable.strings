@@ -12,7 +12,7 @@
 
 "Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
 "Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz, gerätespezifische Daten erfasst und anonymisiert an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
-"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.\n\nCrashlytics benötigt Analytics.";
+"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.\nCrashlytics benötigt Analytics.";
 "Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Studygroup.title"="Studiengruppe";
@@ -32,11 +32,11 @@
 "Onboarding.UnixLogin.title"="Anmelden";
 "Onboarding.UnixLogin.body"="Damit wir Dir Deine Noten anzeigen können, musst Du Dich mit Deinen Zugangsdaten anmelden.";
 "Onboarding.UnixLogin.notnow"="Später";
-"Onboarding.UnixLogin.sPlaceholder"="S-Nummer";
+"Onboarding.UnixLogin.sPlaceholder"="s-Nummer";
 "Onboarding.UnixLogin.passwordPlaceholder"="Passwort";
 
 "Onboarding.Login.header"="Anmelden";
-"Onboarding.Login.description"="Melde Dich hier mit deiner 's Nummer' und deinem Passwort an.";
+"Onboarding.Login.description"="Melde Dich hier mit deiner 's-Nummer' und deinem Passwort an.";
 "Onboarding.Login.information"="Diese Informationen sind erforderlich, um Dir deine Noten anzeigen zu können.";
 
 "Onboading.Finish.header"="Viel Spaß!";

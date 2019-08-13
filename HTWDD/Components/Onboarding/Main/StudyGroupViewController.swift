@@ -214,13 +214,9 @@ extension StudyGroupViewController {
         if delegate == nil {
             btnClose.apply {
                 $0.isHidden = false
-                $0.setTitle(R.string.localizable.cancel(), for: .normal)
-                $0.makeDropShadow()
+                $0.setTitle(R.string.localizable.onboardingStudygroupNotnow(), for: .normal)
             }
-            visualEffectView.apply {
-                $0.frame = self.view.frame
-            }
-            view.insertSubview(visualEffectView, at: 0)
+            view.insertSubview(visualEffectView.also { $0.frame = self.view.frame }, at: 0)
         }
     }
     

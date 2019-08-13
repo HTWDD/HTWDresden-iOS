@@ -24,10 +24,18 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var topContraint: NSLayoutConstraint!
     @IBOutlet weak var bottomContraint: NSLayoutConstraint!
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnClose: UIButton!
     
     // MARK: - Properties
     weak var context: AppContext?
     weak var delegate: UIPageViewSwipeDelegate?
+    var delegateClosure: (() -> Void)? = nil
+    private let visualEffectView = UIVisualEffectView(effect: nil)
+    private lazy var animator: UIViewPropertyAnimator = {
+        return UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
+            self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+        })
+    }()
     private lazy var padLockAnimation: Animation? = {
        return Animation.named("PadlockGrey")
     }()
@@ -62,6 +70,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if delegate == nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(25), execute: { [weak self] in
+                guard let self = self else { return }
+                self.animator.startAnimation()
+            })
+        }
+    }
+    
     // MARK: - User Interaction
     @IBAction func onButtonTap(_ sender: UIButton) {
         view.endEditing(true)
@@ -74,6 +92,10 @@ class LoginViewController: UIViewController {
                     guard let self = self else { return }
                     KeychainService.shared[.authToken] = authData.base64EncodedString(options: .lineLength64Characters)
                     self.delegate?.next(animated: true)
+                    if let delegateClosure = self.delegateClosure {
+                        delegateClosure()
+                        self.disolveWithAnimation()
+                    }
                 }, onError: { [weak self] in
                     guard let self = self else { return }
                     self.present(self.errorLoginAlert, animated: true, completion: nil)
@@ -81,6 +103,26 @@ class LoginViewController: UIViewController {
                     Log.error($0)
                 })
                 .disposed(by: rx_disposeBag)
+        }
+    }
+    
+    @IBAction func onCancelTap(_ sender: UIButton) {
+        UIImpactFeedbackGenerator(style: .medium)
+            .also { $0.prepare() }
+            .apply { $0.impactOccurred() }
+        
+        disolveWithAnimation()
+    }
+    
+    private func disolveWithAnimation() {
+        UIViewPropertyAnimator(duration: 0.25, curve: .easeInOut, animations: { [weak self] in
+            guard let self = self else { return }
+            self.visualEffectView.effect = nil
+        }).apply { $0.startAnimation() }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(170)) { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }
@@ -115,6 +157,14 @@ extension LoginViewController {
             $0.setTitle(R.string.localizable.letsgo(), for: .normal)
             $0.setState(with: .inactive)
             $0.makeDropShadow()
+        }
+        
+        if delegate == nil {
+            btnClose.apply {
+                $0.isHidden = false
+                $0.setTitle(R.string.localizable.onboardingUnixLoginNotnow(), for: .normal)
+            }
+            view.insertSubview(visualEffectView.also { $0.frame = self.view.frame }, at: 0)
         }
         
         view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(view.endEditing(_:))))

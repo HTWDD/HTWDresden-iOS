@@ -70,6 +70,15 @@ class KeychainService {
         return (components[0], components[1], components[2], components[3])
     }
     
+    /// Try to read the AuthToken
+    /// - Returns:
+    ///     - Login Account
+    func readLoginAccount() -> String? {
+        guard let authToken = KeychainService.shared[.authToken], let decodedAuthToken = Data(base64Encoded: authToken) else { return nil }
+        guard let components = String(data: decodedAuthToken, encoding: .utf8)?.components(separatedBy: ":"), components.count == 2 else { return nil }
+        return components[0]
+    }
+    
     func removeAllKeys() {
         Log.warn("All Keys in Keychain are removed...")
         keychain.removeAllKeys()

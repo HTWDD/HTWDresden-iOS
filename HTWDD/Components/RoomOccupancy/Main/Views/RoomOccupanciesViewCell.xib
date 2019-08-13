@@ -39,14 +39,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BeginTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVj-AZ-ywN" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="113" y="77" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndTime" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-EH-aj2" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="201" y="77" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVj-AZ-ywN" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="113" y="77" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -78,8 +72,6 @@
                             <constraint firstItem="9nJ-hH-K00" firstAttribute="leading" secondItem="vAe-Fa-MfK" secondAttribute="leading" constant="8" id="PYt-Ij-Bem"/>
                             <constraint firstAttribute="trailing" secondItem="RjJ-Yr-XvI" secondAttribute="trailing" constant="8" id="Xm7-Ie-Zkj"/>
                             <constraint firstAttribute="bottom" secondItem="9nJ-hH-K00" secondAttribute="bottom" constant="8" id="Xyl-2W-qpu"/>
-                            <constraint firstItem="tPy-EH-aj2" firstAttribute="leading" secondItem="WVj-AZ-ywN" secondAttribute="trailing" constant="8" id="ZYG-wS-40P"/>
-                            <constraint firstItem="tPy-EH-aj2" firstAttribute="centerY" secondItem="vxl-g8-s8x" secondAttribute="centerY" id="cau-j5-aHu"/>
                             <constraint firstItem="kch-2B-Hra" firstAttribute="leading" secondItem="vAe-Fa-MfK" secondAttribute="leading" constant="8" id="eOj-Zk-k0w"/>
                             <constraint firstItem="vxl-g8-s8x" firstAttribute="top" secondItem="RjJ-Yr-XvI" secondAttribute="bottom" constant="8" id="m7y-dt-wYB"/>
                             <constraint firstItem="9nJ-hH-K00" firstAttribute="top" secondItem="vxl-g8-s8x" secondAttribute="bottom" constant="8" id="osF-wu-ta3"/>
@@ -99,10 +91,9 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="collection" destination="9nJ-hH-K00" id="Fir-cc-X5k"/>
-                <outlet property="lblBeginn" destination="WVj-AZ-ywN" id="tpZ-d3-6Dw"/>
-                <outlet property="lblEnd" destination="tPy-EH-aj2" id="l3R-Za-YLl"/>
                 <outlet property="lblName" destination="kch-2B-Hra" id="7OL-Ng-cOj"/>
                 <outlet property="lblProfessorName" destination="RjJ-Yr-XvI" id="q4K-D9-yfG"/>
+                <outlet property="lblTime" destination="WVj-AZ-ywN" id="tpZ-d3-6Dw"/>
                 <outlet property="lblType" destination="vxl-g8-s8x" id="gg3-c4-0UV"/>
                 <outlet property="main" destination="vAe-Fa-MfK" id="iTh-xO-5cm"/>
             </connections>
