@@ -53,7 +53,6 @@ class CrashlyticsViewController: UIViewController {
     // MARK: - User Interaction
     @IBAction func onYesTouch(_ sender: UIButton) {
         UserDefaults.standard.crashlytics = true
-        FirebaseApp.configure()
         Analytics.setAnalyticsCollectionEnabled(true)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }

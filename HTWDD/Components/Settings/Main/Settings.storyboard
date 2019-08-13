@@ -284,6 +284,12 @@
                         <outlet property="crashlyticsSwitch" destination="NZo-7Y-aIc" id="cYQ-7A-mYm"/>
                         <outlet property="lblCurrentAccount" destination="Vjr-Bh-lME" id="ywN-O9-AOf"/>
                         <outlet property="lblCurrentStudyGroups" destination="Fbr-As-6YN" id="THO-c6-rTA"/>
+                        <outlet property="lblDelete" destination="Z2a-u7-FiA" id="KyZ-5X-JuO"/>
+                        <outlet property="lblEmail" destination="Pe5-VK-OmC" id="hDx-uw-FIH"/>
+                        <outlet property="lblGithub" destination="r0I-Qp-KFj" id="xSa-KN-btQ"/>
+                        <outlet property="lblImpressum" destination="eUp-Re-MXE" id="IBq-cm-XqY"/>
+                        <outlet property="lblLogin" destination="VwI-GU-Cw7" id="FI2-Fe-coz"/>
+                        <outlet property="lblStudyGroup" destination="3h8-Xh-gtm" id="iAG-zn-ztT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQT-lM-IFi" userLabel="First Responder" sceneMemberID="firstResponder"/>

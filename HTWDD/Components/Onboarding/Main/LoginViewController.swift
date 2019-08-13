@@ -154,7 +154,7 @@ extension LoginViewController {
         }
         
         btnLogin.apply {
-            $0.setTitle(R.string.localizable.letsgo(), for: .normal)
+            $0.setTitle(R.string.localizable.onboardingUnixLoginTitle(), for: .normal)
             $0.setState(with: .inactive)
             $0.makeDropShadow()
         }

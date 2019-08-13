@@ -125,15 +125,22 @@
 "Settings.sections.authentication"="Your information";
 "Settings.sections.openSource"="Open-source licenses";
 "Settings.sections.weAreOpenSource"="We are Open Source!";
+"Settings.sections.weAreOpenSourceSubtitle"="More on Github";
 "Settings.sections.contact"="Contact";
+"Settings.sections.contact.subtitle"="Feedback desired.";
 "Settings.items.mail.mail"="app@htw-dresden.de";
-"Settings.items.mail.title"="Write mail to developer";
+"Settings.items.mail.title"="Mail";
 "Settings.items.mail.fallback.title"="Mail address copied!";
 "Settings.items.mail.fallback.message"="It seems like you're not using the system Mail App, so we've added the contact mail address to your clipboard.";
-"Settings.items.github"="HTW iOS on GitHub";
+"Settings.items.github"="HTW iOS";
 "Settings.sections.deleteAll"="Reset";
-"Settings.credits"="Developed in Dresden ❤️";
+"Settings.sections.deleteAllSubtitle"="Delete all data.";
+"Settings.credits"="Developed in Dresden ❤️\n%@ (%@)";
 "Settings.items.legal.title"="Legal notice";
+"Settings.items.account.title"="HTW Dresden";
+"Settings.items.account.subtitle"="Access and study group data";
+"Settings.items.google.title"="Google Inc.";
+"Settings.items.google.subtitle"="Analytics and Crashlytics";
 
 "CalendarWeek.long"="Calendar week";
 "CalendarWeek.short"="CW";

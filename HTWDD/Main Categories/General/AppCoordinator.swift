@@ -68,42 +68,7 @@ class AppCoordinator: Coordinator {
     }
 
 	private func showOnboarding(animated: Bool) {
-
-        let vc = R.storyboard.onboarding.onboardingMainViewController()!
-        vc.modalPresentationStyle = .overCurrentContext
-        vc.context = appContext
-        rootNavigationController.present(vc, animated: animated, completion: nil)
-        
-        
-        self.loadPersistedAuth { [weak self] schedule, grade in
-
-            // If one of them has already been saved
-            if schedule != nil || grade != nil {
-                self?.injectAuthentication(schedule: schedule, grade: grade)
-                return
-            }
-
-            let onboarding = OnboardingCoordinator()
-            onboarding.onFinish = { [weak self, weak onboarding] res in
-                self?.injectAuthentication(schedule: res.schedule, grade: res.grade)
-                if let grade = res.grade { self?.persistenceService.save(grade) }
-                if let schedule = res.schedule { self?.persistenceService.save(schedule) }
-
-                guard let coordinator = onboarding else {
-                    return
-                }
-
-                coordinator.rootViewController.dismiss(animated: true, completion: { [weak self] in
-                    self?.removeChildCoordinator(coordinator)
-                })
-            }
-
-            self?.addChildCoordinator(onboarding)
-            
-            
-//            self?.rootViewController.present(onboarding.rootViewController, animated: animated, completion: nil)
-        }
-
+        rootNavigationController.present(OnboardingCoordinator(context: appContext).start(), animated: animated, completion: nil)
 	}
 
     private func loadPersistedAuth(completion: @escaping (ScheduleService.Auth?, GradeService.Auth?) -> Void) {
@@ -156,6 +121,7 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
     
     func deleteAllData() {
         ExamRealm.clear()
+        RoomRealm.clear()
         UserDefaults.standard.apply {
             $0.needsOnboarding  = true
             $0.analytics        = false

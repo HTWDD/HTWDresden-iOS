@@ -30,7 +30,6 @@ class SettingsCoordinator: Coordinator {
 	
     private lazy var settingsViewController: SettingsViewController = {
         return R.storyboard.settings.settingsViewController()!.also {
-            $0.context  = context
             $0.delegate = self
         }
     }()

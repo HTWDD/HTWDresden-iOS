@@ -18,39 +18,32 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var crashlyticsSwitch: UISwitch!
     @IBOutlet weak var lblCurrentStudyGroups: BadgeLabel!
     @IBOutlet weak var lblCurrentAccount: BadgeLabel!
+    @IBOutlet weak var lblStudyGroup: UILabel!
+    @IBOutlet weak var lblLogin: UILabel!
+    @IBOutlet weak var lblGithub: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var lblImpressum: UILabel!
+    @IBOutlet weak var lblDelete: UILabel!
     
     // MARK: - Properties
-    weak var context: AppContext?
     weak var delegate: SettingsCoordinatorRoutingDelegate?
     private lazy var sections: [Section] = {
-        return [Section(header: "HTW Dresden", subHeader: "Account- und Studiengruppendaten"), Section(header: "Google", subHeader: "Analytics und Crashlytics"), Section(header: "Wir sind Open Source", subHeader: "Mehr auf Github"), Section(header: "Kontakt", subHeader: "Schreib uns."), Section(header: "Zurücksetzen", subHeader: "Alle Daten löschen")]
+        return [Section(header: R.string.localizable.settingsItemsAccountTitle(), subHeader: R.string.localizable.settingsItemsAccountSubtitle()),
+                Section(header: R.string.localizable.settingsItemsGoogleTitle(), subHeader: R.string.localizable.settingsItemsGoogleSubtitle()),
+                Section(header: R.string.localizable.settingsSectionsWeAreOpenSource(), subHeader: R.string.localizable.settingsSectionsWeAreOpenSourceSubtitle()),
+                Section(header: R.string.localizable.settingsSectionsContact(), subHeader: R.string.localizable.settingsSectionsContactSubtitle()),
+                Section(header: R.string.localizable.settingsSectionsDeleteAll(), subHeader: R.string.localizable.settingsSectionsDeleteAllSubtitle())]
     }()
     
     private lazy var footerView: UIView = {
-        let h: CGFloat = 100
-        
-        let love = NSAttributedString(string: Loca.Settings.credits,
-                                      attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .medium),
-                                                   .foregroundColor: UIColor.htw.grey])
-        let version = NSAttributedString(string: String(format: "\n%@ (%@)", Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String, Bundle.main.infoDictionary!["CFBundleVersion"] as! String),
-                                         attributes: [.font: UIFont.systemFont(ofSize: 12, weight: .medium),
-                                                      .foregroundColor: UIColor.htw.grey])
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4
-        
-        let text = NSMutableAttributedString()
-        text.append(love)
-        text.append(version)
-        text.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, text.length))
-        
-        let loveLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.width, height: h))
-        loveLabel.attributedText = text
-        loveLabel.numberOfLines = 2
-        loveLabel.textAlignment = .center
-        loveLabel.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth, .flexibleHeight]
-        
-        return loveLabel
+        return UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.width, height: 100)).also {
+            $0.text             = R.string.localizable.settingsCredits(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String, Bundle.main.infoDictionary!["CFBundleVersion"] as! String)
+            $0.textColor        = UIColor.htw.grey
+            $0.font             = UIFont.from(style: .small)
+            $0.numberOfLines    = 2
+            $0.textAlignment    = .center
+            $0.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth, .flexibleHeight]
+        }
     }()
     
     // MARK: - Section
@@ -115,6 +108,13 @@ extension SettingsViewController {
             $0.backgroundColor  = UIColor.htw.lightBlueMaterial
             $0.textColor        = .white
         }
+        
+        lblStudyGroup.text  = R.string.localizable.settingsItemsSetScheduleTitle()
+        lblLogin.text       = R.string.localizable.settingsItemsSetGradesTitle()
+        lblGithub.text      = R.string.localizable.settingsItemsGithub()
+        lblEmail.text       = R.string.localizable.settingsItemsMailTitle()
+        lblImpressum.text   = R.string.localizable.settingsItemsLegalTitle()
+        lblDelete.text      = R.string.localizable.settingsItemsDeleteAll()
     }
     
     @objc private func onSwitchChanged(_ sender: UISwitch) {
