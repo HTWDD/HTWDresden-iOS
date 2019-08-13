@@ -57,46 +57,18 @@ class AppCoordinator: Coordinator {
 		
         goTo(controller: .dashboard)
         
-        self.showOnboarding(animated: false)
+        if UserDefaults.standard.needsOnboarding {
+            self.showOnboarding(animated: false)
+        }
 	}
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
         self.schedule.auth          = schedule
-        self.exams.auth             = schedule
         self.grades.auth            = grade
-        self.settings.scheduleAuth  = schedule
-        self.settings.gradeAuth     = grade
     }
 
 	private func showOnboarding(animated: Bool) {
-
-        self.loadPersistedAuth { [weak self] schedule, grade in
-
-            // If one of them has already been saved
-            if schedule != nil || grade != nil {
-                self?.injectAuthentication(schedule: schedule, grade: grade)
-                return
-            }
-
-            let onboarding = OnboardingCoordinator()
-            onboarding.onFinish = { [weak self, weak onboarding] res in
-                self?.injectAuthentication(schedule: res.schedule, grade: res.grade)
-                if let grade = res.grade { self?.persistenceService.save(grade) }
-                if let schedule = res.schedule { self?.persistenceService.save(schedule) }
-
-                guard let coordinator = onboarding else {
-                    return
-                }
-
-                coordinator.rootViewController.dismiss(animated: true, completion: { [weak self] in
-                    self?.removeChildCoordinator(coordinator)
-                })
-            }
-
-            self?.addChildCoordinator(onboarding)
-            self?.rootViewController.present(onboarding.rootViewController, animated: animated, completion: nil)
-        }
-
+        rootNavigationController.present(OnboardingCoordinator(context: appContext).start(), animated: animated, completion: nil)
 	}
 
     private func loadPersistedAuth(completion: @escaping (ScheduleService.Auth?, GradeService.Auth?) -> Void) {
@@ -148,51 +120,20 @@ extension AppCoordinator {
 extension AppCoordinator: SettingsCoordinatorDelegate {
     
     func deleteAllData() {
+        ExamRealm.clear()
+        RoomRealm.clear()
+        UserDefaults.standard.apply {
+            $0.needsOnboarding  = true
+            $0.analytics        = false
+            $0.crashlytics      = false
+        }
         self.persistenceService.clear()
         self.schedule.auth = nil
-        self.exams.auth = nil
         self.grades.auth = nil
+        KeychainService.shared.removeAllKeys()
+        goTo(controller: .dashboard)
         self.showOnboarding(animated: true)
     }
-    
-    func refreshSchedule() {
-        self.schedule.auth = self.schedule.auth
-    }
-    
-    func triggerScheduleOnboarding(completion: @escaping (ScheduleService.Auth) -> Void) {
-        self.triggerOnboarding(.studygroup) { [weak self] schedule, _ in
-            guard let auth = schedule else {
-                return
-            }
-            self?.schedule.auth = auth
-            self?.exams.auth = auth
-            self?.persistenceService.save(auth)
-            completion(auth)
-        }
-    }
-    
-    func triggerGradeOnboarding(completion: @escaping (GradeService.Auth) -> Void) {
-        self.triggerOnboarding(.unixlogin) { [weak self] _, auth in
-            guard let auth = auth else {
-                return
-            }
-            self?.grades.auth = auth
-            self?.persistenceService.save(auth)
-            completion(auth)
-        }
-    }
-    
-    private func triggerOnboarding(_ onboarding: OnboardingCoordinator.Onboarding, completion: @escaping (ScheduleService.Auth?, GradeService.Auth?) -> Void) {
-        let onboarding = OnboardingCoordinator(onboardings: [onboarding])
-        onboarding.onFinish = { [weak onboarding] response in
-            completion(response.schedule, response.grade)
-            onboarding?.rootViewController.dismiss(animated: true, completion: nil)
-        }
-        self.addChildCoordinator(onboarding)
-        rootNavigationController.present(onboarding.rootViewController, animated: true, completion: nil)
-//        self.rootViewController.present(onboarding.rootViewController, animated: true, completion: nil)
-    }
-    
 }
 
 // MARK: - Controller routing
@@ -209,6 +150,10 @@ extension AppCoordinator {
             }
         case .schedule,
              .scheduleToday:
+            let studyToken = KeychainService.shared.readStudyToken()
+            if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group  {
+                schedule.auth = ScheduleService.Auth(year: year, major: major, group: group, degree: .bachelor)
+            }
             viewController = schedule.rootViewController
             rootNavigationController.setTimeTableButtonHighLight()
         case .roomOccupancy:
@@ -218,7 +163,7 @@ extension AppCoordinator {
         case .roomOccupancyDetail(let room):
             viewController = roomOccupancy.getDetailRoomOccupancyViewController(with: room)
         case .exams:
-            viewController = exams.rootViewController
+            viewController = exams.start()
         case .grades:
             viewController = grades.rootViewController
         case .canteen:
@@ -228,7 +173,7 @@ extension AppCoordinator {
         case .meal(let canteenDetail):
             viewController = canteen.getMealsTabViewController(for: canteenDetail)
         case .settings:
-            viewController = settings.rootViewController
+            viewController = settings.start()
         case .management:
             viewController = management.rootViewController
         }

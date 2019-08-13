@@ -143,6 +143,6 @@ extension MealsForWeekTableViewController {
         default: day =  weekState == CanteenService.WeekState.current ? Date().dateOfWeek(for: Date.Week.end)       : Date().dateOfWeek(for: UInt(Date.Week.end.rawValue + 7))
         }
         
-        return BlurredSectionHeader(frame: tableView.frame, header: categories[section], subHeader: day.string(format: "EEEE, dd. MMM"))
+        return BlurredSectionHeader(frame: tableView.frame, header: categories[section], subHeader: day.string(format: "dd. MMMM"))
     }
 }

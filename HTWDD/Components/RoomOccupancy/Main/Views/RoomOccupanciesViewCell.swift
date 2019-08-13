@@ -15,8 +15,7 @@ class RoomOccupanciesViewCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblProfessorName: UILabel!
     @IBOutlet weak var lblType: BadgeLabel!
-    @IBOutlet weak var lblBeginn: BadgeLabel!
-    @IBOutlet weak var lblEnd: BadgeLabel!
+    @IBOutlet weak var lblTime: BadgeLabel!
     @IBOutlet weak var collection: UICollectionView!
     
     // MARK: - Properties
@@ -52,13 +51,7 @@ class RoomOccupanciesViewCell: UITableViewCell {
             $0.font             = UIFont.from(style: .verySmall, isBold: true)
         }
         
-        lblBeginn.apply {
-            $0.backgroundColor  = UIColor(hex: 0xC9C9C9)
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
-        }
-        
-        lblEnd.apply {
+        lblTime.apply {
             $0.backgroundColor  = UIColor(hex: 0xC9C9C9)
             $0.textColor        = UIColor.htw.darkGrey
             $0.font             = UIFont.from(style: .verySmall, isBold: true)
@@ -83,8 +76,7 @@ extension RoomOccupanciesViewCell: FromNibLoadable {
         lblName.text            = model.name.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoName()
         lblProfessorName.text   = model.professor.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
         lblType.text            = model.type
-        lblBeginn.text          = String(model.beginTime.prefix(5))
-        lblEnd.text             = String(model.endTime.prefix(5))
+        lblTime.text          = "\(String(model.beginTime.prefix(5))) - \(String(model.endTime.prefix(5)))"
         
         occupancies = model.weeksOnly.compactMap { (week: Int) -> String? in
             let component = DateComponents(weekday: model.day, weekOfYear: week, yearForWeekOfYear: Int(Date().string(format: "yyyy")))

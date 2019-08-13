@@ -25,6 +25,9 @@ def common_pods
   # Realm Database
   pod 'RealmSwift'
   pod 'RxRealm', :inhibit_warnings => true
+  
+  # Keychain Wrapper
+  pod 'SwiftKeychainWrapper'
 end
 
 target 'HTWDD' do
@@ -42,7 +45,10 @@ target 'HTWDD' do
   
   # TabMan
   pod 'Tabman', '~> 2.4', :inhibit_warnings => true
-
+  
+  # Lottie
+  pod 'lottie-ios'
+  
   target 'HTWDDTests' do
     inherit! :search_paths
     # Pods for testing

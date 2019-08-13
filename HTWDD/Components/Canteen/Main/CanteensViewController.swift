@@ -39,6 +39,11 @@ class CanteenViewController: UITableViewController, HasSideBarItem {
         request()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+    }
+    
     // MARK: - Data Request
     fileprivate func request() {
         // Short Info: Request for each canteen the meals on the current day

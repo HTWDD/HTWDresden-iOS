@@ -86,13 +86,13 @@
                                                     <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="FOl-aS-G7d"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-zW-2h8">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
                                                 <rect key="frame" x="0.0" y="104" width="250" height="24"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="25" height="25"/>
-                                                <state key="normal" title="Belegungsplan" image="Booking"/>
+                                                <state key="normal" title="Noten" image="Grade"/>
                                                 <connections>
-                                                    <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="dJt-IZ-cNF"/>
+                                                    <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="XKW-10-siJ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-9b-vZH">
@@ -104,22 +104,22 @@
                                                     <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="uG8-iR-2Q3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5X-GZ-r6x">
-                                                <rect key="frame" x="0.0" y="182" width="250" height="24"/>
-                                                <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <size key="titleShadowOffset" width="25" height="25"/>
-                                                <state key="normal" title="Noten" image="Grade"/>
-                                                <connections>
-                                                    <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="XKW-10-siJ"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k0s-7s-RF8">
-                                                <rect key="frame" x="0.0" y="221" width="250" height="24"/>
+                                                <rect key="frame" x="0.0" y="182" width="250" height="24"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="25" height="25"/>
                                                 <state key="normal" title="Mensen" image="Canteen"/>
                                                 <connections>
                                                     <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="ay2-4J-WEE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-zW-2h8">
+                                                <rect key="frame" x="0.0" y="221" width="250" height="24"/>
+                                                <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <size key="titleShadowOffset" width="25" height="25"/>
+                                                <state key="normal" title="Belegungsplan" image="Booking"/>
+                                                <connections>
+                                                    <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="dJt-IZ-cNF"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0U-9J-Anx">

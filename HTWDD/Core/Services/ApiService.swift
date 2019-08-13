@@ -169,6 +169,29 @@ extension ApiService {
             .filter(statusCodes: 200...299)
             .map { try $0.map([Lesson].self) }
     }
+    
+    // MARK: - Studygroups
+    func requestStudyGroups() -> Single<[StudyYear]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.studyGroups))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([StudyYear].self) }
+    }
+    
+    // MARK: - Courses
+    func requestCourses(auth: String) -> Single<[Course]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.courses(auth: auth)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Course].self) }
+    }
+    
+    func requestExams(year: String, major: String, group: String, grade: String) -> Single<[Exam]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.exams(year: year, major: major, group: group, grade: grade)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Exam].self) }
+    }
 }
 
 

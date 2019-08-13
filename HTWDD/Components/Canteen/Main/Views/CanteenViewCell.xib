@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Exq-7J-zbx">
-                        <rect key="frame" x="8" y="8" width="304" height="75"/>
+                        <rect key="frame" x="8" y="4" width="304" height="83.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZQ-Pf-Ts5">
                                 <rect key="frame" x="36" y="8" width="218" height="30"/>
@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Y4-wv-7LW">
-                                <rect key="frame" x="12" y="46" width="42" height="21"/>
+                                <rect key="frame" x="12" y="46" width="42" height="29.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -87,9 +87,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Exq-7J-zbx" secondAttribute="trailing" constant="8" id="sA6-jG-rQH"/>
-                    <constraint firstItem="Exq-7J-zbx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="tHM-tr-QVB"/>
+                    <constraint firstItem="Exq-7J-zbx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="tHM-tr-QVB"/>
                     <constraint firstItem="Exq-7J-zbx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="uk1-Am-g9l"/>
-                    <constraint firstAttribute="bottom" secondItem="Exq-7J-zbx" secondAttribute="bottom" constant="8.5" id="z59-Ng-ayZ"/>
+                    <constraint firstAttribute="bottom" secondItem="Exq-7J-zbx" secondAttribute="bottom" constant="4" id="z59-Ng-ayZ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

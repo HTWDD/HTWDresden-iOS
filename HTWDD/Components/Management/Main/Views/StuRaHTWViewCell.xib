@@ -20,22 +20,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StuRa HTW Dresden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPx-yI-8xk">
-                        <rect key="frame" x="16" y="16" width="288" height="30"/>
+                        <rect key="frame" x="8" y="16" width="304" height="30"/>
                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A 108" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKh-D2-7Lg">
-                        <rect key="frame" x="16" y="45" width="288" height="21"/>
+                        <rect key="frame" x="8" y="45" width="304" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TA-r7-Ini">
-                        <rect key="frame" x="16" y="74" width="288" height="141.5"/>
+                        <rect key="frame" x="8" y="74" width="304" height="141.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PNq-iy-TvE">
-                                <rect key="frame" x="8" y="8" width="272" height="126"/>
+                                <rect key="frame" x="8" y="8" width="288" height="126"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,13 +54,13 @@
                     <constraint firstItem="bKh-D2-7Lg" firstAttribute="top" secondItem="NPx-yI-8xk" secondAttribute="bottom" constant="-1" id="DnU-MG-ViX"/>
                     <constraint firstItem="3TA-r7-Ini" firstAttribute="top" secondItem="bKh-D2-7Lg" secondAttribute="bottom" constant="8" id="Enh-2b-HYN"/>
                     <constraint firstItem="NPx-yI-8xk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="KGz-ov-bFE"/>
-                    <constraint firstAttribute="trailing" secondItem="3TA-r7-Ini" secondAttribute="trailing" constant="16" id="Ntn-Ae-YIa"/>
-                    <constraint firstItem="NPx-yI-8xk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ck7-Bd-JqG"/>
-                    <constraint firstAttribute="trailing" secondItem="bKh-D2-7Lg" secondAttribute="trailing" constant="16" id="eCs-Vx-sKF"/>
-                    <constraint firstAttribute="trailing" secondItem="NPx-yI-8xk" secondAttribute="trailing" constant="16" id="fGY-gW-RZX"/>
+                    <constraint firstAttribute="trailing" secondItem="3TA-r7-Ini" secondAttribute="trailing" constant="8" id="Ntn-Ae-YIa"/>
+                    <constraint firstItem="NPx-yI-8xk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ck7-Bd-JqG"/>
+                    <constraint firstAttribute="trailing" secondItem="bKh-D2-7Lg" secondAttribute="trailing" constant="8" id="eCs-Vx-sKF"/>
+                    <constraint firstAttribute="trailing" secondItem="NPx-yI-8xk" secondAttribute="trailing" constant="8" id="fGY-gW-RZX"/>
                     <constraint firstAttribute="bottom" secondItem="3TA-r7-Ini" secondAttribute="bottom" constant="16" id="lbw-i3-h9J"/>
-                    <constraint firstItem="bKh-D2-7Lg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="wZM-mA-nWu"/>
-                    <constraint firstItem="3TA-r7-Ini" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="wpP-du-c5q"/>
+                    <constraint firstItem="bKh-D2-7Lg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="wZM-mA-nWu"/>
+                    <constraint firstItem="3TA-r7-Ini" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="wpP-du-c5q"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

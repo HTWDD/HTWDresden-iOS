@@ -56,6 +56,14 @@ extension RoomRealm {
             realm.delete(room)
         }
     }
+    
+    static func clear() {
+        let realm = try! Realm()
+        try! realm.write {
+            let content = realm.objects(RoomRealm.self)
+            realm.delete(content)
+        }
+    }
 }
 
 

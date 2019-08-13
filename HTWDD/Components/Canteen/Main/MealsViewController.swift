@@ -93,6 +93,6 @@ extension MealsViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return BlurredSectionHeader(frame: tableView.frame, header: categories?[section] ?? "N/A", subHeader: Date().string(format: "EEEE, dd. MMM"))
+        return BlurredSectionHeader(frame: tableView.frame, header: categories?[section] ?? "N/A", subHeader: Date().string(format: "dd. MMMM"))
     }
 }

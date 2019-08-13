@@ -22,8 +22,6 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         // Main View (Background)
         main.apply  {
             $0.layer.cornerRadius   = 4
-            $0.layer.borderWidth    = 1
-            $0.layer.borderColor    = UIColor.htw.lightGrey.cgColor
         }
         
         // Meal Name

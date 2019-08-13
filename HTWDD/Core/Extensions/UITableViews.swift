@@ -17,7 +17,7 @@ extension UITableView {
         return self.dequeueReusableCell(withIdentifier: type.identifier, for: indexPath) as? T
     }
     
-    func setEmptyMessage(_ title: String, message: String, icon: String? = nil) {
+    func setEmptyMessage(_ title: String, message: String, icon: String? = nil, hint: String? = nil, gestureRecognizer: UIGestureRecognizer? = nil) {
         
         // Vertical Stack View
         let vStack = UIStackView().also {
@@ -60,11 +60,26 @@ extension UITableView {
             $0.sizeToFit()
         })
         
+        if let hint = hint {
+            vStack.addArrangedSubview(BadgeLabel().also {
+                $0.text             = hint
+                $0.textColor        = .white
+                $0.font             = UIFont.from(style: .small, isBold: true)
+                $0.backgroundColor  = UIColor.htw.lightBlueMaterial
+            })
+        }
+        
+        if let gestureRecognizer = gestureRecognizer {
+            vStack.addGestureRecognizer(gestureRecognizer)
+        }
+        
         backgroundView = vStack
         
         NSLayoutConstraint.activate([
             vStack.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -100),
-            vStack.centerXAnchor.constraint(equalTo: centerXAnchor)
+            vStack.centerXAnchor.constraint(equalTo: centerXAnchor),
+            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 16),
+            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
             ])
     }
     

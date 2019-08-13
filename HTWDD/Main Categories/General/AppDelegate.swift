@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()
+        analyticsAndCrashlytics()
         
         if NSClassFromString("XCTestCase") != nil {
             return true
@@ -62,9 +62,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-// MARK: - Realm
+// MARK: - Bootup
 extension AppDelegate {
     
+    // MARK: - Realm
     func realmConfiguration() {
         let config = Realm.Configuration(
             schemaVersion: 1,
@@ -77,6 +78,13 @@ extension AppDelegate {
         let _ = try! Realm()
     }
     
+    // MARK: - Analytics & Crashlytics
+    private func analyticsAndCrashlytics() {
+        if UserDefaults.standard.analytics && UserDefaults.standard.crashlytics {
+            FirebaseApp.configure()
+            Analytics.setAnalyticsCollectionEnabled(true)
+        }
+    }
 }
 
 // MARK: - URL-Session

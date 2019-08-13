@@ -70,6 +70,11 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
         }
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
+    }
+    
     deinit {
         notificationToken?.invalidate()
     }
@@ -136,7 +141,7 @@ extension RoomOccupancyViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), icon: "💡")
+            tableView.setEmptyMessage(R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), icon: "💡", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(addRoom)))
         } else {
             tableView.restore()
         }

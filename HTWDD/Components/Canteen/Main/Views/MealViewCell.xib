@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc7-Yq-qJb">
-                        <rect key="frame" x="8" y="8" width="304" height="203.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="211.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-Zd-nvM">
                                 <rect key="frame" x="36" y="8" width="260" height="21"/>
@@ -57,13 +57,16 @@
                             <constraint firstItem="r4e-Zd-nvM" firstAttribute="top" secondItem="wc7-Yq-qJb" secondAttribute="top" constant="8" id="iO1-xi-yjW"/>
                             <constraint firstItem="3pW-ux-pwN" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="ybs-cU-Bq3"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wc7-Yq-qJb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7zg-Mn-zt3"/>
+                    <constraint firstItem="wc7-Yq-qJb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="7zg-Mn-zt3"/>
                     <constraint firstAttribute="trailing" secondItem="wc7-Yq-qJb" secondAttribute="trailing" constant="8" id="C2c-Ek-jPF"/>
                     <constraint firstItem="wc7-Yq-qJb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="RJd-me-Aaj"/>
-                    <constraint firstAttribute="bottom" secondItem="wc7-Yq-qJb" secondAttribute="bottom" constant="8" id="yLp-sr-dhp"/>
+                    <constraint firstAttribute="bottom" secondItem="wc7-Yq-qJb" secondAttribute="bottom" constant="4" id="yLp-sr-dhp"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

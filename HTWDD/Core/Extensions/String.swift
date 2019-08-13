@@ -23,6 +23,15 @@ extension String {
 		return range.location != NSNotFound ? range : nil
 	}
     
+    func attrubutedString(_ attrs: [NSAttributedString.Key : Any], manipulation of: String, manipulated: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
+        return NSMutableAttributedString(string: self).also {
+            $0.addAttributes(attrs, range: NSRange(location: 0, length: self.count))
+            if let range = self.rangeOfSubString(of) {
+                $0.addAttributes(manipulated, range: range)
+            }
+        }
+    }
+    
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }

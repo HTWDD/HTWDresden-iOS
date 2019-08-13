@@ -17,11 +17,19 @@ struct Course: Codable {
     let stgNr: String
     let stgTxt: String
 
+    private enum CodingKeys: String, CodingKey {
+        case abschlTxt = "AbschlTxt"
+        case POVersion = "POVersion"
+        case abschlNr = "AbschlNr"
+        case stgNr = "StgNr"
+        case stgTxt = "StgTxt"
+    }
+    
     static func get(network: Network) -> Observable<[Course]> {
         return network.getArrayM(url: Course.url)
     }
-
 }
+
 
 extension Course: Unmarshaling {
     static let url = "https://wwwqis.htw-dresden.de/appservice/v2/getcourses"

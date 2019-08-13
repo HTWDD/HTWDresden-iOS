@@ -1,10 +1,24 @@
 "Onboarding.Welcome.Title"="Welcome to HTW";
+"Onboarding.welcome.greeting"="Nice that you use the HTW Dresden App.";
+"Onboarding.welcome.welcome"="Welcome";
 "Onboarding.Welcome.ScheduleDescription"="Your schedule shows you all your lectures.";
-"Onboarding.Welcome.CanteenDescription"="See what is being served for lunch in the canteens around you.";
+"Onboarding.Welcome.CanteenDescription"="See what is being served for lunch in the canteens around you. 🍏🍕🍜";
 "Onboarding.Welcome.GradesDescription"="View what your professors graded you in your exams.";
 
+"Onboarding.Analytics.description"="We'd like to use Google Analytics on your device to keep improving the app.";
+"Onboarding.Analytics.information"="This device-specific data is collected and transferred anonymously to the Google Inc. servers. The collected data will not be given to third parties.";
+"Onboarding.Analytics.revoke.description"="You can change your decision at any time in the settings.";
+"Onboarding.Analytics.help.question"="Would you like to help us?";
+
+"Onboarding.Crashlytics.description"="We'd like to use Google Chrashlytics on your device to keep improving the app.";
+"Onboarding.Crashlytics.information"="During the app crash, device-specific data is collected and transferred anonymously to the Google Inc. server. The collected data will not be passed on to third parties.";
+"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.\nCrashlytics needs Analytics.";
+"Onboarding.Crashlytics.help.question"="Would you like to help us?";
+
 "Onboarding.Studygroup.title"="Study group";
-"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule.";
+"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule and exams.";
+"Onboarding.Studygroup.description"="Select your enrollment year, major and study group here.";
+"Onboarding.Studygroup.information"="This information is necessary in order to show you your schedule.";
 "Onboarding.Studygroup.notnow"="Not now";
 
 "Onboarding.Studygroup.year"="Year";
@@ -18,8 +32,15 @@
 "Onboarding.UnixLogin.title"="Login";
 "Onboarding.UnixLogin.body"="To be able to view your grades, you have to login using your HTW credentials.";
 "Onboarding.UnixLogin.notnow"="Not now";
-"Onboarding.UnixLogin.sPlaceholder"="S-Number";
+"Onboarding.UnixLogin.sPlaceholder"="s-Number";
 "Onboarding.UnixLogin.passwordPlaceholder"="Password";
+
+"Onboarding.Login.header"="Login";
+"Onboarding.Login.description"="Log in here with your 's-Number' and your password.";
+"Onboarding.Login.information"="This information is required to show you your grades.";
+
+"Onboading.Finish.header"="Have fun!";
+"Onboading.Finish.description"="The configuration is completed. Good luck in your studies.";
 
 "Dashboard.title"="Overview";
 
@@ -79,7 +100,10 @@
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
-"Exams.noResults.message"="I can't find any exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.message"="😖 I can't find\nany exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.hint"="🥺 I can't find\nany exams for you.";
+"Exams.noCredentials.title"="No study group";
+"Exams.noCredentials.message"="Please enter your study group\nso that I can show you exams.";
 
 "Exams.Cell.time"="%@ – %@";
 
@@ -101,15 +125,22 @@
 "Settings.sections.authentication"="Your information";
 "Settings.sections.openSource"="Open-source licenses";
 "Settings.sections.weAreOpenSource"="We are Open Source!";
+"Settings.sections.weAreOpenSourceSubtitle"="More on Github";
 "Settings.sections.contact"="Contact";
+"Settings.sections.contact.subtitle"="Feedback desired.";
 "Settings.items.mail.mail"="app@htw-dresden.de";
-"Settings.items.mail.title"="Write mail to developer";
+"Settings.items.mail.title"="Mail";
 "Settings.items.mail.fallback.title"="Mail address copied!";
 "Settings.items.mail.fallback.message"="It seems like you're not using the system Mail App, so we've added the contact mail address to your clipboard.";
-"Settings.items.github"="HTW iOS on GitHub";
+"Settings.items.github"="HTW iOS";
 "Settings.sections.deleteAll"="Reset";
-"Settings.credits"="Developed in Dresden ❤️";
+"Settings.sections.deleteAllSubtitle"="Delete all data.";
+"Settings.credits"="Developed in Dresden ❤️\n%@ (%@)";
 "Settings.items.legal.title"="Legal notice";
+"Settings.items.account.title"="HTW Dresden";
+"Settings.items.account.subtitle"="Access and study group data";
+"Settings.items.google.title"="Google Inc.";
+"Settings.items.google.subtitle"="Analytics and Crashlytics";
 
 "CalendarWeek.long"="Calendar week";
 "CalendarWeek.short"="CW";
@@ -157,7 +188,7 @@
 "Grades.status.failed" = "Failed";
 "Grades.status.ultimatelyFailed" = "ultimately failed";
 "Grades.noResults.title"="No grades";
-"Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
+"Grades.noResults.message"="😖 I can't find any of your grades.\nHave you entered your credentials correctly?";
 "Grades.numbers.and.credits"="%@ Grade(s) %@ Credit(s)";
 "Grades.numbers.singular"="%d Grade";
 "Grades.numbers.plural"="%d Grades";
