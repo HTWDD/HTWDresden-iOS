@@ -1,97 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="97" id="KGk-i7-Jjw" customClass="ExamViewCell" customModule="HTWDD" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="ExamViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-aE-HoE">
-                        <rect key="frame" x="8" y="4" width="304" height="90.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="82"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prüfungsname" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTo-dc-g1v">
-                                <rect key="frame" x="40" y="8" width="256" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prüfungsname" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mTo-dc-g1v">
+                                <rect key="frame" x="62" y="8" width="234" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Exam" translatesAutoresizingMaskIntoConstraints="NO" id="2kf-dn-nld">
-                                <rect key="frame" x="8" y="8" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="eKE-ld-rVk"/>
-                                    <constraint firstAttribute="width" constant="24" id="nBi-xR-tx5"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="07.08." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-HY-hRo" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="40" y="36.5" width="34" height="24.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13:00 - 14:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0d-Ff-AhI" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="82" y="42" width="74" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zweig" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybk-Mg-LhN" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="40" y="69" width="33" height="13.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="07.08." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AX0-HY-hRo" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="62" y="60.5" width="34" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schriftlich" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lt5-hG-HVQ" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="81" y="69" width="57" height="13.5"/>
+                                <rect key="frame" x="104" y="60.5" width="57" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Prüfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-U8-V8S" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="164" y="42" width="33.5" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="s306a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xU-SB-vaZ" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="169" y="60.5" width="35" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="s306a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xU-SB-vaZ" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="146" y="69" width="35" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PDO-y9-I1Q">
+                                <rect key="frame" x="50" y="8" width="4" height="66"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="x5s-U7-cUe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiP-W4-Ohe">
+                                <rect key="frame" x="8" y="8" width="34" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="d6D-Nh-Rlw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gu1-Bm-BiV">
+                                <rect key="frame" x="8" y="60" width="32" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Prüfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1i6-U8-V8S">
+                                <rect key="frame" x="62" y="36.5" width="39" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1i6-U8-V8S" firstAttribute="leading" secondItem="V0d-Ff-AhI" secondAttribute="trailing" constant="8" id="6A3-QY-Fs1"/>
-                            <constraint firstItem="lt5-hG-HVQ" firstAttribute="centerY" secondItem="Ybk-Mg-LhN" secondAttribute="centerY" id="SCo-q2-2OH"/>
-                            <constraint firstItem="Ybk-Mg-LhN" firstAttribute="top" secondItem="AX0-HY-hRo" secondAttribute="bottom" constant="8" id="VaQ-Zk-HXn"/>
-                            <constraint firstItem="1i6-U8-V8S" firstAttribute="centerY" secondItem="V0d-Ff-AhI" secondAttribute="centerY" id="WHq-WH-TNS"/>
-                            <constraint firstItem="AX0-HY-hRo" firstAttribute="leading" secondItem="Jk9-aE-HoE" secondAttribute="leading" constant="40" id="XDG-au-Cue"/>
-                            <constraint firstItem="2kf-dn-nld" firstAttribute="leading" secondItem="Jk9-aE-HoE" secondAttribute="leading" constant="8" id="Xlg-X0-kdG"/>
-                            <constraint firstItem="V0d-Ff-AhI" firstAttribute="leading" secondItem="AX0-HY-hRo" secondAttribute="trailing" constant="8" id="Z8P-1O-SrF"/>
-                            <constraint firstItem="mTo-dc-g1v" firstAttribute="leading" secondItem="2kf-dn-nld" secondAttribute="trailing" constant="8" id="aPX-D0-ati"/>
-                            <constraint firstItem="3xU-SB-vaZ" firstAttribute="centerY" secondItem="Ybk-Mg-LhN" secondAttribute="centerY" id="b3c-sN-kYX"/>
-                            <constraint firstItem="Ybk-Mg-LhN" firstAttribute="leading" secondItem="Jk9-aE-HoE" secondAttribute="leading" constant="40" id="fTu-cP-GZh"/>
-                            <constraint firstItem="V0d-Ff-AhI" firstAttribute="centerY" secondItem="AX0-HY-hRo" secondAttribute="centerY" id="gRF-Ta-v9n"/>
+                            <constraint firstItem="lt5-hG-HVQ" firstAttribute="centerY" secondItem="AX0-HY-hRo" secondAttribute="centerY" id="2Sb-Nq-AwX"/>
+                            <constraint firstAttribute="bottom" secondItem="AX0-HY-hRo" secondAttribute="bottom" constant="8" id="8tx-Tr-FmL"/>
+                            <constraint firstItem="gu1-Bm-BiV" firstAttribute="bottom" secondItem="PDO-y9-I1Q" secondAttribute="bottom" id="9LO-2r-yfn"/>
+                            <constraint firstItem="ZiP-W4-Ohe" firstAttribute="leading" secondItem="Jk9-aE-HoE" secondAttribute="leading" constant="8" id="D6b-Ta-Gd0"/>
+                            <constraint firstItem="PDO-y9-I1Q" firstAttribute="leading" secondItem="ZiP-W4-Ohe" secondAttribute="trailing" constant="8" id="DEo-vl-YaT"/>
+                            <constraint firstItem="lt5-hG-HVQ" firstAttribute="leading" secondItem="AX0-HY-hRo" secondAttribute="trailing" constant="8" id="EgG-X9-KLl"/>
+                            <constraint firstItem="mTo-dc-g1v" firstAttribute="leading" secondItem="PDO-y9-I1Q" secondAttribute="trailing" constant="8" id="K4a-me-ybg"/>
+                            <constraint firstItem="AX0-HY-hRo" firstAttribute="top" secondItem="1i6-U8-V8S" secondAttribute="bottom" constant="8" id="Mib-aU-Urk"/>
+                            <constraint firstAttribute="bottom" secondItem="PDO-y9-I1Q" secondAttribute="bottom" constant="8" id="NxU-Xd-Yej"/>
+                            <constraint firstItem="3xU-SB-vaZ" firstAttribute="centerY" secondItem="lt5-hG-HVQ" secondAttribute="centerY" id="QY7-mL-7rC"/>
+                            <constraint firstItem="ZiP-W4-Ohe" firstAttribute="top" secondItem="PDO-y9-I1Q" secondAttribute="top" id="XMc-ZF-cnF"/>
+                            <constraint firstItem="1i6-U8-V8S" firstAttribute="leading" secondItem="PDO-y9-I1Q" secondAttribute="trailing" constant="8" id="cMh-ba-u8C"/>
+                            <constraint firstItem="AX0-HY-hRo" firstAttribute="leading" secondItem="PDO-y9-I1Q" secondAttribute="trailing" constant="8" id="gKY-H2-YZl"/>
                             <constraint firstItem="3xU-SB-vaZ" firstAttribute="leading" secondItem="lt5-hG-HVQ" secondAttribute="trailing" constant="8" id="iWU-9S-882"/>
+                            <constraint firstItem="gu1-Bm-BiV" firstAttribute="leading" secondItem="Jk9-aE-HoE" secondAttribute="leading" constant="8" id="irQ-rw-kJa"/>
+                            <constraint firstItem="1i6-U8-V8S" firstAttribute="top" secondItem="mTo-dc-g1v" secondAttribute="bottom" constant="8" id="lRb-hL-2XU"/>
                             <constraint firstAttribute="trailing" secondItem="mTo-dc-g1v" secondAttribute="trailing" constant="8" id="m9E-Dy-KlY"/>
                             <constraint firstItem="mTo-dc-g1v" firstAttribute="top" secondItem="Jk9-aE-HoE" secondAttribute="top" constant="8" id="qEP-Iu-eGg"/>
-                            <constraint firstItem="lt5-hG-HVQ" firstAttribute="leading" secondItem="Ybk-Mg-LhN" secondAttribute="trailing" constant="8" id="tAd-lc-wN7"/>
-                            <constraint firstAttribute="bottom" secondItem="Ybk-Mg-LhN" secondAttribute="bottom" constant="8" id="tdm-Nc-DoG"/>
-                            <constraint firstItem="2kf-dn-nld" firstAttribute="top" secondItem="Jk9-aE-HoE" secondAttribute="top" constant="8" id="wfQ-AE-dyI"/>
-                            <constraint firstItem="AX0-HY-hRo" firstAttribute="top" secondItem="mTo-dc-g1v" secondAttribute="bottom" constant="8" id="yxG-ja-fgF"/>
+                            <constraint firstItem="PDO-y9-I1Q" firstAttribute="top" secondItem="Jk9-aE-HoE" secondAttribute="top" constant="8" id="zRF-7b-z1l"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
@@ -107,19 +113,17 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="lblBranch" destination="Ybk-Mg-LhN" id="R5v-b4-GmF"/>
+                <outlet property="lblExamBegin" destination="ZiP-W4-Ohe" id="HP1-89-lSy"/>
                 <outlet property="lblExamDate" destination="AX0-HY-hRo" id="yzE-Gl-m8J"/>
+                <outlet property="lblExamEnd" destination="gu1-Bm-BiV" id="QzM-Iq-FhC"/>
                 <outlet property="lblExamName" destination="mTo-dc-g1v" id="daf-Qk-cBx"/>
                 <outlet property="lblExamRooms" destination="3xU-SB-vaZ" id="hDI-ao-25c"/>
-                <outlet property="lblExamTime" destination="V0d-Ff-AhI" id="h7G-v5-Q8i"/>
                 <outlet property="lblExamType" destination="lt5-hG-HVQ" id="0mF-Mt-OGN"/>
                 <outlet property="lblExaminer" destination="1i6-U8-V8S" id="SrB-GA-EPR"/>
                 <outlet property="main" destination="Jk9-aE-HoE" id="cKI-SP-bg9"/>
+                <outlet property="separator" destination="PDO-y9-I1Q" id="AFg-eW-Aop"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="148.99553571428569"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="Exam" width="24" height="24"/>
-    </resources>
 </document>

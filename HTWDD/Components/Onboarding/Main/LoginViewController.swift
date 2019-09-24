@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
     private let visualEffectView = UIVisualEffectView(effect: nil)
     private lazy var animator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
-            self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+            self.visualEffectView.effect = UIBlurEffect(style: .regular)
         })
     }()
     private lazy var padLockAnimation: Animation? = {
@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
     
     private lazy var errorLoginAlert: UIAlertController = {
         return UIAlertController(title: R.string.localizable.gradesNoResultsTitle(), message: R.string.localizable.gradesNoResultsMessage(), preferredStyle: .alert).also { alert in
+            alert.view.tintColor = UIColor.htw.Label.primary
             alert.addAction(UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: nil))
         }
     }()
@@ -131,9 +132,20 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func setup() {
-        lblLoginHeader.text         = R.string.localizable.onboardingLoginHeader()
-        lblLoginDescription.text    = R.string.localizable.onboardingLoginDescription()
-        lblLoginInformation.text    = R.string.localizable.onboardingLoginInformation()
+        lblLoginHeader.apply {
+            $0.text         = R.string.localizable.onboardingLoginHeader()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        
+        lblLoginDescription.apply {
+            $0.text         = R.string.localizable.onboardingLoginDescription()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        
+        lblLoginInformation.apply {
+            $0.text         = R.string.localizable.onboardingLoginInformation()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
         
         padLockAnimationView.apply {
             $0.animation    = padLockAnimation
@@ -143,13 +155,15 @@ extension LoginViewController {
         
         tfUserName.apply {
             $0.placeholder      = R.string.localizable.onboardingUnixLoginSPlaceholder()
-            $0.backgroundColor  = UIColor.htw.lightGrey
+            $0.backgroundColor  = UIColor.htw.cellBackground
+            $0.textColor        = UIColor.htw.Label.primary
             $0.delegate         = self
         }
         
         tfUserPassword.apply {
             $0.placeholder      = R.string.localizable.onboardingUnixLoginPasswordPlaceholder()
-            $0.backgroundColor  = UIColor.htw.lightGrey
+            $0.backgroundColor  = UIColor.htw.cellBackground
+            $0.textColor        = UIColor.htw.Label.primary
             $0.delegate         = self
         }
         

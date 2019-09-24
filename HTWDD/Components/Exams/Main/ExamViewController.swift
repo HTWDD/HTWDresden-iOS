@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RealmSwift
+import Action
 
 class ExamViewController: UITableViewController, HasSideBarItem {
     
@@ -17,11 +18,27 @@ class ExamViewController: UITableViewController, HasSideBarItem {
     private var items: [ExamRealm] = []
     private var notificationToken: NotificationToken? = nil
     
+    lazy var action: Action<Void, [Exam]> = Action { [weak self] (_) -> Observable<[Exam]> in
+        guard let self = self else { return Observable.empty() }
+        return self.context.examService.loadExams().observeOn(MainScheduler.instance).debug()
+    }
+    
+    private let stateView: EmptyResultsView = {
+        return EmptyResultsView().also {
+            $0.isHidden = true
+        }
+    }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         observeExams()
+        tableView.backgroundView = stateView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         load()
     }
     
@@ -48,15 +65,10 @@ class ExamViewController: UITableViewController, HasSideBarItem {
 extension ExamViewController {
     
     private func setup() {
-        
+
         refreshControl = UIRefreshControl().also {
-            $0.addTarget(self, action: #selector(load), for: .valueChanged)
             $0.tintColor = .white
-        }
-        
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.largeTitleDisplayMode = .automatic
+            $0.rx.bind(to: action, input: ())
         }
         
         title = R.string.localizable.examsTitle()
@@ -66,39 +78,28 @@ extension ExamViewController {
             $0.backgroundColor = UIColor.htw.veryLightGrey
             $0.register(ExamViewCell.self)
         }
-        
     }
     
     @objc private func load() {
-        context
-            .examService
-            .loadExams()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] exams in
-                guard (self != nil) else { return }
+        
+        action.elements.subscribe { [weak self] event in
+            guard let self = self else { return }
+            if let exams = event.element {
                 ExamRealm.save(from: exams)
-            }, onError: { [weak self] error in
-                guard let self = self else { return }
-                Log.error(error)
-                let nsError = error as NSError
-                switch nsError.code {
-                case 704:
-                    DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50), execute: { [weak self] in
-                        guard let self = self else { return }
-                        self.tableView.restore()
-                        self.tableView.setEmptyMessage(R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), icon: "🤯", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(self.onTap)))
-                        self.refreshControl?.endRefreshing()
-                    })
-                    default:
-                    self.tableView.setEmptyMessage(R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsMessage(), icon: "🤯")
+                self.stateView.isHidden = true
+                
+                if exams.isEmpty {
+                    self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsHint(), hint: nil, action: nil))
                 }
-            }, onDisposed: { [weak self] in
-                guard let self = self else { return }
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
-                    self.refreshControl?.endRefreshing()
-                })
-            })
-            .disposed(by: rx_disposeBag)
+            }
+        }.disposed(by: rx_disposeBag)
+        
+        action.errors.subscribe { [weak self] error in
+            guard let self = self else { return }
+            self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
+        }.disposed(by: rx_disposeBag)
+        
+        action.execute()
     }
     
 }
@@ -107,7 +108,6 @@ extension ExamViewController {
 extension ExamViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count == 0 ? tableView.setEmptyMessage(R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsNoResultsHint(), icon: "💡") : tableView.restore()
         return items.count
     }
     
@@ -128,7 +128,6 @@ extension ExamViewController {
         viewController.modalTransitionStyle = .crossDissolve
         viewController.delegateClosure = { [weak self] in
             guard let self = self else { return }
-            self.refreshControl?.beginRefreshing()
             self.load()
         }
         present(viewController, animated: true, completion: nil)
@@ -151,6 +150,9 @@ extension ExamViewController {
                 self.tableView.reloadData()
             case .update(let collectionResults, let deletions, let insertions, let modifications):
                 guard let tableView = self.tableView else { return }
+                if self.items == collectionResults.sorted(byKeyPath: "day").map { $0 } {
+                    return
+                }
                 self.items = collectionResults.sorted(byKeyPath: "day").map { $0 }
                 tableView.beginUpdates()
                 tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
@@ -161,7 +163,5 @@ extension ExamViewController {
                 Log.error(error)
             }
         }
-        
     }
-    
 }

@@ -20,6 +20,13 @@ class ExamRealm: Object {
     @objc dynamic var examiner: String      = ""
     @objc dynamic var nextChance: String    = ""
     @objc dynamic var rooms: String         = ""
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? ExamRealm {
+            return id == object.id
+        }
+        return false
+    }
 }
 
 // MARK: - Handling

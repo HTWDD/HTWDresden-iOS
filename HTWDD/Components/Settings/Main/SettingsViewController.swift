@@ -20,26 +20,44 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var lblCurrentAccount: BadgeLabel!
     @IBOutlet weak var lblStudyGroup: UILabel!
     @IBOutlet weak var lblLogin: UILabel!
+    @IBOutlet weak var lblAnalytics: UILabel!
+    @IBOutlet weak var lblCrashlytics: UILabel!
     @IBOutlet weak var lblGithub: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblImpressum: UILabel!
     @IBOutlet weak var lblDelete: UILabel!
     
+    // MARK: - Cells
+    @IBOutlet weak var studyGroupCell: UITableViewCell!
+    @IBOutlet weak var loginCell: UITableViewCell!
+    @IBOutlet weak var analyticsCell: UITableViewCell!
+    @IBOutlet weak var crashlyticsCell: UITableViewCell!
+    @IBOutlet weak var githubCell: UITableViewCell!
+    @IBOutlet weak var emailCell: UITableViewCell!
+    @IBOutlet weak var imprintCell: UITableViewCell!
+    @IBOutlet weak var trashCell: UITableViewCell!
+    
+    // MARK: - Header Cells
+    @IBOutlet weak var lblAccountHeader: UILabel!
+    @IBOutlet weak var lblAccountSubheader: UILabel!
+    @IBOutlet weak var lblGoogleHeader: UILabel!
+    @IBOutlet weak var lblGoogleSubheader: UILabel!
+    @IBOutlet weak var lblGithubHeader: UILabel!
+    @IBOutlet weak var lblGithubSubheader: UILabel!
+    @IBOutlet weak var lblContactHeader: UILabel!
+    @IBOutlet weak var lblContactSubheader: UILabel!
+    @IBOutlet weak var lblResetHeader: UILabel!
+    @IBOutlet weak var lblResetSubheader: UILabel!
+    
+    
     // MARK: - Properties
     weak var delegate: SettingsCoordinatorRoutingDelegate?
-    private lazy var sections: [Section] = {
-        return [Section(header: R.string.localizable.settingsItemsAccountTitle(), subHeader: R.string.localizable.settingsItemsAccountSubtitle()),
-                Section(header: R.string.localizable.settingsItemsGoogleTitle(), subHeader: R.string.localizable.settingsItemsGoogleSubtitle()),
-                Section(header: R.string.localizable.settingsSectionsWeAreOpenSource(), subHeader: R.string.localizable.settingsSectionsWeAreOpenSourceSubtitle()),
-                Section(header: R.string.localizable.settingsSectionsContact(), subHeader: R.string.localizable.settingsSectionsContactSubtitle()),
-                Section(header: R.string.localizable.settingsSectionsDeleteAll(), subHeader: R.string.localizable.settingsSectionsDeleteAllSubtitle())]
-    }()
     
     private lazy var footerView: UIView = {
         return UILabel(frame: CGRect(x: 0, y: 0, width: self.tableView.width, height: 100)).also {
             $0.text             = R.string.localizable.settingsCredits(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String, Bundle.main.infoDictionary!["CFBundleVersion"] as! String)
-            $0.textColor        = UIColor.htw.grey
-            $0.font             = UIFont.from(style: .small)
+            $0.textColor        = UIColor.htw.Label.secondary
+            $0.font             = UIFont.htw.Labels.secondary
             $0.numberOfLines    = 2
             $0.textAlignment    = .center
             $0.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleBottomMargin, .flexibleTopMargin, .flexibleWidth, .flexibleHeight]
@@ -73,16 +91,19 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
 extension SettingsViewController {
     
     private func setup() {
+
+        studyGroupCell.backgroundColor  = UIColor.htw.cellBackground
+        loginCell.backgroundColor       = UIColor.htw.cellBackground
+        analyticsCell.backgroundColor   = UIColor.htw.cellBackground
+        crashlyticsCell.backgroundColor = UIColor.htw.cellBackground
+        githubCell.backgroundColor      = UIColor.htw.cellBackground
+        emailCell.backgroundColor       = UIColor.htw.cellBackground
+        imprintCell.backgroundColor     = UIColor.htw.cellBackground
+        trashCell.backgroundColor       = UIColor.htw.cellBackground
         
         tableView.apply {
             $0.backgroundColor  = UIColor.htw.veryLightGrey
             $0.tableFooterView  = footerView
-            $0.separatorColor   = UIColor.htw.lightGrey
-        }
-        
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.largeTitleDisplayMode = .automatic
         }
         
         title = R.string.localizable.settingsTitle()
@@ -100,21 +121,86 @@ extension SettingsViewController {
         }
         
         lblCurrentStudyGroups.apply {
-            $0.backgroundColor  = UIColor.htw.mediumOrange
+            $0.backgroundColor  = UIColor.htw.Material.orange
             $0.textColor        = .white
         }
-        
         lblCurrentAccount.apply {
-            $0.backgroundColor  = UIColor.htw.lightBlueMaterial
+            $0.backgroundColor  = UIColor.htw.Material.blue
             $0.textColor        = .white
         }
+        lblStudyGroup.apply {
+            $0.text         = R.string.localizable.settingsItemsSetScheduleTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblLogin.apply {
+            $0.text         = R.string.localizable.settingsItemsSetGradesTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblAnalytics.textColor      = UIColor.htw.Label.primary
+        lblCrashlytics.textColor    = UIColor.htw.Label.primary
+        lblGithub.apply {
+            $0.text         = R.string.localizable.settingsItemsGithub()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblEmail.apply {
+            $0.text         = R.string.localizable.settingsItemsMailTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblImpressum.apply {
+            $0.text         = R.string.localizable.settingsItemsLegalTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblDelete.apply {
+            $0.text         = R.string.localizable.settingsItemsDeleteAll()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
         
-        lblStudyGroup.text  = R.string.localizable.settingsItemsSetScheduleTitle()
-        lblLogin.text       = R.string.localizable.settingsItemsSetGradesTitle()
-        lblGithub.text      = R.string.localizable.settingsItemsGithub()
-        lblEmail.text       = R.string.localizable.settingsItemsMailTitle()
-        lblImpressum.text   = R.string.localizable.settingsItemsLegalTitle()
-        lblDelete.text      = R.string.localizable.settingsItemsDeleteAll()
+        // Header Cells
+        // Account
+        lblAccountHeader.apply {
+            $0.text         = R.string.localizable.settingsItemsAccountTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblAccountSubheader.apply {
+            $0.text         = R.string.localizable.settingsItemsAccountSubtitle()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        // Google
+        lblGoogleHeader.apply {
+            $0.text         = R.string.localizable.settingsItemsGoogleTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblGoogleSubheader.apply {
+            $0.text         = R.string.localizable.settingsItemsGoogleSubtitle()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        // Github
+        lblGithubHeader.apply {
+            $0.text         = R.string.localizable.settingsSectionsWeAreOpenSource()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblGithubSubheader.apply {
+            $0.text         = R.string.localizable.settingsSectionsWeAreOpenSourceSubtitle()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        // Contact
+        lblContactHeader.apply {
+            $0.text         = R.string.localizable.settingsSectionsContact()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblContactSubheader.apply {
+            $0.text         = R.string.localizable.settingsSectionsContactSubtitle()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        // Reset
+        lblResetHeader.apply {
+            $0.text         = R.string.localizable.settingsSectionsDeleteAll()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblResetSubheader.apply {
+            $0.text         = R.string.localizable.settingsSectionsDeleteAllSubtitle()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
     }
     
     @objc private func onSwitchChanged(_ sender: UISwitch) {
@@ -135,9 +221,9 @@ extension SettingsViewController {
     
     private func currentStudyGroup() {
         let studyToken = KeychainService.shared.readStudyToken()
-        if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group {
+        if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group, let graduation = studyToken.graduation {
             lblCurrentStudyGroups.isHidden = false
-            lblCurrentStudyGroups.text = "\(year) | \(major) | \(group)"
+            lblCurrentStudyGroups.text = "\(year) | \(major) | \(group) | \(graduation)"
         } else {
             lblCurrentStudyGroups.isHidden = true
         }
@@ -153,14 +239,6 @@ extension SettingsViewController {
 
 // MARK: - Tableview Datasource
 extension SettingsViewController {
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return BlurredSectionHeader(frame: tableView.frame, header: sections[section].header, subHeader: sections[section].subHeader)
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -194,4 +272,3 @@ extension SettingsViewController: MFMailComposeViewControllerDelegate {
         controller.dismiss(animated: true, completion: nil)
     }
 }
-

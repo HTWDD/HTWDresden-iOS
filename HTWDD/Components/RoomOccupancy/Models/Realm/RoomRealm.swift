@@ -14,6 +14,13 @@ class RoomRealm: Object {
     @objc dynamic var id: String                = ""
     @objc dynamic var name: String              = ""
     let occupancies = List<OccupancyRealm>()
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? RoomRealm {
+            return id == object.id
+        }
+        return false
+    }
 }
 
 // MARK: - Occupancy
@@ -27,6 +34,13 @@ class OccupancyRealm: Object {
     @objc dynamic var week: Int             = 0
     @objc dynamic var professor: String     = ""
     @objc dynamic var weeksOnly: String     = ""
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        if let object = object as? OccupancyRealm {
+            return id == object.id
+        }
+        return false
+    }
 }
 
 // MARK: - Extensions

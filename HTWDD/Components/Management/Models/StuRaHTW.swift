@@ -13,4 +13,5 @@ import RxSwift
 struct StuRaHTW: Codable {
     let offeredServices: [String]
     let officeHours: [OfficeHour]
+    let link: String
 }

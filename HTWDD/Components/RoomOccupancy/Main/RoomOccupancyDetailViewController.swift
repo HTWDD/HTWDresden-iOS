@@ -46,7 +46,7 @@ extension RoomOccupancyDetailViewController {
             navigationItem.largeTitleDisplayMode = .automatic
         }
         
-        title = roomName
+        title = roomName.uppercased()
         
         tableView.apply {
             $0.separatorStyle   = .none

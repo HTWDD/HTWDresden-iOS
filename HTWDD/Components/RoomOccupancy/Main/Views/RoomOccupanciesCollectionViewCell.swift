@@ -15,9 +15,8 @@ class RoomOccupanciesCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         lblOccupancy.apply {
-            $0.backgroundColor  = UIColor.htw.lightBlueMaterial
+            $0.backgroundColor  = UIColor.htw.Badge.date
             $0.textColor        = .white
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
         }
     }
 }

@@ -21,16 +21,19 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        main.layer.cornerRadius    = 4
+        main.apply {
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
+        }
         
         // Semestertype ( Sommer or Winter )
         lblSemster.apply {
-            $0.textColor    = UIColor.htw.darkGrey
+            $0.textColor    = UIColor.htw.Label.primary
         }
         
         // Semester year
         lblSemsterYear.apply {
-            $0.textColor    = UIColor.htw.grey
+            $0.textColor    = UIColor.htw.Label.secondary
         }
     }
     
@@ -48,16 +51,16 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Semesterperiod ( Header )
         stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsLectures()
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .description, isBold: true)
+            $0.textColor    = UIColor.htw.Label.primary
+            $0.font         = UIFont.htw.Labels.primary
         })
         
         // Semesterperiod ( From - To )
         stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.period.beginDayFormated) - \(data.period.endDayFormated)"
-            $0.backgroundColor  = UIColor(hex: 0x1976D2)
+            $0.backgroundColor  = UIColor.htw.Badge.date
             $0.textColor        = .white
-            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.font             = UIFont.htw.Badges.primary
         })
         
         // SPACER
@@ -68,8 +71,8 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.contentMode      = .scaleToFill
             $0.numberOfLines    = 0
             $0.text             = R.string.localizable.managementSemesterPeriodsFreedays()
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .description, isBold: true)
+            $0.textColor        = UIColor.htw.Label.primary
+            $0.font             = UIFont.htw.Labels.primary
         })
         
         // REGION - Freedays
@@ -81,8 +84,8 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             
             hStack.addArrangedSubview(UILabel().also { label in
                 label.text          = freeDay.name
-                label.font          = UIFont.from(style: .small)
-                label.textColor     = UIColor.htw.darkGrey
+                label.font          = UIFont.htw.Labels.secondary
+                label.textColor     = UIColor.htw.Label.secondary
                 label.contentMode   = .scaleToFill
                 label.numberOfLines = 0
             })
@@ -93,9 +96,9 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
                 } else {
                     label.text = "\(freeDay.beginDayFormated) - \(freeDay.endDayFormated)"
                 }
-                label.font              = UIFont.from(style: .small)
-                label.backgroundColor   = UIColor.htw.lightGrey
-                label.textColor         = UIColor.htw.darkGrey
+                label.font              = UIFont.htw.Badges.primary
+                label.backgroundColor   = UIColor.htw.Badge.secondary
+                label.textColor         = UIColor.htw.Label.secondary
                 label.contentMode       = .scaleToFill
                 label.numberOfLines     = 0
                 label.setContentHuggingPriority(.required, for: .horizontal)
@@ -110,16 +113,16 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Exams Period ( Header )
         stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsExams()
-            $0.font         = UIFont.from(style: .description, isBold: true)
-            $0.textColor    = UIColor.htw.darkGrey
+            $0.font         = UIFont.htw.Labels.primary
+            $0.textColor    = UIColor.htw.Label.primary
         })
         
         // Exams Period ( From - To )
         stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
-            $0.font             = UIFont.from(style: .small, isBold: true)
-            $0.backgroundColor  = UIColor.htw.mediumOrange
+            $0.font             = UIFont.htw.Badges.primary
+            $0.backgroundColor  = UIColor.htw.Badge.secondary
         })
         
         // SPACER
@@ -128,16 +131,16 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         // Re-Registration ( Header )
         stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementSemesterPeriodsReregistration()
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .description, isBold: true)
+            $0.textColor    = UIColor.htw.Label.primary
+            $0.font         = UIFont.htw.Labels.primary
         })
         
         // Re-Registration ( From - To )
         stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.reregistration.beginDayFormated) - \(data.reregistration.endDayFormated)"
             $0.textColor        = .white
-            $0.backgroundColor  = UIColor(hex: 0xF57F17, alpha: 0.8)
-            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.backgroundColor  = UIColor.htw.Badge.secondary
+            $0.font             = UIFont.htw.Badges.primary
         })
     }
 }

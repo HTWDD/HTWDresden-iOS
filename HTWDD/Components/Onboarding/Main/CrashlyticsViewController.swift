@@ -13,6 +13,7 @@ import Firebase
 class CrashlyticsViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var lblCrashlytics: UILabel!
     @IBOutlet weak var lblCrashlyticsDescription: UILabel!
     @IBOutlet weak var lblCrashlyticsInformation: UILabel!
     @IBOutlet weak var lblCrashlyticsHelpQuestion: UILabel!
@@ -69,11 +70,25 @@ class CrashlyticsViewController: UIViewController {
 extension CrashlyticsViewController {
     
     private func setup() {
-        btnYes.isEnabled                = !UserDefaults.standard.crashlytics && UserDefaults.standard.analytics
-        lblCrashlyticsDescription.text  = R.string.localizable.onboardingCrashlyticsDescription()
-        lblCrashlyticsInformation.text  = R.string.localizable.onboardingCrashlyticsInformation()
-        lblCrashlyticsHelpQuestion.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()
-        lblCrashlyticsRevoke.text       = R.string.localizable.onboardingCrashlyticsRevokeDescription()
+        btnYes.isEnabled            = !UserDefaults.standard.crashlytics && UserDefaults.standard.analytics
+        lblCrashlytics.textColor    = UIColor.htw.Label.primary
+        
+        lblCrashlyticsDescription.apply {
+            $0.text         = R.string.localizable.onboardingCrashlyticsDescription()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblCrashlyticsInformation.apply {
+            $0.text = R.string.localizable.onboardingCrashlyticsInformation()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        lblCrashlyticsHelpQuestion.apply {
+            $0.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()
+            $0.textColor    = UIColor.htw.Material.blue
+        }
+        lblCrashlyticsRevoke.apply {
+            $0.text = R.string.localizable.onboardingCrashlyticsRevokeDescription()
+            $0.textColor    = UIColor.htw.Material.orange
+        }
         btnYes.setTitle(R.string.localizable.yes(), for: .normal)
         animationView.apply {
             $0.animation    = animation

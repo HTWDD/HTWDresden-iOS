@@ -54,6 +54,12 @@ class AppCoordinator: Coordinator {
         self.window.rootViewController  = self.rootNavigationController
         self.window.tintColor           = UIColor.htw.blue
         self.window.makeKeyAndVisible()
+        
+        if #available(iOS 13.0, *) {
+            let app = UINavigationBarAppearance()
+            app.backgroundColor = .blue
+            self.rootNavigationController.navigationController?.navigationBar.scrollEdgeAppearance = app
+        }
 		
         goTo(controller: .dashboard)
         

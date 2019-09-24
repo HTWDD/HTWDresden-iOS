@@ -9,6 +9,7 @@ def common_pods
   # RX Swift
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Action'
   
   # Serial- Deserialization
   pod 'Marshal', '~> 1.2', :inhibit_warnings => true

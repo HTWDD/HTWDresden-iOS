@@ -1,5 +1,5 @@
 //
-//  BlurredSectionHeade.swift
+//  BlurredSectionHeader.swift
 //  HTWDD
 //
 //  Created by Mustafa Karademir on 19.07.19.
@@ -19,7 +19,7 @@ class BlurredSectionHeader: UIView {
     // MARK: - Blurred View
     private lazy var wrapper: UIView = {
         return UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: 60)).also { wrapperView in
-            wrapperView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)).also { effectView in
+            wrapperView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .regular)).also { effectView in
                 effectView.frame = wrapperView.bounds
             })
         }
@@ -29,14 +29,14 @@ class BlurredSectionHeader: UIView {
     private lazy var header: UILabel = {
         return UILabel().also {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.textColor    = UIColor.htw.darkGrey
+            $0.textColor    = UIColor.htw.Label.primary
             $0.font         = UIFont.from(style: .big)
         }
     }()
     
     private lazy var subHeader: UILabel = {
         return UILabel().also {
-            $0.textColor    = UIColor.htw.grey
+            $0.textColor    = UIColor.htw.Label.secondary
             $0.font         = UIFont.from(style: .small)
         }
     }()

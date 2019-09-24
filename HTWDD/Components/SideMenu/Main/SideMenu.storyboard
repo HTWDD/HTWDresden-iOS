@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AQr-Fh-z1f">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AQr-Fh-z1f">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +18,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="myx-nF-QLv">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="myx-nF-QLv" id="R0B-tr-V0f">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -48,14 +46,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="navigation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-AV-ugn">
-                                <rect key="frame" x="0.0" y="44" width="294" height="175"/>
+                                <rect key="frame" x="0.0" y="0.0" width="294" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="294" id="Huv-Ez-9d8"/>
                                     <constraint firstAttribute="height" constant="175" id="qeV-4Q-6Im"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZC-Nc-g2W">
-                                <rect key="frame" x="0.0" y="219" width="290" height="339"/>
+                                <rect key="frame" x="0.0" y="191" width="290" height="671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
                                         <rect key="frame" x="20" y="0.0" width="250" height="339"/>
@@ -157,24 +158,27 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="2EO-LJ-b3F" firstAttribute="centerY" secondItem="qZC-Nc-g2W" secondAttribute="centerY" id="6IP-Az-qrS"/>
-                                    <constraint firstAttribute="bottom" secondItem="2EO-LJ-b3F" secondAttribute="bottom" constant="20" id="B6u-7f-now"/>
                                     <constraint firstAttribute="trailing" secondItem="2EO-LJ-b3F" secondAttribute="trailing" constant="20" id="EoD-uo-4cy"/>
                                     <constraint firstItem="2EO-LJ-b3F" firstAttribute="centerX" secondItem="qZC-Nc-g2W" secondAttribute="centerX" id="ajT-hO-sex"/>
                                     <constraint firstItem="2EO-LJ-b3F" firstAttribute="leading" secondItem="qZC-Nc-g2W" secondAttribute="leading" constant="20" id="ce1-Zb-gXs"/>
-                                    <constraint firstAttribute="height" secondItem="2EO-LJ-b3F" secondAttribute="height" id="cpl-a5-KJD"/>
+                                    <constraint firstAttribute="bottom" secondItem="2EO-LJ-b3F" secondAttribute="bottom" id="iUQ-32-xRy"/>
+                                    <constraint firstItem="2EO-LJ-b3F" firstAttribute="top" secondItem="qZC-Nc-g2W" secondAttribute="top" id="sJG-nN-RwX"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="K22-AV-ugn" firstAttribute="top" secondItem="Cxk-YJ-EQr" secondAttribute="top" id="1To-he-H3k"/>
+                            <constraint firstItem="K22-AV-ugn" firstAttribute="top" secondItem="gcs-0f-NY7" secondAttribute="top" id="1To-he-H3k"/>
                             <constraint firstAttribute="trailing" secondItem="qZC-Nc-g2W" secondAttribute="trailing" id="HJV-hR-vot"/>
                             <constraint firstItem="K22-AV-ugn" firstAttribute="leading" secondItem="Cxk-YJ-EQr" secondAttribute="leading" id="VSk-bG-vIm"/>
-                            <constraint firstItem="qZC-Nc-g2W" firstAttribute="top" secondItem="K22-AV-ugn" secondAttribute="bottom" id="egS-LB-kqa"/>
+                            <constraint firstItem="Cxk-YJ-EQr" firstAttribute="bottom" secondItem="qZC-Nc-g2W" secondAttribute="bottom" id="bbn-5g-rYU"/>
+                            <constraint firstItem="qZC-Nc-g2W" firstAttribute="top" secondItem="K22-AV-ugn" secondAttribute="bottom" constant="16" id="egS-LB-kqa"/>
                             <constraint firstItem="qZC-Nc-g2W" firstAttribute="leading" secondItem="gcs-0f-NY7" secondAttribute="leading" id="hZ0-d8-CKR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cxk-YJ-EQr"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <size key="freeformSize" width="290" height="896"/>
                     <connections>
@@ -183,6 +187,7 @@
                         <outlet property="dashboardMenuButton" destination="ZO3-CN-2fM" id="o9d-hM-S5N"/>
                         <outlet property="examsMenuButton" destination="3dB-9b-vZH" id="Os6-01-cZF"/>
                         <outlet property="gradesMenuButton" destination="f5X-GZ-r6x" id="vjA-ow-Lce"/>
+                        <outlet property="mainView" destination="gcs-0f-NY7" id="c4u-lg-Nr8"/>
                         <outlet property="managementMenuButton" destination="m0U-9J-Anx" id="M0j-gK-Jyv"/>
                         <outlet property="roomOccupancyMenuButton" destination="hWM-zW-2h8" id="dov-Jp-vdk"/>
                         <outlet property="settingsMenuButton" destination="f8g-6l-PpK" id="xfk-bu-qWi"/>
@@ -204,9 +209,13 @@
         <scene sceneID="nJ8-eq-kGG">
             <objects>
                 <navigationController storyboardIdentifier="MainNavigation" id="AQr-Fh-z1f" customClass="SideMenuContainerNavigationController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SpZ-7A-NNl">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="SpZ-7A-NNl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BOy-yq-2GR" kind="relationship" relationship="rootViewController" id="ILB-cO-MlA"/>

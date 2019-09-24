@@ -13,6 +13,7 @@ import Firebase
 class AnalyticsViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var lblAnalytics: UILabel!
     @IBOutlet weak var lblAnalyticsDescription: UILabel!
     @IBOutlet weak var lblAnalyticsInformation: UILabel!
     @IBOutlet weak var lblAnalyticsRevokeDescription: UILabel!
@@ -65,11 +66,24 @@ class AnalyticsViewController: UIViewController {
 extension AnalyticsViewController {
     
     private func setup() {
-        btnYes.isEnabled                    = !UserDefaults.standard.analytics
-        lblAnalyticsDescription.text        = R.string.localizable.onboardingAnalyticsDescription()
-        lblAnalyticsInformation.text        = R.string.localizable.onboardingAnalyticsInformation()
-        lblAnalyticsRevokeDescription.text  = R.string.localizable.onboardingAnalyticsRevokeDescription()
-        lblHelpQuestion.text                = R.string.localizable.onboardingAnalyticsHelpQuestion()
+        btnYes.isEnabled        = !UserDefaults.standard.analytics
+        lblAnalytics.textColor  = UIColor.htw.Label.primary
+        lblAnalyticsDescription.apply {
+            $0.text         = R.string.localizable.onboardingAnalyticsDescription()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblAnalyticsInformation.apply {
+            $0.text         = R.string.localizable.onboardingAnalyticsInformation()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
+        lblAnalyticsRevokeDescription.apply {
+            $0.text         = R.string.localizable.onboardingAnalyticsRevokeDescription()
+            $0.textColor    = UIColor.htw.Material.orange
+        }
+        lblHelpQuestion.apply {
+            $0.text         = R.string.localizable.onboardingAnalyticsHelpQuestion()
+            $0.textColor    = UIColor.htw.Material.blue
+        }
         btnYes.setTitle(R.string.localizable.yes(), for: .normal)
         animationView.apply {
             $0.animation    = animation

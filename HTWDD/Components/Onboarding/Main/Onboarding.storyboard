@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjS-au-ln0">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mjS-au-ln0">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +30,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <blurEffect style="extraLight"/>
+                                <blurEffect style="regular"/>
                             </visualEffectView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBP-q9-2Op">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -347,6 +345,7 @@
                         <outlet property="animationView" destination="egZ-qC-O3m" id="htf-1n-afU"/>
                         <outlet property="btnYes" destination="CzX-KF-Agm" id="8M4-u1-L8C"/>
                         <outlet property="chartsAnimationView" destination="RR6-kb-Rnb" id="4DK-Vv-TIA"/>
+                        <outlet property="lblAnalytics" destination="zFd-hU-Afm" id="0Br-kE-aYg"/>
                         <outlet property="lblAnalyticsDescription" destination="oWA-gI-lAX" id="v6y-W3-lYB"/>
                         <outlet property="lblAnalyticsInformation" destination="0K8-tR-9Xg" id="KyI-0k-3Ey"/>
                         <outlet property="lblAnalyticsRevokeDescription" destination="O2n-yg-7wV" id="n9P-dI-sMY"/>
@@ -367,7 +366,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="glt-5O-cdq">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="glt-5O-cdq" id="avL-vA-OBc">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -517,6 +516,7 @@
                         <outlet property="animationView" destination="smT-v3-AUe" id="nhE-Ic-c9g"/>
                         <outlet property="btnYes" destination="0N5-9j-v6Y" id="yfL-oM-GX0"/>
                         <outlet property="chartsAnimationView" destination="Nk0-O9-IyH" id="15m-HB-2k0"/>
+                        <outlet property="lblCrashlytics" destination="wjK-gU-edG" id="avY-f2-zSI"/>
                         <outlet property="lblCrashlyticsDescription" destination="VkE-NX-4V2" id="BIW-pi-CTa"/>
                         <outlet property="lblCrashlyticsHelpQuestion" destination="X5e-Tn-W52" id="ndJ-JK-TXo"/>
                         <outlet property="lblCrashlyticsInformation" destination="Lkt-xZ-Ihi" id="4hl-gH-KMq"/>
@@ -810,7 +810,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="W0y-Mg-ZFj"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                             </textField>
@@ -825,7 +824,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="vK0-fl-UX8"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartQuotesType="no" textContentType="password"/>
                                             </textField>

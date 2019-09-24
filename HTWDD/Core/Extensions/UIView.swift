@@ -122,10 +122,10 @@ extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.apply {
             $0.masksToBounds        = false
-            $0.shadowColor          = UIColor.lightGray.cgColor
-            $0.shadowOpacity        = 0.25
+            $0.shadowColor          = UIColor.htw.shadow.cgColor
+            $0.shadowOpacity        = 0.35
             $0.shadowOffset         = .zero
-            $0.shadowRadius         = 4
+            $0.shadowRadius         = 3
             $0.shouldRasterize      = true
             $0.rasterizationScale   = scale ? UIScreen.main.scale : 1
         }
@@ -145,4 +145,27 @@ extension UIView {
             }
         }
     }
+}
+
+// MARK: - CA Layers
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        let border = CALayer()
+        switch edge {
+        case .left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
+        case .top:
+            border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+        case .right:
+            border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+        case .bottom:
+            border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+        default:
+            break
+        }
+        border.backgroundColor = color.cgColor
+        addSublayer(border)
+    }
+     
 }

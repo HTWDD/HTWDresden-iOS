@@ -202,6 +202,7 @@
 		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
+		64B2425F23327F7900870A3C /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B2425E23327F7900870A3C /* EmptyResultsView.swift */; };
 		64CC1E8622F2EC2100A45F25 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */; };
 		64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */; };
 		64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CC1E8E22F313AB00A45F25 /* PulseGrey.json */; };
@@ -215,6 +216,7 @@
 		64E218DE22D7769B00004183 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DC22D7769B00004183 /* MealViewCell.swift */; };
 		64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64E218DD22D7769B00004183 /* MealViewCell.xib */; };
 		64E218E122D85BBB00004183 /* CanteenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetail.swift */; };
+		64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E40B862334BFBA0075B7B1 /* Color.xcassets */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
@@ -492,6 +494,7 @@
 		645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewController.swift; sourceTree = "<group>"; };
 		6481AEF522E5A4770068A8C3 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
+		64B2425E23327F7900870A3C /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
 		64CC1E8522F2EC2100A45F25 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewSwipeDelegate.swift; sourceTree = "<group>"; };
 		64CC1E8E22F313AB00A45F25 /* PulseGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PulseGrey.json; sourceTree = "<group>"; };
@@ -503,6 +506,7 @@
 		64E218DA22D7767500004183 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
 		64E218DC22D7769B00004183 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
 		64E218DD22D7769B00004183 /* MealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealViewCell.xib; sourceTree = "<group>"; };
+		64E40B862334BFBA0075B7B1 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
@@ -771,6 +775,7 @@
 				1F8874881F8FB07300EE6492 /* ReactiveButton.swift */,
 				1FE108021F8FDAF5002B8E69 /* StudygroupTextField.swift */,
 				64D9D91322E1AAA7002E71F5 /* BlurredSectionHeader.swift */,
+				64B2425E23327F7900870A3C /* EmptyResultsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1178,6 +1183,7 @@
 			children = (
 				6403694A22CA256A00FD49EA /* Assets */,
 				B59FA9911DD09C8400259D7F /* Assets.xcassets */,
+				64E40B862334BFBA0075B7B1 /* Color.xcassets */,
 				B59FA9961DD09C8400259D7F /* Info.plist */,
 				640306F722E8A83A00099D68 /* GoogleService-Info.plist */,
 				B59FA9931DD09C8400259D7F /* LaunchScreen.storyboard */,
@@ -1710,6 +1716,7 @@
 				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,
 				6403694722CA069D00FD49EA /* StudenAdministrationViewCell.xib in Resources */,
 				6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */,
+				64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */,
 				B59FA9951DD09C8400259D7F /* LaunchScreen.storyboard in Resources */,
 				642E5C1D22F1829C00D3A886 /* Onboarding.storyboard in Resources */,
 				6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */,
@@ -1775,6 +1782,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HTWDD/Pods-HTWDD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -1798,6 +1806,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -2185,6 +2194,7 @@
 				1FCE29311FA7C0F300A66654 /* Localizations.swift in Sources */,
 				64093B4722F850C3007138B6 /* OnboardingMainViewController.swift in Sources */,
 				B538EF1E1E1D9E6D0031077C /* Date.swift in Sources */,
+				64B2425F23327F7900870A3C /* EmptyResultsView.swift in Sources */,
 				B5BE727B1E6C4CBD00D05B6D /* Observable.swift in Sources */,
 				B50EB4F91E6ADADC0022E40C /* ErrorViews.swift in Sources */,
 				B5F58E4D1E1EB15A006D99AE /* Semester.swift in Sources */,

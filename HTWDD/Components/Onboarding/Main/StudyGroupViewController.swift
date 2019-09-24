@@ -36,7 +36,7 @@ class StudyGroupViewController: UIViewController {
     private let visualEffectView = UIVisualEffectView(effect: nil)
     private lazy var animator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
-            self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+            self.visualEffectView.effect = UIBlurEffect(style: .regular)
         })
     }()
     private var state = BehaviorRelay(value: State())
@@ -183,9 +183,20 @@ extension StudyGroupViewController {
     
     private func setup() {
         
-        lblStudyGroups.text             = R.string.localizable.onboardingStudygroupTitle()
-        lblStudygroupDescription.text   = R.string.localizable.onboardingStudygroupDescription()
-        lblStudyGroupInformation.text   = R.string.localizable.onboardingStudygroupInformation()
+        lblStudyGroups.apply {
+            $0.text         = R.string.localizable.onboardingStudygroupTitle()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        
+        lblStudygroupDescription.apply {
+            $0.text         = R.string.localizable.onboardingStudygroupDescription()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        
+        lblStudyGroupInformation.apply {
+            $0.text         = R.string.localizable.onboardingStudygroupInformation()
+            $0.textColor    = UIColor.htw.Label.secondary
+        }
         
         userAnimationView.apply {
             $0.animation    = userAnimation
@@ -199,16 +210,31 @@ extension StudyGroupViewController {
             $0.setState(with: .inactive)
         }
         
+        lblYear.apply {
+            $0.textColor    = UIColor.htw.Label.secondary
+            $0.font         = UIFont.htw.Labels.secondary
+        }
+        
         btnMajor.apply {
             $0.makeDropShadow()
             $0.setTitle(R.string.localizable.onboardingStudygroupMajor(), for: .normal)
             $0.setState(with: .inactive)
         }
         
+        lblMajor.apply {
+            $0.textColor    = UIColor.htw.Label.secondary
+            $0.font         = UIFont.htw.Labels.secondary
+        }
+        
         btnGroup.apply {
             $0.makeDropShadow()
             $0.setTitle(R.string.localizable.onboardingStudygroupGroup(), for: .normal)
             $0.setState(with: .inactive)
+        }
+        
+        lblGroup.apply {
+            $0.textColor    = UIColor.htw.Label.secondary
+            $0.font         = UIFont.htw.Labels.secondary
         }
         
         if delegate == nil {

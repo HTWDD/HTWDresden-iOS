@@ -61,8 +61,14 @@ extension OnboardingFinishViewController {
             $0.contentMode  = .scaleAspectFit
             $0.loopMode     = .playOnce
         }
-        lblFinishHeader.text        = R.string.localizable.onboadingFinishHeader()
-        lblFinishDescription.text   = R.string.localizable.onboadingFinishDescription()
+        lblFinishHeader.apply {
+            $0.text         = R.string.localizable.onboadingFinishHeader()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        lblFinishDescription.apply {
+            $0.text         = R.string.localizable.onboadingFinishDescription()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
         btnFinish.apply {
             $0.setTitle(R.string.localizable.letsgo(), for: .normal)
             $0.setState(with: .inactive)

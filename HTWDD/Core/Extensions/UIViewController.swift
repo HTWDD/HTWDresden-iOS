@@ -36,13 +36,13 @@ extension UIViewController {
     
     func showLoadingIndicator(on view: UIView) {
         let backgroundView = UIView(frame: view.bounds).also { bView in
-            bView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .extraLight)).also(block: { effect in
+            bView.addSubview(UIVisualEffectView(effect: UIBlurEffect(style: .regular)).also(block: { effect in
                 effect.frame = bView.bounds
             }))
             
             bView.addSubview(UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 80)).also {
                 $0.dropShadow()
-                $0.backgroundColor      = .white
+                $0.backgroundColor      = UIColor.htw.cellBackground
                 $0.layer.cornerRadius   = 4
                 $0.center               = bView.center
             })
@@ -56,12 +56,23 @@ extension UIViewController {
             
             vStack.addArrangedSubview(UILabel().also {
                 $0.text         = R.string.localizable.loading()
-                $0.textColor    = UIColor.htw.darkGrey
-                $0.font         = UIFont.from(style: .small, isBold: true)
+                $0.textColor    = UIColor.htw.Label.primary
+                $0.font         = UIFont.htw.Labels.primary
                 $0.center       = bView.center
             })
             
-            vStack.addArrangedSubview(UIActivityIndicatorView(style: .gray).also {
+            let style: UIActivityIndicatorView.Style
+            if #available(iOS 12.0, *) {
+                if traitCollection.userInterfaceStyle == .dark {
+                    style = .white
+                } else {
+                    style = .gray
+                }
+            } else {
+                style = .gray
+            }
+            
+            vStack.addArrangedSubview(UIActivityIndicatorView(style: style).also {
                 $0.startAnimating()
                 $0.center = bView.center
             })

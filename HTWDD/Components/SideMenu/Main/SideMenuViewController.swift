@@ -21,10 +21,11 @@ class SideMenuViewController: ViewController {
     @IBOutlet weak var dashboardMenuButton: UIButton!
     @IBOutlet weak var roomOccupancyMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
+    @IBOutlet var mainView: UIView!
     
     // MARK: Properties
-    private let defaultTintColor: UIColor = UIColor.htw.darkGrey
-    private let selectedTintColor: UIColor = UIColor.htw.blue
+    private let defaultTintColor: UIColor = UIColor.htw.Label.primary
+    private let selectedTintColor: UIColor = UIColor.htw.Material.blue
     
     weak var coordinator: AppCoordinator?
     
@@ -32,14 +33,20 @@ class SideMenuViewController: ViewController {
     
     override func viewDidLoad() {
         prepareMenuButtons()
-
-        self.title = "HTW Dresden"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Back"), style: .plain, target: self, action: #selector(dismissSideMenu))
+        mainView.backgroundColor = UIColor.htw.cellBackground
+        navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        view.dropShadow()
+        view.layer.addBorder(edge: .right, color: UIColor.htw.shadow.withAlphaComponent(0.35), thickness: 0.25)
     }
     
     fileprivate func prepareMenuButtons() {
         
-        func setTitleAndTintColor(for button: inout UIButton, title: String, tintColor: UIColor = UIColor.htw.darkGrey) {
+        func setTitleAndTintColor(for button: inout UIButton, title: String, tintColor: UIColor = UIColor.htw.Label.primary) {
             button.apply { b in
                 b.setTitle(title, for: .normal)
                 b.tintColor = tintColor

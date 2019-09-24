@@ -18,6 +18,11 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
     weak var roomOccupancyCoordinator: RoomOccupancyCoordinator?
     private var notificationToken: NotificationToken? = nil
     private var items: [RoomRealm] = []
+    private let stateView: EmptyResultsView = {
+        return EmptyResultsView().also {
+            $0.isHidden = true
+        }
+    }()
     private lazy var addRoomAlertDialog: UIAlertController = {
         return UIAlertController(title: R.string.localizable.roomOccupancyAddTitle(), message: R.string.localizable.roomOccupancyAddMessage(), preferredStyle: .alert).also { alert in
             alert.addAction(UIAlertAction(title: R.string.localizable.close(), style: .cancel, handler: nil))
@@ -61,6 +66,7 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
         super.viewDidLoad()
         setup()
         observeRooms()
+        tableView.backgroundView = stateView
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -141,9 +147,9 @@ extension RoomOccupancyViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if items.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), icon: "💡", hint: R.string.localizable.add(), gestureRecognizer: UITapGestureRecognizer(target: self, action: #selector(addRoom)))
+            stateView.setup(with: EmptyResultsView.Configuration(icon: "💡", title: R.string.localizable.roomOccupancyEmptyTitle(), message: R.string.localizable.roomOccupancyEmptyMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(addRoom))))
         } else {
-            tableView.restore()
+            stateView.isHidden = true
         }
         return items.count
     }

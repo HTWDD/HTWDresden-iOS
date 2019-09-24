@@ -34,9 +34,112 @@ extension UIColor {
 	}
 }
 
+// MARK: - HTW Colors
 extension HTWNamespace where Base: UIColor {
 
+    struct Label {
+        static var primary: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "LabelPrimary")!
+            }
+            return UIColor(hex: 0x2c2c2e)
+        }
+        
+        static var secondary: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "LabelSecondary")!
+            }
+            return UIColor(hex: 0x2c2c2e)
+        }
+    }
+    
+    struct Badge {
+        static var primary: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "BadgePrimary")!
+            }
+            return UIColor(hex: 0xE7E7E7)
+        }
+        
+        static var secondary: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "BadgeSecondary")!
+            }
+            return UIColor(hex: 0xE7E7E7)
+        }
+        
+        static var date: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "BadgeDate")!
+            }
+            return UIColor(hex: 0x0288D1)
+        }
+        
+        static var city: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "BadgeCity")!
+            }
+            return UIColor(hex: 0xFF9D14)
+        }
+    }
+    
+    struct Icon {
+        static var primary: UIColor {
+            if #available(iOS 11.0, *) {
+               return UIColor(named: "IconPrimary")!
+            }
+            return UIColor(hex: 0x444444)
+        }
+    }
+    
+    struct Material {
+        static var green: UIColor {
+            if #available(iOS 11.0, *) {
+               return UIColor(named: "GreenMaterial")!
+            }
+            return UIColor(hex: 0x4CAF50)
+        }
+        
+        static var red: UIColor {
+            if #available(iOS 11.0, *) {
+               return UIColor(named: "RedMaterial")!
+            }
+            return UIColor(hex: 0xF44336)
+        }
+        
+        static var blue: UIColor {
+            if #available(iOS 11.0, *) {
+               return UIColor(named: "BlueMaterial")!
+            }
+            return UIColor(hex: 0x2196F3)
+        }
+        
+        static var orange: UIColor {
+            if #available(iOS 11.0, *) {
+               return UIColor(named: "OrangeMaterial")!
+            }
+            return UIColor(hex: 0xFF9800)
+        }
+    }
+    
+    static var cellBackground: UIColor {
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "CellBackground")!
+        }
+        return UIColor(hex: 0xf2f2f7)
+    }
+    
+    static var shadow: UIColor {
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "Shadow")!
+        }
+        return UIColor(hex: 0x000000)
+    }
+    
     static var blue: UIColor {
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "Blue")!
+        }
         return UIColor(hex: 0x003DA2)
     }
     
@@ -89,7 +192,10 @@ extension HTWNamespace where Base: UIColor {
     }
     
 	static var veryLightGrey: UIColor {
-		return UIColor(hex: 0xF7F7F7)
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "Background")!
+        }
+        return UIColor(hex: 0xf2f1f6)
 	}
 
 	static var lightGrey: UIColor {
@@ -149,4 +255,29 @@ extension HTWNamespace where Base: UIColor {
 		]
 		return colors
 	}
+    
+    static var materialColors: [UIColor] {
+        return [
+            UIColor(hex: 0xF44336),
+            UIColor(hex: 0xFF1744),
+            UIColor(hex: 0xE91E63),
+            UIColor(hex: 0x9C27B0),
+            UIColor(hex: 0x673AB7),
+            UIColor(hex: 0x4A148C),
+            UIColor(hex: 0x3F51B5),
+            UIColor(hex: 0x1E88E5),
+            UIColor(hex: 0x03A9F4),
+            UIColor(hex: 0x00BCD4),
+            UIColor(hex: 0x009688),
+            UIColor(hex: 0x43A047),
+            UIColor(hex: 0x7CB342),
+            UIColor(hex: 0xDCE775),
+            UIColor(hex: 0xC0CA33),
+            UIColor(hex: 0xF9A825),
+            UIColor(hex: 0xFF6F00),
+            UIColor(hex: 0xFF5722),
+            UIColor(hex: 0x000000),
+            UIColor(hex: 0x607D8B)
+        ]
+    }
 }

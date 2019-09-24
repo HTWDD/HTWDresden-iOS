@@ -20,8 +20,12 @@ class StudyGroupSelectionViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         main.apply {
-            $0.layer.cornerRadius = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
+            $0.layer.cornerRadius   = 4
         }
+        
+        lblContent.textColor    = UIColor.htw.Label.primary
+        lblSubContent.textColor = UIColor.htw.Label.secondary
     }
 }
 

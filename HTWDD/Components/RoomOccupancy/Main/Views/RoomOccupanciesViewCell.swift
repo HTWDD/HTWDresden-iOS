@@ -15,8 +15,10 @@ class RoomOccupanciesViewCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblProfessorName: UILabel!
     @IBOutlet weak var lblType: BadgeLabel!
-    @IBOutlet weak var lblTime: BadgeLabel!
+    @IBOutlet weak var lblBeginTime: UILabel!
+    @IBOutlet weak var lblEndTime: UILabel!
     @IBOutlet weak var collection: UICollectionView!
+    @IBOutlet weak var viewSeparator: UIView!
     
     // MARK: - Properties
     private var occupancies: [String] = [] {
@@ -29,37 +31,37 @@ class RoomOccupanciesViewCell: UITableViewCell {
         super.awakeFromNib()
         
         main.apply {
-            $0.layer.cornerRadius = 4
-            $0.dropShadow()
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
         }
         
         lblName.apply {
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .description)
+            $0.textColor        = UIColor.htw.Label.primary
             $0.numberOfLines    = 0
         }
         
         lblProfessorName.apply {
-            $0.textColor        = UIColor.htw.grey
-            $0.font             = UIFont.from(style: .small)
+            $0.textColor        = UIColor.htw.Label.secondary
             $0.numberOfLines    = 0
         }
         
         lblType.apply {
-            $0.backgroundColor  = UIColor.htw.mediumOrange
-            $0.textColor        = .white
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
+            $0.backgroundColor  = UIColor.htw.Badge.primary
+            $0.textColor        = UIColor.htw.Label.primary
         }
         
-        lblTime.apply {
-            $0.backgroundColor  = UIColor(hex: 0xC9C9C9)
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
+        lblBeginTime.apply {
+            $0.textColor = UIColor.htw.Label.primary
+        }
+        
+        lblEndTime.apply {
+            $0.textColor = UIColor.htw.Label.primary
         }
         
         collection.apply {
-            $0.dataSource   = self
-            $0.delegate     = self
+            $0.dataSource       = self
+            $0.delegate         = self
+            $0.backgroundColor  = UIColor.htw.cellBackground
             $0.register(UINib.init(nibName: "RoomOccupanciesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "roomOccupanciesCell")
         }
         
@@ -72,11 +74,12 @@ extension RoomOccupanciesViewCell: FromNibLoadable {
     
     func setup(with model: Occupancy?) {
         guard let model = model else { return }
-        
+        viewSeparator.backgroundColor = "\(model.name) \(model.professor)".materialColor
         lblName.text            = model.name.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoName()
         lblProfessorName.text   = model.professor.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
         lblType.text            = model.type
-        lblTime.text          = "\(String(model.beginTime.prefix(5))) - \(String(model.endTime.prefix(5)))"
+        lblBeginTime.text = String(model.beginTime.prefix(5))
+        lblEndTime.text = String(model.endTime.prefix(5))
         
         occupancies = model.weeksOnly.compactMap { (week: Int) -> String? in
             let component = DateComponents(weekday: model.day, weekOfYear: week, yearForWeekOfYear: Int(Date().string(format: "yyyy")))
@@ -88,7 +91,6 @@ extension RoomOccupanciesViewCell: FromNibLoadable {
             }
         }
     }
-    
 }
 
 
@@ -106,8 +108,6 @@ extension RoomOccupanciesViewCell: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: 45, height: 20)
-        
     }
 }

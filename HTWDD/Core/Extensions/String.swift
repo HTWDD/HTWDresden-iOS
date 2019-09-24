@@ -79,6 +79,12 @@ extension String {
         }.date(from: self)!
     }
     
+    func toTime() -> Date? {
+        return DateFormatter().also {
+            $0.dateFormat = "HH:mm"
+        }.date(from: self)
+    }
+    
     // MARK: - ID-To-UIColor
     var color: UIColor {
         
@@ -91,6 +97,18 @@ extension String {
         
         return UIColor(hex: UInt(hexColorString, radix: 16)!)
         
+    }
+    
+    var materialColor: UIColor {
+        let hex = String(String(self.reversed())
+            .md5()
+            .enumerated()
+            .compactMap({ String(format: "%02hhx", $0.element) })
+            .joined()
+            .prefix(6))
+        
+        let position = (Int(hex, radix: 16)! % UIColor.htw.materialColors.count)
+        return UIColor.htw.materialColors[position]
     }
     
     var nilWhenEmpty: String? {

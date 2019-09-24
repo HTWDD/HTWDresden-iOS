@@ -118,21 +118,6 @@ extension ManagementViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor.clear
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch items[indexPath.row] {
-        case .semesterPlan(_): break
-            
-        case .studenAdministation(_):
-            UIApplication.shared.open(context.managementService.studentAdministration, options: [:], completionHandler: nil)
-            
-        case .principalExamOffice(_):
-            UIApplication.shared.open(context.managementService.principalExamOffice, options: [:], completionHandler: nil)
-            
-        case .stuRaHTW(_):
-            UIApplication.shared.open(context.managementService.stuRaHTW, options: [:], completionHandler: nil)
-        }
-    }
 }
 
 extension ManagementViewController {

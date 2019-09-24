@@ -20,7 +20,7 @@ class StudyGroupSelectionViewController: UITableViewController {
     private let visualEffectView = UIVisualEffectView(effect: nil)
     private lazy var animator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.4, curve: .easeInOut, animations: {
-            self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+            self.visualEffectView.effect = UIBlurEffect(style: .regular)
         })
     }()
     

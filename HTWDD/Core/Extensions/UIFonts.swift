@@ -20,4 +20,32 @@ extension UIFont {
     static func from(style: Styles, isBold: Bool = false) -> UIFont {
         return isBold ? UIFont.boldSystemFont(ofSize: CGFloat(style.rawValue)) : UIFont.systemFont(ofSize: CGFloat(style.rawValue))
     }
+    
+    static var primary: UIFont {
+        return UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+    }
+    
+}
+
+
+extension HTWNamespace where Base: UIFont {
+    
+    struct Labels {
+        static var primary: UIFont {
+            return UIFont.systemFont(ofSize: 17.0, weight: .semibold)
+        }
+        
+        
+        
+        static var secondary: UIFont {
+            return UIFont.systemFont(ofSize: 11.0, weight: .semibold)
+        }
+    }
+    
+    struct Badges {
+        static var primary: UIFont {
+            return UIFont.systemFont(ofSize: 11.0, weight: .semibold)
+        }
+    }
+    
 }

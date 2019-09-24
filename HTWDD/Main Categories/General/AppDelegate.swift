@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		self.appCoordinator = AppCoordinator(window: window)
 		self.window = window
 
-		self.stylizeUI()
+//		self.stylizeUI()
         
         UserDefaults.standard.saveAppVersion()
 
@@ -53,13 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 	// MARK: - UI Apperance
 	private func stylizeUI() {
-		UIRefreshControl.appearance().tintColor = .white
-		UINavigationBar.appearance().tintColor = .white
-		UINavigationBar.appearance().barTintColor = UIColor.htw.blue
-		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-		if #available(iOS 11.0, *) { UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white] }
+        UIRefreshControl.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().barTintColor = UIColor.htw.blue
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        if #available(iOS 11.0, *) {
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        }
 	}
-
 }
 
 // MARK: - Bootup

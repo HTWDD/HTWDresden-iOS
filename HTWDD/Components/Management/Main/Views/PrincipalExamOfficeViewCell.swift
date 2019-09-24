@@ -16,6 +16,8 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var main: UIView!
     @IBOutlet weak var stackContent: UIStackView!
     
+    // MARK: - Properties
+    private var link: URL? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,22 +25,24 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         // Main View (Background)
         main.apply {
             $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
         }
         
         // Title
         lblTitle.apply {
-            $0.textColor    = UIColor.htw.darkGrey
+            $0.textColor    = UIColor.htw.Label.primary
         }
         
         // Subtitle
         lblSubtitle.apply {
-            $0.textColor = UIColor.htw.grey
+            $0.textColor = UIColor.htw.Label.secondary
         }
     }
     
     // MARK: - Setup
     func setup(with data: PrincipalExamOffice?) {
         guard let data = data else { return }
+        link = URL(string: data.link)
         stackContent.subviews.forEach { $0.removeFromSuperview() }
         
         // Title
@@ -47,17 +51,17 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         // Offered Services
         stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOfferedServices()
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .description, isBold: true)
+            $0.textColor    = UIColor.htw.Label.primary
+            $0.font         = UIFont.htw.Labels.primary
         })
         
         // REGION - Offered Services
         data.offeredServices.forEach { service in
             stackContent.addArrangedSubview(BadgeLabel().also {
                 $0.text             = service
-                $0.backgroundColor  = UIColor(hex: 0xE0E0E0)
-                $0.textColor        = UIColor.htw.darkGrey
-                $0.font             = UIFont.from(style: .small)
+                $0.backgroundColor  = UIColor.htw.Badge.primary
+                $0.textColor        = UIColor.htw.Label.primary
+                $0.font             = UIFont.htw.Labels.secondary
                 $0.contentMode      = .scaleToFill
                 $0.numberOfLines    = 0
             })
@@ -70,8 +74,8 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         // Opening Hours
         stackContent.addArrangedSubview(UILabel().also {
             $0.text         = R.string.localizable.managementStudentAdministrationOpeningHours()
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .description, isBold: true)
+            $0.textColor    = UIColor.htw.Label.primary
+            $0.font         = UIFont.htw.Labels.primary
         })
         
         // REGION - Opening Hours
@@ -84,8 +88,8 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
             
             hStack.addArrangedSubview(UILabel().also {
                 $0.text         = time.day.localizedDescription
-                $0.textColor    = UIColor.htw.darkGrey
-                $0.font         = UIFont.from(style: .small)
+                $0.textColor    = UIColor.htw.Label.secondary
+                $0.font         = UIFont.htw.Labels.secondary
             })
             
             let vStack = UIStackView().also {
@@ -100,9 +104,9 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
             time.times.forEach { openingTime in
                 vStack.addArrangedSubview(BadgeLabel().also { label in
                     label.text              = R.string.localizable.managementStudentAdministrationOpeningTimes(openingTime.begin, openingTime.end)
-                    label.font              = UIFont.from(style: .small)
-                    label.backgroundColor   = UIColor.htw.lightGrey
-                    label.textColor         = UIColor.htw.darkGrey
+                    label.font              = UIFont.htw.Badges.primary
+                    label.backgroundColor   = UIColor.htw.Badge.secondary
+                    label.textColor         = UIColor.htw.Label.secondary
                     label.contentMode       = .scaleToFill
                 })
             }
@@ -114,9 +118,26 @@ class PrincipalExamOfficeViewCell: UITableViewCell, FromNibLoadable {
         }
         // ENDREGION - Opening Hours
         
+        stackContent.addArrangedSubview(UIView())
+        
+        stackContent.addArrangedSubview(UIButton().also {
+            $0.titleLabel?.font     = UIFont.from(style: .small, isBold: true)
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.lightBlueMaterial
+            $0.contentEdgeInsets    = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
+            $0.makeDropShadow()
+            $0.setTitleColor(.white, for: .normal)
+            $0.setTitle(R.string.localizable.visit_website(), for: .normal)
+            $0.addTarget(self, action: #selector(visitLink), for: .touchUpInside)
+        })
+        
         // SPACER
         stackContent.addArrangedSubview(UIView())
         stackContent.addArrangedSubview(UIView())
         stackContent.addArrangedSubview(UIView())
+    }
+    
+    @objc private func visitLink() {
+        UIApplication.shared.open(link!, options: [:], completionHandler: nil)
     }
 }

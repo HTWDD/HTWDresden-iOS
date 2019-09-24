@@ -21,6 +21,7 @@ class SideMenuContainerNavigationController: NavigationController {
        return UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuViewController
     }()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         self.delegate = self
         sideMenuManager.apply {
@@ -35,10 +36,30 @@ class SideMenuContainerNavigationController: NavigationController {
                 $0.menuAddScreenEdgePanGesturesToPresent(toView: self.view, forMenu: UIRectEdge.left)
             }
         }
+        sideMenuViewController.view.dropShadow()
+        style()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        style()
     }
     
     func setTimeTableButtonHighLight() {
         sideMenuViewController.setTimeTableHighLight()
+    }
+    
+    private func style() {
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+            navBarAppearance.backgroundEffect = UIBlurEffect(style: .dark)
+            navBarAppearance.backgroundColor = UIColor.htw.blue.withAlphaComponent(traitCollection.userInterfaceStyle == .dark ? 0 : 0.8)
+            navigationBar.standardAppearance = navBarAppearance
+            navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
     }
 }
 

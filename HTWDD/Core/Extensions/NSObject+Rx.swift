@@ -5,6 +5,13 @@ import RxSwift
 import ObjectiveC
 import RealmSwift
 
+extension Reactive where Base: NSObject {
+    
+    
+    
+}
+
+
 public extension NSObject {
     private struct AssociatedKeys {
         static var DisposeBag = "rx_disposeBag"

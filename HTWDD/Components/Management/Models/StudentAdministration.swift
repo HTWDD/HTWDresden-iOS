@@ -12,6 +12,7 @@ import Foundation
 struct StudentAdministration: Codable {
     let offeredServices: [String]
     let officeHours: [OfficeHour]
+    let link: String
 }
 
 // MARK: - Office Hour

@@ -19,25 +19,30 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var iconMeal: UIImageView!
     @IBOutlet weak var iconStar: UIImageView!
     @IBOutlet weak var lblNameConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewChevron: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         // Main View
         main.apply {
+            $0.backgroundColor = UIColor.htw.cellBackground
             $0.layer.cornerRadius   = 4
         }
         
+        lblName.apply {
+            $0.textColor = UIColor.htw.Label.primary
+        }
+        
         lblAdress.apply {
-            $0.textColor        = UIColor.htw.grey
+            $0.textColor        = UIColor.htw.Label.secondary
             $0.numberOfLines    = 0
             $0.contentMode      = .scaleToFill
         }
         
         lblCity.apply {
-            $0.backgroundColor  = UIColor.htw.mediumOrange
-            $0.textColor        = UIColor.white
-            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.backgroundColor  = UIColor.htw.Badge.secondary
+            $0.textColor        = UIColor.htw.Label.secondary
         }
         
         lblMealCount.apply {
@@ -46,7 +51,11 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         
         // Meal Icon
         iconMeal.apply {
-            $0.tintColor = UIColor.htw.darkGrey
+            $0.tintColor = UIColor.htw.Icon.primary
+        }
+        
+        imageViewChevron.apply {
+            $0.tintColor = UIColor.htw.Icon.primary
         }
     }
     
@@ -59,7 +68,7 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         lblName.apply {
             let canteenName     = canteen.name.components(separatedBy: ",").last ?? canteen.name
             iconStar.isHidden   = !canteenName.contains("Reichenbachstraße")
-            $0.textColor        = hasMeals ? UIColor.htw.darkGrey : UIColor.htw.grey
+            $0.alpha            = hasMeals ? 1 : 0.5
             $0.text             = canteenName.replacingOccurrences(of: "Johannesstadt", with: "Johannstadt")
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -84,8 +93,8 @@ class CanteenViewCell: UITableViewCell, FromNibLoadable {
         // Meal Count
         lblMealCount.apply {
             $0.text             = "\(model.meals.count)"
-            $0.textColor        = hasMeals ? UIColor.htw.darkGrey  : .white
-            $0.backgroundColor  = hasMeals ? UIColor.htw.lightGrey : UIColor.htw.redMaterial
+            $0.textColor        = hasMeals ? UIColor.htw.Label.primary  : .white
+            $0.backgroundColor  = hasMeals ? UIColor.htw.Badge.primary : UIColor.htw.redMaterial
         }
         
         // Meal Icon
