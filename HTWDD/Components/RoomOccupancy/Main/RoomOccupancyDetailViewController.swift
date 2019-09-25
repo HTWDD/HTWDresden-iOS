@@ -10,22 +10,31 @@ import UIKit
 import RxSwift
 import RealmSwift
 
-
 class RoomOccupancyDetailViewController: UITableViewController {
     
     // MARK: - Properties
     var context: HasRoomOccupancy!
     var roomName: String!
-    private var items: [Int : [Occupancy]] = [:] {
+    var viewModel: RoomOccupancyDetailViewModel!
+    
+    private var items: [Occupancies] = [] {
         didSet {
             tableView.reloadData()
         }
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        loadData()
+        
+        viewModel
+            .load(id: roomName.uid)
+            .subscribe(onNext: { [weak self] items in
+                guard let self = self else { return }
+                self.items = items
+            })
+            .disposed(by: rx_disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -40,55 +49,21 @@ class RoomOccupancyDetailViewController: UITableViewController {
 extension RoomOccupancyDetailViewController {
     
     private func setup() {
-        
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.largeTitleDisplayMode = .automatic
-        }
-        
         title = roomName.uppercased()
-        
         tableView.apply {
             $0.separatorStyle   = .none
             $0.backgroundColor  = UIColor.htw.veryLightGrey
+            $0.register(RoomOccupanciesHeaderViewCell.self)
             $0.register(RoomOccupanciesViewCell.self)
         }
-        
     }
-    
-    private func loadData() {
-        let realm = try! Realm()
-        let results = realm.objects(RoomRealm.self).filter(NSPredicate(format: "id = %@", roomName.uid)).first
-        
-        if let results = results {
-            let occupancies = results.occupancies.sorted(byKeyPath: "day").map { occupancy -> Occupancy in
-                
-                let weeks = String(String(occupancy.weeksOnly.dropFirst()).dropLast()).replacingOccurrences(of: " ", with: "").components(separatedBy: ",")
-                
-                return Occupancy(id: occupancy.id,
-                                 name: occupancy.name,
-                                 type: occupancy.type,
-                                 day: occupancy.day,
-                                 beginTime: occupancy.beginTime,
-                                 endTime: occupancy.endTime,
-                                 week: occupancy.week,
-                                 professor: occupancy.professor,
-                                 weeksOnly: weeks.compactMap( { Int($0) }))
-                }.sorted { (lhs, rhs) in lhs.beginTime < rhs.beginTime }
-            
-            self.items = Dictionary.init(grouping: occupancies) { (element: Occupancy) in
-                return element.day
-            }
-        }
-    }
-    
 }
 
 // MARK: - TableView DataSource
 extension RoomOccupancyDetailViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items[section + 1]?.count ?? 0
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -96,32 +71,16 @@ extension RoomOccupancyDetailViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(RoomOccupanciesViewCell.self, for: indexPath)!
-        cell.setup(with: items[indexPath.section + 1]?[indexPath.row])
-        return cell
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let day = items[section + 1]?.first else { return nil }
-        let localizedDay: String
-        switch day.day {
-        case 1: localizedDay = R.string.localizable.monday()
-        case 2: localizedDay = R.string.localizable.tuesday()
-        case 3: localizedDay = R.string.localizable.wednesday()
-        case 4: localizedDay = R.string.localizable.thursday()
-        case 5: localizedDay = R.string.localizable.friday()
-        case 6: localizedDay = R.string.localizable.saturday()
-        case 7: localizedDay = R.string.localizable.sunday()
-        default: return nil
+        switch items[indexPath.row] {
+        case .header(let model):
+            let cell = tableView.dequeueReusableCell(RoomOccupanciesHeaderViewCell.self, for: indexPath)!
+            cell.setup(with: model)
+            return cell
+        case .occupancy(let model):
+            let cell = tableView.dequeueReusableCell(RoomOccupanciesViewCell.self, for: indexPath)!
+            cell.setup(with: model)
+            return cell
         }
-        return BlurredSectionHeader(frame: tableView.frame, header: localizedDay, subHeader: "\(items[section + 1]?.count ?? 0) \(R.string.localizable.roomOccupancyDescription())")
     }
+
 }

@@ -122,7 +122,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
             $0.text             = "\(data.examsPeriod.beginDayFormated) - \(data.examsPeriod.endDayFormated)"
             $0.textColor        = .white
             $0.font             = UIFont.htw.Badges.primary
-            $0.backgroundColor  = UIColor.htw.Badge.secondary
+            $0.backgroundColor  = UIColor.htw.Material.orange
         })
         
         // SPACER
@@ -139,7 +139,7 @@ class SemesterplaningViewCell: UITableViewCell, FromNibLoadable {
         stackContent.addArrangedSubview(BadgeLabel().also {
             $0.text             = "\(data.reregistration.beginDayFormated) - \(data.reregistration.endDayFormated)"
             $0.textColor        = .white
-            $0.backgroundColor  = UIColor.htw.Badge.secondary
+            $0.backgroundColor  = UIColor.htw.Material.orange
             $0.font             = UIFont.htw.Badges.primary
         })
     }

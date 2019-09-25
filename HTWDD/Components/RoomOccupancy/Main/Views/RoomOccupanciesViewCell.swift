@@ -69,7 +69,7 @@ class RoomOccupanciesViewCell: UITableViewCell {
 
 }
 
-// MARK: - Nib laodable
+// MARK: - Nib loadable
 extension RoomOccupanciesViewCell: FromNibLoadable {
     
     func setup(with model: Occupancy?) {

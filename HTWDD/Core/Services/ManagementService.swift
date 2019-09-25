@@ -22,12 +22,6 @@ class ManagementService: Service {
     // MARK: - Properties
     private var bag = DisposeBag()
     
-    let studentAdministration = URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/studentensekretariat.html")!
-    
-    let principalExamOffice = URL(string: "https://www.htw-dresden.de/de/hochschule/hochschulstruktur/zentrale-verwaltung-dezernate/dezernat-studienangelegenheiten/pruefungsamt.html")!
-    
-    let stuRaHTW = URL(string: "https://www.stura.htw-dresden.de")!
-    
     private let apiService: ApiService
     
     // MARK: - Lifecycle
@@ -50,7 +44,7 @@ class ManagementService: Service {
     fileprivate func loadSemesterPlaning() -> Observable<[Item]> {
         let realm = try! Realm()
         
-        if let rModel = realm.objects(SemesterPlaningRealm.self).first {
+        if let rModel = realm.objects(SemesterPlaningRealm.self).last {
             return Observable.from(optional: rModel)
                 .map {
                     [Item.semesterPlan(model: SemesterPlaning.map(from: $0)!)]

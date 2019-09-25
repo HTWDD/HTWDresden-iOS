@@ -31,8 +31,9 @@ class RoomOccupancyCoordinator: Coordinator {
     // MARK: - Detail ViewController
     func getDetailRoomOccupancyViewController(with roomName: String) -> RoomOccupancyDetailViewController {
         return R.storyboard.roomOccupancy.roomOccupancyDetailViewController()!.also {
-            $0.context  = context
-            $0.roomName = roomName
+            $0.context      = context
+            $0.roomName     = roomName
+            $0.viewModel    = RoomOccupancyDetailViewModel()
         }
     }
 }
