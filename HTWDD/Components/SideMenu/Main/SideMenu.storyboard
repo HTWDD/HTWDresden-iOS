@@ -59,7 +59,7 @@
                                 <rect key="frame" x="0.0" y="191" width="290" height="671"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2EO-LJ-b3F">
-                                        <rect key="frame" x="20" y="0.0" width="250" height="339"/>
+                                        <rect key="frame" x="20" y="0.0" width="250" height="378"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZO3-CN-2fM">
                                                 <rect key="frame" x="0.0" y="0.0" width="250" height="34"/>
@@ -123,8 +123,17 @@
                                                     <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="dJt-IZ-cNF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0U-9J-Anx">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxX-QX-RaD">
                                                 <rect key="frame" x="0.0" y="260" width="250" height="24"/>
+                                                <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <size key="titleShadowOffset" width="25" height="25"/>
+                                                <state key="normal" title="Campusplan" image="Management"/>
+                                                <connections>
+                                                    <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="uTX-24-L95"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0U-9J-Anx">
+                                                <rect key="frame" x="0.0" y="299" width="250" height="24"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="25" height="25"/>
                                                 <state key="normal" title="Verwaltung" image="Management"/>
@@ -133,14 +142,14 @@
                                                 </connections>
                                             </button>
                                             <view autoresizesSubviews="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-8C-Cgh">
-                                                <rect key="frame" x="0.0" y="299" width="250" height="1"/>
+                                                <rect key="frame" x="0.0" y="338" width="250" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="SOi-LK-uFh"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-6l-PpK">
-                                                <rect key="frame" x="0.0" y="315" width="250" height="24"/>
+                                                <rect key="frame" x="0.0" y="354" width="250" height="24"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="25" height="25"/>
                                                 <state key="normal" title="Einstellungen" image="Settings"/>
@@ -182,6 +191,7 @@
                     </view>
                     <size key="freeformSize" width="290" height="896"/>
                     <connections>
+                        <outlet property="campusPlanMenuButton" destination="VxX-QX-RaD" id="TVm-fF-Ab3"/>
                         <outlet property="canteenMenuButton" destination="k0s-7s-RF8" id="Sji-cX-Mr5"/>
                         <outlet property="classMenuButton" destination="ega-vv-dBc" id="Ao2-0u-NLu"/>
                         <outlet property="dashboardMenuButton" destination="ZO3-CN-2fM" id="o9d-hM-S5N"/>
@@ -199,6 +209,7 @@
                         <outletCollection property="menuButtons" destination="3dB-9b-vZH" collectionClass="NSMutableArray" id="GjV-Eg-SOK"/>
                         <outletCollection property="menuButtons" destination="k0s-7s-RF8" collectionClass="NSMutableArray" id="SHf-L2-Hsd"/>
                         <outletCollection property="menuButtons" destination="f8g-6l-PpK" collectionClass="NSMutableArray" id="49v-sc-AvV"/>
+                        <outletCollection property="menuButtons" destination="VxX-QX-RaD" collectionClass="NSMutableArray" id="J1E-QS-yXm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4k-hb-N9h" userLabel="First Responder" sceneMemberID="firstResponder"/>

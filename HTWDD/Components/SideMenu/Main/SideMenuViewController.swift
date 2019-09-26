@@ -20,6 +20,7 @@ class SideMenuViewController: ViewController {
     @IBOutlet weak var managementMenuButton: UIButton!
     @IBOutlet weak var dashboardMenuButton: UIButton!
     @IBOutlet weak var roomOccupancyMenuButton: UIButton!
+    @IBOutlet weak var campusPlanMenuButton: UIButton!
     @IBOutlet var menuButtons: [UIButton]!
     @IBOutlet var mainView: UIView!
     
@@ -61,6 +62,7 @@ class SideMenuViewController: ViewController {
         setTitleAndTintColor(for: &canteenMenuButton, title: Loca.Canteen.pluralTitle)
         setTitleAndTintColor(for: &settingsMenuButton, title: Loca.Settings.title)
         setTitleAndTintColor(for: &managementMenuButton, title: Loca.Management.title)
+        setTitleAndTintColor(for: &campusPlanMenuButton, title: R.string.localizable.campusPlanTitle())
     }
     
     func setTimeTableHighLight() {
@@ -90,6 +92,7 @@ class SideMenuViewController: ViewController {
         case canteenMenuButton: coordinator?.goTo(controller: .canteen)
         case settingsMenuButton: coordinator?.goTo(controller: .settings)
         case managementMenuButton: coordinator?.goTo(controller: .management)
+        case campusPlanMenuButton: coordinator?.goTo(controller: .campusPlan)
         default:
             break
         }
