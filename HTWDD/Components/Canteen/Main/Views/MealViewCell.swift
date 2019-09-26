@@ -15,6 +15,7 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var lblMealName: UILabel!
     @IBOutlet weak var mealStackView: UIStackView!
     @IBOutlet weak var priceStackView: UIStackView!
+    @IBOutlet weak var ivForkAndKnife: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,13 +23,19 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         // Main View (Background)
         main.apply  {
             $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
         }
         
         // Meal Name
         lblMealName.apply {
-            $0.textColor        = UIColor.htw.darkGrey
+            $0.textColor        = UIColor.htw.Label.primary
             $0.numberOfLines    = 0
             $0.contentMode      = .scaleToFill
+        }
+        
+        ivForkAndKnife.apply {
+            $0.image        = $0.image?.withRenderingMode(.alwaysTemplate)
+            $0.tintColor    = UIColor.htw.Icon.primary
         }
     }
     
@@ -62,14 +69,14 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
         // REGION Prices
         priceStackView.addArrangedSubview(BadgeLabel().also {
             $0.text             = model.prices.studentsPrice
-            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.font             = UIFont.htw.Badges.primary
             $0.textColor        = .white
             $0.backgroundColor  = UIColor.htw.mediumOrange
         })
         
         priceStackView.addArrangedSubview(BadgeLabel().also {
             $0.text             = model.prices.employeesPrice
-            $0.font             = UIFont.from(style: .small, isBold: true)
+            $0.font             = UIFont.htw.Badges.primary
             $0.textColor        = .white
             $0.backgroundColor  = UIColor(hex: 0x005c98)
         })
@@ -79,9 +86,7 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
     
     
     private func getImage(for containing: String) -> UIView? {
-        let imageSize = CGSize(width: 25, height: 25)
         let image: UIImage
-        
         switch containing.lowercased().description {
         case let str where str.contains(MealTypes.alc.rawValue.lowercased()): image = #imageLiteral(resourceName: "Alcohol")
         case let str where str.contains(MealTypes.cow.rawValue.lowercased()): image = #imageLiteral(resourceName: "Cow")
@@ -93,30 +98,17 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
             return nil
         }
         
-        let vStack = UIStackView().also {
-            $0.axis         = .vertical
-            $0.alignment    = .center
-            $0.spacing      = 5
-        }
-        
-        vStack.addArrangedSubview(UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)).also {
-            $0.image        = image
-            $0.width        = imageSize.width
-            $0.height       = imageSize.height
-            $0.contentMode  = .left
-            if #available(iOS 11.0, *) {
-                $0.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        return BadgeLabel().also { badge in
+            badge.attributedText   = NSMutableAttributedString(string: localizedDescribingFor(note: containing), attributes: [.font: UIFont.htw.Badges.primary]).also { attributed in
+                attributed.insert(NSAttributedString(attachment: NSTextAttachment().also { attachment in
+                    attachment.image    = image
+                    attachment.bounds   = CGRect(x: -5, y: -6, width: 20, height: 20)
+                }), at: 0)
             }
-        })
-        
-        vStack.addArrangedSubview(BadgeLabel().also {
-            $0.text             = localizedDescribingFor(note: containing)
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
-        })
-        
-        return vStack
+            badge.backgroundColor  = UIColor.htw.Badge.primary
+            badge.cornerRadius     = 8
+        }
+    
     }
     
     private func localizedDescribingFor(note: String) -> String {

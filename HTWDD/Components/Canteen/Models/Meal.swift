@@ -27,10 +27,10 @@ struct Prices: Codable {
 // MARK: - Extensions
 extension Prices {
     var studentsPrice: String {
-        return students.asCurrency
+        return R.string.localizable.canteenMealPriceStudents(students ?? 0.00)
     }
     
     var employeesPrice: String {
-        return employees.asCurrency
+        return R.string.localizable.canteenMealPriceEmployee(employees ?? 0.00)
     }
 }

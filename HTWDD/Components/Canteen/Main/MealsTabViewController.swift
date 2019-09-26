@@ -24,13 +24,23 @@ class MealsTabViewController: TabmanViewController {
         }() as! [UIViewController]
     
     private lazy var bar: TMBar.ButtonBar = {
+        let backgroundColor: UIColor
+        let backgroudViewStyle: TMBarBackgroundView.Style
+        
+        if #available(iOS 13.0, *) {
+            backgroundColor     = UIColor.htw.blue.withAlphaComponent(traitCollection.userInterfaceStyle == .dark ? 0 : 1.0)
+            backgroudViewStyle  = traitCollection.userInterfaceStyle == .dark ? .blur(style: .regular) : .clear
+        } else {
+            backgroundColor     = UIColor.htw.blue
+            backgroudViewStyle  = .clear
+        }
         return TMBar.ButtonBar().also {
-            $0.layout.transitionStyle   = .snap
+            $0.layout.transitionStyle   = .progressive
             $0.layout.contentMode       = .fit
             $0.fadesContentEdges        = true
-            $0.backgroundColor          = UIColor(hex: 0x2457ad)
+            $0.backgroundColor          = backgroundColor
             $0.indicator.tintColor      = .white
-            $0.backgroundView.style     = .clear
+            $0.backgroundView.style     = backgroudViewStyle
             $0.layout.contentInset = UIEdgeInsets(top: 5.0, left: 0, bottom: 1.0, right: 0)
             $0.buttons.customize { button in
                 button.font                     = UIFont.from(style: .small, isBold: true)
@@ -86,7 +96,7 @@ extension MealsTabViewController {
         
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.largeTitleDisplayMode = .automatic
+            navigationItem.largeTitleDisplayMode = .never
         }
     }
     

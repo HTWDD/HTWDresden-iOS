@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,29 +14,29 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="219.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wc7-Yq-qJb">
-                        <rect key="frame" x="8" y="4" width="304" height="211.5"/>
+                        <rect key="frame" x="8" y="4" width="304" height="212"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-Zd-nvM">
-                                <rect key="frame" x="36" y="8" width="260" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="32" y="8" width="264" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PgS-kU-pa2">
                                 <rect key="frame" x="8" y="44" width="288" height="49"/>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pW-ux-pwN">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3pW-ux-pwN">
                                 <rect key="frame" x="8" y="101" width="288" height="75"/>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Canteen" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-2T-gJo">
-                                <rect key="frame" x="8" y="8" width="20" height="20"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Canteen" translatesAutoresizingMaskIntoConstraints="NO" id="Gv6-2T-gJo">
+                                <rect key="frame" x="8" y="12" width="16" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="FtL-We-xte"/>
-                                    <constraint firstAttribute="height" constant="20" id="UeR-Us-37N"/>
+                                    <constraint firstAttribute="width" constant="16" id="FtL-We-xte"/>
+                                    <constraint firstAttribute="height" constant="16" id="UeR-Us-37N"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -48,14 +46,12 @@
                             <constraint firstAttribute="trailing" secondItem="r4e-Zd-nvM" secondAttribute="trailing" constant="8" id="0Z3-Ee-5fx"/>
                             <constraint firstAttribute="bottom" secondItem="3pW-ux-pwN" secondAttribute="bottom" constant="8" id="D5M-3x-Tx6"/>
                             <constraint firstItem="PgS-kU-pa2" firstAttribute="top" secondItem="r4e-Zd-nvM" secondAttribute="bottom" constant="8" id="KaF-pq-Qfe"/>
-                            <constraint firstItem="Gv6-2T-gJo" firstAttribute="top" secondItem="wc7-Yq-qJb" secondAttribute="top" constant="8" id="O5M-Tg-ncl"/>
-                            <constraint firstAttribute="trailing" secondItem="PgS-kU-pa2" secondAttribute="trailing" constant="8" id="Uyo-0G-8Qx"/>
-                            <constraint firstItem="PgS-kU-pa2" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="ZBo-tg-JYW"/>
-                            <constraint firstAttribute="trailing" secondItem="3pW-ux-pwN" secondAttribute="trailing" constant="8" id="bJg-oD-o4H"/>
+                            <constraint firstItem="PgS-kU-pa2" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="32" id="ZBo-tg-JYW"/>
                             <constraint firstItem="r4e-Zd-nvM" firstAttribute="leading" secondItem="Gv6-2T-gJo" secondAttribute="trailing" constant="8" id="cFw-n2-m4g"/>
-                            <constraint firstItem="3pW-ux-pwN" firstAttribute="top" secondItem="PgS-kU-pa2" secondAttribute="bottom" constant="16" id="cQs-up-51z"/>
+                            <constraint firstItem="3pW-ux-pwN" firstAttribute="top" secondItem="PgS-kU-pa2" secondAttribute="bottom" constant="8" id="cQs-up-51z"/>
                             <constraint firstItem="r4e-Zd-nvM" firstAttribute="top" secondItem="wc7-Yq-qJb" secondAttribute="top" constant="8" id="iO1-xi-yjW"/>
-                            <constraint firstItem="3pW-ux-pwN" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="8" id="ybs-cU-Bq3"/>
+                            <constraint firstItem="Gv6-2T-gJo" firstAttribute="top" secondItem="r4e-Zd-nvM" secondAttribute="top" constant="4" id="ide-We-IAs"/>
+                            <constraint firstItem="3pW-ux-pwN" firstAttribute="leading" secondItem="wc7-Yq-qJb" secondAttribute="leading" constant="32" id="ybs-cU-Bq3"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
@@ -71,6 +67,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="ivForkAndKnife" destination="Gv6-2T-gJo" id="x76-nJ-uTm"/>
                 <outlet property="lblMealName" destination="r4e-Zd-nvM" id="yER-7H-2dj"/>
                 <outlet property="main" destination="wc7-Yq-qJb" id="elh-qP-nu0"/>
                 <outlet property="mealStackView" destination="PgS-kU-pa2" id="3fV-5T-gU2"/>

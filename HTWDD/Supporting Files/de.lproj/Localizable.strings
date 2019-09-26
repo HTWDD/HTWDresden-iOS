@@ -97,6 +97,8 @@
 "Canteen.Meal.note.garlic"="Knoblauch";
 "Canteen.Meal.note.vegan"="Vegan";
 "Canteen.Meal.note.vegatarian"="Vegetarisch";
+"Canteen.Meal.price.students"="Studenten: %.2f €";
+"Canteen.Meal.price.employee"="Mitarbeiter: %.2f €";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";

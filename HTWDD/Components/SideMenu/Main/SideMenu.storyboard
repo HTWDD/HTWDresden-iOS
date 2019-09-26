@@ -127,7 +127,7 @@
                                                 <rect key="frame" x="0.0" y="260" width="250" height="24"/>
                                                 <inset key="titleEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <size key="titleShadowOffset" width="25" height="25"/>
-                                                <state key="normal" title="Campusplan" image="Management"/>
+                                                <state key="normal" title="Campusplan" image="CampusPlan"/>
                                                 <connections>
                                                     <action selector="onMenuButtonTouchUpInside:" destination="JhR-iD-IdK" eventType="touchUpInside" id="uTX-24-L95"/>
                                                 </connections>
@@ -239,6 +239,7 @@
     </scenes>
     <resources>
         <image name="Booking" width="24" height="24"/>
+        <image name="CampusPlan" width="24" height="24"/>
         <image name="Canteen" width="24" height="24"/>
         <image name="Class" width="24" height="24"/>
         <image name="Dashboard" width="24" height="24"/>

@@ -73,14 +73,12 @@ extension CampusPlanViewCell: FromNibLoadable {
                 $0.backgroundColor  = UIColor.htw.Badge.primary
                 $0.translatesAutoresizingMaskIntoConstraints = false
                 $0.widthAnchor.constraint(equalToConstant: 30).isActive = true
-                $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
             }
             
             let description = UILabel().also {
                 $0.text             = chunks.last?.nilWhenEmpty ?? ""
                 $0.textColor        = UIColor.htw.Label.secondary
                 $0.font             = UIFont.htw.Labels.secondary
-                $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
             }
             
             mainStack.addArrangedSubview(UIStackView(arrangedSubviews: [legend, description]).also {
