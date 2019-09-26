@@ -25,7 +25,8 @@ class AppCoordinator: Coordinator {
         self.grades,
         self.canteen,
         self.settings,
-        self.management
+        self.management,
+        self.campusPlan
     ]
     
     private let navigationController: UINavigationController = UIStoryboard(name: "SideMenu", bundle: nil).instantiateViewController(withIdentifier: "MainNavigation") as! SideMenuContainerNavigationController
@@ -44,6 +45,7 @@ class AppCoordinator: Coordinator {
     private lazy var canteen        = CanteenCoordinator(context: appContext)
     private lazy var settings       = SettingsCoordinator(context: appContext, delegate: self)
     private lazy var management     = ManagementCoordinator(context: appContext)
+    private lazy var campusPlan     = CampusPlanCoordinator(context: appContext)
 
     private let disposeBag = DisposeBag()
     
@@ -182,6 +184,8 @@ extension AppCoordinator {
             viewController = settings.start()
         case .management:
             viewController = management.rootViewController
+        case .campusPlan:
+            viewController = campusPlan.rootViewController
         }
         
         if rootNavigationController.viewControllers.contains(viewController) {

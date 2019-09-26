@@ -33,11 +33,6 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
             $0.tintColor = .white
         }
 
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-            navigationItem.largeTitleDisplayMode = .automatic
-        }
-        
         title = R.string.localizable.managementTitle()
         tableView.apply {
             $0.separatorStyle = .none

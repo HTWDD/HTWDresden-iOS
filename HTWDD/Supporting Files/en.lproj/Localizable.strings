@@ -198,6 +198,9 @@
 "Grades.credits.number.plural"="%.2f Credits";
 "Grades.last.grade"="Last grade: %@";
 
+"CampusPlan.title" = "Campus plan";
+"CampusPlan.buildings" = "%d Buildings";
+
 "Management.title" = "Management";
 "Management.semester.summer" = "Summer semester";
 "Management.semester.winter" = "Winter semester";

@@ -20,6 +20,7 @@ enum CoordinatorRoute {
     case meal(canteenDetail: CanteenDetail)
     case settings
     case management
+    case campusPlan
 }
 
 extension CoordinatorRoute {
@@ -38,6 +39,7 @@ extension CoordinatorRoute {
         case "meal": self = .meal(canteenDetail: CanteenDetail(canteen:  Canteen(id: 0, name: "", address: "", coordinates: [0, 0]), meals: []))
         case "settings": self = .settings
         case "management": self = .management
+        case "campusPlan": self = .campusPlan
         default:
             return nil
         }
@@ -56,6 +58,7 @@ extension CoordinatorRoute {
         case .meal(_): return "meal"
         case .settings: return "settings"
         case .management: return "management"
+        case .campusPlan: return "campusPlan"
         }
     }
 }

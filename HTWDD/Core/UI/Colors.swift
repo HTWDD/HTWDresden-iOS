@@ -126,7 +126,7 @@ extension HTWNamespace where Base: UIColor {
         if #available(iOS 11.0, *) {
             return UIColor(named: "CellBackground")!
         }
-        return UIColor(hex: 0xf2f2f7)
+        return UIColor(hex: 0xFFFFFF)
     }
     
     static var shadow: UIColor {
