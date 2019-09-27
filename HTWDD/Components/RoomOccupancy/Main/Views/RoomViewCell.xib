@@ -40,15 +40,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wIi-CU-TIf">
-                                <rect key="frame" x="276" y="18" width="20" height="23.5"/>
+                                <rect key="frame" x="276" y="22" width="20" height="15.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3Kc-bY-Zft"/>
-                                    <constraint firstAttribute="height" constant="26" id="d5A-s3-ePZ"/>
+                                    <constraint firstAttribute="height" constant="18" id="d5A-s3-ePZ"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-be-Cxn">
                                 <rect key="frame" x="46" y="8" width="4" height="43"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4" id="Eg8-On-6qv"/>
                                 </constraints>

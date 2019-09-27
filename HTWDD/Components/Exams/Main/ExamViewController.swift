@@ -18,9 +18,9 @@ class ExamViewController: UITableViewController, HasSideBarItem {
     private var items: [ExamRealm] = []
     private var notificationToken: NotificationToken? = nil
     
-    lazy var action: Action<Void, [Exam]> = Action { [weak self] (_) -> Observable<[Exam]> in
+    private lazy var action: Action<Void, [Exam]> = Action { [weak self] (_) -> Observable<[Exam]> in
         guard let self = self else { return Observable.empty() }
-        return self.context.examService.loadExams().observeOn(MainScheduler.instance).debug()
+        return self.context.examService.loadExams().observeOn(MainScheduler.instance)
     }
     
     private let stateView: EmptyResultsView = {
@@ -34,21 +34,15 @@ class ExamViewController: UITableViewController, HasSideBarItem {
         super.viewDidLoad()
         setup()
         observeExams()
-        tableView.backgroundView = stateView
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        load()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
         }
+        load()
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,8 +68,9 @@ extension ExamViewController {
         title = R.string.localizable.examsTitle()
         
         tableView.apply {
-            $0.separatorStyle = .none
-            $0.backgroundColor = UIColor.htw.veryLightGrey
+            $0.separatorStyle   = .none
+            $0.backgroundColor  = UIColor.htw.veryLightGrey
+            $0.backgroundView   = stateView
             $0.register(ExamViewCell.self)
         }
     }

@@ -59,10 +59,10 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gpE-Wu-uDY">
-                                <rect key="frame" x="276" y="30.5" width="20" height="23.5"/>
+                                <rect key="frame" x="276" y="34.5" width="20" height="15.5"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="ABU-hL-Yym"/>
+                                    <constraint firstAttribute="height" constant="18" id="ABU-hL-Yym"/>
                                     <constraint firstAttribute="width" constant="20" id="ClM-4S-OdD"/>
                                 </constraints>
                             </imageView>

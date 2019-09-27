@@ -17,3 +17,12 @@ struct Canteen: Codable {
     let address: String
     let coordinates: [Double]
 }
+
+// MARK: - Equatable
+extension Canteen: Equatable {
+
+    static func ==(lhs: Canteen, rhs: Canteen) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
+    }
+    
+}

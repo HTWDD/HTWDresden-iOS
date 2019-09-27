@@ -29,7 +29,7 @@ class MealsTabViewController: TabmanViewController {
         
         if #available(iOS 13.0, *) {
             backgroundColor     = UIColor.htw.blue.withAlphaComponent(traitCollection.userInterfaceStyle == .dark ? 0 : 1.0)
-            backgroudViewStyle  = traitCollection.userInterfaceStyle == .dark ? .blur(style: .regular) : .clear
+            backgroudViewStyle  = traitCollection.userInterfaceStyle == .dark ? .blur(style: .dark) : .clear
         } else {
             backgroundColor     = UIColor.htw.blue
             backgroudViewStyle  = .clear

@@ -200,6 +200,12 @@
 		6481AEF622E5A4770068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6481AEF722E5ABF20068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6496902D22CCCA8C00F9CD34 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
+		649B49DD233DE3C0001375D0 /* MealHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B49DC233DE3C0001375D0 /* MealHeader.swift */; };
+		649B49E0233DE633001375D0 /* MealHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B49DE233DE633001375D0 /* MealHeaderViewCell.swift */; };
+		649B49E1233DE633001375D0 /* MealHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649B49DF233DE633001375D0 /* MealHeaderViewCell.xib */; };
+		649B49E4233DF38A001375D0 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B49E3233DF38A001375D0 /* MealsViewModel.swift */; };
+		649B49E6233E04FE001375D0 /* MealsForWeekTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B49E5233E04FE001375D0 /* MealsForWeekTableViewModel.swift */; };
+		649B49E8233E172B001375D0 /* CanteenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649B49E7233E172B001375D0 /* CanteenViewModel.swift */; };
 		649F4CC422D35BA20071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		649F4CC522D370B70071CF2F /* OpenMensaRestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */; };
 		64B2425F23327F7900870A3C /* EmptyResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B2425E23327F7900870A3C /* EmptyResultsView.swift */; };
@@ -510,6 +516,12 @@
 		645E635B22DCAE8F005F18BF /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewController.swift; sourceTree = "<group>"; };
 		6481AEF522E5A4770068A8C3 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		649B49DC233DE3C0001375D0 /* MealHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeader.swift; sourceTree = "<group>"; };
+		649B49DE233DE633001375D0 /* MealHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHeaderViewCell.swift; sourceTree = "<group>"; };
+		649B49DF233DE633001375D0 /* MealHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealHeaderViewCell.xib; sourceTree = "<group>"; };
+		649B49E3233DF38A001375D0 /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
+		649B49E5233E04FE001375D0 /* MealsForWeekTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewModel.swift; sourceTree = "<group>"; };
+		649B49E7233E172B001375D0 /* CanteenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanteenViewModel.swift; sourceTree = "<group>"; };
 		649F4CC322D35BA20071CF2F /* OpenMensaRestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMensaRestApi.swift; sourceTree = "<group>"; };
 		64B2425E23327F7900870A3C /* EmptyResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultsView.swift; sourceTree = "<group>"; };
 		64C4BCC3233B417300B135DE /* RoomOccupanciesHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupanciesHeaderViewCell.swift; sourceTree = "<group>"; };
@@ -1139,6 +1151,16 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
+		649B49E2233DF34E001375D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				649B49E3233DF38A001375D0 /* MealsViewModel.swift */,
+				649B49E5233E04FE001375D0 /* MealsForWeekTableViewModel.swift */,
+				649B49E7233E172B001375D0 /* CanteenViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		64C4BCC9233B51F700B135DE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1436,6 +1458,8 @@
 				6410F72922D5D0C200AA3BA1 /* CanteenViewCell.xib */,
 				64E218DC22D7769B00004183 /* MealViewCell.swift */,
 				64E218DD22D7769B00004183 /* MealViewCell.xib */,
+				649B49DE233DE633001375D0 /* MealHeaderViewCell.swift */,
+				649B49DF233DE633001375D0 /* MealHeaderViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1521,8 +1545,9 @@
 			isa = PBXGroup;
 			children = (
 				B5B376851FA6176E00FC3A07 /* CanteenCoordinator.swift */,
-				B5B376871FA6179400FC3A07 /* Models */,
 				1F864E6B1FB73293002AA79B /* Main */,
+				B5B376871FA6179400FC3A07 /* Models */,
+				649B49E2233DF34E001375D0 /* ViewModels */,
 			);
 			path = Canteen;
 			sourceTree = "<group>";
@@ -1533,6 +1558,7 @@
 				6446CE9422D5B65E002636A5 /* Canteen.swift */,
 				6410F72C22D629E800AA3BA1 /* Meal.swift */,
 				64E218D722D722EA00004183 /* CanteenDetail.swift */,
+				649B49DC233DE3C0001375D0 /* MealHeader.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1837,6 +1863,7 @@
 				6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */,
 				6420E98E22E0A0DD00F13AD3 /* DashboardMealViewCell.xib in Resources */,
 				1F74531F1FC1D76D00BC0087 /* confetti.png in Resources */,
+				649B49E1233DE633001375D0 /* MealHeaderViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2132,6 +2159,7 @@
 				640DB2FA22E99FB70083078E /* RoomOccupancyViewController.swift in Sources */,
 				6413289A22FD4CB20065301F /* ExamService.swift in Sources */,
 				B5EA535F1E7FBB1500183E07 /* String.swift in Sources */,
+				649B49E8233E172B001375D0 /* CanteenViewModel.swift in Sources */,
 				6410F72622D5C86800AA3BA1 /* CanteenService.swift in Sources */,
 				B5A0D88A1E87B624007827A6 /* TabBarController.swift in Sources */,
 				B5EF95831FAF53F6006BC7D1 /* GenericBasicCollectionViewDataSource.swift in Sources */,
@@ -2147,6 +2175,7 @@
 				B538EF1A1E1D761E0031077C /* Course.swift in Sources */,
 				B52329031FB8A029000C4F44 /* CollectionBackgroundView.swift in Sources */,
 				6481AEF622E5A4770068A8C3 /* Lesson.swift in Sources */,
+				649B49E6233E04FE001375D0 /* MealsForWeekTableViewModel.swift in Sources */,
 				642C956F22C941D40096EDD2 /* HTWRestApi.swift in Sources */,
 				64CC1E9122F3146800A45F25 /* CrashlyticsViewController.swift in Sources */,
 				1F862D271FD1A7FF0051E2DF /* KeyboardPresentationHandler.swift in Sources */,
@@ -2252,6 +2281,7 @@
 				1F3A7AC01FDA8DC800369420 /* OnePasswordExtension.m in Sources */,
 				B52DF0DC1E71DB5C0095C854 /* TimeInterval.swift in Sources */,
 				39FB08491E9E52B5001CC2F5 /* TableViewDataSource.swift in Sources */,
+				649B49E4233DF38A001375D0 /* MealsViewModel.swift in Sources */,
 				B5D3E83C1FA5E8D50055782D /* ScheduleService.swift in Sources */,
 				1F88748F1F8FB2BF00EE6492 /* OnboardStudygroupViewController.swift in Sources */,
 				5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */,
@@ -2276,11 +2306,13 @@
 				B59879BC1FB0E87900320091 /* LayoutGuide.swift in Sources */,
 				6420E98D22E0A0DD00F13AD3 /* DashboardMealViewCell.swift in Sources */,
 				64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */,
+				649B49DD233DE3C0001375D0 /* MealHeader.swift in Sources */,
 				6411E37B22EAE5C800A55A2B /* RoomViewCell.swift in Sources */,
 				B516D8221FA9A47000551556 /* UIView.swift in Sources */,
 				645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */,
 				B56957881FAA3F7F00CE2318 /* CollectionHeaderView.swift in Sources */,
 				B5CD5C711E5F37700083D75E /* ScheduleMainVC.swift in Sources */,
+				649B49E0233DE633001375D0 /* MealHeaderViewCell.swift in Sources */,
 				64E218D822D722EA00004183 /* CanteenDetail.swift in Sources */,
 				B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */,
 				B50EB4F71E6AD42D0022E40C /* CollectionViewDataSource.swift in Sources */,
