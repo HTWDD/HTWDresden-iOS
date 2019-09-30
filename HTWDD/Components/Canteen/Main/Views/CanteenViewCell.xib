@@ -67,7 +67,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2Zp-05-FnQ" firstAttribute="leading" secondItem="NZQ-Pf-Ts5" secondAttribute="trailing" constant="8" id="4fx-ue-L7A"/>
                             <constraint firstItem="hTk-sE-CZo" firstAttribute="centerY" secondItem="NZQ-Pf-Ts5" secondAttribute="centerY" id="5I8-po-yfR"/>
@@ -92,6 +92,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Exq-7J-zbx" secondAttribute="trailing" constant="8" id="sA6-jG-rQH"/>
                     <constraint firstItem="Exq-7J-zbx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="tHM-tr-QVB"/>
@@ -99,6 +100,7 @@
                     <constraint firstAttribute="bottom" secondItem="Exq-7J-zbx" secondAttribute="bottom" constant="4" id="z59-Ng-ayZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="iconMeal" destination="2Zp-05-FnQ" id="0ug-K6-VC9"/>

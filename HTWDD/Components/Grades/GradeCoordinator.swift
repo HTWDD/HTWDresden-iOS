@@ -11,18 +11,18 @@ import UIKit
 class GradeCoordinator: Coordinator {
     
     // MARK: - Properties
-    let context: HasGrade
+    let context: HasGrade & AppContext
     var rootViewController: UIViewController { return self.gradeMainViewController }
     var childCoordinators: [Coordinator] = []
-    private lazy var gradeMainViewController = GradeMainVC(context: self.context)
+    private lazy var gradeMainViewController: GradesViewController = {
+        return R.storyboard.grades.gradesViewController()!.also {
+            $0.context = self.context
+            $0.viewModel = GradesViewModel(context: context)
+        }
+    }()
 
-    var auth: GradeService.Auth? {
-        set { self.gradeMainViewController.auth = newValue }
-        get { return nil }
-    }
-    
     // MARK: Lifecycle
-    init(context: HasGrade) {
+    init(context: HasGrade & AppContext) {
         self.context = context
     }
 }

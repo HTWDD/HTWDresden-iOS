@@ -24,6 +24,7 @@ struct Lesson: Codable {
     let rooms: [String]
     let lastChanged: String
     
+    
     // MARK: - Lessontypes
     enum LessonType: String, Codable {
         case practical

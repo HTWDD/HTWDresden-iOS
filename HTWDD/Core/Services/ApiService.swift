@@ -186,6 +186,15 @@ extension ApiService {
             .map { try $0.map([Course].self) }
     }
     
+    // MARK: - Grades
+    func requestGrades(auth: String, course: Course) -> Single<[Grade]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.grades(auth: auth, examinationRegulations: course.examinationRegulations, majorNumber: course.majorNumber, graduationNumber: course.graduationNumber)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([Grade].self) }
+    }
+    
+    // MARK: - Exams
     func requestExams(year: String, major: String, group: String, grade: String) -> Single<[Exam]> {
         return provider.rx.request(MultiTarget(HTWRestApi.exams(year: year, major: major, group: group, grade: grade)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))

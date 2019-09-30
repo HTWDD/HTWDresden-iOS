@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="128" id="KGk-i7-Jjw" customClass="DashboardMealsViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3b-yz-izE">
+                        <rect key="frame" x="8" y="8" width="304" height="112"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="t35-sK-j7T">
+                                <rect key="frame" x="276" y="47.5" width="20" height="17.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Z80-PP-2TX"/>
+                                    <constraint firstAttribute="width" constant="20" id="gpE-Zk-pFi"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Wum-AN-f4v">
+                                <rect key="frame" x="8" y="8" width="260" height="96"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t35-sK-j7T" secondAttribute="trailing" constant="8" id="EiN-0J-vhD"/>
+                            <constraint firstItem="Wum-AN-f4v" firstAttribute="top" secondItem="B3b-yz-izE" secondAttribute="top" constant="8" id="I9t-Ag-P46"/>
+                            <constraint firstItem="t35-sK-j7T" firstAttribute="leading" secondItem="Wum-AN-f4v" secondAttribute="trailing" constant="8" id="PnZ-Yj-gQt"/>
+                            <constraint firstItem="Wum-AN-f4v" firstAttribute="leading" secondItem="B3b-yz-izE" secondAttribute="leading" constant="8" id="Q5f-ii-Js6"/>
+                            <constraint firstAttribute="bottom" secondItem="Wum-AN-f4v" secondAttribute="bottom" constant="8" id="U9F-Hq-Og5"/>
+                            <constraint firstItem="t35-sK-j7T" firstAttribute="centerY" secondItem="B3b-yz-izE" secondAttribute="centerY" id="oGn-o8-c8x"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="B3b-yz-izE" secondAttribute="trailing" constant="8" id="25h-dr-Z1F"/>
+                    <constraint firstItem="B3b-yz-izE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ia7-wv-oKS"/>
+                    <constraint firstAttribute="bottom" secondItem="B3b-yz-izE" secondAttribute="bottom" constant="8" id="ruL-wR-GPz"/>
+                    <constraint firstItem="B3b-yz-izE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="wOg-xD-7f6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chevron" destination="t35-sK-j7T" id="Ajr-Th-OjJ"/>
+                <outlet property="mainStack" destination="Wum-AN-f4v" id="U2D-Pf-62i"/>
+                <outlet property="mainView" destination="B3b-yz-izE" id="OM8-bS-E5b"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="181.47321428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.compact.right" catalog="system" width="30" height="64"/>
+    </resources>
+</document>

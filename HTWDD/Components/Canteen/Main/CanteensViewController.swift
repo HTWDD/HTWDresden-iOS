@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 import Action
 
-
 class CanteenViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties

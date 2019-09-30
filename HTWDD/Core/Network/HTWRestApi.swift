@@ -16,6 +16,7 @@ enum HTWRestApi {
     case rooms(room: String)
     case studyGroups
     case courses(auth: String)
+    case grades(auth: String, examinationRegulations: Int, majorNumber: String, graduationNumber: String)
     case exams(year: String, major: String, group: String, grade: String)
 }
 
@@ -23,7 +24,8 @@ enum HTWRestApi {
 extension HTWRestApi: TargetType {
     var baseURL: URL {
         switch self {
-        case .courses:
+        case .courses,
+             .grades:
             return URL(string: "https://wwwqis.htw-dresden.de/appservice/v2")!
         case .exams:
             return URL(string: "http://www2.htw-dresden.de/~app/API")!
@@ -39,6 +41,7 @@ extension HTWRestApi: TargetType {
         case .rooms: return "/roomTimetable.php"
         case .studyGroups: return "/studyGroups.php"
         case .courses: return "/getcourses"
+        case .grades: return "/getgrades"
         case .exams: return "/GetExams.php"
         }
     }
@@ -59,6 +62,8 @@ extension HTWRestApi: TargetType {
             return .requestParameters(parameters: ["room": room], encoding: URLEncoding.default)
         case .exams(let year, let major, let group, let grade):
             return .requestParameters(parameters: ["Stg": "\(major.urlEscaped)", "StgNr": "\(group.urlEscaped)", "StgJhr": "\(year.urlEscaped)", "AbSc": "\(grade.urlEscaped)"], encoding: URLEncoding.default)
+        case .grades(_, let examinationRegulations, let majorNumber, let graduationNumber):
+            return .requestParameters(parameters: ["POVersion" : "\(examinationRegulations)", "StgNr": majorNumber, "AbschlNr": graduationNumber], encoding: URLEncoding.default)
         default:
             return .requestPlain
         }
@@ -67,6 +72,8 @@ extension HTWRestApi: TargetType {
     var headers: [String : String]? {
         switch self {
         case .courses(let auth):
+            return ["Content-Type": "application/json", "Authorization": "Basic \(auth)"]
+        case .grades(let auth, _, _, _):
             return ["Content-Type": "application/json", "Authorization": "Basic \(auth)"]
         default:
             return ["Content-Type": "application/json"]

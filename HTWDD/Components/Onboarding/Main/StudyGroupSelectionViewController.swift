@@ -54,7 +54,9 @@ class StudyGroupSelectionViewController: UITableViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let top: CGFloat = max(CGFloat(view.htw.safeAreaInsets.top + 54), CGFloat((view.height - tableView.contentSize.height) - (view.htw.safeAreaInsets.bottom + 54)))
+        let topInset: CGFloat = CGFloat(view.htw.safeAreaInsets.top + 54)
+        let bottomInset: CGFloat = CGFloat((view.height - tableView.contentSize.height) - (view.htw.safeAreaInsets.bottom + 54))
+        let top: CGFloat = max(topInset, bottomInset)
         tableView.contentInset = UIEdgeInsets(top: top, left: 0, bottom: 0, right: 0)
     }
    

@@ -2,89 +2,137 @@
 //  Grade.swift
 //  HTWDD
 //
-//  Created by Benjamin Herzog on 04/01/2017.
-//  Copyright © 2017 HTW Dresden. All rights reserved.
+//  Created by Mustafa Karademir on 27.09.19.
+//  Copyright © 2019 HTW Dresden. All rights reserved.
 //
 
 import Foundation
-import RxSwift
-import Marshal
 
-struct Grade: Codable, Identifiable {
-
-    enum Status: String, Codable {
-        case signedUp = "AN"
-        case passed = "BE"
-        case failed = "NB"
-        case ultimatelyFailed = "EN"
+// MARK: - Codable
+struct Grade: Codable {
+    let tries: Int
+    let remark: Remark?
+    let examNumber: Int
+    let examDate: String?
+    let typeOfExamination: String
+    let credits: Double
+    let grade: Int?
+    let semester: Int
+    let examination: String
+    let state: State
+    let id: Int
+    
+    // MARK: - Coding-Keys
+    enum CodingKeys: String, CodingKey {
+        case tries              = "tries"
+        case remark             = "note"
+        case examNumber         = "nr"
+        case examDate           = "examDate"
+        case typeOfExamination  = "form"
+        case credits            = "credits"
+        case grade              = "grade"
+        case semester           = "semester"
+        case examination        = "text"
+        case state              = "state"
+        case id                 = "id"
+    }
+    
+    // MARK: - State
+    enum State: String, Codable {
+        case enrolled       = "AN"
+        case passed         = "BE"
+        case failed         = "NB"
+        case finalFailed    = "EN"
+        case unkown
         
         var localizedDescription: String {
             switch self {
-            case .signedUp: return Loca.Grades.status.signedUp
-            case .passed: return Loca.Grades.status.passed
-            case .failed: return Loca.Grades.status.failed
-            case .ultimatelyFailed: return Loca.Grades.status.ultimatelyFailed
+            case .enrolled: return R.string.localizable.gradesStatusSignedUp()
+            case .passed: return R.string.localizable.gradesStatusPassed()
+            case .failed: return R.string.localizable.gradesStatusFailed()
+            case .finalFailed: return R.string.localizable.gradesStatusUltimatelyFailed()
+            default: return R.string.localizable.scheduleLectureTypeUnknown()
             }
         }
     }
-
-    let nr: Int
-    let state: Status
-    let credits: Double
-    let text: String
-    let semester: Semester
-    let numberOfTry: Int
-    let date: Date?
-    let mark: Double?
-    let note: String?
-    let form: String?
-
-    static func get(network: Network, course: Course) -> Observable<[Grade]> {
-        let parameters = [
-            "POVersion": "\(course.POVersion)",
-            "AbschlNr": course.abschlNr,
-            "StgNr": course.stgNr
-        ]
-        Log.debug("\(parameters)")
-
-        return network.getArrayM(url: Grade.url, params: parameters)
-    }
-
-}
-
-extension Grade: Unmarshaling {
-    static let url = "https://wwwqis.htw-dresden.de/appservice/v2/getgrades"
-
-    init(object: MarshaledObject) throws {
-        self.nr = try object <| "nr"
-        self.state = try object <| "state"
-        self.credits = try object <| "credits"
-        self.text = try object <| "text"
-        self.semester = try object <| "semester"
-        self.numberOfTry = try object <| "tries"
-
-        let dateRaw: String? = try object <| "examDate"
-        self.date = try dateRaw.map {
-             try Date.from(string: $0, format: "yyyy-MM-dd'T'HH:mmZ")
+    
+    enum Remark: String, Codable {
+        case recognised             = "a"
+        case unsubscribed           = "e"
+        case blocked                = "g"
+        case ill                    = "k"
+        case notPermitted           = "nz"
+        case missedWithoutExcuse    = "5ue"
+        case notEntered             = "5na"
+        case notSecondRequested     = "kA"
+        case freeTrail              = "PFV"
+        case successfully           = "mE"
+        case failed                 = "N"
+        case prepraticalOpen        = "VPo"
+        case volutaryDateNotMet     = "f"
+        case conditionally          = "uV"
+        case cheated                = "TA"
+        case unkown
+        
+        var localizedDescription: String {
+            switch self {
+            case .recognised:
+                return R.string.localizable.gradesRemarkRecognized()
+            case .unsubscribed:
+                return R.string.localizable.gradesRemarkSignOff()
+            case .blocked:
+                return R.string.localizable.gradesRemarkBlocked()
+            case .ill:
+                return R.string.localizable.gradesRemarkIll()
+            case .notPermitted:
+                return R.string.localizable.gradesRemarkNotAllowed()
+            case .missedWithoutExcuse:
+                return R.string.localizable.gradesRemarkUnexcusedMissing()
+            case .notEntered:
+                return R.string.localizable.gradesRemarkNotStarted()
+            case .notSecondRequested:
+                return R.string.localizable.gradesRemarkNoRetest()
+            case .freeTrail:
+                return R.string.localizable.gradesRemarkFreeTry()
+            case .successfully:
+                return R.string.localizable.gradesRemarkWithSuccess()
+            case .failed:
+                return R.string.localizable.gradesRemarkFailed()
+            case .prepraticalOpen:
+                return R.string.localizable.gradesRemarkPrePlacement()
+            case .volutaryDateNotMet:
+                return R.string.localizable.gradesRemarkVoluntaryAppointment()
+            case .conditionally:
+                return R.string.localizable.gradesRemarkConditional()
+            case .cheated:
+                return R.string.localizable.gradesRemarkAttempt()
+            default:
+                return R.string.localizable.gradesRemarkUnkown()
+            }
         }
-
-        let markRaw: Double? = try object <| "grade"
-        self.mark = markRaw.map { $0 / 100 }
-
-        self.note = try? object <| "note"
-        self.form = try? object <| "form"
     }
-
 }
 
+// MARK: - Equatable
 extension Grade: Equatable {
-
+    
     static func ==(lhs: Grade, rhs: Grade) -> Bool {
-        return lhs.nr == rhs.nr
-            && lhs.mark == rhs.mark
+        return lhs.id == rhs.id
+            && lhs.tries == rhs.tries
+            && lhs.examNumber == rhs.examNumber
             && lhs.credits == rhs.credits
-            && lhs.semester == rhs.semester
             && lhs.state == rhs.state
     }
+    
+}
 
+// MARK: - Comparable
+extension Grade: Comparable {
+    
+    static func < (lhs: Grade, rhs: Grade) -> Bool {
+        guard let lhsDate = lhs.examDate else { return false }
+        guard let rhsDate = rhs.examDate else { return false }
+        return lhsDate < rhsDate
+    }
+    
 }

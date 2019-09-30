@@ -12,72 +12,84 @@ class DashboardGradeViewCell: UITableViewCell, FromNibLoadable {
     
     // MAKR: - Outlets
     @IBOutlet weak var main: UIView!
-    @IBOutlet weak var lblNumberOfGrades: UILabel!
-    @IBOutlet weak var lblNumberOfCredits: UILabel!
+    @IBOutlet weak var lblGrades: BadgeLabel!
+    @IBOutlet weak var lblCredits: BadgeLabel!
+    @IBOutlet weak var chevron: UIImageView!
+    @IBOutlet weak var lblExamName: UILabel!
+    @IBOutlet weak var lblGrade: UILabel!
+    @IBOutlet weak var lblState: BadgeLabel!
     @IBOutlet weak var separator: UIView!
-    @IBOutlet weak var lblLastGradeHeader: UILabel!
-    @IBOutlet weak var lblLastGrade: BadgeLabel!
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
         main.apply {
-            $0.layer.cornerRadius = 4
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
         }
         
-        lblNumberOfGrades.apply {
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor(hex: 0x1E88E5)
-            $0.font             = UIFont.from(style: .small, isBold: true)
+        chevron.apply {
+            $0.tintColor = UIColor.htw.Icon.primary
         }
         
-        lblNumberOfCredits.apply {
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor(hex: 0x0097A7)
-            $0.font             = UIFont.from(style: .small, isBold: true)
+        lblGrades.apply {
+            $0.textColor        = UIColor.htw.Label.secondary
+            $0.backgroundColor  = UIColor.htw.Badge.secondary
         }
         
-        lblLastGradeHeader.apply {
-            $0.textColor    = UIColor.htw.darkGrey
-            $0.font         = UIFont.from(style: .description, isBold: true)
+        lblCredits.apply {
+            $0.textColor        = UIColor.htw.Label.secondary
+            $0.backgroundColor  = UIColor.htw.Badge.secondary
         }
         
-        lblLastGrade.apply {
-            $0.textColor    = .white
-            $0.font         = UIFont.from(style: .small, isBold: true)
+        lblExamName.apply {
+            $0.textColor = UIColor.htw.Label.primary
+        }
+        
+        lblGrade.apply {
+            $0.textColor = UIColor.htw.Label.secondary
+        }
+        
+        lblState.apply {
+            $0.backgroundColor  = UIColor.htw.Badge.primary
+            $0.textColor        = UIColor.htw.Badge.primary
         }
     }
     
     // MARK: - Setup
-    func setup(with models: [GradeService.Information]) {
+    func setup(with model: DashboardGrade) {
+        lblGrades.text  = model.gradesLocalized
+        lblCredits.text = model.creditsLocalized
         
-        let grades = models.flatMap { Array($0.grades) }.filter { $0.mark != nil }
-        let credits = grades.map { $0.credits }.reduce(0.0, +)
-        
-        lblNumberOfGrades.text = grades.count != 1 ? R.string.localizable.gradesNumbersPlural(grades.count) : R.string.localizable.gradesNumbersSingular(grades.count)
-        
-        lblNumberOfCredits.text = credits != 1.0 ? R.string.localizable.gradesCreditsNumberPlural(credits) : R.string.localizable.gradesCreditsNumberSingular(credits)
-        
-        if let lastGrade = grades.first {
-            separator.isHidden          = false
-            lblLastGradeHeader.isHidden = false
-            lblLastGrade.isHidden       = false
-            
-            lblLastGradeHeader.text = R.string.localizable.gradesLastGrade(lastGrade.state.localizedDescription)
-            lblLastGrade.apply {
-                $0.text = lastGrade.text
-                switch lastGrade.state {
-                case .passed: $0.backgroundColor = UIColor.htw.green
-                case .failed: $0.backgroundColor = UIColor.htw.redMaterial
-                case .signedUp: $0.backgroundColor = UIColor.htw.mediumOrange
-                case .ultimatelyFailed: $0.backgroundColor = UIColor.htw.red
+        if let grade = model.lastGrade {
+            lblExamName.text = grade.examination
+            lblGrade.text = Double(grade.grade ?? 0) > 0 ? "\(Double(grade.grade ?? 0) / 100)" : "-/-"
+            lblState.apply {
+                $0.text      = grade.state.localizedDescription
+                $0.textColor = .white
+                switch grade.state {
+                case .enrolled:
+                    $0.backgroundColor          = UIColor.htw.Material.blue
+                    separator.backgroundColor   = UIColor.htw.Material.blue
+                case .passed:
+                    $0.backgroundColor          = UIColor.htw.Material.green
+                    separator.backgroundColor   = UIColor.htw.Material.green
+                case .failed:
+                    $0.backgroundColor          = UIColor.htw.Material.red
+                    separator.backgroundColor   = UIColor.htw.Material.red
+                case .finalFailed:
+                    $0.backgroundColor          = .black
+                    separator.backgroundColor   = .black
+                case .unkown:
+                    $0.backgroundColor          = UIColor.htw.Material.orange
+                    separator.backgroundColor   = UIColor.htw.Material.orange
                 }
             }
         } else {
-            separator.isHidden          = true
-            lblLastGradeHeader.isHidden = true
-            lblLastGrade.isHidden       = true
+            lblExamName.text = R.string.localizable.gradesNoResultsTitle()
+            lblGrade.text = "-/-"
+            lblState.text = R.string.localizable.gradesRemarkUnkown()
         }
     }
 

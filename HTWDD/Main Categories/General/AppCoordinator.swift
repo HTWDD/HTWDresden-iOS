@@ -72,7 +72,6 @@ class AppCoordinator: Coordinator {
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
         self.schedule.auth          = schedule
-        self.grades.auth            = grade
     }
 
 	private func showOnboarding(animated: Bool) {
@@ -137,7 +136,6 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
         }
         self.persistenceService.clear()
         self.schedule.auth = nil
-        self.grades.auth = nil
         KeychainService.shared.removeAllKeys()
         goTo(controller: .dashboard)
         self.showOnboarding(animated: true)

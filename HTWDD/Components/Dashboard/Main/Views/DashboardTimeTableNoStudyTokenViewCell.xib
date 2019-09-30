@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="91" id="XAE-IR-fvv" customClass="DashboardTimeTableNoStudyTokenViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XAE-IR-fvv" id="Seh-Rq-MN1">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ek-vs-kZk">
+                        <rect key="frame" x="8" y="8" width="304" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Keine Studiengruppe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNV-WP-not">
+                                <rect key="frame" x="8" y="8" width="127" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Studiengruppe fehlt!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfV-kv-mlF">
+                                <rect key="frame" x="8" y="32" width="259" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.15000000596046448" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FDX-NL-1Lb">
+                                <rect key="frame" x="287.5" y="29" width="8.5" height="17.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tNV-WP-not" firstAttribute="top" secondItem="1ek-vs-kZk" secondAttribute="top" constant="8" id="A8G-51-Nsy"/>
+                            <constraint firstItem="FDX-NL-1Lb" firstAttribute="leading" secondItem="KfV-kv-mlF" secondAttribute="trailing" constant="20.5" id="IHk-vk-hMZ"/>
+                            <constraint firstItem="KfV-kv-mlF" firstAttribute="top" secondItem="tNV-WP-not" secondAttribute="bottom" constant="8" id="Jxz-0j-vLc"/>
+                            <constraint firstItem="tNV-WP-not" firstAttribute="leading" secondItem="1ek-vs-kZk" secondAttribute="leading" constant="8" id="PaI-FB-m70"/>
+                            <constraint firstItem="FDX-NL-1Lb" firstAttribute="centerY" secondItem="1ek-vs-kZk" secondAttribute="centerY" id="RbH-0d-Jp3"/>
+                            <constraint firstItem="KfV-kv-mlF" firstAttribute="leading" secondItem="1ek-vs-kZk" secondAttribute="leading" constant="8" id="hed-hC-tIu"/>
+                            <constraint firstAttribute="trailing" secondItem="FDX-NL-1Lb" secondAttribute="trailing" constant="8" id="oC1-g2-ayG"/>
+                            <constraint firstAttribute="bottom" secondItem="KfV-kv-mlF" secondAttribute="bottom" constant="8" id="p7f-Kn-e0b"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="1ek-vs-kZk" secondAttribute="bottom" constant="8" id="LiO-vM-BJA"/>
+                    <constraint firstAttribute="trailing" secondItem="1ek-vs-kZk" secondAttribute="trailing" constant="8" id="UFS-Ad-x8g"/>
+                    <constraint firstItem="1ek-vs-kZk" firstAttribute="leading" secondItem="Seh-Rq-MN1" secondAttribute="leading" constant="8" id="awz-Vd-vV2"/>
+                    <constraint firstItem="1ek-vs-kZk" firstAttribute="top" secondItem="Seh-Rq-MN1" secondAttribute="top" constant="8" id="z9v-Wz-c9q"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="wCI-AM-B7O"/>
+            <connections>
+                <outlet property="chevron" destination="FDX-NL-1Lb" id="TWi-Db-Ipt"/>
+                <outlet property="lblMessage" destination="KfV-kv-mlF" id="j70-MV-YQJ"/>
+                <outlet property="lblTitle" destination="tNV-WP-not" id="YrC-00-S83"/>
+                <outlet property="mainView" destination="1ek-vs-kZk" id="7LF-9Q-m4S"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="169.08482142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.compact.right" catalog="system" width="30" height="64"/>
+    </resources>
+</document>

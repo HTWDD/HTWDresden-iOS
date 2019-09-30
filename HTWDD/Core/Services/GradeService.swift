@@ -9,8 +9,34 @@
 import Foundation
 import RxSwift
 
+// MARK: - Errors
+enum AuthError: Error {
+    case noAuthToken
+    case noStudyToken
+}
+
 class GradeService: Service {
 
+    // MARK: - Properties
+    private let apiService: ApiService
+    
+    // MARK: - Lifecycle
+    init(apiService: ApiService) {
+        self.apiService = apiService
+    }
+    
+    // MARK: - Request
+    func requestCourses(auth: String?) -> Observable<[Course]> {
+        guard let auth = auth else { return Observable.error(AuthError.noAuthToken) }
+        return apiService.requestCourses(auth: auth).asObservable()
+    }
+    
+    func requestGrades(auth: String?, course: Course) -> Observable<[Grade]> {
+        guard let auth = auth else {  return Observable.error(AuthError.noAuthToken) }
+        return apiService.requestGrades(auth: auth, course: course).asObservable()
+    }
+    
+    
     enum Const {
         static let gradesCacheKey = "gradesCacheKey"
     }
@@ -38,10 +64,10 @@ class GradeService: Service {
             self.grades = grades
             
             let reduced = self.grades.reduce((mark: 0.0,credits: 0.0), { r, e in
-                guard let mark = e.mark else {
+                guard let mark = e.grade else {
                     return r
                 }
-                return (r.0 + mark * e.credits, r.1 + e.credits)
+                return (r.0 + Double(mark) * e.credits, r.1 + e.credits)
             })
             if reduced.credits > 0 {
                 self.average = reduced.mark / reduced.credits
@@ -62,11 +88,13 @@ class GradeService: Service {
     // MARK: - Loading
 
     private func loadCourses(network: Network) -> Observable<[Course]> {
-        return Course.get(network: network)
+//        return Course.get(network: network)
+        return Observable.empty()
     }
 
     private func loadGrades(network: Network, for course: Course) -> Observable<[Grade]> {
-        return Grade.get(network: network, course: course)
+//        return Grade.get(network: network, course: course)
+        return Observable.empty()
     }
 
     func loadFromNetwork(_ auth: Auth) -> Observable<[Information]> {
@@ -106,20 +134,22 @@ class GradeService: Service {
 
         var semesterHash = [Semester: [Grade]]()
 
-        for grade in grades {
-            semesterHash[grade.semester, or: []].append(grade)
-        }
+//        for grade in grades {
+//            semesterHash[grade.semester, or: []].append(grade)
+//        }
 
-        for (semester, grades) in semesterHash {
-            semesterHash[semester] = grades.sorted(by: { g1, g2 in
-                return g1.text < g2.text
-            })
-        }
-
-        // newest first
-        return semesterHash.sorted {
-            return $0.key > $1.key
-        }.map(Information.init)
+//        for (semester, grades) in semesterHash {
+//            semesterHash[semester] = grades.sorted(by: { g1, g2 in
+//                return g1.text < g2.text
+//            })
+//        }
+//
+//        // newest first
+//        return semesterHash.sorted {
+//            return $0.key > $1.key
+//        }.map(Information.init)
+        
+        return [Information]()
     }
     
     /// Calculates the overall average of the given semesters.
@@ -127,39 +157,41 @@ class GradeService: Service {
     /// - Parameter information: the loaded information to calculate the average from
     /// - Returns: the average of all grades weighted by credits
     static func calculateAverage(from information: [Information]) -> Double {
-        var sumCredits = 0.0
-        var sumGrade = 0.0
+//        var sumCredits = 0.0
+//        var sumGrade = 0.0
+//
+//        for semester in information {
+//            for g in semester.grades {
+//                sumCredits += g.credits
+//                sumGrade += g.credits * (g.grade ?? 0)
+//            }
+//        }
+//
+//        // Don't devide by zero!
+//        guard sumCredits > 0 else {
+//            return 0
+//        }
+//
+//        return sumGrade / sumCredits
         
-        for semester in information {
-            for g in semester.grades {
-                sumCredits += g.credits
-                sumGrade += g.credits * (g.mark ?? 0)
-            }
-        }
-        
-        // Don't devide by zero!
-        guard sumCredits > 0 else {
-            return 0
-        }
-        
-        return sumGrade / sumCredits
+        return 0.0
     }
     
     static func checkIfValid(auth: Auth, completion: @escaping (Bool) -> Void) {
-        let service = GradeService()
-        var disposable: Disposable?
-        let callCompletionAndDispose: (Bool) -> Void = {
-            completion($0)
-            disposable?.dispose()
-            disposable = nil
-        }
-        disposable = service.loadFromNetwork(auth)
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { _ in
-                callCompletionAndDispose(true)
-            }, onError: { _ in
-                callCompletionAndDispose(false)
-            })
+//        let service = GradeService()
+//        var disposable: Disposable?
+//        let callCompletionAndDispose: (Bool) -> Void = {
+//            completion($0)
+//            disposable?.dispose()
+//            disposable = nil
+//        }
+//        disposable = service.loadFromNetwork(auth)
+//            .observeOn(MainScheduler.instance)
+//            .subscribe(onNext: { _ in
+//                callCompletionAndDispose(true)
+//            }, onError: { _ in
+//                callCompletionAndDispose(false)
+//            })
         
     }
 

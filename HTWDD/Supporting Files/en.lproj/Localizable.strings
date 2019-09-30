@@ -148,6 +148,9 @@
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics and Crashlytics";
 
+"Network.error.title"="Error";
+"Network.error.message"="Something went wrong loading the data.";
+
 "CalendarWeek.long"="Calendar week";
 "CalendarWeek.short"="CW";
 
@@ -184,7 +187,7 @@
 
 "Grades.title"="Grades";
 "Grades.totalCredits"="%d total credits";
-"Grades.average" = "(∅ %.2f)";
+"Grades.average" = "∅ %.2f";
 "Grades.detail.mark" = "%.1f";
 "Grades.detail.credits" = "%.0f credits";
 "Grades.detail.tries" = "%d. try";
@@ -203,6 +206,26 @@
 "Grades.credits.number.singular"="%.2f Credit";
 "Grades.credits.number.plural"="%.2f Credits";
 "Grades.last.grade"="Last grade: %@";
+"Grades.remark.recognized"="recognized";
+"Grades.remark.ill"="certified sick";
+"Grades.remark.blocked"="blocked";
+"Grades.remark.sign.off"="deregistered";
+"Grades.remark.not.allowed"="not admitted";
+"Grades.remark.unkown"="Unknown status";
+"Grades.remark.unexcused.missing"="unexcused absent";
+"Grades.remark.not.started"="no participation, deadline not met";
+"Grades.remark.no.retest"="no request made for second retake";
+"Grades.remark.free.try"="free try";
+"Grades.remark.with.success"="with success";
+"Grades.remark.failed"="not passed (ungraded performance)";
+"Grades.remark.pre.placement"="pre-internship not seized";
+"Grades.remark.voluntary.appointment"="free appointment not seized";
+"Grades.remark.conditional"="under reserve";
+"Grades.remark.attempt"="attempt to cheat";
+"Grades.remark.unkown"="No comments";
+"Grades.no.credentials.title"="No login data";
+"Grades.no.credentials.message"="Please enter you login data, so that i can show you your grades";
+"Grades.header.subtitle"="Ø %.2f (%d credits)";
 
 "CampusPlan.title" = "Campus plan";
 "CampusPlan.buildings" = "%d Buildings";

@@ -122,6 +122,13 @@ extension HTWNamespace where Base: UIColor {
         }
     }
     
+    static var averageGradeBackground: UIColor {
+        if #available(iOS 11.0, *) {
+            return UIColor(named: "AverageGradeBackground")!
+        }
+        return UIColor(hex: 0x003DA2)
+    }
+    
     static var cellBackground: UIColor {
         if #available(iOS 11.0, *) {
             return UIColor(named: "CellBackground")!

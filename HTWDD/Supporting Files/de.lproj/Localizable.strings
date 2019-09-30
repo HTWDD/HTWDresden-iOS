@@ -148,6 +148,8 @@
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics und Crashlytics";
 
+"Network.error.title"="Fehler";
+"Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";
 
 "CalendarWeek.long"="Kalenderwoche";
 "CalendarWeek.short"="KW";
@@ -185,10 +187,10 @@
 
 "Grades.title"="Noten";
 "Grades.totalCredits"="%d Credits insgesamt";
-"Grades.average" = "(∅ %.2f)";
+"Grades.average" = "∅ %.2f";
 "Grades.detail.mark" = "%.1f";
 "Grades.detail.credits" = "%.0f Credits";
-"Grades.detail.tries" = "%d.Versuch";
+"Grades.detail.tries" = "%d. Versuch";
 "Grades.detail.noDate" = "Kein Datum";
 "Grades.detail.noNote" = "Keine Bemerkungen";
 "Grades.detail.note" = "Bemerkung: %@";
@@ -197,13 +199,33 @@
 "Grades.status.failed" = "Durchgefallen";
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
-"Grades.noResults.message"="😖 Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+"Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.";
 "Grades.numbers.and.credits"="%@ Note(n)\n%@ Credit(s)";
 "Grades.numbers.singular"="%d Note";
 "Grades.numbers.plural"="%d Noten";
 "Grades.credits.number.singular"="%.2f Credit";
 "Grades.credits.number.plural"="%.2f Credits";
 "Grades.last.grade"="Letzte Note: %@";
+"Grades.remark.recognized"="Anerkannt";
+"Grades.remark.ill"="Krankgeschrieben";
+"Grades.remark.blocked"="Gesperrt";
+"Grades.remark.sign.off"="Abgemeldet";
+"Grades.remark.not.allowed"="Nicht zugelassen";
+"Grades.remark.unkown"="Unbekannter Status";
+"Grades.remark.unexcused.missing"="Unentschuldigt gefehlt";
+"Grades.remark.not.started"="nicht angetreten, Fristüberschreitung";
+"Grades.remark.no.retest"="kein Antrag 2. Wdh.-Prüfung gestellt";
+"Grades.remark.free.try"="Freiversuch";
+"Grades.remark.with.success"="mit Erfolg";
+"Grades.remark.failed"="nicht bestanden (unbenotete Leistung)";
+"Grades.remark.pre.placement"="Vorprakt. offen";
+"Grades.remark.voluntary.appointment"="freiwilliger Termin nicht wahrgenommen";
+"Grades.remark.conditional"="unter Vorbehalt";
+"Grades.remark.attempt"="Täuschungsversuch";
+"Grades.remark.unkown"="Keine Bemerkungen";
+"Grades.no.credentials.title"="Keine Zugangsdaten";
+"Grades.no.credentials.message"="Bitte trage deine Zugangsdaten ein, damit ich Dir Noten anzeigen kann.";
+"Grades.header.subtitle"="Ø %.2f (%d Credits)";
 
 "CampusPlan.title" = "Campusplan";
 "CampusPlan.buildings" = "%d Gebäude";
