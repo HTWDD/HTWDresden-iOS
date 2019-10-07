@@ -21,13 +21,13 @@
                         <rect key="frame" x="8" y="8" width="304" height="86"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13 Noten" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwF-gM-S9d" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="47" y="62" width="49" height="16"/>
+                                <rect key="frame" x="62" y="62" width="49" height="16"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="751" text="Durchgefallen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfx-Vn-Ggv" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="47" y="32" width="77" height="14"/>
+                                <rect key="frame" x="62" y="32" width="77" height="14"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,19 +36,22 @@
                                 <rect key="frame" x="287.5" y="34.5" width="8.5" height="17.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Algorithmik und Programmierung II" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hC-Nq-7j4">
-                                <rect key="frame" x="47" y="8" width="249" height="16"/>
+                                <rect key="frame" x="62" y="8" width="217.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="5.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-Mm-zt9">
-                                <rect key="frame" x="8" y="8" width="19" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="5.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWR-Mm-zt9">
+                                <rect key="frame" x="8" y="8" width="34" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="wSN-dH-Xla"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPm-J3-rSo">
-                                <rect key="frame" x="35" y="8" width="4" height="70"/>
+                                <rect key="frame" x="50" y="8" width="4" height="70"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4" id="5br-HE-MXf"/>
@@ -61,7 +64,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="15 Credits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVP-pa-qAO" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="112" y="63" width="56" height="14"/>
+                                <rect key="frame" x="119" y="63" width="56" height="14"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -74,18 +77,18 @@
                             <constraint firstAttribute="bottom" secondItem="iPm-J3-rSo" secondAttribute="bottom" constant="8" id="5lG-vN-2rx"/>
                             <constraint firstItem="mWR-Mm-zt9" firstAttribute="leading" secondItem="z7g-Jo-zLD" secondAttribute="leading" constant="8" id="5wL-Jv-dgR"/>
                             <constraint firstAttribute="trailing" secondItem="vsI-Vc-dho" secondAttribute="trailing" constant="8" id="6Ei-CC-aBX"/>
-                            <constraint firstAttribute="trailing" secondItem="1hC-Nq-7j4" secondAttribute="trailing" constant="8" id="BZ6-cy-5QX"/>
                             <constraint firstItem="iPm-J3-rSo" firstAttribute="leading" secondItem="mWR-Mm-zt9" secondAttribute="trailing" constant="8" id="Fdr-vl-i1A"/>
                             <constraint firstItem="1hC-Nq-7j4" firstAttribute="top" secondItem="iPm-J3-rSo" secondAttribute="top" id="J9v-uA-Ida"/>
                             <constraint firstItem="jfx-Vn-Ggv" firstAttribute="leading" secondItem="iPm-J3-rSo" secondAttribute="trailing" constant="8" id="P4g-iX-ZC0"/>
                             <constraint firstItem="jfx-Vn-Ggv" firstAttribute="top" secondItem="1hC-Nq-7j4" secondAttribute="bottom" constant="8" id="RAf-QY-3sv"/>
                             <constraint firstItem="vsI-Vc-dho" firstAttribute="centerY" secondItem="z7g-Jo-zLD" secondAttribute="centerY" id="bxq-8s-Y6d"/>
                             <constraint firstItem="mWR-Mm-zt9" firstAttribute="top" secondItem="iPm-J3-rSo" secondAttribute="top" id="cpd-Up-oC0"/>
+                            <constraint firstItem="vsI-Vc-dho" firstAttribute="leading" secondItem="1hC-Nq-7j4" secondAttribute="trailing" constant="8" id="fMu-kR-4Yk"/>
                             <constraint firstItem="iPm-J3-rSo" firstAttribute="top" secondItem="z7g-Jo-zLD" secondAttribute="top" constant="8" id="gaA-dN-i2F"/>
                             <constraint firstItem="nwF-gM-S9d" firstAttribute="top" secondItem="jfx-Vn-Ggv" secondAttribute="bottom" constant="16" id="k8J-z6-gwt"/>
                             <constraint firstItem="1hC-Nq-7j4" firstAttribute="leading" secondItem="iPm-J3-rSo" secondAttribute="trailing" constant="8" id="rjt-sG-g4d"/>
                             <constraint firstItem="nwF-gM-S9d" firstAttribute="leading" secondItem="iPm-J3-rSo" secondAttribute="trailing" constant="8" id="uMr-15-ODJ"/>
-                            <constraint firstItem="VVP-pa-qAO" firstAttribute="leading" secondItem="nwF-gM-S9d" secondAttribute="trailing" constant="16" id="vMf-3W-Num"/>
+                            <constraint firstItem="VVP-pa-qAO" firstAttribute="leading" secondItem="nwF-gM-S9d" secondAttribute="trailing" constant="8" id="vMf-3W-Num"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>

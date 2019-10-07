@@ -54,7 +54,7 @@
 "Schedule.freeDay"="Genieß Deinen freien Tag! 🎉";
 "Schedule.holiday"="Semesterferien 🙌🚀";
 "Schedule.noResults.title"="Kein Plan...";
-"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.\nIst Deine Studiengruppe korrekt?";
+"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.";
 "Schedule.NextLecture.unavailable"="Keine Stunden mehr für heute! 🚲🌴";
 "Schedule.Weeks.once"="Einmal";
 "Schedule.Weeks.all"="Jede Woche";
@@ -97,8 +97,8 @@
 "Canteen.Meal.note.garlic"="Knoblauch";
 "Canteen.Meal.note.vegan"="Vegan";
 "Canteen.Meal.note.vegatarian"="Vegetarisch";
-"Canteen.Meal.price.students"="Studenten: %.2f €";
-"Canteen.Meal.price.noStudents"="Preis für Studenten: K/A";
+"Canteen.Meal.price.students"="%.2f €";
+"Canteen.Meal.price.noStudents"="-,-- €";
 "Canteen.Meal.price.employee"="Mitarbeiter: %.2f €";
 "Canteen.Meal.price.noEmployee"="Preis für Mitarbeiter: K/A";
 "Canteen.Meal.count.plural"="%d Gerichte";
@@ -246,7 +246,7 @@
 
 "Room.occupancy.title"="Belegungsplan";
 "Room.occupancy.empty.title"="Keine Räume";
-"Room.occupancy.empty.message"="Über + können neue Räume\nhinzugefügt werden.";
+"Room.occupancy.empty.message"="Über + können neue Räume hinzugefügt werden.\n\nDer Belegungsplan berücksichtigt keine Zusatzveranstaltungen oder Umlegungen. Raumreservierung bitte mit Frau Neumann (Z 228 A) absprechen.";
 "Room.occupancy.add.title"="Raum hinzufügen";
 "Room.occupancy.add.message"="Bitte die Raumnummer mit Leerzeichen zwischen Gebäude und Zimmernummer eingeben.";
 "Room.occupancy.add.placeholder"="z.B. s 531";
@@ -254,6 +254,6 @@
 "Room.occupancy.error.alert.title"="Fehler";
 "Room.occupancy.error.alert.message"="😖 Beim Laden der Daten ist etwas schief gelaufen, ist '%@' eine Korrekte Raumnummer?";
 "Room.occupancy.description"="Belegungen";
-"Room.occupancy.free"="Frei";
+"Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
 "Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
 "Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";

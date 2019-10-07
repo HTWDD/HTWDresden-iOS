@@ -181,6 +181,9 @@
 		6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */; };
 		641983D322C4DEA00041BCB4 /* UITableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D222C4DEA00041BCB4 /* UITableViewCells.swift */; };
 		641983D522C4E0590041BCB4 /* UITableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641983D422C4E0590041BCB4 /* UITableViews.swift */; };
+		641A4AD1234484F50018ACFD /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641A4ACF234484F50018ACFD /* MealViewCell.swift */; };
+		641A4AD2234484F50018ACFD /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 641A4AD0234484F50018ACFD /* MealViewCell.xib */; };
+		641A4AD42344E96E0018ACFD /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641A4AD32344E96E0018ACFD /* UIStackView.swift */; };
 		6420E98322E06BCE00F13AD3 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6420E98222E06BCE00F13AD3 /* Dashboard.storyboard */; };
 		6420E98522E06C2500F13AD3 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E98422E06C2500F13AD3 /* DashboardViewController.swift */; };
 		6420E98722E06CA900F13AD3 /* DashboardCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E98622E06CA900F13AD3 /* DashboardCoordinator.swift */; };
@@ -266,14 +269,23 @@
 		64E218D622D70C3300004183 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B3768A1FA6182800FC3A07 /* Double.swift */; };
 		64E218D822D722EA00004183 /* CanteenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetail.swift */; };
 		64E218DB22D7767500004183 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DA22D7767500004183 /* MealsViewController.swift */; };
-		64E218DE22D7769B00004183 /* MealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DC22D7769B00004183 /* MealViewCell.swift */; };
-		64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64E218DD22D7769B00004183 /* MealViewCell.xib */; };
 		64E218E122D85BBB00004183 /* CanteenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetail.swift */; };
 		64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E40B862334BFBA0075B7B1 /* Color.xcassets */; };
 		64E5BFA622BCC650005E92C0 /* MangementCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */; };
 		64E5BFA922BCC670005E92C0 /* ManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */; };
 		64E5BFAC22BCCC55005E92C0 /* SemesterPlaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */; };
 		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
+		64E7DB582343464000540FED /* TimetableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB572343464000540FED /* TimetableCoordinator.swift */; };
+		64E7DB5D2343466D00540FED /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E7DB5C2343466D00540FED /* Timetable.storyboard */; };
+		64E7DB5F2343468700540FED /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB5E2343468700540FED /* TimetableViewController.swift */; };
+		64E7DB61234346BD00540FED /* TimetableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB60234346BD00540FED /* TimetableViewModel.swift */; };
+		64E7DB632343471F00540FED /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB622343471F00540FED /* TimetableService.swift */; };
+		64E7DB642343475200540FED /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB622343471F00540FED /* TimetableService.swift */; };
+		64E7DB6623434F4A00540FED /* TimetableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB6523434F4A00540FED /* TimetableHeader.swift */; };
+		64E7DB6E234351ED00540FED /* TimetableHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB6C234351ED00540FED /* TimetableHeaderViewCell.swift */; };
+		64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64E7DB6D234351ED00540FED /* TimetableHeaderViewCell.xib */; };
+		64E7DB722343535800540FED /* TimetableLessonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB702343535800540FED /* TimetableLessonViewCell.swift */; };
+		64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64E7DB712343535800540FED /* TimetableLessonViewCell.xib */; };
 		64E9B407230045FD00F86767 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9B406230045FD00F86767 /* WKWebViewController.swift */; };
 		64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EBEE4E22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift */; };
 		64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */; };
@@ -530,6 +542,9 @@
 		6418FCBC22BA58760009E127 /* SideMenuContainerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuContainerNavigationController.swift; sourceTree = "<group>"; };
 		641983D222C4DEA00041BCB4 /* UITableViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCells.swift; sourceTree = "<group>"; };
 		641983D422C4E0590041BCB4 /* UITableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViews.swift; sourceTree = "<group>"; };
+		641A4ACF234484F50018ACFD /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
+		641A4AD0234484F50018ACFD /* MealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealViewCell.xib; sourceTree = "<group>"; };
+		641A4AD32344E96E0018ACFD /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		6420E98222E06BCE00F13AD3 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		6420E98422E06C2500F13AD3 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		6420E98622E06CA900F13AD3 /* DashboardCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCoordinator.swift; sourceTree = "<group>"; };
@@ -603,13 +618,21 @@
 		64DBE743233CBD6800A5BAA2 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		64E218D722D722EA00004183 /* CanteenDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanteenDetail.swift; sourceTree = "<group>"; };
 		64E218DA22D7767500004183 /* MealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewController.swift; sourceTree = "<group>"; };
-		64E218DC22D7769B00004183 /* MealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewCell.swift; sourceTree = "<group>"; };
-		64E218DD22D7769B00004183 /* MealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MealViewCell.xib; sourceTree = "<group>"; };
 		64E40B862334BFBA0075B7B1 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		64E5BFA522BCC650005E92C0 /* MangementCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangementCoordinator.swift; sourceTree = "<group>"; };
 		64E5BFA822BCC670005E92C0 /* ManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewController.swift; sourceTree = "<group>"; };
 		64E5BFAB22BCCC55005E92C0 /* SemesterPlaning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterPlaning.swift; sourceTree = "<group>"; };
 		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
+		64E7DB572343464000540FED /* TimetableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCoordinator.swift; sourceTree = "<group>"; };
+		64E7DB5C2343466D00540FED /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
+		64E7DB5E2343468700540FED /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
+		64E7DB60234346BD00540FED /* TimetableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModel.swift; sourceTree = "<group>"; };
+		64E7DB622343471F00540FED /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
+		64E7DB6523434F4A00540FED /* TimetableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableHeader.swift; sourceTree = "<group>"; };
+		64E7DB6C234351ED00540FED /* TimetableHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableHeaderViewCell.swift; sourceTree = "<group>"; };
+		64E7DB6D234351ED00540FED /* TimetableHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableHeaderViewCell.xib; sourceTree = "<group>"; };
+		64E7DB702343535800540FED /* TimetableLessonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonViewCell.swift; sourceTree = "<group>"; };
+		64E7DB712343535800540FED /* TimetableLessonViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonViewCell.xib; sourceTree = "<group>"; };
 		64E9B406230045FD00F86767 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		64EBEE4E22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupanciesCollectionViewCell.swift; sourceTree = "<group>"; };
 		64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomOccupanciesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -899,6 +922,7 @@
 				B52A9B4D1DDB160700313FC3 /* Schedule */,
 				1FC21DC81F8F953F003E244F /* Settings */,
 				6412011522BA2A1400B2090A /* SideMenu */,
+				64E7DB562343461E00540FED /* Timetable */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -998,6 +1022,7 @@
 				6414B74A22FADA0000988AAA /* KeychainService.swift */,
 				6410375822C10C650084FC63 /* ManagementService.swift */,
 				640DB2F422E999900083078E /* RoomOccupancyService.swift */,
+				64E7DB622343471F00540FED /* TimetableService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1376,6 +1401,54 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		64E7DB562343461E00540FED /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DB572343464000540FED /* TimetableCoordinator.swift */,
+				64E7DB592343464700540FED /* Main */,
+				64E7DB5A2343465200540FED /* Models */,
+				64E7DB5B2343465C00540FED /* ViewModels */,
+			);
+			path = Timetable;
+			sourceTree = "<group>";
+		};
+		64E7DB592343464700540FED /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DB5C2343466D00540FED /* Timetable.storyboard */,
+				64E7DB5E2343468700540FED /* TimetableViewController.swift */,
+				64E7DB6B234351A100540FED /* Views */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		64E7DB5A2343465200540FED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DB6523434F4A00540FED /* TimetableHeader.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64E7DB5B2343465C00540FED /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DB60234346BD00540FED /* TimetableViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		64E7DB6B234351A100540FED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DB6C234351ED00540FED /* TimetableHeaderViewCell.swift */,
+				64E7DB6D234351ED00540FED /* TimetableHeaderViewCell.xib */,
+				64E7DB702343535800540FED /* TimetableLessonViewCell.swift */,
+				64E7DB712343535800540FED /* TimetableLessonViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B50EB4FC1E6ADB410022E40C /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1483,35 +1556,36 @@
 		B52A9B551DDB170000313FC3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B5FCAE601E62EAEF00E35DDB /* Array.swift */,
 				B5EA53641E7FBE8D00183E07 /* Array_TestCase.swift */,
+				B5FCAE601E62EAEF00E35DDB /* Array.swift */,
 				645E635B22DCAE8F005F18BF /* Calendar.swift */,
 				B529EDE71FAB7F40000C1677 /* CodableDictionary.swift */,
 				B538EF1D1E1D9E6D0031077C /* Date.swift */,
 				B55507111E601FB400C16F5F /* DateComponents.swift */,
 				B5F58E451E1EA7C8006D99AE /* Dictionary.swift */,
 				B5B3768A1FA6182800FC3A07 /* Double.swift */,
+				1F5783541FE42C6500956CEB /* MFMailComposeViewController.swift */,
+				642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */,
 				B5ECAB9F1FBCCFE80017B8F4 /* NSAttributedString.swift */,
 				B538EF061E1D58690031077C /* NSObject+Rx.swift */,
 				B5BE727A1E6C4CBD00D05B6D /* Observable.swift */,
+				642C956922C93D9B0096EDD2 /* Observable+Response.swift */,
+				642C956C22C93DDD0096EDD2 /* Single+Response.swift */,
 				B5EA535E1E7FBB1500183E07 /* String.swift */,
 				B52DF0DB1E71DB5C0095C854 /* TimeInterval.swift */,
+				640FC57722F45BEC0090E210 /* UIButton.swift */,
 				B535D827204921CE00440034 /* UICollectionView.swift */,
 				1FA92C701FEACC7400A88B0D /* UIColor.swift */,
+				1F5783521FE42BE900956CEB /* UIDevice.swift */,
+				64F0D3D322C90A2500FE0A68 /* UIFonts.swift */,
+				642E5C2922F1CBFC00D3A886 /* UIPageViewControll.swift */,
+				641A4AD32344E96E0018ACFD /* UIStackView.swift */,
+				641983D222C4DEA00041BCB4 /* UITableViewCells.swift */,
+				641983D422C4E0590041BCB4 /* UITableViews.swift */,
 				B516D8211FA9A47000551556 /* UIView.swift */,
 				B5EA53731E7FDA5E00183E07 /* UIViewController.swift */,
 				5B6B4FF5209B693E00A572F8 /* URL.swift */,
 				B538EF0F1E1D62040031077C /* UserDefaults.swift */,
-				1F5783521FE42BE900956CEB /* UIDevice.swift */,
-				1F5783541FE42C6500956CEB /* MFMailComposeViewController.swift */,
-				641983D222C4DEA00041BCB4 /* UITableViewCells.swift */,
-				641983D422C4E0590041BCB4 /* UITableViews.swift */,
-				642E5C2922F1CBFC00D3A886 /* UIPageViewControll.swift */,
-				64F0D3D322C90A2500FE0A68 /* UIFonts.swift */,
-				642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */,
-				642C956922C93D9B0096EDD2 /* Observable+Response.swift */,
-				642C956C22C93DDD0096EDD2 /* Single+Response.swift */,
-				640FC57722F45BEC0090E210 /* UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1575,10 +1649,10 @@
 			children = (
 				6410F72822D5D0C200AA3BA1 /* CanteenViewCell.swift */,
 				6410F72922D5D0C200AA3BA1 /* CanteenViewCell.xib */,
-				64E218DC22D7769B00004183 /* MealViewCell.swift */,
-				64E218DD22D7769B00004183 /* MealViewCell.xib */,
 				649B49DE233DE633001375D0 /* MealHeaderViewCell.swift */,
 				649B49DF233DE633001375D0 /* MealHeaderViewCell.xib */,
+				641A4ACF234484F50018ACFD /* MealViewCell.swift */,
+				641A4AD0234484F50018ACFD /* MealViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1951,11 +2025,11 @@
 				649371052342836000EC7195 /* DasboardLessonViewCell.xib in Resources */,
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
 				640FC57622F419810090E210 /* UserGrey.json in Resources */,
-				64E218DF22D7769B00004183 /* MealViewCell.xib in Resources */,
 				640DC15922FB66EF00E9ED9A /* ExamViewCell.xib in Resources */,
 				64189C2422F9705300E3264D /* PadlockGrey.json in Resources */,
 				64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */,
 				64093B4422F80D03007138B6 /* StudyGroupSelectionViewCell.xib in Resources */,
+				64E7DB5D2343466D00540FED /* Timetable.storyboard in Resources */,
 				1F0CB4B41FE81DF3002B7744 /* HTW-Impressum.html in Resources */,
 				6493710123427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.xib in Resources */,
 				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,
@@ -1974,6 +2048,8 @@
 				6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */,
 				6413289E22FD95440065301F /* Settings.storyboard in Resources */,
 				6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */,
+				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
+				64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */,
 				64C4BCE2233BBAB700B135DE /* CampusPlanViewCell.xib in Resources */,
 				640FC57222F359090090E210 /* BarchartsGrey.json in Resources */,
 				64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */,
@@ -1986,6 +2062,7 @@
 				6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */,
 				640DC15322FB659F00E9ED9A /* Exam.storyboard in Resources */,
 				640CFFA122E639100078C99A /* DashboardGradeViewCell.xib in Resources */,
+				641A4AD2234484F50018ACFD /* MealViewCell.xib in Resources */,
 				64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */,
 				64C4BCC6233B417300B135DE /* RoomOccupanciesHeaderViewCell.xib in Resources */,
 				6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */,
@@ -2204,6 +2281,7 @@
 				640CC1D022DF0D8F00581AE4 /* ApiService.swift in Sources */,
 				1FD757601FB4D1BD007F9CA1 /* LectureViewModel.swift in Sources */,
 				6413289C22FD50BA0065301F /* KeychainService.swift in Sources */,
+				64E7DB642343475200540FED /* TimetableService.swift in Sources */,
 				6440EA6A22CE007200C313AE /* NSObject+Rx.swift in Sources */,
 				B5F3F8711FB85BEF00F0D1DB /* AppLecture.swift in Sources */,
 				6403694022C9F61F00FD49EA /* SemesterPlaning.swift in Sources */,
@@ -2291,6 +2369,7 @@
 				64BAFB0E2341FECF00292501 /* DashboardHeader.swift in Sources */,
 				6413289A22FD4CB20065301F /* ExamService.swift in Sources */,
 				6407C99C2340F516009E7C91 /* GradeHeader.swift in Sources */,
+				64E7DB6623434F4A00540FED /* TimetableHeader.swift in Sources */,
 				B5EA535F1E7FBB1500183E07 /* String.swift in Sources */,
 				649B49E8233E172B001375D0 /* CanteenViewModel.swift in Sources */,
 				6410F72622D5C86800AA3BA1 /* CanteenService.swift in Sources */,
@@ -2303,6 +2382,7 @@
 				B5BE728E1E6C886400D05B6D /* Event.swift in Sources */,
 				64BAFB112341FF3E00292501 /* DashboardHeaderViewCell.swift in Sources */,
 				B5499A071FE826210043749D /* Tracker.swift in Sources */,
+				64E7DB582343464000540FED /* TimetableCoordinator.swift in Sources */,
 				6418FCBD22BA58760009E127 /* SideMenuContainerNavigationController.swift in Sources */,
 				64BAFB0C2341FB6400292501 /* DashboardViewModel.swift in Sources */,
 				B5111E241E71F7A200D68155 /* CollectionReusableView.swift in Sources */,
@@ -2318,6 +2398,7 @@
 				B55ADF4B1FC08545004A5BB2 /* LoadingView.swift in Sources */,
 				6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */,
 				B5111E281E7206B500D68155 /* LectureTimeView.swift in Sources */,
+				64E7DB5F2343468700540FED /* TimetableViewController.swift in Sources */,
 				B5B3768E1FA61A2C00FC3A07 /* CanteenCoordinator.swift in Sources */,
 				64BAFB1B23424AED00292501 /* DashboardGradeNoCredentialsViewCell.swift in Sources */,
 				B52133BB1DEF0E2200955D29 /* NavigationViewController.swift in Sources */,
@@ -2338,7 +2419,6 @@
 				64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */,
 				1F048F461F90095800A1FBD9 /* OnboardingCoordinator.swift in Sources */,
 				6403695A22CA5D1A00FD49EA /* StuRaHTW.swift in Sources */,
-				64E218DE22D7769B00004183 /* MealViewCell.swift in Sources */,
 				6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */,
 				B538EF0A1E1D5BD10031077C /* Log.swift in Sources */,
 				6410F72A22D5D0C200AA3BA1 /* CanteenViewCell.swift in Sources */,
@@ -2355,6 +2435,7 @@
 				B54642DD1FAA842100735589 /* FreeDayListCell.swift in Sources */,
 				6420E98922E06D3700F13AD3 /* DashboardService.swift in Sources */,
 				640DB2F322E999490083078E /* RoomOccupancyCoordinator.swift in Sources */,
+				641A4AD1234484F50018ACFD /* MealViewCell.swift in Sources */,
 				B5EA536D1E7FCE8B00183E07 /* ScheduleDetailVC.swift in Sources */,
 				B538EF1C1E1D762E0031077C /* Grade_old.swift in Sources */,
 				6407C9A223412D8D009E7C91 /* GradeAverage.swift in Sources */,
@@ -2399,8 +2480,10 @@
 				6446CE9522D5B65E002636A5 /* Canteen.swift in Sources */,
 				1FE108031F8FDAF5002B8E69 /* StudygroupTextField.swift in Sources */,
 				640DB2F522E999900083078E /* RoomOccupancyService.swift in Sources */,
+				64E7DB61234346BD00540FED /* TimetableViewModel.swift in Sources */,
 				B50EB5021E6AFFA20022E40C /* Day.swift in Sources */,
 				6405918522CC830800AA5613 /* R.generated.swift in Sources */,
+				64E7DB722343535800540FED /* TimetableLessonViewCell.swift in Sources */,
 				640DB2FF22E9EDE30083078E /* RoomRealm.swift in Sources */,
 				6418FCBB22BA3B3A0009E127 /* SideMenuViewController.swift in Sources */,
 				6400734422EF32460028FDC3 /* RoomOccupanciesViewCell.swift in Sources */,
@@ -2432,6 +2515,7 @@
 				5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */,
 				B5EF95851FAF7C8A006BC7D1 /* GenericBasicTableViewDataSource.swift in Sources */,
 				B55507101E601AE300C16F5F /* Lecture.swift in Sources */,
+				64E7DB632343471F00540FED /* TimetableService.swift in Sources */,
 				B54642DF1FAB228500735589 /* FlatCollectionViewCell.swift in Sources */,
 				B5EA53741E7FDA5E00183E07 /* UIViewController.swift in Sources */,
 				64C4BCCF233BB1CD00B135DE /* CampusPlanCoordinator.swift in Sources */,
@@ -2445,8 +2529,10 @@
 				64D9D91422E1AAA7002E71F5 /* BlurredSectionHeader.swift in Sources */,
 				649B49ED233E4E98001375D0 /* GradesViewModel.swift in Sources */,
 				6407C9952340E49E009E7C91 /* GradeViewCell.swift in Sources */,
+				641A4AD42344E96E0018ACFD /* UIStackView.swift in Sources */,
 				B5D3E83A1FA5E7630055782D /* ScheduleCoordinator.swift in Sources */,
 				6410F72D22D629E800AA3BA1 /* Meal.swift in Sources */,
+				64E7DB6E234351ED00540FED /* TimetableHeaderViewCell.swift in Sources */,
 				39FB084B1E9E5375001CC2F5 /* TableViewCell.swift in Sources */,
 				1FC1BDCE1FADDEFF007F9D06 /* SettingsCoordinator.swift in Sources */,
 				B5EA535D1E7FBA4900183E07 /* Authenticator.swift in Sources */,

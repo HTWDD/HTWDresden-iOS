@@ -8,29 +8,55 @@
 
 import UIKit
 
-class DashboardMealViewCell: UITableViewCell, FromNibLoadable {
+class DashboardMealViewCell: UITableViewCell {
     
     // MARK: - Outlets
-    @IBOutlet weak var main: UIView!
-    @IBOutlet weak var lblMealName: UILabel!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var separator: UIView!
+    @IBOutlet weak var lblPrice: BadgeLabel!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var icForkAndKnife: UIImageView!
+    @IBOutlet weak var lblCategorie: BadgeLabel!
     
-    
+       
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        main.apply {
+        mainView.apply {
+            $0.backgroundColor      = UIColor.htw.cellBackground
             $0.layer.cornerRadius   = 4
         }
         
-        lblMealName.apply {
-            $0.numberOfLines    = 0
-            $0.contentMode      = .scaleToFill
-            $0.textColor        = UIColor.htw.darkGrey
+        lblPrice.apply {
+            $0.textColor        = .white
+            $0.backgroundColor  = UIColor.htw.Material.orange
+        }
+        
+        lblName.apply {
+            $0.textColor = UIColor.htw.Label.primary
+        }
+        
+        icForkAndKnife.apply {
+            $0.tintColor    = UIColor.htw.Icon.primary
+            $0.image        = $0.image?.withRenderingMode(.alwaysTemplate)
+        }
+        
+        lblCategorie.apply {
+            $0.textColor        = UIColor.htw.Label.primary
+            $0.backgroundColor  = UIColor.htw.Badge.primary
         }
     }
-    
-    // MARK: - Setup
-    func setup(with model: Meal) {
-        lblMealName.text = model.name
-    }
 }
+
+
+extension DashboardMealViewCell: FromNibLoadable {
+    
+    func setup(with model: Meal) {
+        lblPrice.text               = model.prices.studentsPrice
+        lblName.text                = model.name
+        separator.backgroundColor   = model.category.materialColor
+        lblCategorie.text           = model.category
+    }
+    
+}
+

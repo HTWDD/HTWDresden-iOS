@@ -50,14 +50,18 @@ class DashboardViewModel {
         return context
             .dashboardService
             .requestTimetable()
+            .debug()
             .map { (lessons: [Lesson]) -> [Dashboards] in
                 var result: [Dashboards] = []
                 result.append(.header(model: DashboardHeader(header: R.string.localizable.scheduleTitle(), subheader: Date().string(format: "EEEE, dd. MMMM"))))
                 if !lessons.isEmpty {
-                    let currentLesson = lessons
+                    let currentLesson: Lesson? = lessons
                         .filter { $0.weeksOnly.contains(Date().weekNumber) }
-                        .filter { $0.day == Date().weekDay }
-                        .filter { ($0.beginTime...$0.endTime).contains(Date().string(format: "HH:mm:ss")) }
+                        .filter { $0.day == ((Date().weekDay - 1) % 7) }
+                        .sorted(by: { (lhs, rhs) -> Bool in
+                            lhs.beginTime < rhs.beginTime
+                        })
+                        .filter { $0.endTime >= Date().string(format: "HH:mm:ss") }
                         .first
                     
                     if let lesson = currentLesson {

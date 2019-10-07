@@ -99,8 +99,8 @@ extension DashboardViewController {
             $0.register(DashboardGradeNoCredentialsViewCell.self)
             $0.register(DashboardGradeEmptyViewCell.self)
         }
+        
     }
-    
 }
 
 // MARK: - TableView Datasource

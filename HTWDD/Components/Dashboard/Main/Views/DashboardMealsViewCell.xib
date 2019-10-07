@@ -27,17 +27,17 @@
                                     <constraint firstAttribute="width" constant="20" id="gpE-Zk-pFi"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Wum-AN-f4v">
-                                <rect key="frame" x="8" y="8" width="260" height="96"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Wum-AN-f4v">
+                                <rect key="frame" x="8" y="0.0" width="260" height="112"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="t35-sK-j7T" secondAttribute="trailing" constant="8" id="EiN-0J-vhD"/>
-                            <constraint firstItem="Wum-AN-f4v" firstAttribute="top" secondItem="B3b-yz-izE" secondAttribute="top" constant="8" id="I9t-Ag-P46"/>
+                            <constraint firstItem="Wum-AN-f4v" firstAttribute="top" secondItem="B3b-yz-izE" secondAttribute="top" id="I9t-Ag-P46"/>
                             <constraint firstItem="t35-sK-j7T" firstAttribute="leading" secondItem="Wum-AN-f4v" secondAttribute="trailing" constant="8" id="PnZ-Yj-gQt"/>
                             <constraint firstItem="Wum-AN-f4v" firstAttribute="leading" secondItem="B3b-yz-izE" secondAttribute="leading" constant="8" id="Q5f-ii-Js6"/>
-                            <constraint firstAttribute="bottom" secondItem="Wum-AN-f4v" secondAttribute="bottom" constant="8" id="U9F-Hq-Og5"/>
+                            <constraint firstAttribute="bottom" secondItem="Wum-AN-f4v" secondAttribute="bottom" id="U9F-Hq-Og5"/>
                             <constraint firstItem="t35-sK-j7T" firstAttribute="centerY" secondItem="B3b-yz-izE" secondAttribute="centerY" id="oGn-o8-c8x"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

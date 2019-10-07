@@ -120,6 +120,13 @@ extension HTWNamespace where Base: UIColor {
             }
             return UIColor(hex: 0xFF9800)
         }
+        
+        static var teal: UIColor {
+            if #available(iOS 11.0, *) {
+                return UIColor(named: "TealMaterial")!
+            }
+            return UIColor(hex: 0x009688)
+        }
     }
     
     static var averageGradeBackground: UIColor {
