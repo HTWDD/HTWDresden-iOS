@@ -191,6 +191,8 @@
 		6420E98A22E06E0800F13AD3 /* DashboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E98822E06D3700F13AD3 /* DashboardService.swift */; };
 		6420E98D22E0A0DD00F13AD3 /* DashboardMealViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6420E98B22E0A0DD00F13AD3 /* DashboardMealViewCell.swift */; };
 		6420E98E22E0A0DD00F13AD3 /* DashboardMealViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6420E98C22E0A0DD00F13AD3 /* DashboardMealViewCell.xib */; };
+		64269738237979BC002FA206 /* HTW-Datenschutz.html in Resources */ = {isa = PBXBuildFile; fileRef = 64269737237979BB002FA206 /* HTW-Datenschutz.html */; };
+		6426973A2379ACFE002FA206 /* WKWebviewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642697392379ACFE002FA206 /* WKWebviewDelegate.swift */; };
 		642C956822C93D430096EDD2 /* MoyaProvider+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */; };
 		642C956A22C93D9B0096EDD2 /* Observable+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956922C93D9B0096EDD2 /* Observable+Response.swift */; };
 		642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642C956C22C93DDD0096EDD2 /* Single+Response.swift */; };
@@ -551,6 +553,8 @@
 		6420E98822E06D3700F13AD3 /* DashboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardService.swift; sourceTree = "<group>"; };
 		6420E98B22E0A0DD00F13AD3 /* DashboardMealViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardMealViewCell.swift; sourceTree = "<group>"; };
 		6420E98C22E0A0DD00F13AD3 /* DashboardMealViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardMealViewCell.xib; sourceTree = "<group>"; };
+		64269737237979BB002FA206 /* HTW-Datenschutz.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "HTW-Datenschutz.html"; sourceTree = "<group>"; };
+		642697392379ACFE002FA206 /* WKWebviewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebviewDelegate.swift; sourceTree = "<group>"; };
 		642C956722C93D430096EDD2 /* MoyaProvider+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoyaProvider+Rx.swift"; sourceTree = "<group>"; };
 		642C956922C93D9B0096EDD2 /* Observable+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Response.swift"; sourceTree = "<group>"; };
 		642C956C22C93DDD0096EDD2 /* Single+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Response.swift"; sourceTree = "<group>"; };
@@ -790,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				1F74531E1FC1D76D00BC0087 /* confetti.png */,
+				64269737237979BB002FA206 /* HTW-Datenschutz.html */,
 				1F0CB4B31FE81DF3002B7744 /* HTW-Impressum.html */,
 			);
 			path = Resources;
@@ -1357,6 +1362,7 @@
 			isa = PBXGroup;
 			children = (
 				64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */,
+				642697392379ACFE002FA206 /* WKWebviewDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -2048,6 +2054,9 @@
 				6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */,
 				6413289E22FD95440065301F /* Settings.storyboard in Resources */,
 				6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */,
+				64269738237979BC002FA206 /* HTW-Datenschutz.html in Resources */,
+				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
+				64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */,
 				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
 				64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */,
 				64C4BCE2233BBAB700B135DE /* CampusPlanViewCell.xib in Resources */,
@@ -2431,6 +2440,7 @@
 				B556410C1F990CB9006B9B1B /* Colors.swift in Sources */,
 				64D9D91922E1E497002E71F5 /* DashboardTimeTableViewCell.swift in Sources */,
 				64DBE742233C902700A5BAA2 /* CampusPlanViewModel.swift in Sources */,
+				6426973A2379ACFE002FA206 /* WKWebviewDelegate.swift in Sources */,
 				B5111E201E71F44300D68155 /* View.swift in Sources */,
 				B54642DD1FAA842100735589 /* FreeDayListCell.swift in Sources */,
 				6420E98922E06D3700F13AD3 /* DashboardService.swift in Sources */,

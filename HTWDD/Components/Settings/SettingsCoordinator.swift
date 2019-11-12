@@ -20,6 +20,7 @@ protocol SettingsCoordinatorRoutingDelegate: class {
     func showLogin(completion: @escaping () -> Void)
     func showMail()
     func showImpressum()
+    func showPrivacy()
     func showGithub()
     func resetData()
 }
@@ -102,6 +103,12 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
     func showImpressum() {
         settingsViewController.navigationController?.pushViewController(R.storyboard.settings.wkWebViewController()!.also {
             $0.show(title: R.string.localizable.settingsItemsLegalTitle(), filename: "HTW-Impressum.html")
+        }, animated: true)
+    }
+    
+    func showPrivacy() {
+        settingsViewController.navigationController?.pushViewController(R.storyboard.settings.wkWebViewController()!.also {
+            $0.show(title: R.string.localizable.settingsSetctionContactPrivacy(), filename: "HTW-Datenschutz.html")
         }, animated: true)
     }
     

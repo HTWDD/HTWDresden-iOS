@@ -15,7 +15,10 @@ class OnboardingPageViewController: UIPageViewController {
     private(set) lazy var orderdViewControllers: [UIViewController] = {
         return [R.storyboard.onboarding.welcomeViewController()!,
                 R.storyboard.onboarding.analyticsViewController()!.also { $0.delegate = self },
-                R.storyboard.onboarding.crashlyticsViewController()!.also { $0.delegate = self },
+                R.storyboard.onboarding.crashlyticsViewController()!.also {
+                    $0.delegate     = self
+                    $0.wkdelegate   = self
+                },
                 R.storyboard.onboarding.studyGroupViewController()!.also {
                     $0.context  = self.context
                     $0.delegate = self
@@ -89,3 +92,12 @@ extension OnboardingPageViewController: UIPageViewSwipeDelegate {
     }
 }
 
+// MARK: WKWebview Delegate
+extension OnboardingPageViewController: WKWebviewDelegate {
+    func showPrivacy(animated: Bool) {
+        present(R.storyboard.settings.wkWebViewController()!.also {
+            $0.modalPresentationStyle = .pageSheet
+            $0.show(title: R.string.localizable.settingsSetctionContactPrivacy(), filename: "HTW-Datenschutz.html")
+        }, animated: animated)
+    }
+}

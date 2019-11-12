@@ -26,6 +26,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var lblImpressum: UILabel!
     @IBOutlet weak var lblDelete: UILabel!
+    @IBOutlet weak var lblPrivacy: UILabel!
     
     // MARK: - Cells
     @IBOutlet weak var studyGroupCell: UITableViewCell!
@@ -36,6 +37,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var emailCell: UITableViewCell!
     @IBOutlet weak var imprintCell: UITableViewCell!
     @IBOutlet weak var trashCell: UITableViewCell!
+    @IBOutlet weak var privacyCell: UITableViewCell!
     
     // MARK: - Header Cells
     @IBOutlet weak var lblAccountHeader: UILabel!
@@ -100,6 +102,7 @@ extension SettingsViewController {
         emailCell.backgroundColor       = UIColor.htw.cellBackground
         imprintCell.backgroundColor     = UIColor.htw.cellBackground
         trashCell.backgroundColor       = UIColor.htw.cellBackground
+        privacyCell.backgroundColor     = UIColor.htw.cellBackground
         
         tableView.apply {
             $0.backgroundColor  = UIColor.htw.veryLightGrey
@@ -192,6 +195,10 @@ extension SettingsViewController {
             $0.text         = R.string.localizable.settingsSectionsContactSubtitle()
             $0.textColor    = UIColor.htw.Label.secondary
         }
+        lblPrivacy.apply {
+            $0.text         = R.string.localizable.settingsSetctionContactPrivacy()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
         // Reset
         lblResetHeader.apply {
             $0.text         = R.string.localizable.settingsSectionsDeleteAll()
@@ -256,6 +263,7 @@ extension SettingsViewController {
         case "githubCell": delegate?.showGithub()
         case "emailCell": delegate?.showMail()
         case "impressumCell": delegate?.showImpressum()
+        case "privacyCell": delegate?.showPrivacy()
         case "trashCell": delegate?.resetData()
         default:
             break
