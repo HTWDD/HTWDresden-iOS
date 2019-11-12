@@ -11,7 +11,7 @@
 "Onboarding.Analytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
-"Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz, gerätespezifische Daten erfasst und anonymisiert an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
+"Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Nähere Informationen zur Datenverarbeitung findest du hier (Link zur Datenschutzerklärung).";
 "Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.\nCrashlytics benötigt Analytics.";
 "Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
@@ -134,6 +134,7 @@
 "Settings.sections.weAreOpenSourceSubtitle"="Mehr auf Github";
 "Settings.sections.contact"="Kontakt";
 "Settings.sections.contact.subtitle"="Feedback erwünscht.";
+"Settings.setction.contact.privacy"="Datenschutz";
 "Settings.items.mail.mail"="app@htw-dresden.de";
 "Settings.items.mail.title"="Mail";
 "Settings.items.mail.fallback.title"="Mailadresse kopiert!";

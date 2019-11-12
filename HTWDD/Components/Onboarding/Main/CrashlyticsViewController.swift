@@ -24,6 +24,7 @@ class CrashlyticsViewController: UIViewController {
     
     // MARK: - Properties
     weak var delegate: UIPageViewSwipeDelegate?
+    var wkdelegate: WKWebviewDelegate?
     private lazy var animation: Animation? = {
         return Animation.named(!UserDefaults.standard.crashlytics && UserDefaults.standard.analytics ? "PulseBlue" : "PulseGrey")
     }()
@@ -64,6 +65,8 @@ class CrashlyticsViewController: UIViewController {
         }
         delegate?.next(animated: true)
     }
+    
+    
 }
 
 // MARK: - Setup
@@ -78,15 +81,17 @@ extension CrashlyticsViewController {
             $0.textColor    = UIColor.htw.Label.primary
         }
         lblCrashlyticsInformation.apply {
-            $0.text = R.string.localizable.onboardingCrashlyticsInformation()
+            $0.text         = R.string.localizable.onboardingCrashlyticsInformation()
             $0.textColor    = UIColor.htw.Label.secondary
+            let tap         = UITapGestureRecognizer(target: self, action: #selector(onLabelTapped(sender:)))
+            $0.addGestureRecognizer(tap)
         }
         lblCrashlyticsHelpQuestion.apply {
-            $0.text = R.string.localizable.onboardingCrashlyticsHelpQuestion()
+            $0.text         = R.string.localizable.onboardingCrashlyticsHelpQuestion()
             $0.textColor    = UIColor.htw.Material.blue
         }
         lblCrashlyticsRevoke.apply {
-            $0.text = R.string.localizable.onboardingCrashlyticsRevokeDescription()
+            $0.text         = R.string.localizable.onboardingCrashlyticsRevokeDescription()
             $0.textColor    = UIColor.htw.Material.orange
         }
         btnYes.setTitle(R.string.localizable.yes(), for: .normal)
@@ -100,6 +105,10 @@ extension CrashlyticsViewController {
             $0.contentMode  = .scaleAspectFit
             $0.loopMode     = .repeat(Float.random(in: 1...6))
         }
+    }
+    
+    @objc func onLabelTapped(sender: UITapGestureRecognizer) {
+        wkdelegate?.showPrivacy(animated: true)
     }
     
 }
