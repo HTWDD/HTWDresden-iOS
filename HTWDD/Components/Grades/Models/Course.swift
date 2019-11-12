@@ -7,39 +7,31 @@
 //
 
 import Foundation
-import RxSwift
-import Marshal
 
+// MARK: Codable
 struct Course: Codable {
-    let abschlTxt: String
-    let POVersion: Int
-    let abschlNr: String
-    let stgNr: String
-    let stgTxt: String
+    let graduation: String
+    let examinationRegulations: Int
+    let graduationNumber: String
+    let majorNumber: String
+    let major: String
 
-    private enum CodingKeys: String, CodingKey {
-        case abschlTxt = "AbschlTxt"
-        case POVersion = "POVersion"
-        case abschlNr = "AbschlNr"
-        case stgNr = "StgNr"
-        case stgTxt = "StgTxt"
-    }
-    
-    static func get(network: Network) -> Observable<[Course]> {
-        return network.getArrayM(url: Course.url)
+    enum CodingKeys: String, CodingKey {
+        case graduation             = "AbschlTxt"
+        case examinationRegulations = "POVersion"
+        case graduationNumber       = "AbschlNr"
+        case majorNumber            = "StgNr"
+        case major                  = "StgTxt"
     }
 }
 
-
-extension Course: Unmarshaling {
-    static let url = "https://wwwqis.htw-dresden.de/appservice/v2/getcourses"
-
-    init(object: MarshaledObject) throws {
-        self.abschlTxt = try object <| "AbschlTxt"
-        self.POVersion = try object <| "POVersion"
-        self.abschlNr = try object <| "AbschlNr"
-        self.stgNr = try object <| "StgNr"
-        self.stgTxt = try object <| "StgTxt"
+// MARK: - Equatable
+extension Course: Equatable {
+    static func ==(lhs: Course, rhs: Course) -> Bool {
+        return lhs.graduation == rhs.graduation
+            && lhs.examinationRegulations == rhs.examinationRegulations
+            && lhs.graduationNumber == rhs.graduationNumber
+            && lhs.majorNumber == rhs.majorNumber
+            && lhs.major == rhs.major
     }
-
 }

@@ -2,15 +2,21 @@
 //  GradeAverage.swift
 //  HTWDD
 //
-//  Created by Benjamin Herzog on 25.02.18.
-//  Copyright © 2018 HTW Dresden. All rights reserved.
+//  Created by Mustafa Karademir on 29.09.19.
+//  Copyright © 2019 HTW Dresden. All rights reserved.
 //
 
 import Foundation
 
-struct GradeAverage: Identifiable {
+struct GradeAverage {
+    let average: Double
+    let credits: Double
     
-    var average: Double
-    var credits: Int
+    var localizedAverage: String {
+        return R.string.localizable.gradesAverage(average)
+    }
     
+    var localizedCredits: String {
+        return R.string.localizable.gradesDetailCredits(credits)
+    }
 }

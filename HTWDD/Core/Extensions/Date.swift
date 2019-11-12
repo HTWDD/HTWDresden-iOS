@@ -66,6 +66,10 @@ extension Date {
         }
         return week
     }
+    
+    var weekDay: Int {
+        return Calendar.current.dateComponents([.weekday], from: self).weekday ?? 0
+    }
 
     var components: DateComponents {
         return Calendar.current.dateComponents(in: TimeZone.current, from: self)

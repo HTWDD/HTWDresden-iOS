@@ -59,7 +59,7 @@ final class ScheduleMainVC: ViewController, HasSideBarItem {
 			context: context,
 			auth: self.auth,
             shouldFilterEmptySections: false,
-            addFreeDays: true,
+            addFreeDays: false,
             splitFreeDaysInDays: true)
 		super.init()
 	}
@@ -71,7 +71,7 @@ final class ScheduleMainVC: ViewController, HasSideBarItem {
 	override func initialSetup() {
 		// Basic setup
 		self.title = Loca.Schedule.title
-		self.tabBarItem.image = #imageLiteral(resourceName: "Class")
+//		self.tabBarItem.image = #imageLiteral(resourceName: "Class")
 
 		// Layout Style Segmented Control
 		self.navigationItem.titleView = self.layoutStyleControl

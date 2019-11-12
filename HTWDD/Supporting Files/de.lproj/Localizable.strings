@@ -54,7 +54,7 @@
 "Schedule.freeDay"="Genieß Deinen freien Tag! 🎉";
 "Schedule.holiday"="Semesterferien 🙌🚀";
 "Schedule.noResults.title"="Kein Plan...";
-"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.\nIst Deine Studiengruppe korrekt?";
+"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.";
 "Schedule.NextLecture.unavailable"="Keine Stunden mehr für heute! 🚲🌴";
 "Schedule.Weeks.once"="Einmal";
 "Schedule.Weeks.all"="Jede Woche";
@@ -80,7 +80,7 @@
 "Canteen.pluralTitle"="Mensen";
 "Canteen.noCounter"="Ausgabeort nicht bekannt";
 "Canteen.noResults.title"="Kein Essen";
-"Canteen.noResults.message"="Heute gibt es nichts zu essen 😕";
+"Canteen.noResults.message"="Heute gibt es nichts zu essen";
 "Canteen.noResults.error.title"="Ups...";
 "Canteen.noResults.error.message"="Ich konnte keine Mensen finden,\nirgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
@@ -90,13 +90,19 @@
 "Canteen.nextWeek"="nächste Woche";
 "Canteen.Meal.noResult.error.title"="Ups...";
 "Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden,\nirgendwas ist schief gelaufen.";
-"Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen 🥺";
+"Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen";
 "Canteen.Meal.note.alkohol"="Alkohol";
 "Canteen.Meal.note.beef"="Rindfleisch";
 "Canteen.Meal.note.pork"="Schweinefleisch";
 "Canteen.Meal.note.garlic"="Knoblauch";
 "Canteen.Meal.note.vegan"="Vegan";
 "Canteen.Meal.note.vegatarian"="Vegetarisch";
+"Canteen.Meal.price.students"="%.2f €";
+"Canteen.Meal.price.noStudents"="-,-- €";
+"Canteen.Meal.price.employee"="Mitarbeiter: %.2f €";
+"Canteen.Meal.price.noEmployee"="Preis für Mitarbeiter: K/A";
+"Canteen.Meal.count.plural"="%d Gerichte";
+"Canteen.Meal.count"="%d Gericht";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";
@@ -142,6 +148,8 @@
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics und Crashlytics";
 
+"Network.error.title"="Fehler";
+"Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";
 
 "CalendarWeek.long"="Kalenderwoche";
 "CalendarWeek.short"="KW";
@@ -179,10 +187,10 @@
 
 "Grades.title"="Noten";
 "Grades.totalCredits"="%d Credits insgesamt";
-"Grades.average" = "(∅ %.2f)";
+"Grades.average" = "∅ %.2f";
 "Grades.detail.mark" = "%.1f";
 "Grades.detail.credits" = "%.0f Credits";
-"Grades.detail.tries" = "%d.Versuch";
+"Grades.detail.tries" = "%d. Versuch";
 "Grades.detail.noDate" = "Kein Datum";
 "Grades.detail.noNote" = "Keine Bemerkungen";
 "Grades.detail.note" = "Bemerkung: %@";
@@ -191,13 +199,33 @@
 "Grades.status.failed" = "Durchgefallen";
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
-"Grades.noResults.message"="😖 Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+"Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.";
 "Grades.numbers.and.credits"="%@ Note(n)\n%@ Credit(s)";
 "Grades.numbers.singular"="%d Note";
 "Grades.numbers.plural"="%d Noten";
 "Grades.credits.number.singular"="%.2f Credit";
 "Grades.credits.number.plural"="%.2f Credits";
 "Grades.last.grade"="Letzte Note: %@";
+"Grades.remark.recognized"="Anerkannt";
+"Grades.remark.ill"="Krankgeschrieben";
+"Grades.remark.blocked"="Gesperrt";
+"Grades.remark.sign.off"="Abgemeldet";
+"Grades.remark.not.allowed"="Nicht zugelassen";
+"Grades.remark.unkown"="Unbekannter Status";
+"Grades.remark.unexcused.missing"="Unentschuldigt gefehlt";
+"Grades.remark.not.started"="nicht angetreten, Fristüberschreitung";
+"Grades.remark.no.retest"="kein Antrag 2. Wdh.-Prüfung gestellt";
+"Grades.remark.free.try"="Freiversuch";
+"Grades.remark.with.success"="mit Erfolg";
+"Grades.remark.failed"="nicht bestanden (unbenotete Leistung)";
+"Grades.remark.pre.placement"="Vorprakt. offen";
+"Grades.remark.voluntary.appointment"="freiwilliger Termin nicht wahrgenommen";
+"Grades.remark.conditional"="unter Vorbehalt";
+"Grades.remark.attempt"="Täuschungsversuch";
+"Grades.remark.unkown"="Keine Bemerkungen";
+"Grades.no.credentials.title"="Keine Zugangsdaten";
+"Grades.no.credentials.message"="Bitte trage deine Zugangsdaten ein, damit ich Dir Noten anzeigen kann.";
+"Grades.header.subtitle"="Ø %.2f (%d Credits)";
 
 "CampusPlan.title" = "Campusplan";
 "CampusPlan.buildings" = "%d Gebäude";
@@ -218,7 +246,7 @@
 
 "Room.occupancy.title"="Belegungsplan";
 "Room.occupancy.empty.title"="Keine Räume";
-"Room.occupancy.empty.message"="Über + können neue Räume\nhinzugefügt werden.";
+"Room.occupancy.empty.message"="Über + können neue Räume hinzugefügt werden.\n\nDer Belegungsplan berücksichtigt keine Zusatzveranstaltungen oder Umlegungen. Raumreservierung bitte mit Frau Neumann (Z 228 A) absprechen.";
 "Room.occupancy.add.title"="Raum hinzufügen";
 "Room.occupancy.add.message"="Bitte die Raumnummer mit Leerzeichen zwischen Gebäude und Zimmernummer eingeben.";
 "Room.occupancy.add.placeholder"="z.B. s 531";
@@ -226,6 +254,6 @@
 "Room.occupancy.error.alert.title"="Fehler";
 "Room.occupancy.error.alert.message"="😖 Beim Laden der Daten ist etwas schief gelaufen, ist '%@' eine Korrekte Raumnummer?";
 "Room.occupancy.description"="Belegungen";
-"Room.occupancy.free"="Frei";
+"Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
 "Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
 "Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";

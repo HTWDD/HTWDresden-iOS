@@ -19,6 +19,7 @@ class CanteenCoordinator: Coordinator {
     private lazy var canteenViewController: CanteenViewController = {
         return R.storyboard.canteen.canteenViewController()!.also {
             $0.context              = context
+            $0.viewModel            = CanteenViewModel(context: context)
             $0.canteenCoordinator   = self
         }
     }()
@@ -35,15 +36,13 @@ class CanteenCoordinator: Coordinator {
     // MARK: Meals View Controller - Detail for Today
     func getMealsViewController(for canteenDetail: CanteenDetail) -> MealsViewController {
         return R.storyboard.canteen.mealsViewController()!.also {
-            $0.canteenDetail = canteenDetail
+            $0.viewModel = MealsViewModel(data: canteenDetail)
         }
     }
     
     func getMealsForWeekViewController(for canteenDetail: CanteenDetail, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
         return R.storyboard.canteen.mealsForWeekTableViewController()!.also {
-            $0.canteenDetail    = canteenDetail
-            $0.context          = context
-            $0.weekState        = weekState
+            $0.viewModel = MealsForWeekTableViewModel(context: context, week: weekState, detail: canteenDetail)
         }
     }
     

@@ -38,6 +38,7 @@ class AppCoordinator: Coordinator {
     private let persistenceService = PersistenceService()
 
     private lazy var dashboard      = DashboardCoordinator(context: appContext)
+    private lazy var timetable      = TimetableCoordinator(context: appContext)
     private lazy var schedule       = ScheduleCoordinator(context: appContext)
     private lazy var roomOccupancy  = RoomOccupancyCoordinator(context: appContext)
 	private lazy var exams          = ExamsCoordinator(context: appContext)
@@ -72,7 +73,6 @@ class AppCoordinator: Coordinator {
 
     private func injectAuthentication(schedule: ScheduleService.Auth?, grade: GradeService.Auth?) {
         self.schedule.auth          = schedule
-        self.grades.auth            = grade
     }
 
 	private func showOnboarding(animated: Bool) {
@@ -137,7 +137,6 @@ extension AppCoordinator: SettingsCoordinatorDelegate {
         }
         self.persistenceService.clear()
         self.schedule.auth = nil
-        self.grades.auth = nil
         KeychainService.shared.removeAllKeys()
         goTo(controller: .dashboard)
         self.showOnboarding(animated: true)
@@ -158,12 +157,15 @@ extension AppCoordinator {
             }
         case .schedule,
              .scheduleToday:
-            let studyToken = KeychainService.shared.readStudyToken()
-            if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group  {
-                schedule.auth = ScheduleService.Auth(year: year, major: major, group: group, degree: .bachelor)
-            }
-            viewController = schedule.rootViewController
-            rootNavigationController.setTimeTableButtonHighLight()
+//            let studyToken = KeychainService.shared.readStudyToken()
+//            if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group  {
+//                schedule.auth = ScheduleService.Auth(year: year, major: major, group: group, degree: .bachelor)
+//            }
+//            viewController = schedule.rootViewController
+//            rootNavigationController.setTimeTableButtonHighLight()
+//
+            viewController = timetable.start()
+            
         case .roomOccupancy:
             viewController = (roomOccupancy.rootViewController as! RoomOccupancyViewController).also {
                 $0.appCoordinator = self

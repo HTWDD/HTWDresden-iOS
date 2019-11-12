@@ -10,7 +10,7 @@ import Foundation
 
 class DashboardCoordinator: Coordinator {
     // MARK: - Typealias
-    typealias Services = HasDashboard & HasApiService
+    typealias Services = HasDashboard & HasApiService & AppContext
     
     // MARK: - Properties
     let context: Services
@@ -19,6 +19,7 @@ class DashboardCoordinator: Coordinator {
     private lazy var dashboardViewController: DashboardViewController = {
         return R.storyboard.dashboard.dashboardViewController()!.also {
             $0.context = context
+            $0.viewModel = DashboardViewModel(context: context)
         }
     }()
     

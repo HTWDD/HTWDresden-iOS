@@ -52,16 +52,21 @@ protocol HasCampusPlan {
     var campusPlanService: CampusPlanService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExam, HasSettings, HasManagement, HasApiService, HasDashboard, HasRoomOccupancy, HasCampusPlan {
+protocol HasTimetable {
+    var timetableService: TimetableService { get }
+}
+
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExam, HasSettings, HasManagement, HasApiService, HasDashboard, HasRoomOccupancy, HasCampusPlan, HasTimetable {
     lazy var dashboardService       = DashboardService(apiService: self.apiService, scheduleService: self.scheduleService)
     lazy var scheduleService        = ScheduleService()
     lazy var roomOccupanyService    = RoomOccupancyService(apiService: self.apiService)
 	lazy var examService            = ExamService(apiService: self.apiService)
-    lazy var gradeService           = GradeService()
+    lazy var gradeService           = GradeService(apiService: self.apiService)
     lazy var canteenService         = CanteenService(apiService: self.apiService)
 	lazy var settingsService        = SettingsService()
     lazy var apiService             = ApiService.shared()
     lazy var managementService      = ManagementService(apiService: self.apiService)
     lazy var campusPlanService      = CampusPlanService()
+    lazy var timetableService       = TimetableService(apiService: self.apiService)
 }
 

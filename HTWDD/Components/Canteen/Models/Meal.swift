@@ -27,10 +27,34 @@ struct Prices: Codable {
 // MARK: - Extensions
 extension Prices {
     var studentsPrice: String {
-        return students.asCurrency
+        if let students = students {
+             return R.string.localizable.canteenMealPriceStudents(students)
+        } else {
+            return R.string.localizable.canteenMealPriceNoStudents()
+        }
     }
     
     var employeesPrice: String {
-        return employees.asCurrency
+        if let  employees = employees {
+            return R.string.localizable.canteenMealPriceEmployee(employees)
+        } else {
+            return R.string.localizable.canteenMealPriceNoEmployee()
+        }
     }
+}
+
+// MARK: - Equatable
+extension Meal: Equatable {
+    
+    static func ==(lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name && lhs.prices == rhs.prices
+    }
+}
+
+extension Prices: Equatable {
+    
+    static func ==(lhs: Prices, rhs: Prices) -> Bool {
+        return lhs.students == rhs.students && lhs.employees == rhs.employees
+    }
+    
 }

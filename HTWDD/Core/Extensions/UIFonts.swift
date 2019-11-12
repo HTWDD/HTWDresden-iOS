@@ -34,8 +34,10 @@ extension HTWNamespace where Base: UIFont {
         static var primary: UIFont {
             return UIFont.systemFont(ofSize: 17.0, weight: .semibold)
         }
-        
-        
+            
+        static var medium: UIFont {
+            return UIFont.systemFont(ofSize: 13)
+        }
         
         static var secondary: UIFont {
             return UIFont.systemFont(ofSize: 11.0, weight: .semibold)

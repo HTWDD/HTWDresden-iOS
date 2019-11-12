@@ -11,7 +11,7 @@ import Foundation
 struct Lesson: Codable {
     
     let id: String
-    let moduleId: String?
+//    let moduleId: String?
     let lessonTag: String?
     let name: String
     let type: LessonType
@@ -23,6 +23,19 @@ struct Lesson: Codable {
     let professor: String?
     let rooms: [String]
     let lastChanged: String
+    
+    var lessonDays: [String] {
+        var lastWeek: Int = 0
+        var year = Calendar.current.component(.year, from: Date())
+        return weeksOnly.map { week -> String in
+            if (lastWeek - week) > 1 {
+                year = year + 1
+            }
+            let component = DateComponents(weekday: (day % 7) + 1, weekOfYear: week, yearForWeekOfYear: year)
+            lastWeek = week
+            return Calendar.current.date(from: component)!.string(format: "dd.MM.yyyy")
+        }
+    }
     
     // MARK: - Lessontypes
     enum LessonType: String, Codable {
@@ -58,6 +71,23 @@ struct Lesson: Codable {
             }
         }
        
+    }
+    
+}
+
+
+// MARK: - Hashable
+extension Lesson: Hashable {
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id.hashValue ^ lessonTag.hashValue ^ day.hashValue ^ week.hashValue)
+    }
+    
+    static func ==(lhs: Lesson, rhs: Lesson) -> Bool {
+        return lhs.id == rhs.id
+            && lhs.lessonTag == rhs.lessonTag
+            && lhs.day == rhs.day
+            && lhs.week == rhs.week
     }
     
 }

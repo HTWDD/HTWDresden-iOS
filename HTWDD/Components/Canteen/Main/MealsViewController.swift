@@ -7,14 +7,24 @@
 //
 
 import UIKit
+import RxSwift
 
 class MealsViewController: UITableViewController {
 
     // MARK: - Properties
-    var canteenDetail: CanteenDetail?
-    private var categories: [String]?
-    private var meals: [[Meal]?] = []
+    var viewModel: MealsViewModel!
+    private var items: [Meals] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    private let stateView: EmptyResultsView = {
+        return EmptyResultsView().also {
+            $0.isHidden = true
+        }
+    }()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -34,24 +44,30 @@ class MealsViewController: UITableViewController {
 extension MealsViewController {
     
     private func setup() {
-
+        
         tableView.apply {
             $0.separatorStyle   = .none
             $0.backgroundColor  = UIColor.htw.veryLightGrey
+            $0.backgroundView   = stateView
+            $0.register(MealHeaderViewCell.self)
             $0.register(MealViewCell.self)
         }
         
-        prepareDataSource()
-    }
-    
-    private func prepareDataSource() {
-        if let categories = canteenDetail?.meals.reduce(into: Set<String>(), { categories, meal in categories.insert(meal.category) }) {
-            self.categories = Array(categories.sorted())
-        }
-        
-        categories?.forEach { category in
-            meals.append(canteenDetail?.meals.filter { $0.category == category })
-        }
+        viewModel
+            .load()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] items in
+                guard let self = self else { return }
+                self.items = items
+                
+                if items.isEmpty {
+                    self.stateView.setup(with: EmptyResultsView.Configuration(icon: "😦", title: R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), hint: nil, action: nil))
+                }
+                
+            }, onError: { error in
+                Log.error(error)
+            })
+            .disposed(by: rx_disposeBag)
     }
 }
 
@@ -60,39 +76,23 @@ extension MealsViewController {
 extension MealsViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals[section]?.count ?? 0
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
-        cell.setup(with: meals[indexPath.section]?[indexPath.row])
-        return cell
+        switch items[indexPath.row] {
+        case .header(let model):
+            let cell = tableView.dequeueReusableCell(MealHeaderViewCell.self, for: indexPath)!
+            cell.setup(with: model)
+            return cell
+        case .meal(let model):
+            let cell = tableView.dequeueReusableCell(MealViewCell.self, for: indexPath)!
+            cell.setup(with: model)
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .clear
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories?[section]
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        
-        // No Categories? No Meal!
-        if categories?.count == 0 {
-            tableView.setEmptyMessage(R.string.localizable.canteenNoResultsTitle(), message: R.string.localizable.canteenNoResultsMessage(), icon: "🍽")
-        } else {
-            tableView.restore()
-        }
-        return categories?.count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return BlurredSectionHeader(frame: tableView.frame, header: categories?[section] ?? "N/A", subHeader: Date().string(format: "dd. MMMM"))
     }
 }

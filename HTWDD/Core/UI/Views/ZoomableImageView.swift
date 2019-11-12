@@ -17,8 +17,8 @@ class ZoomableImageView: UIScrollView {
         self.init(frame: frame)
         
         imageView = UIImageView(image: image).also {
-            $0.frame        = frame
-            $0.contentMode  = .scaleAspectFill
+            $0.frame                = frame
+            $0.contentMode          = .scaleAspectFill
         }
         addSubview(imageView)
         setup()
@@ -59,6 +59,8 @@ extension ZoomableImageView: UIScrollViewDelegate {
         delegate            = self
         minimumZoomScale    = 1.0
         maximumZoomScale    = 3.0
+        layer.cornerRadius  = 4
+        clipsToBounds       = true
         showsVerticalScrollIndicator    = false
         showsHorizontalScrollIndicator  = false
     }

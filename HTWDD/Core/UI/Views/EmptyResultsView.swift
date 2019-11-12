@@ -50,7 +50,7 @@ class EmptyResultsView: UIView {
     
     private let message: UILabel = {
         return UILabel().also {
-            $0.font             = UIFont.from(style: .description)
+            $0.font             = UIFont.htw.Labels.medium
             $0.textColor        = UIColor.htw.Label.secondary
             $0.textAlignment    = .center
             $0.numberOfLines    = 0

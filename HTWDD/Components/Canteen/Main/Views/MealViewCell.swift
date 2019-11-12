@@ -1,87 +1,70 @@
 //
-//  MealViewCell.swift
+//  MealsViewCell.swift
 //  HTWDD
 //
-//  Created by Mustafa Karademir on 11.07.19.
+//  Created by Mustafa Karademir on 02.10.19.
 //  Copyright © 2019 HTW Dresden. All rights reserved.
 //
 
 import UIKit
 
-class MealViewCell: UITableViewCell, FromNibLoadable {
-    
+class MealViewCell: UITableViewCell {
+
     // MARK: - Outlets
-    @IBOutlet weak var main: UIView!
-    @IBOutlet weak var lblMealName: UILabel!
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var separator: UIView!
+    @IBOutlet weak var lblPrice: BadgeLabel!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var icForkAndKnife: UIImageView!
     @IBOutlet weak var mealStackView: UIStackView!
-    @IBOutlet weak var priceStackView: UIStackView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-       
-        // Main View (Background)
-        main.apply  {
+        
+        mainView.apply {
+            $0.backgroundColor      = UIColor.htw.cellBackground
             $0.layer.cornerRadius   = 4
         }
+       
+        lblPrice.apply {
+            $0.textColor        = .white
+            $0.backgroundColor  = UIColor.htw.Material.orange
+        }
         
-        // Meal Name
-        lblMealName.apply {
-            $0.textColor        = UIColor.htw.darkGrey
-            $0.numberOfLines    = 0
-            $0.contentMode      = .scaleToFill
+        lblName.apply {
+            $0.textColor = UIColor.htw.Label.primary
+        }
+        
+        icForkAndKnife.apply {
+            $0.tintColor    = UIColor.htw.Icon.primary
+            $0.image        = $0.image?.withRenderingMode(.alwaysTemplate)
         }
     }
-    
-    // MARK: - Model Setup
-    func setup(with model: Meal?) {
-        guard let model = model else { return }
-        mealStackView.subviews.forEach { $0.removeFromSuperview() }
-        priceStackView.subviews.forEach { $0.removeFromSuperview() }
 
-        // Meal Name
-        lblMealName.text = model.name.replacingOccurrences(of: "\n", with: " ")
+}
+
+// MARK: - Loadable
+extension MealViewCell: FromNibLoadable {
+    
+    func setup(with model: Meal) {
+        mealStackView.subviews.forEach { $0.removeFromSuperview() }
         
-        // REGION Meals
-        let hStack = UIStackView().also {
-            $0.axis         = .horizontal
-            $0.alignment    = .leading
-            $0.spacing      = 10
-            $0.distribution = .equalSpacing
-        }
+        lblPrice.text               = model.prices.studentsPrice
+        lblName.text                = model.name
+        separator.backgroundColor   = model.category.materialColor
         
         model.notes.forEach { note in
             if let image = getImage(for: note) {
-                hStack.addArrangedSubview(image)
+                mealStackView.addArrangedSubview(image)
             }
         }
-        
-        mealStackView.addArrangedSubview(hStack)
-        // ENDREGION Meals
-        
-        
-        // REGION Prices
-        priceStackView.addArrangedSubview(BadgeLabel().also {
-            $0.text             = model.prices.studentsPrice
-            $0.font             = UIFont.from(style: .small, isBold: true)
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor.htw.mediumOrange
-        })
-        
-        priceStackView.addArrangedSubview(BadgeLabel().also {
-            $0.text             = model.prices.employeesPrice
-            $0.font             = UIFont.from(style: .small, isBold: true)
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor(hex: 0x005c98)
-        })
-        // ENDREGION Prices
         
     }
     
     
     private func getImage(for containing: String) -> UIView? {
-        let imageSize = CGSize(width: 25, height: 25)
         let image: UIImage
-        
         switch containing.lowercased().description {
         case let str where str.contains(MealTypes.alc.rawValue.lowercased()): image = #imageLiteral(resourceName: "Alcohol")
         case let str where str.contains(MealTypes.cow.rawValue.lowercased()): image = #imageLiteral(resourceName: "Cow")
@@ -93,30 +76,19 @@ class MealViewCell: UITableViewCell, FromNibLoadable {
             return nil
         }
         
-        let vStack = UIStackView().also {
-            $0.axis         = .vertical
-            $0.alignment    = .center
-            $0.spacing      = 5
-        }
-        
-        vStack.addArrangedSubview(UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20)).also {
-            $0.image        = image
-            $0.width        = imageSize.width
-            $0.height       = imageSize.height
-            $0.contentMode  = .left
-            if #available(iOS 11.0, *) {
-                $0.adjustsImageSizeForAccessibilityContentSizeCategory = true
+        return BadgeLabel().also { badge in
+            badge.attributedText   = NSMutableAttributedString(string: localizedDescribingFor(note: containing), attributes: [.font: UIFont.htw.Badges.primary]).also { attributed in
+                attributed.insert(NSAttributedString(attachment: NSTextAttachment().also { attachment in
+                    attachment.image    = image
+                    attachment.bounds   = CGRect(x: -5, y: -6, width: 20, height: 20)
+                }), at: 0)
             }
-        })
-        
-        vStack.addArrangedSubview(BadgeLabel().also {
-            $0.text             = localizedDescribingFor(note: containing)
-            $0.textColor        = .white
-            $0.backgroundColor  = UIColor.htw.darkGrey
-            $0.font             = UIFont.from(style: .verySmall, isBold: true)
-        })
-        
-        return vStack
+            badge.backgroundColor  = UIColor.htw.Badge.primary
+            badge.cornerRadius     = 8
+            badge.textColor        = UIColor.htw.Label.secondary
+            badge.setContentHuggingPriority(.required, for: .horizontal)
+        }
+    
     }
     
     private func localizedDescribingFor(note: String) -> String {
