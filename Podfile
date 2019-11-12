@@ -39,7 +39,7 @@ target 'HTWDD' do
   
   # Pods for PodTest
   pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.13.4'
+  pod 'Crashlytics', '~> 3.14.0'
   
   # Side Menu
   pod 'SideMenu'

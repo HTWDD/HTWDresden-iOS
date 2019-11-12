@@ -79,11 +79,12 @@ extension AppDelegate {
         let _ = try! Realm()
     }
     
-    // MARK: - Analytics & Crashlytics
+    // MARK: - Crashlytics
     private func analyticsAndCrashlytics() {
-        if UserDefaults.standard.analytics && UserDefaults.standard.crashlytics {
+        Analytics.setAnalyticsCollectionEnabled(false)
+        if UserDefaults.standard.crashlytics {
             FirebaseApp.configure()
-            Analytics.setAnalyticsCollectionEnabled(true)
+            Fabric.with([Crashlytics.self])
         }
     }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import Lottie
-import Firebase
 
 class CrashlyticsViewController: UIViewController {
 
@@ -26,7 +25,7 @@ class CrashlyticsViewController: UIViewController {
     weak var delegate: UIPageViewSwipeDelegate?
     var wkdelegate: WKWebviewDelegate?
     private lazy var animation: Animation? = {
-        return Animation.named(!UserDefaults.standard.crashlytics && UserDefaults.standard.analytics ? "PulseBlue" : "PulseGrey")
+        return Animation.named(!UserDefaults.standard.crashlytics ? "PulseBlue" : "PulseGrey")
     }()
     private lazy var chartsAnimation: Animation? = {
         return Animation.named("BarchartsGrey")
@@ -42,7 +41,7 @@ class CrashlyticsViewController: UIViewController {
         super.viewDidAppear(animated)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            if !UserDefaults.standard.crashlytics && UserDefaults.standard.analytics {
+            if !UserDefaults.standard.crashlytics {
                 self.animation = Animation.named("PulseBlue")
                 self.animationView.animation = self.animation
                 self.animationView.play()
@@ -55,7 +54,6 @@ class CrashlyticsViewController: UIViewController {
     // MARK: - User Interaction
     @IBAction func onYesTouch(_ sender: UIButton) {
         UserDefaults.standard.crashlytics = true
-        Analytics.setAnalyticsCollectionEnabled(true)
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             
