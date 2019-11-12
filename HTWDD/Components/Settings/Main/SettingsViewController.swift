@@ -14,13 +14,11 @@ import SafariServices
 class SettingsViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Outlets
-    @IBOutlet weak var analyticsSwitch: UISwitch!
     @IBOutlet weak var crashlyticsSwitch: UISwitch!
     @IBOutlet weak var lblCurrentStudyGroups: BadgeLabel!
     @IBOutlet weak var lblCurrentAccount: BadgeLabel!
     @IBOutlet weak var lblStudyGroup: UILabel!
     @IBOutlet weak var lblLogin: UILabel!
-    @IBOutlet weak var lblAnalytics: UILabel!
     @IBOutlet weak var lblCrashlytics: UILabel!
     @IBOutlet weak var lblGithub: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
@@ -31,7 +29,6 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     // MARK: - Cells
     @IBOutlet weak var studyGroupCell: UITableViewCell!
     @IBOutlet weak var loginCell: UITableViewCell!
-    @IBOutlet weak var analyticsCell: UITableViewCell!
     @IBOutlet weak var crashlyticsCell: UITableViewCell!
     @IBOutlet weak var githubCell: UITableViewCell!
     @IBOutlet weak var emailCell: UITableViewCell!
@@ -80,9 +77,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        analyticsSwitch.setOn(UserDefaults.standard.analytics, animated: false)
         crashlyticsSwitch.setOn(UserDefaults.standard.crashlytics, animated: false)
-        crashlyticsSwitch.isEnabled = UserDefaults.standard.analytics
         currentStudyGroup()
         currentLoginAccount()
     }
@@ -96,7 +91,6 @@ extension SettingsViewController {
 
         studyGroupCell.backgroundColor  = UIColor.htw.cellBackground
         loginCell.backgroundColor       = UIColor.htw.cellBackground
-        analyticsCell.backgroundColor   = UIColor.htw.cellBackground
         crashlyticsCell.backgroundColor = UIColor.htw.cellBackground
         githubCell.backgroundColor      = UIColor.htw.cellBackground
         emailCell.backgroundColor       = UIColor.htw.cellBackground
@@ -111,17 +105,7 @@ extension SettingsViewController {
         
         title = R.string.localizable.settingsTitle()
         
-        analyticsSwitch.addTarget(self, action: #selector(onSwitchChanged(_:)), for: .valueChanged)
         crashlyticsSwitch.addTarget(self, action: #selector(onSwitchChanged(_:)), for: .valueChanged)
-        
-        if !UserDefaults.standard.analytics {
-            crashlyticsSwitch.apply {
-                $0.setOn(false, animated: false)
-                $0.isEnabled = false
-            }
-            UserDefaults.standard.crashlytics = false
-            Analytics.setAnalyticsCollectionEnabled(false)
-        }
         
         lblCurrentStudyGroups.apply {
             $0.backgroundColor  = UIColor.htw.Material.orange
@@ -139,7 +123,6 @@ extension SettingsViewController {
             $0.text         = R.string.localizable.settingsItemsSetGradesTitle()
             $0.textColor    = UIColor.htw.Label.primary
         }
-        lblAnalytics.textColor      = UIColor.htw.Label.primary
         lblCrashlytics.textColor    = UIColor.htw.Label.primary
         lblGithub.apply {
             $0.text         = R.string.localizable.settingsItemsGithub()
@@ -212,13 +195,6 @@ extension SettingsViewController {
     
     @objc private func onSwitchChanged(_ sender: UISwitch) {
         switch sender {
-        case analyticsSwitch:
-            crashlyticsSwitch.isEnabled = sender.isOn
-            UserDefaults.standard.analytics = sender.isOn
-            Analytics.setAnalyticsCollectionEnabled(sender.isOn)
-            if !sender.isOn {
-                crashlyticsSwitch.setOn(false, animated: true)
-            }
         case crashlyticsSwitch:
             UserDefaults.standard.crashlytics = sender.isOn
         default:

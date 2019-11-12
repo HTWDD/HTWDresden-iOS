@@ -12,7 +12,7 @@
 
 "Onboarding.Crashlytics.description"="We'd like to use Google Chrashlytics on your device to keep improving the app.";
 "Onboarding.Crashlytics.information"="In the event of an app crash, device-specific data is collected and transferred to the Google Inc. servers. Further information on data processing can be found here (link to privacy policy).";
-"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.\nCrashlytics needs Analytics.";
+"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.";
 "Onboarding.Crashlytics.help.question"="Would you like to help us?";
 
 "Onboarding.Studygroup.title"="Study group";

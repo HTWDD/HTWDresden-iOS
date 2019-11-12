@@ -12,7 +12,7 @@
 
 "Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
 "Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Nähere Informationen zur Datenverarbeitung findest du hier (Link zur Datenschutzerklärung).";
-"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.\nCrashlytics benötigt Analytics.";
+"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
 "Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Studygroup.title"="Studiengruppe";
