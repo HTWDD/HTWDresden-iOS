@@ -1,2 +1,4 @@
-app_identifier("de.develappers.htw-dresden.ios")
+team_name "Hochschule fuer Technik und Wirtschaft Dresden" 
+itc_team_name "Hochschule fuer Technik und Wirtschaft Dresden" 
+app_identifier("de.htw-dresden.app")
 apple_id("apple-team@develappers.de")

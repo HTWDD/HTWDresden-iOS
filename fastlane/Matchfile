@@ -1,0 +1,5 @@
+git_url "git@git.develappers.de:Develappers/apple-certificates.git" 
+git_branch "Hochschule_fuer_Technik_und_Wirtschaft_Dresden" 
+
+app_identifier ["de.htw-dresden.app", "de.htw-dresden.app.today"]
+username "apple-team@develappers.de" 
