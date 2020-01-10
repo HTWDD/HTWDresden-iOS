@@ -57,7 +57,10 @@ class StudyGroupViewController: UIViewController {
         // MARK: - State.Study Courses
         var majors: [StudyCourse]? {
             guard let years = years, let year = year else { return nil }
-            return years.first(where: { $0.studyYear == year.studyYear })?.studyCourses
+            return years
+                .first(where: { $0.studyYear == year.studyYear })?
+                .studyCourses?
+                .filter({ !$0.name.isEmpty })
         }
         var major: StudyCourse? {
             didSet {
