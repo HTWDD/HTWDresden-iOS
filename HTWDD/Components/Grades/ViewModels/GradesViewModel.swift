@@ -47,18 +47,18 @@ class GradesViewModel {
                 if (!hMap.isEmpty) {
                     //
                     let totalValues = Array(hMap.values).reduce([], +)
-                    let totalCredits = totalValues.map { $0.credits }.reduce(0.0, +)
-                    let totalGrades = totalValues.map { $0.credits * Double($0.grade ?? 0) }.reduce(0.0, +)
+                    let totalCredits = totalValues.filter { $0.credits > 0.0 }.map { $0.credits }.reduce(0.0, +)
+                    let totalGrades = totalValues.filter { $0.credits > 0.0 && $0.grade != nil }.map { $0.credits * (Double($0.grade ?? 0) / 100.0) }.reduce(0.0, +)
                     
-                    result.append(.average(model: GradeAverage(average: totalGrades > 0 ? (totalGrades / totalCredits) / 100.0 : 0.0, credits: totalCredits)))
+                    result.append(.average(model: GradeAverage(average: totalGrades > 0 ? totalGrades / totalCredits : 0.0, credits: totalCredits)))
                     
                     for (key, values) in Array(hMap).sorted (by: { (lhs, rhs) in lhs.key > rhs.key }) {
                         // Credits calc
-                        let credits = values.map { $0.credits }.reduce(0, +)
-                        let grades = values.map { $0.credits * Double($0.grade ?? 0) > 0 ? Double($0.grade ?? 0 ) / 100 : 0  }.reduce(0.0, +)
+                        let credits = values.filter { $0.credits > 0.0 }.map { $0.credits }.reduce(0.0, +)
+                        let grades  = values.filter { $0.credits > 0.0 && $0.grade != nil }.map { $0.credits * (Double($0.grade ?? 0) / 100.0) }.reduce(0.0, +)
                         
                         // Header
-                        result.append(.header(model: GradeHeader(header: self.decodeSemester(from: key), subheader: R.string.localizable.gradesHeaderSubtitle(grades, Int(credits)))))
+                        result.append(.header(model: GradeHeader(header: self.decodeSemester(from: key), subheader: R.string.localizable.gradesHeaderSubtitle(grades / credits, Int(credits)))))
                         
                         // Grade
                         var mutableValues = values
