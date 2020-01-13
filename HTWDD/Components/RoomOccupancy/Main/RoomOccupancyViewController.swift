@@ -27,7 +27,7 @@ class RoomOccupancyViewController: UITableViewController, HasSideBarItem {
         return UIAlertController(title: R.string.localizable.roomOccupancyAddTitle(), message: R.string.localizable.roomOccupancyAddMessage(), preferredStyle: .alert).also { alert in
             alert.addAction(UIAlertAction(title: R.string.localizable.close(), style: .cancel, handler: nil))
             alert.addAction(UIAlertAction(title: R.string.localizable.add(), style: .default, handler: { action in
-                if let text = alert.textFields?.first?.text {
+                if let text = alert.textFields?.first?.text?.lowercased() {
                     if let superView = self.navigationController?.view {
                         self.showLoadingIndicator(on: superView)
                     }
@@ -120,7 +120,7 @@ extension RoomOccupancyViewController {
 extension RoomOccupancyViewController: UITextFieldDelegate {
     
     private var validRegEx: String {
-        return #"^[a-z] [a-z0-9]{3,5}$"#
+        return #"^[a-zA-Z] [a-zA-Z0-9]{3,5}$"#
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

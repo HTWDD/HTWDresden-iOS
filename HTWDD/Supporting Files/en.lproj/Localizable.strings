@@ -247,7 +247,7 @@
 
 "Room.occupancy.title"="Room occupancy";
 "Room.occupancy.empty.title"="No rooms";
-"Room.occupancy.empty.message"="New rooms can be added with + \n\nThe booking plan does not take into account any additional events or allocations. Please arrange room reservation with Ms Neumann (Z 228 A).";
+"Room.occupancy.empty.message"="New rooms can be added with + \n\nThe booking plan does not take into account any additional events or allocations. Please arrange room reservation with Ms Neumann (Z 228A).";
 "Room.occupancy.add.title"="Add room";
 "Room.occupancy.add.message"="Please enter the room number with spaces between the building and the room number.";
 "Room.occupancy.add.placeholder"="e.g. s 531";
