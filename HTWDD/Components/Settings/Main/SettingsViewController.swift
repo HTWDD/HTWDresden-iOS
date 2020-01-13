@@ -205,8 +205,18 @@ extension SettingsViewController {
     private func currentStudyGroup() {
         let studyToken = KeychainService.shared.readStudyToken()
         if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group, let graduation = studyToken.graduation {
+            let shortGraduation: String
+            switch graduation {
+            case "Bachelor":
+                shortGraduation = "B."
+            case "Diplom":
+                shortGraduation = "Dipl."
+            default:
+                shortGraduation = String(graduation.prefix(1))
+            }
+            
             lblCurrentStudyGroups.isHidden = false
-            lblCurrentStudyGroups.text = "\(year) | \(major) | \(group) | \(graduation)"
+            lblCurrentStudyGroups.text = "\(year) | \(major) | \(group) | \(shortGraduation)"
         } else {
             lblCurrentStudyGroups.isHidden = true
         }
