@@ -50,6 +50,9 @@ target 'HTWDD' do
   # Lottie
   pod 'lottie-ios'
   
+  #ImageView
+  pod 'ImageScrollView'
+  
   target 'HTWDDTests' do
     inherit! :search_paths
     # Pods for testing

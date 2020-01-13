@@ -15,11 +15,12 @@ class CampusPlanViewCell: UITableViewCell {
     @IBOutlet weak var lblBuilding: UILabel!
     @IBOutlet weak var lblBuildingsCount: UILabel!
     @IBOutlet weak var mainStack: UIStackView!
+    var campusPlanViewController: CampusPlanViewController?
+    private var campusPlanImageView: UIImageView?
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         main.apply {
             $0.layer.cornerRadius   = 4
             $0.backgroundColor      = UIColor.htw.cellBackground
@@ -33,7 +34,6 @@ class CampusPlanViewCell: UITableViewCell {
         lblBuildingsCount.apply {
             $0.textColor = UIColor.htw.Label.secondary
         }
-        
     }
     
 }
@@ -58,9 +58,16 @@ extension CampusPlanViewCell: FromNibLoadable {
         default: image  = #imageLiteral(resourceName: "Pillnitz")
         }
         
-        let zImage = ZoomableImageView(frame: CGRect(x: 0, y: 0, width: mainStack.frame.width, height: 250), image: image)
-        
-        mainStack.addArrangedSubview(zImage)
+        //let zImage = ZoomableImageView(frame: CGRect(x: 0, y: 0, width: mainStack.frame.width, height: 250), image: image)
+        campusPlanImageView = UIImageView(image: image).also {
+            $0.contentMode              = .scaleAspectFill
+            $0.clipsToBounds            = true
+            $0.layer.cornerRadius       = 6
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
+        }
+
+        mainStack.addArrangedSubview(campusPlanImageView!)
         
         model.buildings.forEach { building in
             
@@ -91,10 +98,14 @@ extension CampusPlanViewCell: FromNibLoadable {
         }
         
         NSLayoutConstraint.activate([
-            zImage.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: 0),
-            zImage.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: 0),
-            zImage.heightAnchor.constraint(equalToConstant: 250)
+            campusPlanImageView!.leadingAnchor.constraint(equalTo: mainStack.leadingAnchor, constant: 0),
+            campusPlanImageView!.trailingAnchor.constraint(equalTo: mainStack.trailingAnchor, constant: 0),
+            campusPlanImageView!.heightAnchor.constraint(equalToConstant: 250)
         ])
+    }
+    
+    @objc private func animate() {
+        campusPlanViewController?.animateUIImageView(campusPlanImageView)
     }
     
 }

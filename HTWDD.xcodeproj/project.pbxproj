@@ -263,6 +263,7 @@
 		64CC1E8922F3077100A45F25 /* UIPageViewSwipeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */; };
 		64CC1E8F22F313AB00A45F25 /* PulseGrey.json in Resources */ = {isa = PBXBuildFile; fileRef = 64CC1E8E22F313AB00A45F25 /* PulseGrey.json */; };
 		64CC1E9122F3146800A45F25 /* CrashlyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64CC1E9022F3146800A45F25 /* CrashlyticsViewController.swift */; };
+		64D06FFD23CC73C400E898F7 /* CampusPlanModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D06FFC23CC73C400E898F7 /* CampusPlanModalViewController.swift */; };
 		64D9D91422E1AAA7002E71F5 /* BlurredSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9D91322E1AAA7002E71F5 /* BlurredSectionHeader.swift */; };
 		64D9D91922E1E497002E71F5 /* DashboardTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D9D91722E1E497002E71F5 /* DashboardTimeTableViewCell.swift */; };
 		64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */; };
@@ -325,9 +326,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade_old.swift */; };
@@ -615,6 +616,7 @@
 		64CC1E8822F3077100A45F25 /* UIPageViewSwipeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPageViewSwipeDelegate.swift; sourceTree = "<group>"; };
 		64CC1E8E22F313AB00A45F25 /* PulseGrey.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PulseGrey.json; sourceTree = "<group>"; };
 		64CC1E9022F3146800A45F25 /* CrashlyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashlyticsViewController.swift; sourceTree = "<group>"; };
+		64D06FFC23CC73C400E898F7 /* CampusPlanModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlanModalViewController.swift; sourceTree = "<group>"; };
 		64D9D91322E1AAA7002E71F5 /* BlurredSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredSectionHeader.swift; sourceTree = "<group>"; };
 		64D9D91722E1E497002E71F5 /* DashboardTimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTimeTableViewCell.swift; sourceTree = "<group>"; };
 		64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTimeTableViewCell.xib; sourceTree = "<group>"; };
@@ -770,9 +772,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
-				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
-				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1336,6 +1338,7 @@
 			children = (
 				64C4BCD0233BB23800B135DE /* CampusPlan.storyboard */,
 				64C4BCD3233BB27D00B135DE /* CampusPlanViewController.swift */,
+				64D06FFC23CC73C400E898F7 /* CampusPlanModalViewController.swift */,
 				64C4BCD2233BB24200B135DE /* Views */,
 			);
 			path = Main;
@@ -2127,6 +2130,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageScrollView/ImageScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/Marshal/Marshal.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -2151,6 +2155,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Marshal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -2474,6 +2479,7 @@
 				B5D3E8361FA5E3620055782D /* GradeService.swift in Sources */,
 				640F0D7922FC62EE002887AA /* ExamRealm.swift in Sources */,
 				B59FA98B1DD09C8400259D7F /* AppDelegate.swift in Sources */,
+				64D06FFD23CC73C400E898F7 /* CampusPlanModalViewController.swift in Sources */,
 				B52DF0DA1E70A8870095C854 /* Week.swift in Sources */,
 				B5FCAE611E62EAEF00E35DDB /* Array.swift in Sources */,
 				B538EF101E1D62040031077C /* UserDefaults.swift in Sources */,

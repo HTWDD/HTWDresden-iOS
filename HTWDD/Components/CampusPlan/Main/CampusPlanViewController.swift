@@ -52,6 +52,17 @@ class CampusPlanViewController: UITableViewController, HasSideBarItem {
             })
             .disposed(by: rx_disposeBag)
     }
+    
+    func animateUIImageView(_ campusPlanImageView: UIImageView?) {
+        guard let campusPlanImageView = campusPlanImageView else { return }
+        
+        let viewController = R.storyboard.campusPlan.campusPlanModalViewController()!.also {
+            $0.image                    = campusPlanImageView.image
+            $0.modalPresentationStyle   = .overCurrentContext
+            $0.modalTransitionStyle     = .crossDissolve
+        }
+        present(viewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - TableView Datasource
@@ -62,8 +73,10 @@ extension CampusPlanViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(CampusPlanViewCell.self, for: indexPath)!
-        cell.setup(with: items[indexPath.row])
+        let cell = tableView.dequeueReusableCell(CampusPlanViewCell.self, for: indexPath)!.also {
+            $0.setup(with: items[indexPath.row])
+            $0.campusPlanViewController = self
+        }
         return cell
     }
     

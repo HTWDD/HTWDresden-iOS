@@ -67,6 +67,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.3.1):
     - GoogleUtilities/Logger
+  - ImageScrollView (1.8)
   - KeychainAccess (3.2.0)
   - lottie-ios (3.1.2)
   - Marshal (1.2.7)
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Crashlytics (~> 3.14.0)
   - Fabric (~> 1.10.2)
   - Firebase/Analytics
+  - ImageScrollView
   - KeychainAccess
   - lottie-ios
   - Marshal (~> 1.2)
@@ -140,6 +142,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - ImageScrollView
     - KeychainAccess
     - lottie-ios
     - Marshal
@@ -175,6 +178,7 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
   GoogleUtilities: f895fde57977df4e0233edda0dbeac490e3703b6
+  ImageScrollView: 82912273486297285682bdb2a806742f0d39940c
   KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
   lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
@@ -194,6 +198,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   Tabman: 6e0888c9b9227d9da03e51a90f1f91f53454bfa1
 
-PODFILE CHECKSUM: fb9d46dda6224a0f993ed63b77d205ff2ebe3c1a
+PODFILE CHECKSUM: 83a089241e8f585a776aab9fdf88e4401a80c257
 
 COCOAPODS: 1.8.4
