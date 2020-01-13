@@ -59,8 +59,6 @@ extension ZoomableImageView: UIScrollViewDelegate {
         delegate            = self
         minimumZoomScale    = 1.0
         maximumZoomScale    = 3.0
-        layer.cornerRadius  = 4
-        clipsToBounds       = true
         showsVerticalScrollIndicator    = false
         showsHorizontalScrollIndicator  = false
     }

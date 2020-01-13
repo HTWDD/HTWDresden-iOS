@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xlg-IM-yNs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xlg-IM-yNs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -35,5 +36,80 @@
             </objects>
             <point key="canvasLocation" x="10" y="49"/>
         </scene>
+        <!--Campus Plan Modal View Controller-->
+        <scene sceneID="TuI-Ag-Dgn">
+            <objects>
+                <viewController storyboardIdentifier="CampusPlanModalViewController" id="j8I-Wm-Zdk" customClass="CampusPlanModalViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jFk-nk-be3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4t-V9-NSj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efy-Li-daN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O1s-eT-O9M">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLJ-G4-FBp" customClass="ImageScrollView" customModule="ImageScrollView">
+                                            <rect key="frame" x="0.0" y="323" width="414" height="250"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="250" id="wro-Ax-sck"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iam-fj-6NH">
+                                            <rect key="frame" x="349" y="60" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="45" id="5G2-uA-PSw"/>
+                                                <constraint firstAttribute="width" constant="45" id="5y4-xy-8Q6"/>
+                                            </constraints>
+                                            <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <state key="normal" image="rectangle.compress.vertical" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onDismissTap:" destination="j8I-Wm-Zdk" eventType="touchUpInside" id="IBH-PX-Kb4"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="hLJ-G4-FBp" secondAttribute="trailing" id="Epa-I8-Twl"/>
+                                        <constraint firstAttribute="trailing" secondItem="iam-fj-6NH" secondAttribute="trailing" constant="20" id="KKt-Ju-Szv"/>
+                                        <constraint firstItem="hLJ-G4-FBp" firstAttribute="centerY" secondItem="O1s-eT-O9M" secondAttribute="centerY" id="NVi-Xg-eHL"/>
+                                        <constraint firstItem="hLJ-G4-FBp" firstAttribute="leading" secondItem="O1s-eT-O9M" secondAttribute="leading" id="sGa-b3-t1L"/>
+                                        <constraint firstItem="iam-fj-6NH" firstAttribute="top" secondItem="O1s-eT-O9M" secondAttribute="top" constant="60" id="sVj-D2-d9D"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="efy-Li-daN" firstAttribute="leading" secondItem="q4t-V9-NSj" secondAttribute="leading" id="2fK-xZ-NOM"/>
+                            <constraint firstItem="efy-Li-daN" firstAttribute="centerY" secondItem="jFk-nk-be3" secondAttribute="centerY" id="DxL-Km-zCg"/>
+                            <constraint firstItem="q4t-V9-NSj" firstAttribute="centerX" secondItem="jFk-nk-be3" secondAttribute="centerX" id="GdF-Lj-tS9"/>
+                            <constraint firstItem="q4t-V9-NSj" firstAttribute="top" secondItem="efy-Li-daN" secondAttribute="top" id="HO8-BJ-XnX"/>
+                            <constraint firstItem="q4t-V9-NSj" firstAttribute="top" secondItem="jFk-nk-be3" secondAttribute="topMargin" constant="-44" id="PMk-so-Q9Z"/>
+                            <constraint firstItem="q4t-V9-NSj" firstAttribute="leading" secondItem="xxJ-tv-IJ9" secondAttribute="leading" id="WNo-lk-6Gj"/>
+                            <constraint firstItem="q4t-V9-NSj" firstAttribute="bottom" secondItem="efy-Li-daN" secondAttribute="bottom" id="a2V-fY-Z2d"/>
+                            <constraint firstItem="efy-Li-daN" firstAttribute="trailing" secondItem="q4t-V9-NSj" secondAttribute="trailing" id="erm-bS-HWw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xxJ-tv-IJ9"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageScrollView" destination="hLJ-G4-FBp" id="Cok-vI-qGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLl-Bd-J0n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1002.8985507246377" y="48.883928571428569"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="rectangle.compress.vertical" catalog="system" width="64" height="64"/>
+    </resources>
 </document>
