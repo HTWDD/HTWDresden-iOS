@@ -247,10 +247,10 @@
 
 "Room.occupancy.title"="Belegungsplan";
 "Room.occupancy.empty.title"="Keine Räume";
-"Room.occupancy.empty.message"="Über + können neue Räume hinzugefügt werden.\n\nDer Belegungsplan berücksichtigt keine Zusatzveranstaltungen oder Umlegungen. Raumreservierung bitte mit Frau Neumann (Z 228 A) absprechen.";
+"Room.occupancy.empty.message"="Über + können neue Räume hinzugefügt werden.\n\nDer Belegungsplan berücksichtigt keine Zusatzveranstaltungen oder Umlegungen. Raumreservierung bitte mit Frau Neumann (Z 228A) absprechen.";
 "Room.occupancy.add.title"="Raum hinzufügen";
 "Room.occupancy.add.message"="Bitte die Raumnummer mit Leerzeichen zwischen Gebäude und Zimmernummer eingeben.";
-"Room.occupancy.add.placeholder"="z.B. s 531";
+"Room.occupancy.add.placeholder"="z.B. s 531b";
 "Room.occupancy.invalid"="Keine gültige Raumnummer";
 "Room.occupancy.error.alert.title"="Fehler";
 "Room.occupancy.error.alert.message"="😖 Beim Laden der Daten ist etwas schief gelaufen, ist '%@' eine Korrekte Raumnummer?";
