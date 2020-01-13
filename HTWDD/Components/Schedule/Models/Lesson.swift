@@ -27,6 +27,7 @@ struct Lesson: Codable {
     var lessonDays: [String] {
         var lastWeek: Int = 0
         var year = Calendar.current.component(.year, from: Date())
+        year = year - 1
         return weeksOnly.map { week -> String in
             if (lastWeek - week) > 1 {
                 year = year + 1
