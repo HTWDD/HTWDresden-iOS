@@ -213,6 +213,7 @@
 		645E635D22DCB019005F18BF /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635B22DCAE8F005F18BF /* Calendar.swift */; };
 		645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */; };
 		6466EB3223CDB494004E8EF0 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466EB3123CDB494004E8EF0 /* UIScrollView.swift */; };
+		6466EB3323CDD12A004E8EF0 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64E40B862334BFBA0075B7B1 /* Color.xcassets */; };
 		6481AEF622E5A4770068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6481AEF722E5ABF20068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6493710023427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649370FE23427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.swift */; };
@@ -2015,6 +2016,7 @@
 				6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */,
 				1FD757611FB4D72D007F9CA1 /* Localizable.strings in Resources */,
 				6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */,
+				6466EB3323CDD12A004E8EF0 /* Color.xcassets in Resources */,
 				1F1491B61FB456F70011B114 /* Assets.xcassets in Resources */,
 				1F4BD5361FAFA895007E0817 /* InfoPlist.strings in Resources */,
 			);

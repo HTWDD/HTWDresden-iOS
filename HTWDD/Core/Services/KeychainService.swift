@@ -12,13 +12,17 @@ import SwiftKeychainWrapper
 class KeychainService {
     
     // MARK: - Properties
+    private let serviceName = "de.htw-dresden.app"
+    private let accessGroup = "J748HG75JD.keychain-access-groups"
     private static var sharedKeychainService: KeychainService = {
         return KeychainService()
     }()
     static var shared: KeychainService {
         return sharedKeychainService
     }
-    private let keychain: KeychainWrapper
+    lazy var keychain: KeychainWrapper = { [unowned self] in
+        return KeychainWrapper(serviceName: self.serviceName)
+    }()
     
     // MARK: - Keys
     enum Key: String {
@@ -26,19 +30,16 @@ class KeychainService {
         case studyToken = "HTW.Study.Token"
     }
     
-    // MAKR: - Lifecycle
-    private init() {
-        keychain = KeychainWrapper.standard
-    }
-    
     subscript(key: Key) -> String? {
         get {
-            return keychain.string(forKey: key.rawValue)
+            let result = keychain.string(forKey: key.rawValue)
+            Log.debug("Keychain <\(keychain): group <\(keychain.accessGroup ?? "")> service<\(keychain.serviceName)>>  get: \(key.rawValue) -> \(result ?? "")")
+            return result
         }
         
         set {
             if let newValue = newValue {
-                Log.debug("Keychain set: \(key.rawValue) -> \(newValue)")
+                Log.debug("Keychain <\(keychain): group <\(keychain.accessGroup ?? "")> service<\(keychain.serviceName)>> set: \(key.rawValue) -> \(newValue)")
                 keychain.set(newValue, forKey: key.rawValue)
             }
         }
