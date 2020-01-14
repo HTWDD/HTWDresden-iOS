@@ -212,6 +212,7 @@
 		645E635C22DCAE8F005F18BF /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635B22DCAE8F005F18BF /* Calendar.swift */; };
 		645E635D22DCB019005F18BF /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635B22DCAE8F005F18BF /* Calendar.swift */; };
 		645E635F22DCC0EC005F18BF /* MealsForWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */; };
+		6466EB3223CDB494004E8EF0 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6466EB3123CDB494004E8EF0 /* UIScrollView.swift */; };
 		6481AEF622E5A4770068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6481AEF722E5ABF20068A8C3 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481AEF522E5A4770068A8C3 /* Lesson.swift */; };
 		6493710023427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649370FE23427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.swift */; };
@@ -326,9 +327,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade_old.swift */; };
@@ -571,6 +572,7 @@
 		645E635922DC7252005F18BF /* MealsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsTabViewController.swift; sourceTree = "<group>"; };
 		645E635B22DCAE8F005F18BF /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		645E635E22DCC0EC005F18BF /* MealsForWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsForWeekTableViewController.swift; sourceTree = "<group>"; };
+		6466EB3123CDB494004E8EF0 /* UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		6481AEF522E5A4770068A8C3 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
 		649370FE23427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTimeTableFreeTableViewCell.swift; sourceTree = "<group>"; };
 		649370FF23427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTimeTableFreeTableViewCell.xib; sourceTree = "<group>"; };
@@ -772,9 +774,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1595,6 +1597,7 @@
 				B5EA53731E7FDA5E00183E07 /* UIViewController.swift */,
 				5B6B4FF5209B693E00A572F8 /* URL.swift */,
 				B538EF0F1E1D62040031077C /* UserDefaults.swift */,
+				6466EB3123CDB494004E8EF0 /* UIScrollView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2548,6 +2551,7 @@
 				641A4AD42344E96E0018ACFD /* UIStackView.swift in Sources */,
 				B5D3E83A1FA5E7630055782D /* ScheduleCoordinator.swift in Sources */,
 				6410F72D22D629E800AA3BA1 /* Meal.swift in Sources */,
+				6466EB3223CDB494004E8EF0 /* UIScrollView.swift in Sources */,
 				64E7DB6E234351ED00540FED /* TimetableHeaderViewCell.swift in Sources */,
 				39FB084B1E9E5375001CC2F5 /* TableViewCell.swift in Sources */,
 				1FC1BDCE1FADDEFF007F9D06 /* SettingsCoordinator.swift in Sources */,

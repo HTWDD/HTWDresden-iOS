@@ -21,10 +21,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var tfUserName: TextField!
     @IBOutlet weak var tfUserPassword: PasswordField!
     @IBOutlet weak var padLockAnimationView: AnimationView!
-    @IBOutlet weak var topContraint: NSLayoutConstraint!
-    @IBOutlet weak var bottomContraint: NSLayoutConstraint!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Properties
     weak var context: AppContext?
@@ -191,17 +190,22 @@ extension LoginViewController {
     }
     
     @objc private func keyboardWillShow(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            topContraint.constant       = -keyboardSize.height
-            bottomContraint.constant    = -keyboardSize.height
-            view.layoutIfNeeded()
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            adjustContent(with: keyboardSize.height - 37)
         }
     }
     
     @objc private func keyboardWillHide(notification: Notification) {
-        topContraint.constant       = 0
-        bottomContraint.constant    = 0
-        view.layoutIfNeeded()
+        adjustContent(with: 0)
+    }
+    
+    private func adjustContent(with size: CGFloat) {
+        scrollView.also {
+            let inset                   = UIEdgeInsets(top: 0, left: 0, bottom: size, right: 0)
+            $0.contentInset             = inset
+            $0.scrollIndicatorInsets    = inset
+        }.scrollToBottom()
+         view.layoutIfNeeded()
     }
     
     private func observe() {
