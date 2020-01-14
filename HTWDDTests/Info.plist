@@ -18,5 +18,29 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>8</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>htw-dresden.de</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+			<key>rubu2.rz.htw-dresden.de</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+		<key>NSExceptionRequiresForwardSecrecy</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

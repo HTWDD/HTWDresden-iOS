@@ -30,7 +30,7 @@ extension HTWRestApi: TargetType {
         case .exams:
             return URL(string: "http://www2.htw-dresden.de/~app/API")!
         default:
-            return URL(string: "http://rubu2.rz.htw-dresden.de/API/v0")!
+            return URL(string: "https://rubu2.rz.htw-dresden.de/API/v0")!
         }
     }
     

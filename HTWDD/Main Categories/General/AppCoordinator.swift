@@ -157,15 +157,7 @@ extension AppCoordinator {
             }
         case .schedule,
              .scheduleToday:
-//            let studyToken = KeychainService.shared.readStudyToken()
-//            if let year = studyToken.year, let major = studyToken.major, let group = studyToken.group  {
-//                schedule.auth = ScheduleService.Auth(year: year, major: major, group: group, degree: .bachelor)
-//            }
-//            viewController = schedule.rootViewController
-//            rootNavigationController.setTimeTableButtonHighLight()
-//
             viewController = timetable.start()
-            
         case .roomOccupancy:
             viewController = (roomOccupancy.rootViewController as! RoomOccupancyViewController).also {
                 $0.appCoordinator = self

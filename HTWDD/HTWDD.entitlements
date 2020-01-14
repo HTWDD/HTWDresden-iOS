@@ -8,7 +8,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)de.htw-dresden.app</string>
+		<string>J748HG75JD.keychain-access-groups</string>
 	</array>
 </dict>
 </plist>
