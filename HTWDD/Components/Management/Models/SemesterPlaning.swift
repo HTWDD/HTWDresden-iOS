@@ -45,7 +45,7 @@ struct Period: Codable {
     // MARK: - Formated Dates
     var beginDayFormated: String {
         do {
-            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localizedDescription()
         } catch {
             Log.error(error)
             return ""
@@ -54,7 +54,7 @@ struct Period: Codable {
     
     var endDayFormated: String {
         do {
-            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localizedDescription()
         } catch {
             Log.error(error)
             return ""
@@ -71,7 +71,7 @@ struct FreeDay: Codable {
     // MARK: - Formated Dates
     var beginDayFormated: String {
         do {
-            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localized
+            return try Date.from(string: beginDay, format: "yyyy-MM-dd").localizedDescription()
         } catch {
             Log.error(error)
             return ""
@@ -80,7 +80,7 @@ struct FreeDay: Codable {
     
     var endDayFormated: String {
         do {
-            return try Date.from(string: endDay, format: "yyyy-MM-dd").localized
+            return try Date.from(string: endDay, format: "yyyy-MM-dd").localizedDescription()
         } catch {
             Log.error(error)
             return ""

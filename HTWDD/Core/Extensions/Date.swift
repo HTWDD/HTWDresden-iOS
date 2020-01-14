@@ -29,7 +29,7 @@ extension Date {
         }
         return date
     }
-
+    
     static func from(day: Int, month: Int, year: Int, hour: Int = 0, minute: Int = 0, second: Int = 0) -> Date? {
         var c = DateComponents(year: year, month: month, day: day, hour: hour, minute: minute, second: second)
         c.timeZone = TimeZone.autoupdatingCurrent
@@ -135,6 +135,16 @@ extension Date {
            dates.append(dateOfWeek(for: UInt(i)))
         }
         return dates
+    }
+    
+    func localizedDescription(local: Locale = .current, timeZone: TimeZone = .current, dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .none) -> String {
+        let formater = DateFormatter().also {
+            $0.locale = local
+            $0.timeZone = timeZone
+            $0.dateStyle = dateStyle
+            $0.timeStyle = timeStyle
+        }
+        return formater.string(from: self)
     }
 
 }
