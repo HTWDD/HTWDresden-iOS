@@ -9,7 +9,14 @@
 import Foundation
 
 extension UserDefaults {
-
+    
+    enum Key: String {
+        case analytics          = "HTW.Analytics.Enabled"
+        case crashlytics        = "HTW.Crashlytics.Enabled"
+        case needsOnboarding    = "HTW.Onboarding.Needs"
+    }
+    
+    
     /// Clears ALL saved data from the user defaults.
     ///
     /// NOTE: Use with caution!
@@ -24,9 +31,43 @@ extension UserDefaults {
         }
     }
     
+    func set<T>(_ value: T?, forKey key: Key) {
+        set(value, forKey: key.rawValue)
+    }
+    
+    func value<T>(forKey key: Key) -> T? {
+        return value(forKey: key.rawValue) as? T
+    }
+    
     func saveAppVersion() {
         guard let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else { return }
         self.set(appVersion, forKey: "HTW_APP_VERSION")
     }
-	
+    
+    var analytics: Bool {
+        get {
+            return value(forKey: .analytics) ?? false
+        }
+        set {
+            set(newValue, forKey: .analytics)
+        }
+    }
+    
+    var crashlytics: Bool {
+        get {
+            return value(forKey: .crashlytics) ?? false
+        }
+        set {
+            set(newValue, forKey: .crashlytics)
+        }
+    }
+    
+    var needsOnboarding: Bool {
+        get {
+            return value(forKey: .needsOnboarding) ?? true
+        }
+        set {
+            set(newValue, forKey: .needsOnboarding)
+        }
+    }
 }

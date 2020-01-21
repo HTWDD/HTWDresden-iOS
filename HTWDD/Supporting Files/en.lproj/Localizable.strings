@@ -1,10 +1,24 @@
 "Onboarding.Welcome.Title"="Welcome to HTW";
+"Onboarding.welcome.greeting"="Nice that you use the HTW Dresden App.";
+"Onboarding.welcome.welcome"="Welcome";
 "Onboarding.Welcome.ScheduleDescription"="Your schedule shows you all your lectures.";
-"Onboarding.Welcome.CanteenDescription"="See what is being served for lunch in the canteens around you.";
+"Onboarding.Welcome.CanteenDescription"="See what is being served for lunch in the canteens around you. 🍏🍕🍜";
 "Onboarding.Welcome.GradesDescription"="View what your professors graded you in your exams.";
 
+"Onboarding.Analytics.description"="We'd like to use Google Analytics on your device to keep improving the app.";
+"Onboarding.Analytics.information"="This device-specific data is collected and transferred anonymously to the Google Inc. servers. The collected data will not be given to third parties.";
+"Onboarding.Analytics.revoke.description"="You can change your decision at any time in the settings.";
+"Onboarding.Analytics.help.question"="Would you like to help us?";
+
+"Onboarding.Crashlytics.description"="We'd like to use Google Chrashlytics on your device to keep improving the app.";
+"Onboarding.Crashlytics.information"="In the event of an app crash, device-specific data is collected and transferred to the Google Inc. servers. Further information on data processing can be found here (link to privacy policy).";
+"Onboarding.Crashlytics.revoke.description"="You can change your decision at any time in the settings.";
+"Onboarding.Crashlytics.help.question"="Would you like to help us?";
+
 "Onboarding.Studygroup.title"="Study group";
-"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule.";
+"Onboarding.Studygroup.body"="Select your enrollment year, major and study group here.\nThis information is necessary in order to show you your schedule and exams.";
+"Onboarding.Studygroup.description"="Select your enrollment year, major and study group here.";
+"Onboarding.Studygroup.information"="This information is necessary in order to show you your schedule.";
 "Onboarding.Studygroup.notnow"="Not now";
 
 "Onboarding.Studygroup.year"="Year";
@@ -18,8 +32,18 @@
 "Onboarding.UnixLogin.title"="Login";
 "Onboarding.UnixLogin.body"="To be able to view your grades, you have to login using your HTW credentials.";
 "Onboarding.UnixLogin.notnow"="Not now";
-"Onboarding.UnixLogin.sPlaceholder"="S-Number";
+"Onboarding.UnixLogin.sPlaceholder"="s-Number";
 "Onboarding.UnixLogin.passwordPlaceholder"="Password";
+
+"Onboarding.Login.header"="Login";
+"Onboarding.Login.description"="Log in here with your 's-Number' and your password.";
+"Onboarding.Login.information"="This information is required to show you your grades.";
+
+"Onboading.Finish.header"="Have fun!";
+"Onboading.Finish.description"="The configuration is completed. Good luck in your studies.";
+
+"Dashboard.title"="Overview";
+
 
 "Schedule.title"="Schedule";
 "Schedule.today"="Today";
@@ -46,17 +70,46 @@
 "Schedule.LectureType.lecture"="Lecture";
 "Schedule.LectureType.practical"="Practical";
 "Schedule.LectureType.exercise"="Exercise";
+"Schedule.LectureType.block"="Block";
+"Schedule.LectureType.requested"="Requested";
+"Schedule.LectureType.unknown"="Unknown";
+"Schedule.current.lesson"="Current";
+"Schedule.next.lesson"="Next";
 
 "Canteen.title"="Canteen";
 "Canteen.pluralTitle"="Canteens";
 "Canteen.noCounter"="Counter not known";
-"Canteen.noResults.title"="No food";
-"Canteen.noResults.message"="I can't find any meals for today.";
+"Canteen.noResults.title"="No meals";
+"Canteen.noResults.message"="I can't find any food for today 😕";
+"Canteen.noResults.error.title"="Ups...";
+"Canteen.noResults.error.message"="I could not find canteens,\nsomething went wrong.";
 "Canteen.Meal.more"="More information";
+"Canteen.Meal.contains"="Contains / is";
+"Canteen.today"="Today";
+"Canteen.week"="current Week";
+"Canteen.nextWeek"="next Week";
+"Canteen.Meal.noResult.error.title"="Ups...";
+"Canteen.Meal.noResult.error.message"="I could not load food,\nsomething went wrong.";
+"Canteen.Meal.noResult.forWeek.error.message"="I can't find any food for this week 🥺";
+"Canteen.Meal.note.alkohol"="Alcohol";
+"Canteen.Meal.note.beef"="Beef";
+"Canteen.Meal.note.pork"="Pork meat";
+"Canteen.Meal.note.garlic"="Garlic";
+"Canteen.Meal.note.vegan"="Vegan";
+"Canteen.Meal.note.vegatarian"="Vegetarian";
+"Canteen.Meal.price.students"="Students: € %.2f";
+"Canteen.Meal.price.noStudents"="Price for students: N/A";
+"Canteen.Meal.price.employee"="Employee: € %.2f";
+"Canteen.Meal.price.noEmployee"="Price for employee: N/A";
+"Canteen.Meal.count.plural"="%d meals";
+"Canteen.Meal.count"="%d meal";
 
 "Exams.title"="Exams";
 "Exams.noResults.title"="No exams";
-"Exams.noResults.message"="I can't find any exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.message"="😖 I can't find\nany exams for you.\nHave you entered your credentials correctly?";
+"Exams.noResults.hint"="🥺 I can't find\nany exams for you.";
+"Exams.noCredentials.title"="No study group";
+"Exams.noCredentials.message"="Please enter your study group\nso that I can show you exams.";
 
 "Exams.Cell.time"="%@ – %@";
 
@@ -78,15 +131,26 @@
 "Settings.sections.authentication"="Your information";
 "Settings.sections.openSource"="Open-source licenses";
 "Settings.sections.weAreOpenSource"="We are Open Source!";
+"Settings.sections.weAreOpenSourceSubtitle"="More on Github";
 "Settings.sections.contact"="Contact";
+"Settings.sections.contact.subtitle"="Feedback desired.";
+"Settings.setction.contact.privacy"="Data protection and privacy";
 "Settings.items.mail.mail"="app@htw-dresden.de";
-"Settings.items.mail.title"="Write mail to developer";
+"Settings.items.mail.title"="Mail";
 "Settings.items.mail.fallback.title"="Mail address copied!";
 "Settings.items.mail.fallback.message"="It seems like you're not using the system Mail App, so we've added the contact mail address to your clipboard.";
-"Settings.items.github"="HTW iOS on GitHub";
+"Settings.items.github"="HTW iOS";
 "Settings.sections.deleteAll"="Reset";
-"Settings.credits"="Developed in Dresden ❤️";
+"Settings.sections.deleteAllSubtitle"="Delete all data.";
+"Settings.credits"="Developed in Dresden ❤️\n%@ (%@)";
 "Settings.items.legal.title"="Legal notice";
+"Settings.items.account.title"="HTW Dresden";
+"Settings.items.account.subtitle"="Access and study group data";
+"Settings.items.google.title"="Google Inc.";
+"Settings.items.google.subtitle"="Analytics and Crashlytics";
+
+"Network.error.title"="Error";
+"Network.error.message"="Something went wrong loading the data.";
 
 "CalendarWeek.long"="Calendar week";
 "CalendarWeek.short"="CW";
@@ -115,13 +179,16 @@
 "cancel"="Cancel";
 "nextStep"="Continue";
 "letsgo"="Let's go!";
-"attention"="Attention";
+"attention"="Attention ⚠️";
 "yes"="Yes";
 "loading"="Loading…";
+"add"="Add";
+
+"visit_website"="Visit the website";
 
 "Grades.title"="Grades";
 "Grades.totalCredits"="%d total credits";
-"Grades.average" = "(∅ %.2f)";
+"Grades.average" = "∅ %.2f";
 "Grades.detail.mark" = "%.1f";
 "Grades.detail.credits" = "%.0f credits";
 "Grades.detail.tries" = "%d. try";
@@ -133,4 +200,61 @@
 "Grades.status.failed" = "Failed";
 "Grades.status.ultimatelyFailed" = "ultimately failed";
 "Grades.noResults.title"="No grades";
-"Grades.noResults.message"="I can't find any of your grades.\nHave you entered your credentials correctly?";
+"Grades.noResults.message"="😖 I can't find any of your grades.\nHave you entered your credentials correctly?";
+"Grades.numbers.and.credits"="%@ Grade(s) %@ Credit(s)";
+"Grades.numbers.singular"="%d Grade";
+"Grades.numbers.plural"="%d Grades";
+"Grades.credits.number.singular"="%.2f Credit";
+"Grades.credits.number.plural"="%.2f Credits";
+"Grades.last.grade"="Last grade: %@";
+"Grades.remark.recognized"="recognized";
+"Grades.remark.ill"="certified sick";
+"Grades.remark.blocked"="blocked";
+"Grades.remark.sign.off"="deregistered";
+"Grades.remark.not.allowed"="not admitted";
+"Grades.remark.unkown"="Unknown status";
+"Grades.remark.unexcused.missing"="unexcused absent";
+"Grades.remark.not.started"="no participation, deadline not met";
+"Grades.remark.no.retest"="no request made for second retake";
+"Grades.remark.free.try"="free try";
+"Grades.remark.with.success"="with success";
+"Grades.remark.failed"="not passed (ungraded performance)";
+"Grades.remark.pre.placement"="pre-internship not seized";
+"Grades.remark.voluntary.appointment"="free appointment not seized";
+"Grades.remark.conditional"="under reserve";
+"Grades.remark.attempt"="attempt to cheat";
+"Grades.remark.unkown"="No comments";
+"Grades.no.credentials.title"="No login data";
+"Grades.no.credentials.message"="Please enter you login data, so that i can show you your grades";
+"Grades.header.subtitle"="Ø %.2f (%d credits)";
+
+"CampusPlan.title" = "Campus plan";
+"CampusPlan.buildings" = "%d Buildings";
+
+"Management.title" = "Management";
+"Management.semester.summer" = "Summer semester";
+"Management.semester.winter" = "Winter semester";
+"Management.semester.periods.format" = "MM/dd/yyyy";
+"Management.semester.periods.lectures" = "Lecture period";
+"Management.semester.periods.freedays" = "No lecture courses on official holidays";
+"Management.semester.periods.exams" = "Examination period";
+"Management.semester.periods.reregistration" = "Re-registration";
+"Management.student.administration" = "Student administration";
+"Management.student.administration.offered.services" = "Offered services";
+"Management.student.administration.opening.hours" = "Office hours";
+"Management.student.administration.opening.times" = "%@ to %@";
+"Management.student.administration.principal.exam.office" = "Principal exam office";
+
+"Room.occupancy.title"="Room occupancy";
+"Room.occupancy.empty.title"="No rooms";
+"Room.occupancy.empty.message"="New rooms can be added with + \n\nThe booking plan does not take into account any additional events or allocations. Please arrange room reservation with Ms Neumann (Z 228A).";
+"Room.occupancy.add.title"="Add room";
+"Room.occupancy.add.message"="Please enter the room number with spaces between the building and the room number.";
+"Room.occupancy.add.placeholder"="e.g. s 531";
+"Room.occupancy.invalid"="Invalid room number";
+"Room.occupancy.error.alert.title"="Error";
+"Room.occupancy.error.alert.message"="😖 something went wrong when loading the data, is '%@' a correct room number?";
+"Room.occupancy.description"="occupancies";
+"Room.occupancy.free"="This room is currently unoccupied.";
+"Room.occupancy.no.name"="No information about the course name";
+"Room.occupancy.no.dozent"="No information about the lecturer";

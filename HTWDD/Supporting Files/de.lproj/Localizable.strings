@@ -1,10 +1,24 @@
 "Onboarding.Welcome.Title"="Willkommen zur HTW";
+"Onboarding.welcome.greeting"="Schön, dass Du die HTW Dresden App verwendest.";
+"Onboarding.welcome.welcome"="Willkommen";
 "Onboarding.Welcome.ScheduleDescription"="Hab immer den Überblick, wann Du welche Vorlesung, Übung etc. hast.";
-"Onboarding.Welcome.CanteenDescription"="Was gibt's heute zu Mittag? 🍏🍕🍜";
+"Onboarding.Welcome.CanteenDescription"="Was gibt es heute zum Mittag? 🍏🍕🍜";
 "Onboarding.Welcome.GradesDescription"="Wer hat denn da eine 1 bekommen? Bestimmt Du!";
+
+"Onboarding.Analytics.description"="Wir würden gerne Google Analytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
+"Onboarding.Analytics.information"="Dabei werden gerätespezifische Daten erfasst und anonymisiert an die Google Inc. Server übertragen. Die erhobenen Daten werden nicht an Dritte weitergegeben.";
+"Onboarding.Analytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
+"Onboarding.Analytics.help.question"="Möchtest Du uns dabei helfen?";
+
+"Onboarding.Crashlytics.description"="Wir würden gerne Google Crashlytics bei deinem Gerät nutzen, um die App stetig zu verbessern.";
+"Onboarding.Crashlytics.information"="Dabei werden bei einem App-Absturz gerätespezifische Daten erfasst und an die Google Inc. Server übertragen. Nähere Informationen zur Datenverarbeitung findest du hier (Link zur Datenschutzerklärung).";
+"Onboarding.Crashlytics.revoke.description"="Du kannst deine Entscheidung jederzeit in den Einstellungen ändern.";
+"Onboarding.Crashlytics.help.question"="Möchtest Du uns dabei helfen?";
 
 "Onboarding.Studygroup.title"="Studiengruppe";
 "Onboarding.Studygroup.body"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.\nDiese Information ist erforderlich, um Dir Deinen Stundenplan anzeigen zu können.";
+"Onboarding.Studygroup.description"="Wähle hier Dein Immatrikulationsjahr, Deinen Studiengang und Deine Studiengruppe aus.";
+"Onboarding.Studygroup.information"="Diese Informationen sind erforderlich, um Dir Deinen Stundenplan und Prüfungen anzeigen zu können.";
 "Onboarding.Studygroup.notnow"="Später";
 
 "Onboarding.Studygroup.year"="Jahr";
@@ -18,8 +32,18 @@
 "Onboarding.UnixLogin.title"="Anmelden";
 "Onboarding.UnixLogin.body"="Damit wir Dir Deine Noten anzeigen können, musst Du Dich mit Deinen Zugangsdaten anmelden.";
 "Onboarding.UnixLogin.notnow"="Später";
-"Onboarding.UnixLogin.sPlaceholder"="S-Nummer";
+"Onboarding.UnixLogin.sPlaceholder"="s-Nummer";
 "Onboarding.UnixLogin.passwordPlaceholder"="Passwort";
+
+"Onboarding.Login.header"="Anmelden";
+"Onboarding.Login.description"="Melde Dich hier mit deiner 's-Nummer' und deinem Passwort an.";
+"Onboarding.Login.information"="Diese Informationen sind erforderlich, um Dir deine Noten anzeigen zu können.";
+
+"Onboading.Finish.header"="Viel Spaß!";
+"Onboading.Finish.description"="Die Einrichtung ist abgeschlossen.\nViel Erfolg im Studium.";
+
+"Dashboard.title"="Übersicht";
+
 
 "Schedule.title"="Stundenplan";
 "Schedule.today"="Heute";
@@ -30,7 +54,7 @@
 "Schedule.freeDay"="Genieß Deinen freien Tag! 🎉";
 "Schedule.holiday"="Semesterferien 🙌🚀";
 "Schedule.noResults.title"="Kein Plan...";
-"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.\nIst Deine Studiengruppe korrekt?";
+"Schedule.noResults.message"="Ich kann keine Stunden für Dich finden.";
 "Schedule.NextLecture.unavailable"="Keine Stunden mehr für heute! 🚲🌴";
 "Schedule.Weeks.once"="Einmal";
 "Schedule.Weeks.all"="Jede Woche";
@@ -46,17 +70,46 @@
 "Schedule.LectureType.lecture"="Vorlesung";
 "Schedule.LectureType.practical"="Praktikum";
 "Schedule.LectureType.exercise"="Übung";
+"Schedule.LectureType.block"="Block";
+"Schedule.LectureType.requested"="Buchung-angefragt";
+"Schedule.LectureType.unknown"="Unbekannt";
+"Schedule.current.lesson"="Aktuell";
+"Schedule.next.lesson"="Nächste";
 
 "Canteen.title"="Mensa";
 "Canteen.pluralTitle"="Mensen";
 "Canteen.noCounter"="Ausgabeort nicht bekannt";
 "Canteen.noResults.title"="Kein Essen";
-"Canteen.noResults.message"="Heute gibt's nichts zu essen.";
+"Canteen.noResults.message"="Heute gibt es nichts zu essen";
+"Canteen.noResults.error.title"="Ups...";
+"Canteen.noResults.error.message"="Ich konnte keine Mensen finden,\nirgendwas ist schief gelaufen.";
 "Canteen.Meal.more"="Mehr Informationen";
+"Canteen.Meal.contains"="Enthält / ist";
+"Canteen.today"="Heute";
+"Canteen.week"="aktuelle Woche";
+"Canteen.nextWeek"="nächste Woche";
+"Canteen.Meal.noResult.error.title"="Ups...";
+"Canteen.Meal.noResult.error.message"="Ich konnte kein Essen laden,\nirgendwas ist schief gelaufen.";
+"Canteen.Meal.noResult.forWeek.error.message"="Für die Woche gibt es nichts zu essen";
+"Canteen.Meal.note.alkohol"="Alkohol";
+"Canteen.Meal.note.beef"="Rindfleisch";
+"Canteen.Meal.note.pork"="Schweinefleisch";
+"Canteen.Meal.note.garlic"="Knoblauch";
+"Canteen.Meal.note.vegan"="Vegan";
+"Canteen.Meal.note.vegatarian"="Vegetarisch";
+"Canteen.Meal.price.students"="%.2f €";
+"Canteen.Meal.price.noStudents"="-,-- €";
+"Canteen.Meal.price.employee"="Mitarbeiter: %.2f €";
+"Canteen.Meal.price.noEmployee"="Preis für Mitarbeiter: K/A";
+"Canteen.Meal.count.plural"="%d Gerichte";
+"Canteen.Meal.count"="%d Gericht";
 
 "Exams.title"="Prüfungen";
 "Exams.noResults.title"="Keine Prüfungen";
-"Exams.noResults.message"="Ich kann leider keine Prüfungen für Dich finden.\nSind Deine Zugangsdaten korrekt?";
+"Exams.noResults.message"="😖 Ich kann leider keine Prüfungen für Dich finden. Sind Deine Zugangsdaten korrekt?";
+"Exams.noResults.hint"="Ich kann leider keine Prüfungen für Dich finden.";
+"Exams.noCredentials.title"="Keine Studiengruppe";
+"Exams.noCredentials.message"="Bitte trage deine Studiengruppe ein, damit ich Dir Prüfungen anzeigen kann.";
 
 "Exams.Cell.time"="%@ – %@";
 
@@ -78,15 +131,26 @@
 "Settings.sections.authentication"="Deine Angaben";
 "Settings.sections.openSource"="Open Source Lizenzen";
 "Settings.sections.weAreOpenSource"="Wir sind Open Source!";
+"Settings.sections.weAreOpenSourceSubtitle"="Mehr auf Github";
 "Settings.sections.contact"="Kontakt";
+"Settings.sections.contact.subtitle"="Feedback erwünscht.";
+"Settings.setction.contact.privacy"="Datenschutz";
 "Settings.items.mail.mail"="app@htw-dresden.de";
-"Settings.items.mail.title"="Mail an Entwickler schreiben";
+"Settings.items.mail.title"="Mail";
 "Settings.items.mail.fallback.title"="Mailadresse kopiert!";
 "Settings.items.mail.fallback.message"="Es sieht so aus, als würdest du die Mail App von Apple nicht verwenden. Deshalb haben wir die Kontaktadresse für dich kopiert.";
-"Settings.items.github"="HTW iOS auf GitHub";
+"Settings.items.github"="HTW iOS";
 "Settings.sections.deleteAll"="Zurücksetzen";
-"Settings.credits"="Entwickelt in Dresden ❤️";
+"Settings.sections.deleteAllSubtitle"="Alle Daten löschen.";
+"Settings.credits"="Entwickelt in Dresden ❤️\n%@ (%@)";
 "Settings.items.legal.title"="Impressum";
+"Settings.items.account.title"="HTW Dresden";
+"Settings.items.account.subtitle"="Zugangs- und Studiengruppendaten";
+"Settings.items.google.title"="Google Inc.";
+"Settings.items.google.subtitle"="Analytics und Crashlytics";
+
+"Network.error.title"="Fehler";
+"Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";
 
 "CalendarWeek.long"="Kalenderwoche";
 "CalendarWeek.short"="KW";
@@ -115,16 +179,19 @@
 "cancel"="Abbrechen";
 "nextStep"="Weiter";
 "letsgo"="Los geht's!";
-"attention"="Achtung";
+"attention"="Achtung ⚠️";
 "yes"="Ja";
 "loading"="Laden…";
+"add"="Hinzufügen";
+
+"visit_website"="Website besuchen";
 
 "Grades.title"="Noten";
 "Grades.totalCredits"="%d Credits insgesamt";
-"Grades.average" = "(∅ %.2f)";
+"Grades.average" = "∅ %.2f";
 "Grades.detail.mark" = "%.1f";
 "Grades.detail.credits" = "%.0f Credits";
-"Grades.detail.tries" = "%d.Versuch";
+"Grades.detail.tries" = "%d. Versuch";
 "Grades.detail.noDate" = "Kein Datum";
 "Grades.detail.noNote" = "Keine Bemerkungen";
 "Grades.detail.note" = "Bemerkung: %@";
@@ -133,4 +200,61 @@
 "Grades.status.failed" = "Durchgefallen";
 "Grades.status.ultimatelyFailed" = "letztmalig durchgefallen";
 "Grades.noResults.title"="Keine Noten";
-"Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.\nSind Deine Zugangsdaten korrekt?";
+"Grades.noResults.message"="Ich kann leider keine Noten von Dir finden.";
+"Grades.numbers.and.credits"="%@ Note(n)\n%@ Credit(s)";
+"Grades.numbers.singular"="%d Note";
+"Grades.numbers.plural"="%d Noten";
+"Grades.credits.number.singular"="%.2f Credit";
+"Grades.credits.number.plural"="%.2f Credits";
+"Grades.last.grade"="Letzte Note: %@";
+"Grades.remark.recognized"="Anerkannt";
+"Grades.remark.ill"="Krankgeschrieben";
+"Grades.remark.blocked"="Gesperrt";
+"Grades.remark.sign.off"="Abgemeldet";
+"Grades.remark.not.allowed"="Nicht zugelassen";
+"Grades.remark.unkown"="Unbekannter Status";
+"Grades.remark.unexcused.missing"="Unentschuldigt gefehlt";
+"Grades.remark.not.started"="nicht angetreten, Fristüberschreitung";
+"Grades.remark.no.retest"="kein Antrag 2. Wdh.-Prüfung gestellt";
+"Grades.remark.free.try"="Freiversuch";
+"Grades.remark.with.success"="mit Erfolg";
+"Grades.remark.failed"="nicht bestanden (unbenotete Leistung)";
+"Grades.remark.pre.placement"="Vorprakt. offen";
+"Grades.remark.voluntary.appointment"="freiwilliger Termin nicht wahrgenommen";
+"Grades.remark.conditional"="unter Vorbehalt";
+"Grades.remark.attempt"="Täuschungsversuch";
+"Grades.remark.unkown"="Keine Bemerkungen";
+"Grades.no.credentials.title"="Keine Zugangsdaten";
+"Grades.no.credentials.message"="Bitte trage deine Zugangsdaten ein, damit ich Dir Noten anzeigen kann.";
+"Grades.header.subtitle"="Ø %.2f (%d Credits)";
+
+"CampusPlan.title" = "Campusplan";
+"CampusPlan.buildings" = "%d Gebäude";
+
+"Management.title" = "Verwaltung";
+"Management.semester.summer" = "Sommersemester";
+"Management.semester.winter" = "Wintersemester";
+"Management.semester.periods.format" = "dd.MM.yyyy";
+"Management.semester.periods.lectures" = "Lehrveranstaltungen";
+"Management.semester.periods.freedays" = "Unterbrechungen der Lehrveranstaltungen";
+"Management.semester.periods.exams" = "Prüfungsabschnitt";
+"Management.semester.periods.reregistration" = "Rückmeldung";
+"Management.student.administration" = "Studentensekretariat";
+"Management.student.administration.offered.services" = "Leistungsangebot";
+"Management.student.administration.opening.hours" = "Sprechzeiten";
+"Management.student.administration.opening.times" = "%@ - %@ Uhr";
+"Management.student.administration.principal.exam.office" = "Zentrales Prüfungsamt";
+
+"Room.occupancy.title"="Belegungsplan";
+"Room.occupancy.empty.title"="Keine Räume";
+"Room.occupancy.empty.message"="Über + können neue Räume hinzugefügt werden.\n\nDer Belegungsplan berücksichtigt keine Zusatzveranstaltungen oder Umlegungen. Raumreservierung bitte mit Frau Neumann (Z 228A) absprechen.";
+"Room.occupancy.add.title"="Raum hinzufügen";
+"Room.occupancy.add.message"="Bitte die Raumnummer mit Leerzeichen zwischen Gebäude und Zimmernummer eingeben.";
+"Room.occupancy.add.placeholder"="z.B. s 531b";
+"Room.occupancy.invalid"="Keine gültige Raumnummer";
+"Room.occupancy.error.alert.title"="Fehler";
+"Room.occupancy.error.alert.message"="😖 Beim Laden der Daten ist etwas schief gelaufen, ist '%@' eine Korrekte Raumnummer?";
+"Room.occupancy.description"="Belegungen";
+"Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
+"Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
+"Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";

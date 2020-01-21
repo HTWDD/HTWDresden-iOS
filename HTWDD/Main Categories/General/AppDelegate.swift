@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RealmSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,23 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var appCoordinator: AppCoordinator?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        analyticsAndCrashlytics()
+        
         if NSClassFromString("XCTestCase") != nil {
             return true
         }
         
         Tracker.track(.start)
 
-        let window = UIWindow()
+        let window = UIWindow(frame: UIScreen.main.bounds)
 
 		self.appCoordinator = AppCoordinator(window: window)
 		self.window = window
 
-		self.stylizeUI()
+//		self.stylizeUI()
         
         UserDefaults.standard.saveAppVersion()
 
+        realmConfiguration()
+        
         return true
     }
     
@@ -39,19 +45,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Tracker.track(.open)
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        self.appCoordinator?.selectChild(for: url)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        self.appCoordinator?.goTo(controller: .schedule)
         return true
     }
     
+    
 	// MARK: - UI Apperance
-	
 	private func stylizeUI() {
-		UIRefreshControl.appearance().tintColor = .white
-		UINavigationBar.appearance().tintColor = .white
-		UINavigationBar.appearance().barTintColor = UIColor.htw.blue
-		UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-		if #available(iOS 11.0, *) { UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white] }
+        UIRefreshControl.appearance().tintColor = .white
+        UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().barTintColor = UIColor.htw.blue
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        if #available(iOS 11.0, *) {
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        }
 	}
+}
 
+// MARK: - Bootup
+extension AppDelegate {
+    
+    // MARK: - Realm
+    func realmConfiguration() {
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                if oldSchemaVersion < 1 {
+                    
+                }
+        })
+        Realm.Configuration.defaultConfiguration = config
+        let _ = try! Realm()
+    }
+    
+    // MARK: - Crashlytics
+    private func analyticsAndCrashlytics() {
+        Analytics.setAnalyticsCollectionEnabled(false)
+        if UserDefaults.standard.crashlytics {
+            FirebaseApp.configure()
+            Fabric.with([Crashlytics.self])
+        }
+    }
+}
+
+// MARK: - URL-Session
+extension NSURLRequest {
+    static func allowsAnyHTTPSCertificateForHost(host: String) -> Bool {
+        return true
+    }
 }

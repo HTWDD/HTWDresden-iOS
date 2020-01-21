@@ -12,6 +12,8 @@ import RxSwift
 
 class ScheduleService: Service {
     
+    var auth: Auth?
+    
     struct Auth: Hashable, Codable {
         enum Degree: String, Codable {
             case bachelor, diplom, master
@@ -21,9 +23,9 @@ class ScheduleService: Service {
         let major: String
         let group: String
         let degree: Degree
-
-        var hashValue: Int {
-            return self.year.hashValue ^ self.major.hashValue ^ self.group.hashValue ^ self.degree.rawValue.hashValue
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.year.hashValue ^ self.major.hashValue ^ self.group.hashValue ^ self.degree.rawValue.hashValue)
         }
 
         static func ==(lhs: ScheduleService.Auth, rhs: ScheduleService.Auth) -> Bool {
@@ -94,6 +96,8 @@ class ScheduleService: Service {
     private let persistenceService = PersistenceService()
 
     func load(parameters: Auth) -> Observable<Information> {
+        self.auth = parameters
+        
         if let cached = self.cachedInformation[parameters] {
             return Observable.just(cached)
         }

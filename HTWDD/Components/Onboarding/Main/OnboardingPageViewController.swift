@@ -1,0 +1,103 @@
+//
+//  OnboardingPageViewController.swift
+//  HTWDD
+//
+//  Created by Mustafa Karademir on 31.07.19.
+//  Copyright © 2019 HTW Dresden. All rights reserved.
+//
+
+import UIKit
+
+class OnboardingPageViewController: UIPageViewController {
+    
+    // MARK: - Properties
+    weak var context: AppContext?
+    private(set) lazy var orderdViewControllers: [UIViewController] = {
+        return [R.storyboard.onboarding.welcomeViewController()!,
+//                R.storyboard.onboarding.analyticsViewController()!.also { $0.delegate = self },
+                R.storyboard.onboarding.crashlyticsViewController()!.also {
+                    $0.delegate     = self
+                    $0.wkdelegate   = self
+                },
+                R.storyboard.onboarding.studyGroupViewController()!.also {
+                    $0.context  = self.context
+                    $0.delegate = self
+                },
+                R.storyboard.onboarding.loginViewController()!.also {
+                    $0.context  = self.context
+                    $0.delegate = self
+                },
+                R.storyboard.onboarding.onboardingFinishViewController()!]
+    }()
+
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource = self
+        
+        if let firstViewController = orderdViewControllers.first {
+            setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        pageControl?.pageIndicatorTintColor         = UIColor.htw.grey
+        pageControl?.currentPageIndicatorTintColor  = UIColor.htw.blue
+    }
+}
+
+// MARK: - PageViewDataSource & PageIndicator
+extension OnboardingPageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = orderdViewControllers.firstIndex(of: viewController) else { return nil }
+        let prevoisIndex = viewControllerIndex - 1
+        guard prevoisIndex >= 0 else { return nil }
+        guard orderdViewControllers.count > prevoisIndex else { return nil }
+        return orderdViewControllers[prevoisIndex]
+        
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard let viewControllerIndex = orderdViewControllers.firstIndex(of: viewController) else { return nil }
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderdViewControllers.count
+        guard orderedViewControllersCount != nextIndex else { return nil }
+        guard orderedViewControllersCount > nextIndex else { return nil }
+        return orderdViewControllers[nextIndex]
+        
+    }
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return orderdViewControllers.count
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        guard let firstViewController = viewControllers?.first, let firstViewControllerIndex = orderdViewControllers.firstIndex(of: firstViewController) else { return 0 }
+        return firstViewControllerIndex
+    }
+}
+
+// MARK: UIPage Swipe Delegate
+extension OnboardingPageViewController: UIPageViewSwipeDelegate {
+    func next(animated: Bool) {
+        goToNextPage(animated: animated)
+    }
+    
+    func previous(animated: Bool) {
+        goToPreviousPage(animated: animated)
+    }
+}
+
+// MARK: WKWebview Delegate
+extension OnboardingPageViewController: WKWebviewDelegate {
+    func showPrivacy(animated: Bool) {
+        present(R.storyboard.settings.wkWebViewController()!.also {
+            $0.modalPresentationStyle = .pageSheet
+            $0.show(title: R.string.localizable.settingsSetctionContactPrivacy(), filename: "HTW-Datenschutz.html")
+        }, animated: animated)
+    }
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="95" id="KGk-i7-Jjw" customClass="DashboardTimeTableFreeTableViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cf6-Rp-bcq">
+                        <rect key="frame" x="8" y="8" width="304" height="79"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.compact.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="q1M-gt-kaf">
+                                <rect key="frame" x="276" y="31" width="20" height="17.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="6Su-0b-7cn"/>
+                                    <constraint firstAttribute="height" constant="20" id="inL-21-xmt"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genieße dein Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-zx-qeX">
+                                <rect key="frame" x="8" y="8" width="260" height="63"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hDe-zx-qeX" secondAttribute="bottom" constant="8" id="04r-DR-8hC"/>
+                            <constraint firstItem="q1M-gt-kaf" firstAttribute="centerY" secondItem="cf6-Rp-bcq" secondAttribute="centerY" id="0ed-hl-wtm"/>
+                            <constraint firstItem="hDe-zx-qeX" firstAttribute="leading" secondItem="cf6-Rp-bcq" secondAttribute="leading" constant="8" id="3B4-6k-Owh"/>
+                            <constraint firstItem="hDe-zx-qeX" firstAttribute="top" secondItem="cf6-Rp-bcq" secondAttribute="top" constant="8" id="DQK-TP-PAg"/>
+                            <constraint firstAttribute="trailing" secondItem="q1M-gt-kaf" secondAttribute="trailing" constant="8" id="W4w-cF-8JG"/>
+                            <constraint firstItem="q1M-gt-kaf" firstAttribute="leading" secondItem="hDe-zx-qeX" secondAttribute="trailing" constant="8" id="hB5-0V-7yl"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="cf6-Rp-bcq" secondAttribute="bottom" constant="8" id="7Tk-fD-RdW"/>
+                    <constraint firstItem="cf6-Rp-bcq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="LC0-rM-HJh"/>
+                    <constraint firstAttribute="trailing" secondItem="cf6-Rp-bcq" secondAttribute="trailing" constant="8" id="pZy-dP-ylu"/>
+                    <constraint firstItem="cf6-Rp-bcq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="tF1-06-hjR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chevron" destination="q1M-gt-kaf" id="U3y-IZ-fnn"/>
+                <outlet property="lblMessage" destination="hDe-zx-qeX" id="Ii0-H3-GAv"/>
+                <outlet property="mainView" destination="cf6-Rp-bcq" id="0HC-Zh-DkW"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="130.24553571428572"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chevron.compact.right" catalog="system" width="30" height="64"/>
+    </resources>
+</document>

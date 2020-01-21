@@ -9,11 +9,8 @@
 import MessageUI
 
 extension MFMailComposeViewController {
-    override open var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
-    open override var childViewControllerForStatusBarStyle: UIViewController? {
+    open override var childForStatusBarStyle: UIViewController? {
         return nil
     }
 }

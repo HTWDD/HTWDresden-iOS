@@ -77,7 +77,7 @@ extension UIView {
 		let emitter = CAEmitterLayer()
 		
 		emitter.emitterPosition = CGPoint(x: frame.size.width / 2.0, y: 0)
-		emitter.emitterShape = kCAEmitterLayerLine
+		emitter.emitterShape = CAEmitterLayerEmitterShape.line
 		emitter.emitterSize = CGSize(width: frame.size.width, height: 1)
 		emitter.beginTime = CACurrentMediaTime()
 		
@@ -114,4 +114,58 @@ fileprivate func confettiWithColor(color: UIColor, intensity: CGFloat = 0.5) -> 
 	confetti.contents = image?.cgImage
 	
 	return confetti
+}
+
+
+// MARK: - Dropshadow
+extension UIView {
+    func dropShadow(scale: Bool = true) {
+        layer.apply {
+            $0.masksToBounds        = false
+            $0.shadowColor          = UIColor.htw.shadow.cgColor
+            $0.shadowOpacity        = 0.35
+            $0.shadowOffset         = .zero
+            $0.shadowRadius         = 3
+            $0.shouldRasterize      = true
+            $0.rasterizationScale   = scale ? UIScreen.main.scale : 1
+        }
+    }
+    
+    func removeDropShdow() {
+        layer.shadowRadius = 0
+    }
+    
+    @IBInspectable var hasDropShadow: Bool {
+        get { return layer.shadowRadius > 0 }
+        set {
+            if newValue {
+                dropShadow()
+            } else {
+                removeDropShdow()
+            }
+        }
+    }
+}
+
+// MARK: - CA Layers
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+        let border = CALayer()
+        switch edge {
+        case .left:
+            border.frame = CGRect(x: 0, y: 0, width: thickness, height: frame.height)
+        case .top:
+            border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+        case .right:
+            border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+        case .bottom:
+            border.frame = CGRect(x: 0, y: frame.height - thickness, width: frame.width, height: thickness)
+        default:
+            break
+        }
+        border.backgroundColor = color.cgColor
+        addSublayer(border)
+    }
+     
 }

@@ -1,0 +1,52 @@
+{
+    "offeredServices": [
+        "Studentische Vertretung",
+        "Semesterticket",
+        "Härtefallanerkennung",
+        "Ausstellung der ISIC-Ausweise",
+        "Informationen und Vermittlung von Angeboten zur Beratung",
+        "Veranstaltungen für Studierende"
+    ],
+    "officeHours": [
+        {
+            "day": "Mo",
+            "times": [
+                {
+                    "begin": "09:00",
+                    "end": "11:30"
+                },
+                {
+                    "begin": "12:30",
+                    "end": "15:00"
+                }
+            ]
+        },
+        {
+            "day": "Di",
+            "times": [
+                {
+                    "begin": "09:00",
+                    "end": "11:30"
+                },
+                {
+                    "begin": "12:30",
+                    "end": "16:30"
+                }
+            ]
+        },
+        {
+            "day": "Do",
+            "times": [
+                {
+                    "begin": "09:00",
+                    "end": "11:30"
+                },
+                {
+                    "begin": "12:30",
+                    "end": "15:00"
+                }
+            ]
+        }
+    ],
+    "link": "https://www.stura.htw-dresden.de"
+}

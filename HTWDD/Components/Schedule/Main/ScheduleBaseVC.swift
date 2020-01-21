@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class ScheduleBaseVC: CollectionViewController {
 
@@ -43,7 +44,7 @@ class ScheduleBaseVC: CollectionViewController {
 
         let todayButton = UIBarButtonItem(title: Loca.Schedule.today, style: .plain, target: self, action: #selector(self.handleJumpToToday))
         self.navigationItem.rightBarButtonItem = todayButton
-
+       
         self.dataSource.load()
 
 		DispatchQueue.main.async {
@@ -51,7 +52,7 @@ class ScheduleBaseVC: CollectionViewController {
 		}
 		
 		NotificationCenter.default.rx
-			.notification(.UIApplicationWillEnterForeground)
+			.notification(UIApplication.willEnterForegroundNotification)
 			.subscribe(onNext: { [weak self] _ in
 				self?.dataSource.invalidate()
 			})
@@ -81,6 +82,7 @@ class ScheduleBaseVC: CollectionViewController {
         }
     }
 
+    
     @objc
     func handleJumpToToday() {
         self.jumpToToday(animated: true)
@@ -120,7 +122,7 @@ extension ScheduleBaseVC {
 }
 
 // MARK: - UIViewControllerPreviewingDelegate
-extension ScheduleBaseVC: UIViewControllerPreviewingDelegate {
+extension ScheduleBaseVC: UIViewControllerPreviewingDelegate, HasSideBarItem {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard
             let indexPath = self.collectionView.indexPathForItem(at: location),

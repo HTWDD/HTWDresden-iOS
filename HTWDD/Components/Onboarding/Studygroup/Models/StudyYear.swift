@@ -12,10 +12,10 @@ import RxSwift
 struct StudyYear: Decodable, Identifiable {
     
     let studyYear: Int
-    let studyCourses: [StudyCourse]
+    let studyCourses: [StudyCourse]?
     
     static func get(network: Network) -> Observable<[StudyYear]> {
-        return network.getArray(url: "https://rubu2.rz.htw-dresden.de/API/v0/studyGroups.php")
+        return network.getArray(url: "http://rubu2.rz.htw-dresden.de/API/v0/studyGroups.php")
     }
 }
 

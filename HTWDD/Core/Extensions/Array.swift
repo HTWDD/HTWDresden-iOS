@@ -23,7 +23,7 @@ extension Array {
 	}
     
     func removing(while condition: (Element) -> Bool) -> [Element] {
-        guard let firstIndex = self.index(where: { !condition($0) }) else {
+        guard let firstIndex = self.firstIndex(where: { !condition($0) }) else {
             return []
         }
         return Array(self[firstIndex...])

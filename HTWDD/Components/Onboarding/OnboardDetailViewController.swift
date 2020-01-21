@@ -16,7 +16,7 @@ class OnboardDetailViewController<Product>: ViewController, UITextFieldDelegate,
         var title: String
         var description: String
         var contentViews: [UIView]
-        var contentViewsStackViewAxis: UILayoutConstraintAxis
+        var contentViewsStackViewAxis: NSLayoutConstraint.Axis
         var notNowText: String
         var continueButtonText: String
     }
@@ -46,7 +46,7 @@ class OnboardDetailViewController<Product>: ViewController, UITextFieldDelegate,
     // MARK: - Overwrite functions
 
     @objc func continueBoarding() {
-        preconditionFailure("Overwrite this  method in your subclass!")
+        preconditionFailure("Overwrite this method in your subclass!")
     }
 
     @objc func skipBoarding() {
@@ -202,11 +202,17 @@ class OnboardDetailViewController<Product>: ViewController, UITextFieldDelegate,
         ])
 		
 		self.registerForKeyboardNotifications()
+        
+        #if DEBUG
+        // Add Key Commands for debug mode
+        let returnKeyCommand = UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(continueBoarding))
+        self.addKeyCommand(returnKeyCommand)
+        
+        let escapeKeyCommand = UIKeyCommand(input: UIKeyCommand.inputEscape, modifierFlags: [], action: #selector(skipBoarding))
+        self.addKeyCommand(escapeKeyCommand)
+        #endif
     }
 
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .default
-	}
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait

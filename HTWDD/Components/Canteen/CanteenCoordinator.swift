@@ -9,16 +9,45 @@
 import UIKit
 
 class CanteenCoordinator: Coordinator {
-    var rootViewController: UIViewController {
-        return self.canteenMainVC.inNavigationController()
-    }
+    // MARK: - Typealias
+    typealias Services = HasCanteen & HasApiService
+    
+    // MARK: - Properties
+    let context: Services
+    var rootViewController: UIViewController { return canteenViewController }
     var childCoordinators: [Coordinator] = []
-
-    private lazy var canteenMainVC = CanteenMainVC(context: self.context)
-
-    let context: HasCanteen
-    init(context: HasCanteen) {
+    private lazy var canteenViewController: CanteenViewController = {
+        return R.storyboard.canteen.canteenViewController()!.also {
+            $0.context              = context
+            $0.viewModel            = CanteenViewModel(context: context)
+            $0.canteenCoordinator   = self
+        }
+    }()
+    
+    // MARK: Meals Tab View Controller - Contains Sub ViewControllers
+    func getMealsTabViewController(for canteenDetail: CanteenDetail) -> MealsTabViewController {
+        return R.storyboard.canteen.mealsTabViewController()!.also {
+            $0.context              = context
+            $0.canteenDetail        = canteenDetail
+            $0.canteenCoordinator   = self
+        }
+    }
+    
+    // MARK: Meals View Controller - Detail for Today
+    func getMealsViewController(for canteenDetail: CanteenDetail) -> MealsViewController {
+        return R.storyboard.canteen.mealsViewController()!.also {
+            $0.viewModel = MealsViewModel(data: canteenDetail)
+        }
+    }
+    
+    func getMealsForWeekViewController(for canteenDetail: CanteenDetail, and weekState: CanteenService.WeekState) -> MealsForWeekTableViewController {
+        return R.storyboard.canteen.mealsForWeekTableViewController()!.also {
+            $0.viewModel = MealsForWeekTableViewModel(context: context, week: weekState, detail: canteenDetail)
+        }
+    }
+    
+    // MARK: Lifecycle
+    init(context: Services) {
         self.context = context
     }
-
 }

@@ -27,7 +27,7 @@ private enum ScheduleLayoutStyle: Int {
     static let cachingKey = "\(ScheduleLayoutStyle.self)_cache"
 }
 
-final class ScheduleMainVC: ViewController {
+final class ScheduleMainVC: ViewController, HasSideBarItem {
 
 	// MARK: - Properties
 
@@ -59,7 +59,7 @@ final class ScheduleMainVC: ViewController {
 			context: context,
 			auth: self.auth,
             shouldFilterEmptySections: false,
-            addFreeDays: true,
+            addFreeDays: false,
             splitFreeDaysInDays: true)
 		super.init()
 	}
@@ -71,7 +71,7 @@ final class ScheduleMainVC: ViewController {
 	override func initialSetup() {
 		// Basic setup
 		self.title = Loca.Schedule.title
-		self.tabBarItem.image = #imageLiteral(resourceName: "Class")
+//		self.tabBarItem.image = #imageLiteral(resourceName: "Class")
 
 		// Layout Style Segmented Control
 		self.navigationItem.titleView = self.layoutStyleControl
@@ -103,9 +103,9 @@ final class ScheduleMainVC: ViewController {
         UserDefaults.standard.set(style.rawValue, forKey: ScheduleLayoutStyle.cachingKey)
 
 		if let vc = self.currentScheduleVC {
-			vc.willMove(toParentViewController: nil)
+			vc.willMove(toParent: nil)
 			vc.view.removeFromSuperview()
-			vc.removeFromParentViewController()
+			vc.removeFromParent()
 		}
 
         if let cached = self.cachedStyles[style] {
@@ -128,9 +128,9 @@ final class ScheduleMainVC: ViewController {
 
 	private func addChild(_ child: ViewController?) {
 		guard let child = child else { return }
-		self.addChildViewController(child)
+		self.addChild(child)
 		self.containerView.add(child.view)
-		child.didMove(toParentViewController: self)
+		child.didMove(toParent: self)
         self.updateBarButtonItems(navigationItem: child.navigationItem)
 	}
 
@@ -164,9 +164,6 @@ final class ScheduleMainVC: ViewController {
         self.currentScheduleVC?.jumpToToday(animated: animated)
     }
     
-	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
-	}
 }
 
 extension ScheduleMainVC: TabbarChildViewController {

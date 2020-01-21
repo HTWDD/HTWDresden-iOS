@@ -42,7 +42,7 @@ class PersistenceService: Service {
     }
 
     private func load<T: Codable>(type: T.Type, key: String) -> T? {
-        let savedData = (try? keychain.getData(key)).flatMap(identity)
+        let savedData = (((try? keychain.getData(key)) as Data??)).flatMap(identity)
 
         guard let data = savedData else {
             return nil
@@ -73,13 +73,6 @@ class PersistenceService: Service {
         return Observable.just(saved)
     }
     
-    func loadExamsCache() -> Observable<ExamsService.Information> {
-        guard let saved = self.load(type: ExamsService.Information.self, key: Const.examsCacheKey) else {
-            return Observable.empty()
-        }
-        return Observable.just(saved)
-    }
-
     // MARK: - Save
 
     func save(_ schedule: ScheduleService.Auth) {
@@ -108,10 +101,6 @@ class PersistenceService: Service {
         self.save(object: lectures, key: Const.scheduleCacheKey)
     }
     
-    func save(_ exams: ExamsService.Information) {
-        self.save(object: exams, key: Const.examsCacheKey)
-    }
-
     private func save<T: Encodable>(object: T, key: String) {
         guard let data = try? JSONEncoder().encode(object) else { return }
         try? self.keychain.set(data, key: key)

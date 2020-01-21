@@ -10,23 +10,26 @@ import UIKit
 
 class ExamsCoordinator: Coordinator {
     
-    var rootViewController: UIViewController {
-        return self.examController.inNavigationController()
-    }
+    // MARK: - Typealias
+    typealias Services = AppContext
     
+    // MARK: - Properties
+    let context: Services
+    var rootViewController: UIViewController { return self.examViewController }
     var childCoordinators = [Coordinator]()
     
-    private lazy var examController = ExamsMainVC(context: self.context)
-    
-    var auth: ScheduleService.Auth? {
-        didSet {
-            self.examController.auth = self.auth
+    private lazy var examViewController = {
+        return R.storyboard.exam.examViewController()!.also {
+            $0.context = self.context
         }
-    }
+    }()
     
-    let context: HasExams
-    init(context: HasExams) {
+    // MARK: - Lifecycle
+    init(context: Services) {
         self.context = context
     }
     
+    func start() -> ExamViewController {
+        return examViewController
+    }
 }

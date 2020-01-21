@@ -9,88 +9,21 @@
 import UIKit
 
 class OnboardingCoordinator: Coordinator {
-    enum Onboarding: Int {
-        case welcome = 0
-        case studygroup = 1
-        case unixlogin = 2
 
-        static let all: [Onboarding] = [.welcome, .studygroup, .unixlogin]
-    }
-
+    // MARK: - Properties
+    private let context: AppContext
     var childCoordinators: [Coordinator] = []
+    var rootViewController: UIViewController { return UIViewController() }
 
-    private lazy var navigationController: NavigationController = {
-        let navigationController = NavigationController()
-        navigationController.navigationBar.isHidden = true
-        return navigationController
-    }()
-
-    var rootViewController: UIViewController {
-        return self.navigationController
+    // MARK: - Lifecycle
+    init(context: AppContext) {
+        self.context = context
     }
 
-    class Response {
-        var schedule: ScheduleService.Auth?
-        var grade: GradeService.Auth?
-    }
-
-    var onFinish: ((Response) -> Void)?
-
-    // MARK: - Init
-
-    private let onboardings: [Onboarding]
-    init(onboardings: [Onboarding] = Onboarding.all) {
-        self.onboardings = onboardings
-        self.startFlow()
-    }
-
-    private func startFlow() {
-        let functions = self.onboardings.compactMap { self.onboardingFunctions[$0] }
-        let response = Response()
-        self.callFunctions(response: response, functions: functions) { [weak self] in
-            self?.onFinish?(response)
+    func start() -> OnboardingMainViewController {
+        return R.storyboard.onboarding.onboardingMainViewController()!.also {
+            $0.modalPresentationStyle   = .overCurrentContext
+            $0.context                  = context
         }
-    }
-
-    private func callFunctions(response: Response, functions: [OnboardingFunction], completion: @escaping () -> Void) {
-        guard let first = functions.first else {
-            return completion()
-        }
-        first(response) { [weak self] in
-            self?.callFunctions(response: response, functions: Array(functions.dropFirst()), completion: completion)
-        }
-    }
-
-    typealias OnboardingFunction = (Response, @escaping () -> Void) -> Void
-    lazy var onboardingFunctions: [Onboarding: OnboardingFunction] = [
-        .welcome: self.showWelcomeOnboarding,
-        .studygroup: self.showStudyGroupOnboarding,
-        .unixlogin: self.showUnixLoginOnboarding
-    ]
-
-    private func showWelcomeOnboarding(response: Response, next: @escaping () -> Void) {
-        let welcome = OnboardWelcomeViewController()
-        welcome.onContinue = { vc in
-            next()
-        }
-        self.navigationController.pushViewController(welcome, animated: true)
-    }
-
-    private func showStudyGroupOnboarding(response: Response, next: @escaping () -> Void) {
-        let studyGroupVC = OnboardStudygroupViewController()
-        studyGroupVC.onFinish = { auth in
-            response.schedule = auth
-            next()
-        }
-        self.navigationController.pushViewController(studyGroupVC, animated: true)
-    }
-
-    private func showUnixLoginOnboarding(response: Response, next: @escaping () -> Void) {
-        let unixLoginVC = OnboardUnixLoginViewController()
-        unixLoginVC.onFinish = { auth in
-            response.grade = auth
-            next()
-        }
-        self.navigationController.pushViewController(unixLoginVC, animated: true)
     }
 }

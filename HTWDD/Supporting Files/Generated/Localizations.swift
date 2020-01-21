@@ -67,7 +67,7 @@ public struct Loca {
     /// Base translation: Tu
     public static var tuesday_short : String = NSLocalizedString("tuesday_short", comment: "")
 
-    /// Base translation: Attention
+    /// Base translation: Attention ⚠️
     public static var attention : String = NSLocalizedString("attention", comment: "")
 
     /// Base translation: Let's go!
@@ -419,10 +419,10 @@ public struct Loca {
 
         public struct noResults {
 
-            /// Base translation: I can't find any meals for today.
+            /// Base translation: I can't find any food for today :-/
             public static var message : String = NSLocalizedString("Canteen.noResults.message", comment: "")
 
-            /// Base translation: No food
+            /// Base translation: No meals
             public static var title : String = NSLocalizedString("Canteen.noResults.title", comment: "")
 
         }
@@ -525,6 +525,33 @@ public struct Loca {
             /// Base translation: Contact
             public static var contact : String = NSLocalizedString("Settings.sections.contact", comment: "")
 
+        }
+    }
+    
+    public struct Management {
+        
+        public static var title: String = NSLocalizedString("Management.title", comment: "")
+        
+        public struct Semester {
+            
+            public static var summer: String = "Management.semester.summer".localized
+            
+            public static var winter: String = "Management.semester.winter".localized
+            
+            
+            public struct Periods {
+                
+                public static var format: String = "Management.semester.periods.format".localized
+                
+                public static var lectures: String = "Management.semester.periods.lectures".localized
+                
+                public static var freedays: String = "Management.semester.periods.freedays".localized
+                
+                public static var exams: String = "Management.semester.periods.exams".localized
+                
+                public static var reRegistration: String = "Management.semester.periods.reregistration".localized
+                
+            }
         }
     }
 }

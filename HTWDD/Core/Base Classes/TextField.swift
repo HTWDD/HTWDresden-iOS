@@ -36,15 +36,15 @@ class TextField: UITextField {
 	// MARK: - TextField
 	
 	override func textRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, self.insets)
+		return bounds.inset(by: self.insets)
 	}
 	
 	override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, self.insets)
+		return bounds.inset(by: self.insets)
 	}
 	
 	override func editingRect(forBounds bounds: CGRect) -> CGRect {
-		return UIEdgeInsetsInsetRect(bounds, self.insets)
+		return bounds.inset(by: self.insets)
 	}
 }
 
@@ -56,6 +56,7 @@ class PasswordField: TextField {
 		let button = UIButton(type: .custom)
 		button.setImage(#imageLiteral(resourceName: "onepassword-button"), for: .normal)
 		button.addTarget(self, action: #selector(find1PasswordLogin), for: .touchUpInside)
+        button.alpha = 0
 		return button
 	}()
 	

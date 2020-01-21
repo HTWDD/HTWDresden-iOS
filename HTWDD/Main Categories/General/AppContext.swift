@@ -12,12 +12,20 @@ class User {
     
 }
 
+protocol HasDashboard {
+    var dashboardService: DashboardService { get }
+}
+
 protocol HasSchedule {
     var scheduleService: ScheduleService { get }
 }
 
-protocol HasExams {
-	var examsService: ExamsService { get }
+protocol HasRoomOccupancy {
+    var roomOccupanyService: RoomOccupancyService { get }
+}
+
+protocol HasExam {
+    var examService: ExamService { get }
 }
 
 protocol HasGrade {
@@ -32,12 +40,33 @@ protocol HasSettings {
 	var settingsService: SettingsService { get }
 }
 
-class AppContext: HasSchedule, HasGrade, HasCanteen, HasExams, HasSettings {
-
-    let scheduleService = ScheduleService()
-	let examsService = ExamsService()
-	let gradeService = GradeService()
-    let canteenService = CanteenService()
-	let settingsService = SettingsService()
-	
+protocol HasManagement {
+    var managementService: ManagementService { get }
 }
+
+protocol HasApiService {
+    var apiService: ApiService { get }
+}
+
+protocol HasCampusPlan {
+    var campusPlanService: CampusPlanService { get }
+}
+
+protocol HasTimetable {
+    var timetableService: TimetableService { get }
+}
+
+class AppContext: HasSchedule, HasGrade, HasCanteen, HasExam, HasSettings, HasManagement, HasApiService, HasDashboard, HasRoomOccupancy, HasCampusPlan, HasTimetable {
+    lazy var dashboardService       = DashboardService(apiService: self.apiService, scheduleService: self.scheduleService)
+    lazy var scheduleService        = ScheduleService()
+    lazy var roomOccupanyService    = RoomOccupancyService(apiService: self.apiService)
+	lazy var examService            = ExamService(apiService: self.apiService)
+    lazy var gradeService           = GradeService(apiService: self.apiService)
+    lazy var canteenService         = CanteenService(apiService: self.apiService)
+	lazy var settingsService        = SettingsService()
+    lazy var apiService             = ApiService.shared()
+    lazy var managementService      = ManagementService(apiService: self.apiService)
+    lazy var campusPlanService      = CampusPlanService()
+    lazy var timetableService       = TimetableService(apiService: self.apiService)
+}
+
