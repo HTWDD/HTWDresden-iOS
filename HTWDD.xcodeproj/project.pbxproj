@@ -15,7 +15,6 @@
 		1F1491B61FB456F70011B114 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59FA9911DD09C8400259D7F /* Assets.xcassets */; };
 		1F2B8A101F99029E00026099 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2B8A0F1F99029E00026099 /* TextField.swift */; };
 		1F3A7AC01FDA8DC800369420 /* OnePasswordExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A7ABF1FDA8DC800369420 /* OnePasswordExtension.m */; };
-		1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F3A7AC11FDA8DD100369420 /* 1Password.xcassets */; };
 		1F4BD5301FAFA58F007E0817 /* Today.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BD52F1FAFA58F007E0817 /* Today.storyboard */; };
 		1F4BD5361FAFA895007E0817 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4BD5381FAFA895007E0817 /* InfoPlist.strings */; };
 		1F4BD53A1FAFAA68007E0817 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
@@ -437,7 +436,6 @@
 		1F3A7ABD1FDA8DC700369420 /* HTWDD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HTWDD-Bridging-Header.h"; sourceTree = "<group>"; };
 		1F3A7ABE1FDA8DC800369420 /* OnePasswordExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnePasswordExtension.h; sourceTree = "<group>"; };
 		1F3A7ABF1FDA8DC800369420 /* OnePasswordExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OnePasswordExtension.m; sourceTree = "<group>"; };
-		1F3A7AC11FDA8DD100369420 /* 1Password.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = 1Password.xcassets; sourceTree = "<group>"; };
 		1F4BD52F1FAFA58F007E0817 /* Today.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Today.storyboard; sourceTree = "<group>"; };
 		1F4BD5371FAFA895007E0817 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1F4BD5391FAFA898007E0817 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -788,7 +786,6 @@
 		1F3A7ABC1FDA8DA100369420 /* 1Password */ = {
 			isa = PBXGroup;
 			children = (
-				1F3A7AC11FDA8DD100369420 /* 1Password.xcassets */,
 				1F3A7ABE1FDA8DC800369420 /* OnePasswordExtension.h */,
 				1F3A7ABF1FDA8DC800369420 /* OnePasswordExtension.m */,
 			);
@@ -2046,7 +2043,6 @@
 				64E7DB5D2343466D00540FED /* Timetable.storyboard in Resources */,
 				1F0CB4B41FE81DF3002B7744 /* HTW-Impressum.html in Resources */,
 				6493710123427A7800EC7195 /* DashboardTimeTableFreeTableViewCell.xib in Resources */,
-				1F3A7AC21FDA8DD100369420 /* 1Password.xcassets in Resources */,
 				6403694722CA069D00FD49EA /* StudenAdministrationViewCell.xib in Resources */,
 				6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */,
 				64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */,

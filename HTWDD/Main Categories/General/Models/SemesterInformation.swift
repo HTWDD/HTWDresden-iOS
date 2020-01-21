@@ -22,9 +22,9 @@ struct SemesterInformation: Codable {
     let exams: EventPeriod
     let reregistration: EventPeriod
 
-    static func get(network: Network) -> Observable<[SemesterInformation]> {
-        return network.getArrayM(url: SemesterInformation.url)
-    }
+//    static func get(network: Network) -> Observable<[SemesterInformation]> {
+//        return network.getArrayM(url: SemesterInformation.url)
+//    }
 
     static func information(date: Date, input: [SemesterInformation]) -> SemesterInformation? {
         for e in input {

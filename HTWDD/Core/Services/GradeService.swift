@@ -132,7 +132,7 @@ class GradeService: Service {
     /// - Returns: array of semesters + their grades, already sorted by semester
     private static func groupAndOrderBySemester(grades: [Grade]) -> [Information] {
 
-        var semesterHash = [Semester: [Grade]]()
+//        var semesterHash = [Semester: [Grade]]()
 
 //        for grade in grades {
 //            semesterHash[grade.semester, or: []].append(grade)
@@ -195,23 +195,23 @@ class GradeService: Service {
         
     }
     
-    static func checkIfValid(auth: Auth, completion: @escaping (Bool) -> Void) {
-        let service = GradeService()
-        var disposable: Disposable?
-        let callCompletionAndDispose: (Bool) -> Void = {
-            completion($0)
-            disposable?.dispose()
-            disposable = nil
-        }
-        disposable = service.loadFromNetwork(auth)
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { _ in
-                callCompletionAndDispose(true)
-            }, onError: { _ in
-                callCompletionAndDispose(false)
-            })
-        
-    }
+//    static func checkIfValid(auth: Auth, completion: @escaping (Bool) -> Void) {
+//        let service = GradeService()
+//        var disposable: Disposable?
+//        let callCompletionAndDispose: (Bool) -> Void = {
+//            completion($0)
+//            disposable?.dispose()
+//            disposable = nil
+//        }
+//        disposable = service.loadFromNetwork(auth)
+//            .observeOn(MainScheduler.instance)
+//            .subscribe(onNext: { _ in
+//                callCompletionAndDispose(true)
+//            }, onError: { _ in
+//                callCompletionAndDispose(false)
+//            })
+//
+//    }
 
 }
 

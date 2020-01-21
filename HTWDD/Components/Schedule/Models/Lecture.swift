@@ -24,13 +24,15 @@ struct Lecture {
     let day: Day
 
     static func get(network: Network, year: String, major: String, group: String) -> Observable<[Lecture]> {
-        let parameters = [
-            "StgJhr": year,
-            "Stg": major,
-            "StgGrp": group
-        ]
+//        let parameters = [
+//            "StgJhr": year,
+//            "Stg": major,
+//            "StgGrp": group
+//        ]
 
-        return network.getArrayM(url: Lecture.url, params: parameters)
+        return Observable.empty()
+        
+//        return network.getArrayM(url: Lecture.url, params: parameters)
     }
 
     static func groupByDay(lectures: [Lecture]) -> [Day: [Lecture]] {

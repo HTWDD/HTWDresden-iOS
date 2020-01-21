@@ -21,20 +21,9 @@ class OnboardUnixLoginViewController: OnboardDetailViewController<GradeService.A
 		return field
 	}()
 	private lazy var passwordTextField: PasswordField = {
-		let field = PasswordField()
-		field.placeholder = Loca.Onboarding.UnixLogin.passwordPlaceholder
-		field.onOnePasswordClick = { [weak self] in
-			guard let `self` = self else { return }
-			OnePasswordExtension.shared().findLogin(forURLString: "https://www.htw-dresden.de",
-													for: self,
-													sender: nil) { data, error in
-														guard let data = data else { return }
-														self.usernameTextField.text = data[AppExtensionUsernameKey] as? String
-														self.passwordTextField.text = data[AppExtensionPasswordKey] as? String
-														self.checkState()
-			}
-		}
-		return field
+        return PasswordField().also {
+            $0.placeholder = Loca.Onboarding.UnixLogin.passwordPlaceholder
+        }
 	}()
 
     override func initialSetup() {
