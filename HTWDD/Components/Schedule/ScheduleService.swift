@@ -96,29 +96,32 @@ class ScheduleService: Service {
     private let persistenceService = PersistenceService()
 
     func load(parameters: Auth) -> Observable<Information> {
-        self.auth = parameters
         
-        if let cached = self.cachedInformation[parameters] {
-            return Observable.just(cached)
-        }
-
-        let lecturesObservable = Lecture.get(network: self.network, year: parameters.year, major: parameters.major, group: parameters.group)
-            .map(Lecture.groupByDay)
-        var hidden = self.loadHidden()
-        var colors = self.loadColors()
-
-        let informationObservable = SemesterInformation.get(network: self.network)
+        return Observable.empty()
         
-        let cached = self.persistenceService.loadScheduleCache()
-        let internetLoading: Observable<Information> = Observable.combineLatest(lecturesObservable, informationObservable) { [weak self] l, s in
-            let information = Information(lectures: l, semesters: s, hidden: &hidden, colors: &colors)
-            self?.saveHidden(hidden)
-            self?.saveColors(colors)
-            self?.cachedInformation[parameters] = information
-            self?.persistenceService.save(information)
-            return information
-        }
-        return Observable.merge(cached, internetLoading).distinctUntilChanged()
+//        self.auth = parameters
+//
+//        if let cached = self.cachedInformation[parameters] {
+//            return Observable.just(cached)
+//        }
+//
+////        let lecturesObservable = Lecture.get(network: self.network, year: parameters.year, major: parameters.major, group: parameters.group)
+////            .map(Lecture.groupByDay)
+//        var hidden = self.loadHidden()
+//        var colors = self.loadColors()
+//
+//        //let informationObservable = SemesterInformation.get(network: self.network)
+//
+//        let cached = self.persistenceService.loadScheduleCache()
+//        let internetLoading: Observable<Information> = Observable.combineLatest(lecturesObservable, informationObservable) { [weak self] l, s in
+//            let information = Information(lectures: l, semesters: s, hidden: &hidden, colors: &colors)
+//            self?.saveHidden(hidden)
+//            self?.saveColors(colors)
+//            self?.cachedInformation[parameters] = information
+//            self?.persistenceService.save(information)
+//            return information
+//        }
+//        return Observable.merge(cached, internetLoading).distinctUntilChanged()
     }
 
     // MARK: - Hidden lectures

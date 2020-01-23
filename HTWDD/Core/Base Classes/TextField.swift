@@ -49,40 +49,7 @@ class TextField: UITextField {
 }
 
 class PasswordField: TextField {
-	
-	var onOnePasswordClick: (() -> Void)?
-	
-	private var onePasswordButton: UIButton = {
-		let button = UIButton(type: .custom)
-		button.setImage(#imageLiteral(resourceName: "onepassword-button"), for: .normal)
-		button.addTarget(self, action: #selector(find1PasswordLogin), for: .touchUpInside)
-        button.alpha = 0
-		return button
-	}()
-	
 	override func initialSetup() {
 		self.isSecureTextEntry = true
-		
-		if OnePasswordExtension.shared().isAppExtensionAvailable() {
-			self.insets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 48)
-			
-			self.onePasswordButton.translatesAutoresizingMaskIntoConstraints = false
-			self.add(self.onePasswordButton)
-			
-			NSLayoutConstraint.activate([
-				self.onePasswordButton.heightAnchor.constraint(equalToConstant: 44),
-				self.onePasswordButton.widthAnchor.constraint(equalToConstant: 44),
-				self.onePasswordButton.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-				self.onePasswordButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)
-			])
-		}
 	}
-	
-	// MARK: - Actions
-	
-	@objc
-	private func find1PasswordLogin() {
-		self.onOnePasswordClick?()
-	}
-	
 }
