@@ -24,16 +24,16 @@ class SideMenuContainerNavigationController: NavigationController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         self.delegate = self
-        sideMenuManager.apply {
+        sideMenuManager.apply { manager in
             sideMenuViewController.coordinator = self.coordinator
-            $0.menuLeftNavigationController = UISideMenuNavigationController(rootViewController: self.sideMenuViewController)
-            $0.menuPushStyle        = .preserveAndHideBackButton
-            $0.menuPresentMode      = .menuSlideIn
-            $0.menuWidth            = 290.0
-            $0.menuFadeStatusBar    = false
+            manager.leftMenuNavigationController = SideMenuNavigationController(rootViewController: sideMenuViewController).also {
+                $0.pushStyle            = .preserveAndHideBackButton
+                $0.presentationStyle    = .menuSlideIn
+                $0.menuWidth            = 290.0
+            }
             
             if let _ = viewControllers.first {
-                $0.menuAddScreenEdgePanGesturesToPresent(toView: self.view, forMenu: UIRectEdge.left)
+                manager.addScreenEdgePanGesturesToPresent(toView: self.view, forMenu: .left)
             }
         }
         sideMenuViewController.view.dropShadow()
@@ -51,14 +51,17 @@ class SideMenuContainerNavigationController: NavigationController {
     
     private func style() {
         if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.configureWithOpaqueBackground()
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-            navBarAppearance.backgroundEffect = UIBlurEffect(style: .dark)
-            navBarAppearance.backgroundColor = UIColor.htw.blue.withAlphaComponent(traitCollection.userInterfaceStyle == .dark ? 0 : 0.8)
-            navigationBar.standardAppearance = navBarAppearance
-            navigationBar.scrollEdgeAppearance = navBarAppearance
+            let navBarAppearance = UINavigationBarAppearance().also {
+                $0.configureWithOpaqueBackground()
+                $0.titleTextAttributes      = [.foregroundColor: UIColor.white]
+                $0.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+                $0.backgroundEffect         = UIBlurEffect(style: .dark)
+                $0.backgroundColor          = UIColor.htw.blue.withAlphaComponent(traitCollection.userInterfaceStyle == .dark ? 0 : 0.8)
+            }
+            navigationBar.apply {
+                $0.standardAppearance   = navBarAppearance
+                $0.scrollEdgeAppearance = navBarAppearance
+            }
         }
     }
 }
@@ -82,7 +85,7 @@ extension SideMenuContainerNavigationController: UINavigationControllerDelegate 
     }
     
     @objc private func openSideMenu() {
-        present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+        present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
 }
 

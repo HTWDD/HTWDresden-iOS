@@ -1,78 +1,105 @@
 <html>
     
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <style>
-            :root {
+            :root { 
                 color-scheme: light dark;
             }
-        
+
             body {
-               font-family: -apple-system;
-               margin: 1em;
-               font-size: 1em;
+                font-family: -apple-system;
+                margin: 1em;
+                font-size: 1em;
+                margin-bottom:3em;
+            }
+
+            p.right::before {
+                content: '';
+                clear: both;
+            }
+
+            p.right {
+                float: right;
+                padding-bottom: 3em;
+            }
+
+            p.right::after {
+                content: '';
+                clear: both;
+            }
+        
+            h4 {
+                margin: 0px;
+                margin-block-start: 1em;
+                margin-block-end: 0px;
+            }
+        
+            address {
+                margin: 0px;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                a {
+                    color: #2196F3;
+                }
             }
         </style>
     </head>
     
     <body>
         <h1>Impressum</h1>
-        <br> Diese App wurde programmiert und entwickelt von Benjamin Herzog, Fabian Ehlert und Kilian K&ouml;ltzsch unter der Leitung von Prof. Dr.-Ing. Sabine K&uuml;hn.
+        <h4>Angaben gem&auml;&szlig; &sect; 5 TMG</h4>
+        <address>
+            <br> Hochschule f&uuml;r Technik und Wirtschaft Dresden
+            <br> Friedrich-List-Platz 1
+            <br> D-01069 Dresden
+        </address>
+        
+        <h4>Postanschrift</h4>
+        <br> PF 120701, D-01008 Dresden
+        <br> Tel.: <a href="tel:+493514620">+49 (0)351 462 0</a>
+        <br> E-Mail: <a href="mailto:app@htw-dresden.de">app@htw-dresden.de</a>
         <br>
-        <br> Der Stundenplan, der Pr&uuml;fungsplan, die Noten-Daten und die Daten f&uuml;r den Raumplaner kommen von &ouml;ffentlich zug&auml;nglichen Seiten der Hochschule f&uuml;r Technik und Wirtschaft Dresden. Die Speisepl&auml;ne der Mensen werden dem &ouml;ffentlichen RSS-Feed des Studentenwerks Dresden entnommen. An dieser Stelle ist festzuhalten, dass dies keine offizielle App des Studentenwerks oder der HTW Dresden ist. Die ausgegebenen Daten liegen in der Verantwortung der jeweiligen Bereitsteller.
-        <br>
-        <br>
-        <br> <b>Angaben gem&auml;&szlig; &sect; 5 TMG</b>
-        <br> Hochschule f&uuml;r Technik und Wirtschaft Dresden
-        <br> Friedrich-List-Platz 1
-        <br> 01069 Dresden
-        <br>
-        <br> <b>Vertreten durch</b>
-        <br> Rektor Prof. Dr.-Ing. habil. Roland Stenzel
-        <br> Friedrich-List-Platz 1, D-01069 Dresden
-        <br>
-        <br> Die HTW Dresden ist eine rechtsf&auml;hige K&ouml;rperschaft des &ouml;ffentlichen Rechts mit dem Recht der Selbstverwaltung im Rahmen der Gesetze.
-        <br>
-        <br> <b>Zust&auml;ndige Aufsichtsbeh&ouml;rde</b>
-        <br> S&auml;chsisches Staatsministerium f&uuml;r Wissenschaft und Kunst
-        <br> Wigardstra&szlig;e 17
-        <br> 01097 Dresden
-        <br> www.smwk.de
-        <br>
-        <br> <b>Kontakt</b>
-        <br> Telefon:    0351 462 ext. 0
-        <br> Telefax:    +49 351 81050-20
-        <br> E-Mail:    app@htw-dresden.de
-        <br>
-        <br> <b>Umsatzsteuer-ID</b>
-        <br> Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:
+        
+        <h4>Umsatzsteueridentifikationsnummer</h4>
         <br> DE 188 729 062
-        <br>
-        <br>
-        <h2>Quellenangaben</h2>
-        <h3>Bilder und Grafiken</h3>
-        <ul>
-            <li>http://www.studentenwerk-dresden.de (Bilder der Mensen-Speisen)</li>
-            <li>Icons in der App stammen von Icons8 (https://icons8.com/ios) und werden unter der "Good Boy License" zur Verf&uuml;gung gestellt (https://icons8.com/good-boy-license/)</li>
-            <li>Das App Icon wurde in Eigenproduktion gestaltet</li>
-        </ul>
-        <br>
-        <h2>Haftungsausschluss (Disclaimer)</h2>
+        
+        <h4>Vertreten durch</h4>
+        <address>
+            <br> Rektor Prof. Dr.-Ing. habil. Roland Stenzel
+            <br> Friedrich-List-Platz1
+            <br> D-01069 Dresden
+        </address>
+        
+        <p>
+            Die HTW Dresden ist eine rechtsfähige Körperschaft des öffentlichen Rechts mit dem Recht der Selbstverwaltung im Rahmen der Gesetze.
+        </p>
+        
+        <h4>Zust&auml;ndige Aufsichtsbeh&ouml;rde</h4>
+        <address>
+            <br> Sächsisches Staatsministerium für Wissenschaft und Kunst
+            <br> Wigardstraße 17
+            <br> 01097 Dresden
+            <br> <a href="www.smwk.de">www.smwk.de</a>
+        </address>
+        
+        <h2>Haftungsausschluss</h2>
         <h3>Haftung f&uuml;r Inhalte</h3>
-        Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs.1 TMG f&uuml;r eigene Inhalte in dieser App nach den allgemeinen Gesetzen verantwortlich. Nach &sect;&sect; 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, &uuml;bermittelte oder gespeicherte fremde Informationen zu &uuml;berwachen oder nach Umst&auml;nden zu forschen, die auf eine rechtswidrige T&auml;tigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber&uuml;hrt. Eine diesbez&uuml;gliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m&ouml;glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-        <br>
-        <br>
+        <p>
+            Der Stundenplan, der Prüfungsplan, die Noten-Daten und die Daten für den Raumplaner kommen aus verschiedenen Datenbanken der HTW Dresden.
+            Für die Richtigkeit des Stundenplanes wird keine Gewähr übernommen. Die Notenanzeige ist ohne Gewähr und es besteht kein Rechtsanspruch.
+        </p>
+        
         <h3>Haftung f&uuml;r Links</h3>
-        Unsere App enth&auml;lt Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen. F&uuml;r die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m&ouml;gliche Rechtsverst&ouml;&szlig;e &uuml;berpr&uuml;ft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-        <br>
-        <br>
+        <p>
+            Unsere App enth&auml;lt Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen. F&uuml;r die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m&ouml;gliche Rechtsverst&ouml;&szlig;e &uuml;berpr&uuml;ft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+        </p>
+        
         <h3>Urheberrecht</h3>
-        Die durch die App-Entwickler erstellten Inhalte und Werke in dieser App unterliegen dem deutschen Urheberrecht. Die Vervielf&auml;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&szlig;erhalb der Grenzen des Urheberrechtes bed&uuml;rfen der schriftlichen Zustimmung des jeweiligen Entwicklers. Downloads und Kopien dieser App sind nur f&uuml;r den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte in dieser App nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br><i>Letzte &Auml;nderung: 21.April 2018 - 11:46</i>
+        <p>
+            Die durch die App-Entwickler erstellten Inhalte und Werke in dieser App unterliegen dem deutschen Urheberrecht. Die Vervielf&auml;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&szlig;erhalb der Grenzen des Urheberrechtes bed&uuml;rfen der schriftlichen Zustimmung des jeweiligen Entwicklers. Downloads und Kopien dieser App sind nur f&uuml;r den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte in dieser App nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+        </p>
     </body>
     
 </html>

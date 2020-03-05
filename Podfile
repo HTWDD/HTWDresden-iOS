@@ -2,6 +2,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '10.0'
 
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
 # Comment the next line if you don't want to use dynamic frameworks
 use_frameworks!
 
@@ -21,7 +24,7 @@ def common_pods
   pod 'R.swift'
   
   # Networking
-  pod 'Moya'
+  pod 'Moya', '~> 13.0.1'
 
   # Realm Database
   pod 'RealmSwift'
