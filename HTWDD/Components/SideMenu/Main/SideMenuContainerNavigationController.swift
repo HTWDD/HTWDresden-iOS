@@ -88,4 +88,3 @@ extension SideMenuContainerNavigationController: UINavigationControllerDelegate 
         present(SideMenuManager.default.leftMenuNavigationController!, animated: true, completion: nil)
     }
 }
-

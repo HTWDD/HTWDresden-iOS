@@ -107,8 +107,8 @@ PODS:
 
 DEPENDENCIES:
   - Action
-  - Crashlytics (~> 3.14.0)
-  - Fabric (~> 1.10.2)
+  - Crashlytics
+  - Fabric
   - Firebase/Analytics
   - ImageScrollView
   - KeychainAccess
@@ -122,7 +122,7 @@ DEPENDENCIES:
   - RxSwift
   - SideMenu
   - SwiftKeychainWrapper
-  - Tabman (~> 2.4)
+  - Tabman
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -197,6 +197,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
   Tabman: f62ad94ee54a7d96e3fbab34f677d9ea4d38ece6
 
-PODFILE CHECKSUM: b223784e7a778d237a0b52ca8687b5a00d1c889d
+PODFILE CHECKSUM: f369e1c06e30e8b3a4387f26f4d0afdca8cc29f3
 
 COCOAPODS: 1.8.4
