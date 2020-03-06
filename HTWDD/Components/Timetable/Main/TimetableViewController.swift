@@ -71,6 +71,7 @@ extension TimetableViewController {
             $0.backgroundView   = stateView
             $0.register(TimetableHeaderViewCell.self)
             $0.register(TimetableLessonViewCell.self)
+            $0.register(TimetableFreedayViewCell.self)
         }
     }
     
@@ -145,13 +146,28 @@ extension TimetableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (items[indexPath.row]) {
         case .header(let model):
-            let cell = tableView.dequeueReusableCell(TimetableHeaderViewCell.self, for: indexPath)!
-            cell.setup(with: model)
-            return cell
+            return tableView.dequeueReusableCell(TimetableHeaderViewCell.self, for: indexPath)!.also {
+                $0.setup(with: model)
+            }
         case .lesson(let model):
-            let cell = tableView.dequeueReusableCell(TimetableLessonViewCell.self, for: indexPath)!
-            cell.setup(with: model)
-            return cell
+            return tableView.dequeueReusableCell(TimetableLessonViewCell.self, for: indexPath)!.also {
+                $0.setup(with: model)
+            }
+        case .freeday(let model):
+            return tableView.dequeueReusableCell(TimetableFreedayViewCell.self, for: indexPath)!.also {
+                $0.setup(with: model)
+            }
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = tableView.contentOffset.y
+        if let cell = tableView.visibleCells.compactMap( { $0 as? TimetableFreedayViewCell } ).first {
+            let x = cell.imageViewFreeday.frame.origin.x
+            let w = cell.imageViewFreeday.bounds.width
+            let h = cell.imageViewFreeday.bounds.height
+            let y = (((offsetY + cell.frame.height * 2.5 ) - cell.frame.origin.y) / h) * 1.5
+            cell.imageViewFreeday.frame = CGRect(x: x, y: y, width: w, height: h)
         }
     }
     

@@ -60,7 +60,7 @@ class TimetableLessonViewCell: UITableViewCell {
 extension TimetableLessonViewCell: FromNibLoadable {
     
     func setup(with model: Lesson) {
-        separator.backgroundColor = "\(model.name) \(String(model.professor ?? ""))".materialColor
+        separator.backgroundColor = "\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
         lblExamName.text    = model.name
         lblExamBegin.text   = String(model.beginTime.prefix(5))
         lblExamEnd.text     = String(model.endTime.prefix(5))

@@ -25,12 +25,17 @@ struct Lesson: Codable {
     let lastChanged: String
     
     var lessonDays: [String] {
-        var lastWeek: Int = 0
-        var year = Calendar.current.component(.year, from: Date())
-        year = year - 1
+        let date = Date()
+        var lastWeek    = Calendar.current.component(.weekOfYear, from: date)
+        var year        = Calendar.current.component(.year, from: date)
+        let diffWeeks   = zip(weeksOnly.dropFirst(), weeksOnly).map(-).filter({ $0 < 0 })
         return weeksOnly.map { week -> String in
-            if (lastWeek - week) > 1 {
-                year = year + 1
+            if (diffWeeks.count > 0) {
+                if (lastWeek - week) < -1 {
+                    year -= 1
+                } else if (lastWeek - week) >= abs(diffWeeks.first!) {
+                    year += 1
+                }
             }
             let component = DateComponents(weekday: (day % 7) + 1, weekOfYear: week, yearForWeekOfYear: year)
             lastWeek = week
@@ -75,7 +80,6 @@ struct Lesson: Codable {
     }
     
 }
-
 
 // MARK: - Hashable
 extension Lesson: Hashable {
