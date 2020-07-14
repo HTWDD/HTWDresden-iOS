@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="87" id="KGk-i7-Jjw" customClass="TimetableFreedayViewCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLQ-aP-sQe">
+                        <rect key="frame" x="4" y="4" width="312" height="79"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNe-n1-S0W">
+                                <rect key="frame" x="8" y="8" width="296" height="63"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freeday" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="foY-DL-ixB">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="foY-DL-ixB" secondAttribute="height" multiplier="296:63" id="PM6-z5-OGI"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="enjoy your day" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzi-F9-sHQ">
+                                        <rect key="frame" x="8" y="8" width="280" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gzi-F9-sHQ" firstAttribute="centerX" secondItem="foY-DL-ixB" secondAttribute="centerX" id="3bv-1a-rlf"/>
+                                    <constraint firstAttribute="trailing" secondItem="foY-DL-ixB" secondAttribute="trailing" id="D3r-Lv-y2O"/>
+                                    <constraint firstAttribute="bottom" secondItem="foY-DL-ixB" secondAttribute="bottom" id="QE7-ZN-3iS"/>
+                                    <constraint firstItem="foY-DL-ixB" firstAttribute="leading" secondItem="NNe-n1-S0W" secondAttribute="leading" id="Vjt-ji-xsJ"/>
+                                    <constraint firstItem="foY-DL-ixB" firstAttribute="top" secondItem="NNe-n1-S0W" secondAttribute="top" id="YiO-i1-fUP"/>
+                                    <constraint firstItem="gzi-F9-sHQ" firstAttribute="leading" secondItem="NNe-n1-S0W" secondAttribute="leading" constant="8" id="iX1-H1-uTi"/>
+                                    <constraint firstAttribute="trailing" secondItem="gzi-F9-sHQ" secondAttribute="trailing" constant="8" id="odh-JH-UfB"/>
+                                    <constraint firstItem="gzi-F9-sHQ" firstAttribute="centerY" secondItem="foY-DL-ixB" secondAttribute="centerY" id="rKA-EH-vQT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="NNe-n1-S0W" secondAttribute="bottom" constant="8" id="bo0-lc-u1K"/>
+                            <constraint firstAttribute="trailing" secondItem="NNe-n1-S0W" secondAttribute="trailing" constant="8" id="bq6-8K-vfv"/>
+                            <constraint firstItem="NNe-n1-S0W" firstAttribute="leading" secondItem="hLQ-aP-sQe" secondAttribute="leading" constant="8" id="hrv-CO-cUH"/>
+                            <constraint firstItem="NNe-n1-S0W" firstAttribute="top" secondItem="hLQ-aP-sQe" secondAttribute="top" constant="8" id="nl3-Ur-CXh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hLQ-aP-sQe" secondAttribute="trailing" constant="4" id="UtX-Vg-c5H"/>
+                    <constraint firstItem="hLQ-aP-sQe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="iV4-TJ-dJj"/>
+                    <constraint firstAttribute="bottom" secondItem="hLQ-aP-sQe" secondAttribute="bottom" constant="4" id="rMl-Lo-tPS"/>
+                    <constraint firstItem="hLQ-aP-sQe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="rXp-JB-fdK"/>
+                </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                </userDefinedRuntimeAttributes>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageViewFreeday" destination="foY-DL-ixB" id="dw7-ds-p5y"/>
+                <outlet property="imageWrapper" destination="NNe-n1-S0W" id="Xcq-9m-WaU"/>
+                <outlet property="lblFreeday" destination="gzi-F9-sHQ" id="0mF-A7-9DD"/>
+                <outlet property="main" destination="hLQ-aP-sQe" id="V8D-wR-C1P"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="167.74553571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="freeday" width="1242" height="264"/>
+    </resources>
+</document>

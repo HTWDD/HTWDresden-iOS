@@ -13,6 +13,11 @@ import RxSwift
 enum Timetables {
     case header(model: TimetableHeader)
     case lesson(model: Lesson)
+    case freeday(model: FreeDays)
+}
+
+enum FreeDays {
+    case noLesson
 }
 
 
@@ -58,7 +63,7 @@ class TimetableViewModel {
                 
                 return (keys, values)
         }
-        .map { items -> [Timetables] in
+        .map { [weak self] items -> [Timetables] in
             var result: [Timetables] = []
             
             items.keys.forEach { date in
@@ -67,8 +72,36 @@ class TimetableViewModel {
                     result.append(.lesson(model: lesson))
                 }
             }
-            
+            self?.appedFreedays(&result)
             return result
+        }
+    }
+    
+    private func appedFreedays(_ result: inout [Timetables]) {
+        if let first = result.first {
+            switch first {
+            case .header(let model):
+                let currentDate = Date().string(format: "dd.MM.yyyy")
+                if model.header > currentDate {
+                    result.insert(.header(model: TimetableHeader(header: currentDate, subheader: currentDate)), at: 0)
+                    result.insert(.freeday(model: .noLesson), at: 1)
+                }
+                break;
+            default: break;
+            }
+        }
+        
+        if let last = result.last {
+            switch last {
+            case .header(let model):
+                let currentDate = Date().string(format: "dd.MM.yyyy")
+                if model.header < currentDate {
+                    result.append(.header(model: TimetableHeader(header: currentDate, subheader: currentDate)))
+                    result.append(.freeday(model: .noLesson))
+                }
+                break;
+            default: break;
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
 
 # Comment the next line if you don't want to use dynamic frameworks
 use_frameworks!
@@ -12,7 +14,7 @@ def common_pods
   pod 'Action'
   
   # Serial- Deserialization
-  pod 'Marshal', '~> 1.2', :inhibit_warnings => true
+  pod 'Marshal', '~> 1.2'
   
   # Protected Safe Passwords
   pod 'KeychainAccess'
@@ -21,11 +23,11 @@ def common_pods
   pod 'R.swift'
   
   # Networking
-  pod 'Moya'
+  pod 'Moya', '~> 13.0.1'
 
   # Realm Database
   pod 'RealmSwift'
-  pod 'RxRealm', :inhibit_warnings => true
+  pod 'RxRealm'
   
   # Keychain Wrapper
   pod 'SwiftKeychainWrapper'
@@ -38,14 +40,14 @@ target 'HTWDD' do
   pod 'Firebase/Analytics'
   
   # Pods for PodTest
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.14.0'
+  pod 'Fabric'
+  pod 'Crashlytics'
   
   # Side Menu
   pod 'SideMenu'
   
   # TabMan
-  pod 'Tabman', '~> 2.4', :inhibit_warnings => true
+  pod 'Tabman'
   
   # Lottie
   pod 'lottie-ios'
