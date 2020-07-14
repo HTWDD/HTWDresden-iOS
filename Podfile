@@ -43,9 +43,6 @@ target 'HTWDD' do
   pod 'Fabric'
   pod 'Crashlytics'
   
-  # Side Menu
-  pod 'SideMenu'
-  
   # TabMan
   pod 'Tabman'
   
