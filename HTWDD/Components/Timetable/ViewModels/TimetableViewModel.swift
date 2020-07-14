@@ -78,26 +78,44 @@ class TimetableViewModel {
     }
     
     private func appedFreedays(_ result: inout [Timetables]) {
-        if let first = result.first {
+        let headerItems = result.filter { item in
+            switch item {
+            case .header: return true
+            default: return false
+            }
+        }
+        
+        
+        if let first = headerItems.first {
             switch first {
             case .header(let model):
-                let currentDate = Date().string(format: "dd.MM.yyyy")
-                if model.header > currentDate {
-                    result.insert(.header(model: TimetableHeader(header: currentDate, subheader: currentDate)), at: 0)
-                    result.insert(.freeday(model: .noLesson), at: 1)
+                do {
+                    let currentDate = Date()
+                    let currentDateStr = currentDate.string(format: "dd.MM.yyyy")
+                    if try Date.from(string: model.header, format: "dd.MM.yyyy") > currentDate {
+                        result.insert(.header(model: TimetableHeader(header: currentDateStr, subheader: currentDateStr)), at: 0)
+                        result.insert(.freeday(model: .noLesson), at: 1)
+                    }
+                } catch {
+                    Log.error(error)
                 }
                 break;
             default: break;
             }
         }
         
-        if let last = result.last {
+        if let last = headerItems.last {
             switch last {
             case .header(let model):
-                let currentDate = Date().string(format: "dd.MM.yyyy")
-                if model.header < currentDate {
-                    result.append(.header(model: TimetableHeader(header: currentDate, subheader: currentDate)))
-                    result.append(.freeday(model: .noLesson))
+                do {
+                    let currentDate = Date()
+                    let currentDateStr = currentDate.string(format: "dd.MM.yyyy")
+                    if try Date.from(string: model.header, format: "dd.MM.yyyy") < currentDate {
+                        result.append(.header(model: TimetableHeader(header: currentDateStr, subheader: currentDateStr)))
+                        result.append(.freeday(model: .noLesson))
+                    }
+                } catch {
+                    Log.error(error)
                 }
                 break;
             default: break;
