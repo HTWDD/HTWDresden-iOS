@@ -51,13 +51,17 @@ class KeychainService {
     ///     - major: Study Major (Fach)
     ///     - group: Study Group
     func storeStudyToken(year: String?, major: String?, group: String?, graduation: String?) {
-        guard let year = year, let major = major, let group = group, let graduation = graduation else {
+        guard let year = year, let major = major, let group = group, var graduation = graduation else {
             Log.warn("Year, Major and Group are nil, .studyToken removed from Keychain")
             keychain.removeObject(forKey: Key.studyToken.rawValue)
             return
         }
         
-        if let studyToken = "\(year):\(major):\(group):\(graduation)".data(using: .utf8) {
+        if graduation.contains("-") {
+            graduation = String(graduation.split(separator: "-")[0])
+        }
+        
+        if let studyToken = "\(year):\(major):\(group):\(graduation.trimmingCharacters(in: .whitespacesAndNewlines))".data(using: .utf8) {
             KeychainService.shared[.studyToken] = studyToken.base64EncodedString(options: .lineLength64Characters)
         }
     }
