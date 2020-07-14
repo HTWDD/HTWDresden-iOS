@@ -7,6 +7,26 @@
 //
 
 import Foundation
+import os.log
+
+/// Enum wich maps an appropiate symbol wich added as prefix for each log message
+enum LogLevel: String {
+    /// Verbose Level
+    case v = "[🤍]"
+    
+    /// Info Level
+    case i = "[💚]"
+    
+    /// Debug Level
+    case d = "[💙]"
+    
+    /// Warning Level
+    case w = "[💛]"
+    
+    /// Error Level
+    case e = "[❤️]"
+}
+
 
 final class Log {
     
@@ -14,35 +34,32 @@ final class Log {
         self.error(String(describing: error()))
     }
 
-    static func error(_ error: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("❤️", additionalInformation(file, line, callerFunction), error(), "\n")
+    static func error(_ error: @autoclosure () -> String, file: String = #file, line: Int = #line, column: Int = #column, callerFunction: String = #function) {
+         consoleLog(.e, output: "[\(sourceFileName(file))]:[\(line) \(column)] \(callerFunction) -> \(error())")
     }
 
-    static func info(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("💚", additionalInformation(file, line, callerFunction), text(), "\n")
+    static func info(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, column: Int = #column, callerFunction: String = #function) {
+        consoleLog(.i, output: "[\(sourceFileName(file))]:[\(line) \(column)] \(callerFunction) -> \(text())")
     }
     
-    static func verbose(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("💜", additionalInformation(file, line, callerFunction), text(), "\n")
+    static func verbose(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, column: Int = #column, callerFunction: String = #function) {
+         consoleLog(.v, output: "[\(sourceFileName(file))]:[\(line) \(column)] \(callerFunction) -> \(text())")
     }
     
-    static func debug(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("💙", additionalInformation(file, line, callerFunction), text(), "\n")
+    static func debug(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, column: Int = #column, callerFunction: String = #function) {
+         consoleLog(.d, output: "[\(sourceFileName(file))]:[\(line) \(column)] \(callerFunction) -> \(text())")
     }
     
-    static func warn(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, callerFunction: String = #function) {
-        print("💛", additionalInformation(file, line, callerFunction), text(), "\n")
+    static func warn(_ text: @autoclosure () -> String, file: String = #file, line: Int = #line, column: Int = #column, callerFunction: String = #function) {
+        consoleLog(.w, output: "[\(sourceFileName(file))]:[\(line) \(column)] \(callerFunction) -> \(text())")
     }
 
-    static func typeAsString(_ obj: Any) -> String {
-        return String(describing: type(of: obj))
+    /// Output to console, only in debug
+    private static func consoleLog(_ level: LogLevel, output: String) {
+        os_log("%@ %@", level.rawValue, output)
     }
     
-    static func fileNameFrom(fileURLWithPath: String) -> String {
-        return NSURL(fileURLWithPath: fileURLWithPath).lastPathComponent ?? "NO-FILE"
-    }
-    
-    fileprivate static func additionalInformation(_ file: String, _ line: Int, _ callerFunction: String) -> String {
-        return "\(fileNameFrom(fileURLWithPath: file))::\(line) - \(callerFunction)\n\t"
+    private static func sourceFileName(_ filePath: String) -> String {
+        return filePath.components(separatedBy: "/").last ?? ""
     }
 }
