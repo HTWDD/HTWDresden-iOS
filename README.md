@@ -1,52 +1,26 @@
-# HTW Dresden iOS App
+# About
+The 'HTW Dresden App' is a student-initiated project that enables students of the [University of Applied Sciences Dresden](https://www.htw-dresden.de/) (HTW) to access their schedule, audit plan, grades and more easily. After some years the management of the HTW decided to continue the development of the app and equalize the featureset of the the apps for iOS and Android to ensure the best user experience.
 
-[![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/HTWDD/htwcampus/blob/develop/LICENSE)
-[![Platform](https://img.shields.io/badge/platform-iOS-blue.svg)](https://github.com/HTWDD/htwcampus)
-[![Version](https://img.shields.io/badge/version-2.0.1-green.svg)](http://appstore.com/htwdresden)
-[![Build Status](https://travis-ci.org/HTWDD/htwcampus.svg?branch=develop)](https://travis-ci.org/HTWDD/htwcampus)
+![GitHub](https://img.shields.io/github/license/HTWDD/HTWDresden-iOS)
+
+# Screenshots
+<img src="Screenshots/Screenshot_Start.jpg" alt="overview" width="18%"/> 
+<img src="Screenshots/Screenshot_Übersicht.jpg" alt="overview" width="18%"/> 
+<img src="Screenshots/Screenshot_Stundenplan.jpg" alt="timetable" width="18%"/>
+<img src="Screenshots/Screenshot_Mensa.jpg" alt="canteen" width="18%"/> 
+<img src="Screenshots/Screenshot_Noten.jpg" alt="grades" width="18%"/> 
+
+# Availability
+You can download the app from App Store.
+
+[<img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" width="200" alt="Google Play"/>](https://apps.apple.com/de/app/htw-dresden/id1494111026&utm_source=github)
+
+# Credits
+Our credits go to the initiators of this project:
+* [BenchR267](https://github.com/BenchR267)
+* [fabianehlert](https://github.com/fabianehlert)
+* [kiliankoe](https://github.com/kiliankoe)
 
 
-![App Screenshots](resources/AllScreens.png)
-
-[![App Store](https://linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg)](http://appstore.com/htwdresden)
-
----
-
-## Getting started
-1. [Download](https://developer.apple.com/xcode/download/) the latest Xcode release.
-2. Clone this repository.
-3. If you haven't already, install [Carthage](https://github.com/Carthage/Carthage).
-4. Run `carthage bootstrap --platform iOS` from the command line to clone and build dependencies.
-
-## About
-The 'HTW Dresden iOS App' is a student-initiated project that enables students of the [University of Applied Sciences Dresden](https://www.htw-dresden.de/en/home.html) to access their schedule, audit plan, grades and more easily.
-
-## Questions
-If you have questions about any aspect of this project, please feel free to [open an issue](https://github.com/HTWDD/htwcampus/issues/new). We'd love to hear from you!
-
-## License
-This project is licensed under the [MIT](https://github.com/HTWDD/htwcampus/blob/develop/LICENSE) license.
-
-```
-MIT License
-
-Copyright (c) 2016-2018 HTW Dresden Apps
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+# Current status
+The app is currently maintained by [Develappers GmbH](https://www.develappers.de/). Feature requests and bugs can be filed by sending an email to the official app related address app@htw-dresden.de of the University of Applied Sciences Dresden. If you want to support this project, you're welcome. You can find general contact information in our [GitHub profile](https://github.com/DevelappersGmbH) or at our website.
