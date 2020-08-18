@@ -4,11 +4,7 @@ The 'HTW Dresden App' is a student-initiated project that enables students of th
 ![GitHub](https://img.shields.io/github/license/HTWDD/HTWDresden-iOS)
 
 # Screenshots
-<img src="Screenshots/Screenshot_Start.jpg" alt="overview" width="18%"/> 
-<img src="Screenshots/Screenshot_Übersicht.jpg" alt="overview" width="18%"/> 
-<img src="Screenshots/Screenshot_Stundenplan.jpg" alt="timetable" width="18%"/>
-<img src="Screenshots/Screenshot_Mensa.jpg" alt="canteen" width="18%"/> 
-<img src="Screenshots/Screenshot_Noten.jpg" alt="grades" width="18%"/> 
+<img src="Screenshots/Screenshot_Start.jpg" alt="overview" width="18%"/><img src="Screenshots/Screenshot_Übersicht.jpg" alt="overview" width="18%"/><img src="Screenshots/Screenshot_Stundenplan.jpg" alt="timetable" width="18%"/><img src="Screenshots/Screenshot_Mensa.jpg" alt="canteen" width="18%"/><img src="Screenshots/Screenshot_Noten.jpg" alt="grades" width="18%"/> 
 
 # Availability
 You can download the app from App Store.
