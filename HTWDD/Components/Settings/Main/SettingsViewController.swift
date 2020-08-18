@@ -211,6 +211,8 @@ extension SettingsViewController {
                 shortGraduation = "B."
             case "Diplom":
                 shortGraduation = "Dipl."
+            case "Master":
+                shortGraduation = "M."
             default:
                 shortGraduation = String(graduation.prefix(1))
             }
