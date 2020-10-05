@@ -82,6 +82,7 @@
 		39FB084B1E9E5375001CC2F5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084A1E9E5375001CC2F5 /* TableViewCell.swift */; };
 		39FB084D1E9E57A2001CC2F5 /* GradeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */; };
 		39FB084F1E9E68B6001CC2F5 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */; };
+		50516E28252B3038002373C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50516E26252B3038002373C1 /* LaunchScreen.storyboard */; };
 		5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		5B6B4FF7209B693E00A572F8 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B4FF5209B693E00A572F8 /* URL.swift */; };
 		6400734122EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6400734022EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift */; };
@@ -472,6 +473,7 @@
 		39FB084A1E9E5375001CC2F5 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		39FB084C1E9E57A2001CC2F5 /* GradeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GradeDataSource.swift; path = HTWDD/Components/Grades/Models/GradeDataSource.swift; sourceTree = SOURCE_ROOT; };
 		39FB084E1E9E68B6001CC2F5 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
+		50516E27252B3038002373C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6B4FF5209B693E00A572F8 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		6400734022EEF4050028FDC3 /* RoomOccupancyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupancyDetailViewController.swift; sourceTree = "<group>"; };
 		6400734222EF32460028FDC3 /* RoomOccupanciesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOccupanciesViewCell.swift; sourceTree = "<group>"; };
@@ -1296,6 +1298,7 @@
 		64BAFB042341F7DB00292501 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				50516E26252B3038002373C1 /* LaunchScreen.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -2066,6 +2069,7 @@
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
 				6400734522EF32460028FDC3 /* RoomOccupanciesViewCell.xib in Resources */,
 				6413289E22FD95440065301F /* Settings.storyboard in Resources */,
+				50516E28252B3038002373C1 /* LaunchScreen.storyboard in Resources */,
 				6411E37C22EAE5C800A55A2B /* RoomViewCell.xib in Resources */,
 				64269738237979BC002FA206 /* HTW-Datenschutz.html in Resources */,
 				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
@@ -2606,6 +2610,14 @@
 				1F4BD5391FAFA898007E0817 /* de */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50516E26252B3038002373C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50516E27252B3038002373C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		B5111E191E71E68F00D68155 /* Localizable.strings */ = {
