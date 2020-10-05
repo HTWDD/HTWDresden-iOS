@@ -272,7 +272,7 @@
 		64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */; };
 		64DBE742233C902700A5BAA2 /* CampusPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBE741233C902700A5BAA2 /* CampusPlanViewModel.swift */; };
 		64DBE744233CBD6800A5BAA2 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBE743233CBD6800A5BAA2 /* ZoomableImageView.swift */; };
-		64DF7BF324BDC832003BF814 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */; };
+		64DF7BF324BDC832003BF814 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 64DF7BF224BDC832003BF814 /* SideMenu */; };
 		64E218D622D70C3300004183 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B3768A1FA6182800FC3A07 /* Double.swift */; };
 		64E218D822D722EA00004183 /* CanteenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetail.swift */; };
 		64E218DB22D7767500004183 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DA22D7767500004183 /* MealsViewController.swift */; };
@@ -330,9 +330,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade_old.swift */; };
@@ -351,7 +351,6 @@
 		B59879C01FB0F67800320091 /* BadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59879BF1FB0F67800320091 /* BadgeLabel.swift */; };
 		B59FA98B1DD09C8400259D7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA98A1DD09C8400259D7F /* AppDelegate.swift */; };
 		B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59FA9911DD09C8400259D7F /* Assets.xcassets */; };
-		B59FA9951DD09C8400259D7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59FA9931DD09C8400259D7F /* LaunchScreen.storyboard */; };
 		B5A069102042E7BF0067B8D2 /* GradeAverageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0690F2042E7BF0067B8D2 /* GradeAverageCell.swift */; };
 		B5A069132042E9600067B8D2 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A069122042E9600067B8D2 /* Either.swift */; };
 		B5A0D88A1E87B624007827A6 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A0D8891E87B624007827A6 /* TabBarController.swift */; };
@@ -703,7 +702,6 @@
 		B59FA9871DD09C8400259D7F /* HTWDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTWDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59FA98A1DD09C8400259D7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59FA9911DD09C8400259D7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B59FA9941DD09C8400259D7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B59FA9961DD09C8400259D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B59FA99B1DD09C8400259D7F /* HTWDDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HTWDDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59FA9A11DD09C8400259D7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -770,7 +768,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DF7BF324BDC832003BF814 /* BuildFile in Frameworks */,
+				64DF7BF324BDC832003BF814 /* SideMenu in Frameworks */,
 				6F6BDBEE1ADCCA44A87DEAF4 /* Pods_HTWDD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,9 +777,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
-				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1298,7 +1296,6 @@
 		64BAFB042341F7DB00292501 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B59FA9931DD09C8400259D7F /* LaunchScreen.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1918,7 +1915,7 @@
 			);
 			name = HTWDD;
 			packageProductDependencies = (
-				64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */,
+				64DF7BF224BDC832003BF814 /* SideMenu */,
 			);
 			productName = HTWDD;
 			productReference = B59FA9871DD09C8400259D7F /* HTWDD.app */;
@@ -1950,7 +1947,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "HTW Dresden";
 				TargetAttributes = {
 					1FED52B41FAFA1C000260D5B = {
@@ -1992,17 +1989,16 @@
 			};
 			buildConfigurationList = B59FA9821DD09C8300259D7F /* Build configuration list for PBXProject "HTWDD" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
-				Base,
 				de,
+				Base,
 			);
 			mainGroup = B59FA97E1DD09C8300259D7F;
 			packageReferences = (
-				64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */,
+				64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = B59FA9881DD09C8400259D7F /* Products */;
 			projectDirPath = "";
@@ -2060,7 +2056,6 @@
 				6403694722CA069D00FD49EA /* StudenAdministrationViewCell.xib in Resources */,
 				6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */,
 				64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */,
-				B59FA9951DD09C8400259D7F /* LaunchScreen.storyboard in Resources */,
 				642E5C1D22F1829C00D3A886 /* Onboarding.storyboard in Resources */,
 				6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */,
 				640306F822E8A83B00099D68 /* GoogleService-Info.plist in Resources */,
@@ -2075,9 +2070,7 @@
 				64269738237979BC002FA206 /* HTW-Datenschutz.html in Resources */,
 				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
 				64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */,
-				64E7DB6F234351ED00540FED /* TimetableHeaderViewCell.xib in Resources */,
 				64C5883524124499003DFDA8 /* TimetableFreedayViewCell.xib in Resources */,
-				64E7DB732343535800540FED /* TimetableLessonViewCell.xib in Resources */,
 				64C4BCE2233BBAB700B135DE /* CampusPlanViewCell.xib in Resources */,
 				640FC57222F359090090E210 /* BarchartsGrey.json in Resources */,
 				64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */,
@@ -2625,15 +2618,6 @@
 			path = .;
 			sourceTree = "<group>";
 		};
-		B59FA9931DD09C8400259D7F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B59FA9941DD09C8400259D7F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -2965,7 +2949,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */ = {
+		64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
 			requirement = {
@@ -2976,9 +2960,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */ = {
+		64DF7BF224BDC832003BF814 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */;
+			package = 64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
