@@ -113,7 +113,7 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
     }
     
     func showGithub() {
-        if let url = URL(string: "https://github.com/HTWDD/htwcampus") {
+        if let url = URL(string: "https://github.com/HTWDD/HTWDresden-iOS") {
             settingsViewController.present(SFSafariViewController(url: url).also {
                 $0.preferredBarTintColor = UIColor.htw.blue
             }, animated: true, completion: nil)

@@ -31,7 +31,7 @@ struct Lesson: Codable {
         let diffWeeks   = zip(weeksOnly.dropFirst(), weeksOnly).map(-).filter({ $0 < 0 })
         return weeksOnly.map { week -> String in
             if (diffWeeks.count > 0) {
-                if (lastWeek - week) < -1 {
+                if (lastWeek - week) < -10 {
                     year -= 1
                 } else if (lastWeek - week) >= abs(diffWeeks.first!) {
                     year += 1
