@@ -285,7 +285,7 @@
 		64E5BFAF22BD1078005E92C0 /* Management.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E5BFAE22BD1078005E92C0 /* Management.storyboard */; };
 		64E7DB582343464000540FED /* TimetableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB572343464000540FED /* TimetableCoordinator.swift */; };
 		64E7DB5D2343466D00540FED /* Timetable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64E7DB5C2343466D00540FED /* Timetable.storyboard */; };
-		64E7DB5F2343468700540FED /* TimetableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB5E2343468700540FED /* TimetableViewController.swift */; };
+		64E7DB5F2343468700540FED /* TimetableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB5E2343468700540FED /* TimetableListViewController.swift */; };
 		64E7DB61234346BD00540FED /* TimetableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB60234346BD00540FED /* TimetableViewModel.swift */; };
 		64E7DB632343471F00540FED /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB622343471F00540FED /* TimetableService.swift */; };
 		64E7DB642343475200540FED /* TimetableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E7DB622343471F00540FED /* TimetableService.swift */; };
@@ -299,6 +299,11 @@
 		64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */; };
 		64F0D3D422C90A2500FE0A68 /* UIFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64F0D3D322C90A2500FE0A68 /* UIFonts.swift */; };
 		6F6BDBEE1ADCCA44A87DEAF4 /* Pods_HTWDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB8797D9D60293AC378E22B /* Pods_HTWDD.framework */; };
+		7505B1ED2580C88500741E4F /* TimetableMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */; };
+		755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A741C257A679300C284A2 /* TimetableWeekViewController.swift */; };
+		75790B62258136EC00C88A49 /* TimetableCreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */; };
+		757EB95125793B3A00F24264 /* TimetableBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */; };
+		75F1EECD257E80B0006FB0AC /* TimetableWeekdayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F1EECC257E80B0006FB0AC /* TimetableWeekdayCell.xib */; };
 		B50875481ED40BE6004A320E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50875471ED40BE6004A320E /* TableViewController.swift */; };
 		B50EB4EF1E6A1DAA0022E40C /* ScheduleDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */; };
 		B50EB4F11E6ABF320022E40C /* Day_TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */; };
@@ -638,7 +643,7 @@
 		64E5BFAE22BD1078005E92C0 /* Management.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Management.storyboard; sourceTree = "<group>"; };
 		64E7DB572343464000540FED /* TimetableCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCoordinator.swift; sourceTree = "<group>"; };
 		64E7DB5C2343466D00540FED /* Timetable.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timetable.storyboard; sourceTree = "<group>"; };
-		64E7DB5E2343468700540FED /* TimetableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewController.swift; sourceTree = "<group>"; };
+		64E7DB5E2343468700540FED /* TimetableListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableListViewController.swift; sourceTree = "<group>"; };
 		64E7DB60234346BD00540FED /* TimetableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableViewModel.swift; sourceTree = "<group>"; };
 		64E7DB622343471F00540FED /* TimetableService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableService.swift; sourceTree = "<group>"; };
 		64E7DB6523434F4A00540FED /* TimetableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableHeader.swift; sourceTree = "<group>"; };
@@ -651,6 +656,11 @@
 		64EBEE4F22F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomOccupanciesCollectionViewCell.xib; sourceTree = "<group>"; };
 		64F0D3D322C90A2500FE0A68 /* UIFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFonts.swift; sourceTree = "<group>"; };
 		6955D1AE6DEE6C92B32F41EE /* Pods-HTWDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTWDDTests.debug.xcconfig"; path = "Target Support Files/Pods-HTWDDTests/Pods-HTWDDTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableMainViewController.swift; sourceTree = "<group>"; };
+		755A741C257A679300C284A2 /* TimetableWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekViewController.swift; sourceTree = "<group>"; };
+		75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCreateLessonViewController.swift; sourceTree = "<group>"; };
+		757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableBaseViewController.swift; sourceTree = "<group>"; };
+		75F1EECC257E80B0006FB0AC /* TimetableWeekdayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableWeekdayCell.xib; sourceTree = "<group>"; };
 		B50875471ED40BE6004A320E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleDataSource.swift; sourceTree = "<group>"; };
 		B50EB4F01E6ABF320022E40C /* Day_TestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day_TestCase.swift; sourceTree = "<group>"; };
@@ -1431,7 +1441,11 @@
 			isa = PBXGroup;
 			children = (
 				64E7DB5C2343466D00540FED /* Timetable.storyboard */,
-				64E7DB5E2343468700540FED /* TimetableViewController.swift */,
+				7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */,
+				757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */,
+				64E7DB5E2343468700540FED /* TimetableListViewController.swift */,
+				755A741C257A679300C284A2 /* TimetableWeekViewController.swift */,
+				75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */,
 				64E7DB6B234351A100540FED /* Views */,
 			);
 			path = Main;
@@ -1456,6 +1470,7 @@
 		64E7DB6B234351A100540FED /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				755A7449257A80F900C284A2 /* Week */,
 				64E7DB6C234351ED00540FED /* TimetableHeaderViewCell.swift */,
 				64E7DB6D234351ED00540FED /* TimetableHeaderViewCell.xib */,
 				64E7DB702343535800540FED /* TimetableLessonViewCell.swift */,
@@ -1464,6 +1479,14 @@
 				64C5883324124499003DFDA8 /* TimetableFreedayViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		755A7449257A80F900C284A2 /* Week */ = {
+			isa = PBXGroup;
+			children = (
+				75F1EECC257E80B0006FB0AC /* TimetableWeekdayCell.xib */,
+			);
+			path = Week;
 			sourceTree = "<group>";
 		};
 		B50EB4FC1E6ADB410022E40C /* DataSource */ = {
@@ -2060,6 +2083,7 @@
 				6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */,
 				64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */,
 				642E5C1D22F1829C00D3A886 /* Onboarding.storyboard in Resources */,
+				75F1EECD257E80B0006FB0AC /* TimetableWeekdayCell.xib in Resources */,
 				6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */,
 				640306F822E8A83B00099D68 /* GoogleService-Info.plist in Resources */,
 				64C4BCD1233BB23800B135DE /* CampusPlan.storyboard in Resources */,
@@ -2344,6 +2368,7 @@
 				B59879C01FB0F67800320091 /* BadgeLabel.swift in Sources */,
 				B5B3768B1FA6182800FC3A07 /* Double.swift in Sources */,
 				64C4BCD6233BB45700B135DE /* CampusPlanService.swift in Sources */,
+				75790B62258136EC00C88A49 /* TimetableCreateLessonViewController.swift in Sources */,
 				64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */,
 				B538EF181E1D6AEF0031077C /* Network.swift in Sources */,
 				B5F3F8701FB8552800F0D1DB /* AppLecture.swift in Sources */,
@@ -2354,6 +2379,8 @@
 				6413289A22FD4CB20065301F /* ExamService.swift in Sources */,
 				6407C99C2340F516009E7C91 /* GradeHeader.swift in Sources */,
 				64E7DB6623434F4A00540FED /* TimetableHeader.swift in Sources */,
+				755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */,
+				757EB95125793B3A00F24264 /* TimetableBaseViewController.swift in Sources */,
 				B5EA535F1E7FBB1500183E07 /* String.swift in Sources */,
 				649B49E8233E172B001375D0 /* CanteenViewModel.swift in Sources */,
 				6410F72622D5C86800AA3BA1 /* CanteenService.swift in Sources */,
@@ -2382,7 +2409,7 @@
 				B55ADF4B1FC08545004A5BB2 /* LoadingView.swift in Sources */,
 				6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */,
 				B5111E281E7206B500D68155 /* LectureTimeView.swift in Sources */,
-				64E7DB5F2343468700540FED /* TimetableViewController.swift in Sources */,
+				64E7DB5F2343468700540FED /* TimetableListViewController.swift in Sources */,
 				B5B3768E1FA61A2C00FC3A07 /* CanteenCoordinator.swift in Sources */,
 				64BAFB1B23424AED00292501 /* DashboardGradeNoCredentialsViewCell.swift in Sources */,
 				B52133BB1DEF0E2200955D29 /* NavigationViewController.swift in Sources */,
@@ -2480,6 +2507,7 @@
 				64CC1E8622F2EC2100A45F25 /* AnalyticsViewController.swift in Sources */,
 				64E9B407230045FD00F86767 /* WKWebViewController.swift in Sources */,
 				64093B4322F80D03007138B6 /* StudyGroupSelectionViewCell.swift in Sources */,
+				7505B1ED2580C88500741E4F /* TimetableMainViewController.swift in Sources */,
 				1F8874891F8FB07300EE6492 /* ReactiveButton.swift in Sources */,
 				6403694622CA069D00FD49EA /* StudenAdministrationViewCell.swift in Sources */,
 				B5A069132042E9600067B8D2 /* Either.swift in Sources */,
