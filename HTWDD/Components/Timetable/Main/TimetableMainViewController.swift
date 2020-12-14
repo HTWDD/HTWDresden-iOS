@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import EventKitUI
+import Action
+import RxSwift
 
 private enum TimetableLayoutStyle: Int {
     case list = 0, week = 1
@@ -79,7 +82,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         //MARK: TODO !!! IMPORTANT
         if #available(iOS 13.0, *) {
             let listWeekBtn = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(toggleLayout)) //list.bullet
-            let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(createLesson))
+            let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(exportAll))
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
         } else {
             navigationItem.rightBarButtonItems = [scrollToTodayBtn]
@@ -98,12 +101,42 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     }
     
     @objc func createLesson() {
+        
         let createLessonViewController = R.storyboard.timetable.timetableCreateLessonViewController()!.also {
             $0.context      = context
             $0.viewModel    = viewModel
         }
-       
+
         self.navigationController?.pushViewController(createLessonViewController, animated: true)
+    }
+    
+    @objc func exportAll() {
+
+        
+        var lessons: [Lesson]? = currentTimetableViewController?.items.compactMap {
+        
+            if case .lesson(let model) = $0 {
+                return model
+            }
+            
+            return .none
+            
+        }
+        
+        lessons?.removeDuplicates()
+        
+        viewModel.export(lessons: lessons)
+    }
+    
+    private func showCalendarChooser() {
+        let eventStore = EKEventStore()
+        let calendarChooser = EKCalendarChooser(selectionStyle: .single, displayStyle: .allCalendars, entityType: .event, eventStore: eventStore)
+        
+        calendarChooser.showsDoneButton = true
+        calendarChooser.showsCancelButton = true
+        calendarChooser.delegate = self
+
+        self.present(calendarChooser, animated: true, completion: nil)
     }
     
     private func switchStyle(to style: TimetableLayoutStyle?) {
@@ -158,5 +191,16 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
             view.trailingAnchor.constraint(equalTo: $1.trailingAnchor),
             view.bottomAnchor.constraint(equalTo: $1.bottomAnchor)
         ])
+    }
+}
+
+extension TimetableMainViewController: EKCalendarChooserDelegate {
+    func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser) {
+            print(calendarChooser.selectedCalendars)
+            dismiss(animated: true, completion: nil)
+    }
+    
+    func calendarChooserDidCancel(_ calendarChooser: EKCalendarChooser) {
+            dismiss(animated: true, completion: nil)
     }
 }

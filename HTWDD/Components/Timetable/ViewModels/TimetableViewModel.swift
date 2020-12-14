@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import EventKit
 
 // MARK: - Items
 enum Timetables {
@@ -26,6 +27,7 @@ class TimetableViewModel {
     
     // MARK: - Properties
     private let context: HasTimetable
+    private lazy var eventStore : EKEventStore = EKEventStore()
     
     // MARK: - Lifecycle
     init(context: HasTimetable) {
@@ -119,6 +121,44 @@ class TimetableViewModel {
                 }
                 break;
             default: break;
+            }
+        }
+    }
+    
+    
+    func export(lessons: [Lesson]?) {
+        
+        guard let lessons = lessons else { return }
+        
+        eventStore.requestAccess(to: .event) { (granted, error) in
+            
+            guard (granted) && (error == nil) else {
+                // MARK: ToDo - Auf Einstellungen verweisen wenn Berechtigung fehlt
+                return
+            }
+            
+            lessons.forEach { lesson in
+                
+                print(lesson)
+                
+                lesson.lessonDays.forEach { lessonDay in
+                    if let startDate = Date.from(time: lesson.beginTime, date: lessonDay),
+                       let endDate = Date.from(time: lesson.endTime, date: lessonDay) {
+                        
+                        let event:EKEvent = EKEvent(eventStore: self.eventStore)
+                        
+                        event.title = lesson.name
+                        event.location = lesson.rooms.joined(separator: ", ")
+                        event.calendar = self.eventStore.defaultCalendarForNewEvents
+                        event.startDate = startDate
+                        event.endDate = endDate
+                        do {
+                            try self.eventStore.save(event, span: .thisEvent)
+                        } catch let error as NSError {
+                            print("failed to save event with error : \(error)")
+                        }
+                    }
+                }
             }
         }
     }
