@@ -113,19 +113,19 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     @objc func exportAll() {
 
         
-        var lessons: [Lesson]? = currentTimetableViewController?.items.compactMap {
-        
-            if case .lesson(let model) = $0 {
-                return model
-            }
-            
-            return .none
-            
-        }
-        
-        lessons?.removeDuplicates()
-        
-        viewModel.export(lessons: lessons)
+//        var lessons: [Lesson]? = currentTimetableViewController?.items.compactMap {
+//        
+//            if case .lesson(let model) = $0 {
+//                return model
+//            }
+//            
+//            return .none
+//            
+//        }
+//        
+//        lessons?.removeDuplicates()
+//        
+//        viewModel.export(lessons: lessons)
     }
     
     private func showCalendarChooser() {

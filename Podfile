@@ -51,6 +51,9 @@ target 'HTWDD' do
   #ImageView
   pod 'ImageScrollView'
   
+  #Timetable WeekView
+  pod 'JZCalendarWeekView'
+  
   target 'HTWDDTests' do
     inherit! :search_paths
     # Pods for testing

@@ -5,12 +5,23 @@
 //  Created by Mustafa Karademir on 01.10.19.
 //  Copyright © 2019 HTW Dresden. All rights reserved.
 //
-
+import Action
+import RxSwift
 
 class TimetableListViewController: TimetableBaseViewController {
 
     @IBOutlet var tableView: UITableView!
+    var items: [Timetables] = [] {
+        didSet {
+            //MARK: IMPORTANT TODO
+            reloadData()
+        }
+    }
     
+    lazy var action: Action<Void, [Timetables]> = Action { [weak self] (_) -> Observable<[Timetables]> in
+        guard let self = self else { return Observable.empty() }
+        return self.viewModel.load().observeOn(MainScheduler.instance)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -21,7 +32,10 @@ class TimetableListViewController: TimetableBaseViewController {
     }
     
     override func setup() {
-        super.setup()
+        refreshControl = UIRefreshControl().also {
+            $0.tintColor = .white
+            $0.rx.bind(to: action, input: ())
+        }
         
         tableView.apply {
             $0.separatorStyle   = .none
@@ -32,13 +46,69 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.register(TimetableFreedayViewCell.self)
         }
     }
+
+    
+    private func load() {
+        
+        action.elements.subscribe(onNext: { [weak self] items in
+            guard let self = self else { return }
+            self.items = items
+            self.stateView.isHidden = true
+            
+            if items.isEmpty {
+                self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.scheduleNoResultsTitle(), message: R.string.localizable.scheduleNoResultsMessage(), hint: nil, action: nil))
+                self.items = []
+            } else {
+                self.scrollToToday(notAnimated: true)
+            }
+            
+        }).disposed(by: rx_disposeBag)
+        
+        action.errors.subscribe(onNext: { [weak self] error in
+            guard let self = self else { return }
+            self.items = []
+                
+            self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
+            
+        }).disposed(by: rx_disposeBag)
+        
+        action.execute()
+    }
+    
+    @objc private func onTap() {
+        let viewController = R.storyboard.onboarding.studyGroupViewController()!
+        viewController.context = self.context
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.delegateClosure = { [weak self] in
+            guard let self = self else { return }
+            self.load()
+        }
+        present(viewController, animated: true, completion: nil)
+    }
     
     override func reloadData(){
         tableView.reloadData()
     }
     
-    override func scrollViewTo(index: Int, notAnimated: Bool = true) {
-        self.tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .top, animated: !notAnimated)
+    override func scrollToToday(notAnimated: Bool = true) {
+        guard !items.isEmpty else { return }
+        
+        var indexOfHeader: Int = 0
+        indexer: for (index, element) in items.enumerated() {
+            switch element {
+            case .header(let model):
+                if model.header == Date().string(format: "dd.MM.yyyy") {
+                    indexOfHeader = index
+                    break indexer
+                }
+            default: break
+            }
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
+        }
     }
 }
 

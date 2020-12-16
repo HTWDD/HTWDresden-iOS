@@ -138,10 +138,8 @@ class TimetableViewModel {
             }
             
             lessons.forEach { lesson in
-                
-                print(lesson)
-                
                 lesson.lessonDays.forEach { lessonDay in
+                    
                     if let startDate = Date.from(time: lesson.beginTime, date: lessonDay),
                        let endDate = Date.from(time: lesson.endTime, date: lessonDay) {
                         
@@ -157,6 +155,7 @@ class TimetableViewModel {
                         } catch let error as NSError {
                             print("failed to save event with error : \(error)")
                         }
+                        
                     }
                 }
             }
