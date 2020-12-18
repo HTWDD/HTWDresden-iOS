@@ -52,7 +52,7 @@ class LessonCell: UICollectionViewCell {
         lessonName.attributedText = attributedString
         
         
-        self.backgroundColor = " \(event.title) \(event.location)".materialColor //"\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
+        self.backgroundColor = " \(event.name) \(event.rooms)".materialColor //"\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
     }
 
 }

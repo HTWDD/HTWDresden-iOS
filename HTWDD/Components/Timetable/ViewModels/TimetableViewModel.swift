@@ -79,6 +79,53 @@ class TimetableViewModel {
         }
     }
     
+    func load() -> Observable<[LessonEvent]> {
+        context
+            .timetableService.requestTimetable()
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .map { (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
+                
+                print("Hallellooo Bitches I'm back")
+                print(items)
+                return Dictionary(grouping: items) { $0.lessonDays }
+            }
+            .map { (hMap: Dictionary<[String], [Lesson]>) -> (keys: [String], values: [Lesson]) in
+                let keys = hMap.keys
+                    .reduce([], +)
+                    .reduce(into: Set<String>(), { dates, date in
+                        dates.insert(date)
+                    })
+                    .sorted { (lhs, rhs) -> Bool in
+                        let lhsDate = try! Date.from(string: lhs, format: "dd.MM.yyyy")
+                        let rhsDate = try! Date.from(string: rhs, format: "dd.MM.yyyy")
+                        return lhsDate.compare(rhsDate) == .orderedAscending
+                    }
+                
+                let values = hMap
+                    .values
+                    .reduce([], +)
+                    .reduce(into: Set<Lesson>(), { lessons, lesson in
+                        lessons.insert(lesson)
+                    }).sorted { (lhs: Lesson, rhs: Lesson) -> Bool in
+                        return lhs.beginTime < rhs.beginTime
+                    }
+                
+                return (keys, values)
+        }
+        .map { [weak self] items -> [LessonEvent] in
+            var result: [LessonEvent] = []
+            
+//            items.keys.forEach { date in
+//                result.append(.header(model: TimetableHeader(header: date, subheader: date)))
+//                items.values.filter { $0.lessonDays.contains(date) }.forEach { lesson in
+//                    result.append(.lesson(model: lesson))
+//                }
+//            }
+
+            return result
+        }
+    }
+    
     private func appedFreedays(_ result: inout [Timetables]) {
         let headerItems = result.filter { item in
             switch item {

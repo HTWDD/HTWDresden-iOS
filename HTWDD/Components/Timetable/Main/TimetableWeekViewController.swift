@@ -7,6 +7,8 @@
 //
 
 import JZCalendarWeekView
+import Action
+import RxSwift
 
 class TimetableWeekViewController: TimetableBaseViewController {
  
@@ -15,16 +17,18 @@ class TimetableWeekViewController: TimetableBaseViewController {
     @IBOutlet weak var timetableWeekView: TimetableWeekView!
     
     
+    lazy var action: Action<Void, [LessonEvent]> = Action { [weak self] (_) -> Observable<[LessonEvent]> in
+        guard let self = self else { return Observable.empty() }
+        return self.viewModel.load().observeOn(MainScheduler.instance)
+    }
+    
     // TEMPORÄR - BITTE LÖSCHEN
     
     private let firstDate = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
     private let secondDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
     private let thirdDate = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
 
-    lazy var events = [LessonEvent(id: "0", title: "One", startDate: firstDate, endDate: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 30, to: firstDate)!)!, location: "Melbourne"),
-                       LessonEvent(id: "1", title: "Two", startDate: secondDate, endDate: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 30, to: secondDate)!)!, location: "Sydney"),
-                       LessonEvent(id: "2", title: "Three", startDate: thirdDate, endDate: Calendar.current.date(byAdding: .hour, value: 1, to: Calendar.current.date(byAdding: .minute, value: 30, to: thirdDate)!)!, location: "Tasmania"),
-                        LessonEvent(id: "3", title: "Four", startDate:  Calendar.current.date(bySettingHour: 7, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!, endDate:  Calendar.current.date(bySettingHour: 9, minute: 15, second: 0, of: Date().dateOfWeek(for: .beginn))!, location: "Vancouver")]
+    lazy var events: [LessonEvent] = []
     
     override func setup() {
 //        super.setup()
@@ -32,6 +36,8 @@ class TimetableWeekViewController: TimetableBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let test: Observable<[LessonEvent]> = viewModel.load()
         
         timetableWeekView.setupCalendar(numOfDays: 5,
                                         setDate: Calendar.current.date(bySettingHour: 8, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!, //Calendar.current.date(byAdding: .day, value: -1, to: Date())!,

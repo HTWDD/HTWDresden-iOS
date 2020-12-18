@@ -1448,6 +1448,7 @@
 		64E7DB592343464700540FED /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				752F1F57258C9DC40067980D /* CreateLesson */,
 				64E7DB5C2343466D00540FED /* Timetable.storyboard */,
 				7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */,
 				757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */,
@@ -1487,6 +1488,13 @@
 				64C5883324124499003DFDA8 /* TimetableFreedayViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		752F1F57258C9DC40067980D /* CreateLesson */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CreateLesson;
 			sourceTree = "<group>";
 		};
 		755A7449257A80F900C284A2 /* Week */ = {
