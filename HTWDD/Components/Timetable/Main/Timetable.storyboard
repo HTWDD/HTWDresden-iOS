@@ -107,6 +107,36 @@
             </objects>
             <point key="canvasLocation" x="800.00000000000011" y="89.732142857142847"/>
         </scene>
+        <!--Timetable Lesson Details View Controller-->
+        <scene sceneID="JII-s5-U7M">
+            <objects>
+                <viewController storyboardIdentifier="TimetableLessonDetailsViewController" id="73W-pL-8wI" customClass="TimetableLessonDetailsViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xz6-IJ-D3j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="300" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-33-bOI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="top" secondItem="xz6-IJ-D3j" secondAttribute="top" id="GWo-e7-NtJ"/>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="trailing" secondItem="i2e-Jd-71t" secondAttribute="trailing" id="NaX-4j-Caw"/>
+                            <constraint firstAttribute="bottom" secondItem="D0U-33-bOI" secondAttribute="bottom" id="fc3-RQ-Qm2"/>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="leading" secondItem="i2e-Jd-71t" secondAttribute="leading" id="oKM-hN-5Pn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lessonDetailsTable" destination="D0U-33-bOI" id="6S5-o7-NLQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTq-gf-5Ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3093" y="90"/>
+        </scene>
         <!--Timetable Main View Controller-->
         <scene sceneID="Jcr-e7-Tw1">
             <objects>

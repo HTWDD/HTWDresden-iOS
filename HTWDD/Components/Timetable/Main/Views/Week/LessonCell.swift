@@ -48,11 +48,11 @@ class LessonCell: UICollectionViewCell {
             NSAttributedString.Key.paragraphStyle : paragraphStyle,
         ] as [NSAttributedString.Key : Any]
 
-        let attributedString = NSMutableAttributedString(string: "DBS II", attributes: hyphenAttribute)
+        let attributedString = NSMutableAttributedString(string: event.lesson.lessonTag ?? "", attributes: hyphenAttribute)
         lessonName.attributedText = attributedString
         
         
-        self.backgroundColor = " \(event.name) \(event.rooms)".materialColor //"\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
+        self.backgroundColor = "\(event.lesson.name) \(String(event.lesson.professor ?? "")) \(event.lesson.type)".materialColor //.materialColor
     }
 
 }

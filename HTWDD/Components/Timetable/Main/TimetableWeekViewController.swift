@@ -15,33 +15,29 @@ class TimetableWeekViewController: TimetableBaseViewController {
     
     @IBOutlet weak var weekControllsBackgroundView: UIView!
     @IBOutlet weak var timetableWeekView: TimetableWeekView!
-    
-    
+
     lazy var action: Action<Void, [LessonEvent]> = Action { [weak self] (_) -> Observable<[LessonEvent]> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
     
-    // TEMPORÄR - BITTE LÖSCHEN
-    
-    private let firstDate = Calendar.current.date(byAdding: .hour, value: 1, to: Date())!
-    private let secondDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
-    private let thirdDate = Calendar.current.date(byAdding: .day, value: 2, to: Date())!
-
-    lazy var events: [LessonEvent] = []
+    var events: [LessonEvent] = [] {
+        didSet {
+            reloadData()
+        }
+    }
     
     override func setup() {
-//        super.setup()
+
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let test: Observable<[LessonEvent]> = viewModel.load()
-        
         timetableWeekView.setupCalendar(numOfDays: 5,
-                                        setDate: Calendar.current.date(bySettingHour: 8, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!, //Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-                                       allEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events),
+                                        setDate: Calendar.current.date(bySettingHour: 8, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!,
+                                        allEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events),
                                        scrollType: .pageScroll,
                                        firstDayOfWeek: .Monday,
                                        visibleTime:Calendar.current.date(bySettingHour: 7, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!)
@@ -49,8 +45,27 @@ class TimetableWeekViewController: TimetableBaseViewController {
         weekControllsBackgroundView.backgroundColor = UIColor.htw.blue
     }
     
-    override func reloadData(){
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        load()
+    }
     
+    private func load() {
+        
+        action.elements.subscribe(onNext: { [weak self] items in
+            guard let self = self else { return }
+            self.events = items
+            self.stateView.isHidden = true
+            
+        }).disposed(by: rx_disposeBag)
+        
+        action.execute()
+    }
+    
+    override func reloadData(){
+
+        timetableWeekView.forceReload(reloadEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events))
     }
     
     override func scrollToToday(notAnimated: Bool = true) {
@@ -63,9 +78,4 @@ class TimetableWeekViewController: TimetableBaseViewController {
         
         
     }
-}
-
-extension JZBaseWeekView {
-    
-    
 }

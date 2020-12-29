@@ -13,7 +13,6 @@ class TimetableListViewController: TimetableBaseViewController {
     @IBOutlet var tableView: UITableView!
     var items: [Timetables] = [] {
         didSet {
-            //MARK: IMPORTANT TODO
             reloadData()
         }
     }
@@ -29,6 +28,8 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
         }
+        
+        load()
     }
     
     override func setup() {
@@ -109,6 +110,23 @@ class TimetableListViewController: TimetableBaseViewController {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
         }
+    }
+    
+    override func getAllLessons() -> [Lesson]? {
+        
+        var lessons: [Lesson]? = items.compactMap {
+        
+            if case .lesson(let model) = $0 {
+                return model
+            }
+            
+            return .none
+            
+        }
+        
+        lessons?.removeDuplicates()
+        
+        return lessons
     }
 }
 

@@ -82,7 +82,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         //MARK: TODO !!! IMPORTANT
         if #available(iOS 13.0, *) {
             let listWeekBtn = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(toggleLayout)) //list.bullet
-            let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(exportAll))
+            let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(createLesson))
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
         } else {
             navigationItem.rightBarButtonItems = [scrollToTodayBtn]
@@ -102,7 +102,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     
     @objc func createLesson() {
         
-        let createLessonViewController = R.storyboard.timetable.timetableCreateLessonViewController()!.also {
+        let createLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
             $0.context      = context
             $0.viewModel    = viewModel
         }
@@ -113,19 +113,9 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     @objc func exportAll() {
 
         
-//        var lessons: [Lesson]? = currentTimetableViewController?.items.compactMap {
-//        
-//            if case .lesson(let model) = $0 {
-//                return model
-//            }
-//            
-//            return .none
-//            
-//        }
-//        
-//        lessons?.removeDuplicates()
-//        
-//        viewModel.export(lessons: lessons)
+        let allLessons = currentTimetableViewController?.getAllLessons()
+        
+        viewModel.export(lessons: allLessons)
     }
     
     private func showCalendarChooser() {

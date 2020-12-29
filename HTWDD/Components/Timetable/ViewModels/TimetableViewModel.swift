@@ -85,8 +85,6 @@ class TimetableViewModel {
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
                 
-                print("Hallellooo Bitches I'm back")
-                print(items)
                 return Dictionary(grouping: items) { $0.lessonDays }
             }
             .map { (hMap: Dictionary<[String], [Lesson]>) -> (keys: [String], values: [Lesson]) in
@@ -115,14 +113,25 @@ class TimetableViewModel {
         .map { [weak self] items -> [LessonEvent] in
             var result: [LessonEvent] = []
             
-//            items.keys.forEach { date in
-//                result.append(.header(model: TimetableHeader(header: date, subheader: date)))
-//                items.values.filter { $0.lessonDays.contains(date) }.forEach { lesson in
-//                    result.append(.lesson(model: lesson))
-//                }
-//            }
+            
+            
+            
+                
+                items.values.forEach { lesson in
+                    lesson.lessonDays.forEach { lessonDate in
+                        
+                        if let startDate = Date.from(time: lesson.beginTime, date: lessonDate),
+                           let endDate = Date.from(time: lesson.endTime, date: lessonDate) {
+                            
+                            result.append(LessonEvent(id: lesson.id, lesson: lesson, startDate: startDate, endDate: endDate))
+                        }
+                    }
+                }
+            
+            
+            
 
-            return result
+            return result //.removingDuplicates()
         }
     }
     

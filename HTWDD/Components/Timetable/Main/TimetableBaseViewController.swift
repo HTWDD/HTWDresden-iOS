@@ -41,4 +41,8 @@ class TimetableBaseViewController: UIViewController {
     func scrollToToday(notAnimated: Bool = true) {
         fatalError("pls implement")
     }
+    
+    func getAllLessons() -> [Lesson]? {
+        fatalError("pls implement")
+    }
 }
