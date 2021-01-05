@@ -12,7 +12,6 @@ import RxSwift
 
 class TimetableWeekViewController: TimetableBaseViewController {
  
-    
     @IBOutlet weak var weekControllsBackgroundView: UIView!
     @IBOutlet weak var timetableWeekView: TimetableWeekView!
 
@@ -36,11 +35,11 @@ class TimetableWeekViewController: TimetableBaseViewController {
         super.viewDidLoad()
         
         timetableWeekView.setupCalendar(numOfDays: 5,
-                                        setDate: Calendar.current.date(bySettingHour: 8, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!,
+                                        setDate: Date().dateOfWeek(for: .beginn),
                                         allEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events),
-                                       scrollType: .pageScroll,
+                                        scrollType: .pageScroll,
                                        firstDayOfWeek: .Monday,
-                                       visibleTime:Calendar.current.date(bySettingHour: 7, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))!)
+                                       visibleTime:Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date())!)
         
         weekControllsBackgroundView.backgroundColor = UIColor.htw.blue
     }
@@ -70,12 +69,23 @@ class TimetableWeekViewController: TimetableBaseViewController {
     
     override func scrollToToday(notAnimated: Bool = true) {
         
-        guard let today = Calendar.current.date(bySettingHour: 7, minute: 45, second: 0, of: Date().dateOfWeek(for: .beginn))
+        guard let today = Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date().dateOfWeek(for: .beginn))
         else { return }
         
         timetableWeekView.scrollWeekView(to: today)
         timetableWeekView.updateWeekView(to: today)
         
         
+    }
+    @IBAction func setCurrentWeek(_ sender: Any) {
+        scrollToToday(notAnimated: false)
+    }
+    
+    @IBAction func setNextWeek(_ sender: Any) {
+        var nextWeek = Calendar.current.date(byAdding: .weekOfYear, value: 1, to: Date().dateOfWeek(for: .beginn))
+        nextWeek = Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: nextWeek!)
+        
+        timetableWeekView.scrollWeekView(to: nextWeek!)
+        timetableWeekView.updateWeekView(to: nextWeek!)
     }
 }

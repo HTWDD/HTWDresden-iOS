@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="height" constant="18" id="VcE-S1-A2s"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2E-89-eOn">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the lesson" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y2E-89-eOn" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="73" width="248" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="Av0-v2-Ymv"/>
@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihr-ES-C8B">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the docent" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihr-ES-C8B" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="161" width="248" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="SpM-dv-iJ9"/>
@@ -50,7 +50,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU5-fn-atA">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lecture type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU5-fn-atA" customClass="LessonDetailsSelectionField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="205" width="248" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="HPm-O5-53y"/>
@@ -90,7 +90,7 @@
                                     <constraint firstAttribute="height" constant="18" id="bBG-4c-KY1"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-dt-uR7">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Room" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-dt-uR7" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="249" width="248" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="LaX-mu-trR"/>
@@ -98,7 +98,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-JZ-Lyp">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Abbrevation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-JZ-Lyp" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="117" width="248" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="q3S-uH-Su6"/>
@@ -151,6 +151,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="generalBox" destination="mnN-m8-hdb" id="cVx-AH-QWd"/>
+                <outlet property="lessonTypeSelectionField" destination="NU5-fn-atA" id="EMZ-XE-hsD"/>
             </connections>
             <point key="canvasLocation" x="-489.85507246376818" y="-613.39285714285711"/>
         </tableViewCell>

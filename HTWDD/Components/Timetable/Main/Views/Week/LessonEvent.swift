@@ -12,7 +12,7 @@ import JZCalendarWeekView
 class LessonEvent: JZBaseEvent {
 
     var lesson: Lesson
-
+    
     init(id: String, lesson: Lesson, startDate: Date, endDate: Date) {
         self.lesson = lesson
         

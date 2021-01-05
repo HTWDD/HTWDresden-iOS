@@ -161,6 +161,10 @@ extension HTWNamespace where Base: UIColor {
         return UIColor(hex: 0x0288D1)
     }
     
+    static var blue_grey_300: UIColor {
+        return UIColor(hex: 0x90a4ae)
+    }
+    
     static var orange: UIColor {
         return UIColor(hex: 0xF1A13D)
     }
@@ -176,13 +180,22 @@ extension HTWNamespace where Base: UIColor {
     static var greenMaterial: UIColor {
         return UIColor(hex: 0x43A047)
     }
-	
+    
+    static var green_300: UIColor {
+        return UIColor(hex: 0x4caf50)
+    }
+        
+        
 	static var red: UIColor {
 		return UIColor(hex: 0xC21717)
 	}
     
     static var redMaterial: UIColor {
         return UIColor(hex: 0xF44336)
+    }
+    
+    static var red_300: UIColor {
+        return UIColor(hex: 0xff5252)
     }
 	
 	static var yellow: UIColor {
@@ -250,6 +263,10 @@ extension HTWNamespace where Base: UIColor {
     
     static var purple: UIColor {
         return UIColor(hex: 0x9C27B0)
+    }
+    
+    static var indigo_400: UIColor {
+        return UIColor(hex: 0x5c6bc0)
     }
 	
 	static var scheduleColors: [UIColor] {

@@ -10,10 +10,10 @@ import UIKit
 import JZCalendarWeekView
 
 class TimetableWeekView: JZBaseWeekView {
-
+    
     override func registerViewClasses() {
         super.registerViewClasses()
-
+        
         self.collectionView.register(UINib(nibName: "LessonCell", bundle: nil), forCellWithReuseIdentifier: "LessonCell")
     }
 

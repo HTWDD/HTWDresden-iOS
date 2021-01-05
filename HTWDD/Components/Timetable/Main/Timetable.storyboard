@@ -63,6 +63,9 @@
                                                 <state key="normal" title="Current Week">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setCurrentWeek:" destination="vPj-aR-RhV" eventType="touchUpInside" id="isV-Pv-lhn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omO-Bo-cTq">
                                                 <rect key="frame" x="219" y="0.0" width="195" height="47"/>
@@ -70,6 +73,9 @@
                                                 <state key="normal" title="Next Week">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setNextWeek:" destination="vPj-aR-RhV" eventType="touchUpInside" id="iDL-VO-KuK"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -116,26 +122,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="300" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-33-bOI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gD-7S-J3M">
+                                <rect key="frame" x="288" y="807" width="107" height="36"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="6Ah-gZ-DiZ"/>
+                                    <constraint firstAttribute="width" constant="107" id="mcL-Zv-rfU"/>
+                                </constraints>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
+                                <rect key="frame" x="167" y="807" width="107" height="36"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="107" id="KBr-nk-poA"/>
+                                    <constraint firstAttribute="height" constant="36" id="xNG-jT-nOm"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D0U-33-bOI" firstAttribute="top" secondItem="xz6-IJ-D3j" secondAttribute="top" id="GWo-e7-NtJ"/>
+                            <constraint firstItem="2gD-7S-J3M" firstAttribute="top" secondItem="D0U-33-bOI" secondAttribute="bottom" constant="8" id="GB1-hB-g38"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="2gD-7S-J3M" secondAttribute="bottom" constant="19" id="NGK-c8-MNY"/>
                             <constraint firstItem="D0U-33-bOI" firstAttribute="trailing" secondItem="i2e-Jd-71t" secondAttribute="trailing" id="NaX-4j-Caw"/>
-                            <constraint firstAttribute="bottom" secondItem="D0U-33-bOI" secondAttribute="bottom" id="fc3-RQ-Qm2"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="trailing" secondItem="2gD-7S-J3M" secondAttribute="trailing" constant="19" id="YBZ-Dq-iiP"/>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="top" secondItem="i2e-Jd-71t" secondAttribute="top" id="hg5-ko-Imu"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="tdS-Iv-888" secondAttribute="bottom" constant="19" id="jgM-i4-yqX"/>
+                            <constraint firstItem="2gD-7S-J3M" firstAttribute="leading" secondItem="tdS-Iv-888" secondAttribute="trailing" constant="14" id="nQB-WN-KsV"/>
                             <constraint firstItem="D0U-33-bOI" firstAttribute="leading" secondItem="i2e-Jd-71t" secondAttribute="leading" id="oKM-hN-5Pn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeBtn" destination="tdS-Iv-888" id="N41-hh-iWE"/>
                         <outlet property="lessonDetailsTable" destination="D0U-33-bOI" id="6S5-o7-NLQ"/>
+                        <outlet property="saveBtn" destination="2gD-7S-J3M" id="6kr-7r-iH5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTq-gf-5Ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3093" y="90"/>
+            <point key="canvasLocation" x="3092.753623188406" y="89.732142857142847"/>
         </scene>
         <!--Timetable Main View Controller-->
         <scene sceneID="Jcr-e7-Tw1">
@@ -152,25 +186,16 @@
             </objects>
             <point key="canvasLocation" x="318" y="-639"/>
         </scene>
-        <!--Timetable Create Lesson View Controller-->
-        <scene sceneID="BHL-6V-SN5">
-            <objects>
-                <viewController storyboardIdentifier="TimetableCreateLessonViewController" id="cLQ-kA-ccL" customClass="TimetableCreateLessonViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hTp-xK-eQt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="lWS-ne-zcW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RHb-4f-4lS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1109" y="-640"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

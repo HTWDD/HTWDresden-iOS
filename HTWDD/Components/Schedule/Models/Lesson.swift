@@ -7,11 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct Lesson: Codable {
     
     let id: String
-//    let moduleId: String?
     let lessonTag: String?
     let name: String
     let type: LessonType
@@ -43,42 +43,61 @@ struct Lesson: Codable {
         }
     }
     
-    // MARK: - Lessontypes
-    enum LessonType: String, Codable {
-        case practical
-        case lesson
-        case exercise
-        case requested
-        case block
-        case unkown
-        
-        var localizedDescription: String {
-            switch self {
-            case .practical: return R.string.localizable.scheduleLectureTypePractical()
-            case .lesson: return R.string.localizable.scheduleLectureTypeLecture()
-            case .exercise: return R.string.localizable.scheduleLectureTypeExercise()
-            case .requested: return R.string.localizable.scheduleLectureTypeRequested()
-            case .block: return R.string.localizable.scheduleLectureTypeBlock()
-            case .unkown: return R.string.localizable.scheduleLectureTypeUnknown()
-            }
+}
+
+protocol LessonDetailsPickerSelection {
+    static var allValues: [LessonDetailsPickerSelection] { get }
+    static var caseCount: Int { get }
+    var localizedDescription: String { get }
+}
+
+// MARK: - Lessontypes
+enum LessonType: String, Codable, LessonDetailsPickerSelection {
+
+    static var allValues: [LessonDetailsPickerSelection] { return [practical, lesson, exercise, requested, block, unkown] }
+    static var caseCount: Int { return allValues.count }
+    
+    
+    case practical
+    case lesson
+    case exercise
+    case requested
+    case block
+    case unkown
+    
+    var localizedDescription: String {
+        switch self {
+        case .practical: return R.string.localizable.scheduleLectureTypePractical()
+        case .lesson: return R.string.localizable.scheduleLectureTypeLecture()
+        case .exercise: return R.string.localizable.scheduleLectureTypeExercise()
+        case .requested: return R.string.localizable.scheduleLectureTypeRequested()
+        case .block: return R.string.localizable.scheduleLectureTypeBlock()
+        case .unkown: return R.string.localizable.scheduleLectureTypeUnknown()
         }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer().decode(String.self)
-            
-            switch container {
-            case let str where str.hasPrefix("V"): self = .lesson
-            case let str where str.hasPrefix("Ü"): self = .exercise
-            case let str where str.hasPrefix("P"): self = .practical
-            case let str where str.hasPrefix("Buchung"): self = .requested
-            case let str where str.hasPrefix("Block"): self = .block
-            default:
-                self = .unkown
-            }
-        }
-       
     }
     
+    var timetableColor: UIColor {
+        switch self {
+        case .lesson: return UIColor.htw.red_300
+        case .exercise: return UIColor.htw.green_300
+        case .block: return UIColor.htw.blue_grey_300
+        default: return UIColor.htw.indigo_400
+        }
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer().decode(String.self)
+        
+        switch container {
+        case let str where str.hasPrefix("V"): self = .lesson
+        case let str where str.hasPrefix("Ü"): self = .exercise
+        case let str where str.hasPrefix("P"): self = .practical
+        case let str where str.hasPrefix("Buchung"): self = .requested
+        case let str where str.hasPrefix("Block"): self = .block
+        default:
+            self = .unkown
+        }
+    }
 }
 
 // MARK: - Hashable

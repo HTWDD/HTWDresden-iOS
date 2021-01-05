@@ -39,7 +39,12 @@ private enum TimetableLayoutStyle: Int {
 
 final class TimetableMainViewController: ViewController, HasSideBarItem {
     
-    private var currentTimetableViewController: TimetableBaseViewController?
+    private var currentTimetableViewController: TimetableBaseViewController? {
+        didSet {
+            updateNavButtons()
+        }
+    }
+    
     private var containerView = View()
     var viewModel: TimetableViewModel
     var context: AppContext
@@ -70,26 +75,37 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         
         let style = UserDefaults.standard.integer(forKey: TimetableLayoutStyle.cachingKey)
         self.currentStyle = TimetableLayoutStyle(rawValue: style) ?? .list
-        //MARK: TODO !!! Important Style button
-//        self.layoutStyleControl.selectedSegmentIndex = style
-//        self.switchStyle(to: currentStyle)
     }
     
     func setup() {
         title = R.string.localizable.scheduleTitle()
-        let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
-        
-        //MARK: TODO !!! IMPORTANT
-        if #available(iOS 13.0, *) {
-            let listWeekBtn = UIBarButtonItem(image: UIImage(systemName: "calendar"), style: .plain, target: self, action: #selector(toggleLayout)) //list.bullet
-            let addBtn = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(createLesson))
-            navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
-        } else {
-            navigationItem.rightBarButtonItems = [scrollToTodayBtn]
-        }
         
         self.view.add(self.containerView)
         layoutMatchingEdges(self.containerView, self.view)
+    }
+    
+    func updateNavButtons() {
+        
+        switch currentStyle {
+        case .list:
+            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
+            
+            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
+            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
+            
+            navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
+            
+        case .week:
+            let exportBtn = UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(scrollToToday))
+            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
+            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
+            
+            navigationItem.rightBarButtonItems = [exportBtn, listWeekBtn, addBtn]
+            
+        default:
+            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
+            navigationItem.rightBarButtonItems = [scrollToTodayBtn]
+        }
     }
     
     @objc func scrollToToday(notAnimated: Bool = true) {
@@ -111,8 +127,6 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     }
     
     @objc func exportAll() {
-
-        
         let allLessons = currentTimetableViewController?.getAllLessons()
         
         viewModel.export(lessons: allLessons)

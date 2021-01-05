@@ -301,8 +301,10 @@
 		6F6BDBEE1ADCCA44A87DEAF4 /* Pods_HTWDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB8797D9D60293AC378E22B /* Pods_HTWDD.framework */; };
 		7505B1ED2580C88500741E4F /* TimetableMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */; };
 		755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A741C257A679300C284A2 /* TimetableWeekViewController.swift */; };
-		75790B62258136EC00C88A49 /* TimetableCreateLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */; };
 		757EB95125793B3A00F24264 /* TimetableBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */; };
+		758115A625A1F56100C3A2B6 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758115A525A1F56000C3A2B6 /* UIBarButtonItem.swift */; };
+		758115AB25A316D800C3A2B6 /* TimetableLessonTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758115AA25A316D800C3A2B6 /* TimetableLessonTimeCell.xib */; };
+		758115B025A316F100C3A2B6 /* TimetableLessonTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758115AF25A316F100C3A2B6 /* TimetableLessonTimeCell.swift */; };
 		758350CB2588DBE4000B3FF3 /* TimetableLessonInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758350CA2588DBE4000B3FF3 /* TimetableLessonInfoCell.swift */; };
 		758350D02588DEAD000B3FF3 /* LessonEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758350CF2588DEAD000B3FF3 /* LessonEvent.swift */; };
 		758350D52588E19E000B3FF3 /* LessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758350D42588E19E000B3FF3 /* LessonCell.swift */; };
@@ -664,8 +666,10 @@
 		6955D1AE6DEE6C92B32F41EE /* Pods-HTWDDTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HTWDDTests.debug.xcconfig"; path = "Target Support Files/Pods-HTWDDTests/Pods-HTWDDTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableMainViewController.swift; sourceTree = "<group>"; };
 		755A741C257A679300C284A2 /* TimetableWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekViewController.swift; sourceTree = "<group>"; };
-		75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableCreateLessonViewController.swift; sourceTree = "<group>"; };
 		757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableBaseViewController.swift; sourceTree = "<group>"; };
+		758115A525A1F56000C3A2B6 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
+		758115AA25A316D800C3A2B6 /* TimetableLessonTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonTimeCell.xib; sourceTree = "<group>"; };
+		758115AF25A316F100C3A2B6 /* TimetableLessonTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonTimeCell.swift; sourceTree = "<group>"; };
 		758350CA2588DBE4000B3FF3 /* TimetableLessonInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonInfoCell.swift; sourceTree = "<group>"; };
 		758350CF2588DEAD000B3FF3 /* LessonEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEvent.swift; sourceTree = "<group>"; };
 		758350D42588E19E000B3FF3 /* LessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCell.swift; sourceTree = "<group>"; };
@@ -1458,7 +1462,6 @@
 				757EB95025793B3A00F24264 /* TimetableBaseViewController.swift */,
 				64E7DB5E2343468700540FED /* TimetableListViewController.swift */,
 				755A741C257A679300C284A2 /* TimetableWeekViewController.swift */,
-				75790B61258136EC00C88A49 /* TimetableCreateLessonViewController.swift */,
 				64E7DB6B234351A100540FED /* Views */,
 			);
 			path = Main;
@@ -1494,6 +1497,8 @@
 			children = (
 				75F1EECC257E80B0006FB0AC /* TimetableLessonInfoCell.xib */,
 				758350CA2588DBE4000B3FF3 /* TimetableLessonInfoCell.swift */,
+				758115AA25A316D800C3A2B6 /* TimetableLessonTimeCell.xib */,
+				758115AF25A316F100C3A2B6 /* TimetableLessonTimeCell.swift */,
 				758686E32591E7D100DE608F /* TimetableWeekView.swift */,
 				758350CF2588DEAD000B3FF3 /* LessonEvent.swift */,
 				758350D42588E19E000B3FF3 /* LessonCell.swift */,
@@ -1661,6 +1666,7 @@
 				5B6B4FF5209B693E00A572F8 /* URL.swift */,
 				B538EF0F1E1D62040031077C /* UserDefaults.swift */,
 				6466EB3123CDB494004E8EF0 /* UIScrollView.swift */,
+				758115A525A1F56000C3A2B6 /* UIBarButtonItem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2105,6 +2111,7 @@
 				640DB2F822E99BA90083078E /* RoomOccupancy.storyboard in Resources */,
 				649371052342836000EC7195 /* DasboardLessonViewCell.xib in Resources */,
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
+				758115AB25A316D800C3A2B6 /* TimetableLessonTimeCell.xib in Resources */,
 				640FC57622F419810090E210 /* UserGrey.json in Resources */,
 				640DC15922FB66EF00E9ED9A /* ExamViewCell.xib in Resources */,
 				64189C2422F9705300E3264D /* PadlockGrey.json in Resources */,
@@ -2453,8 +2460,8 @@
 			files = (
 				B59879C01FB0F67800320091 /* BadgeLabel.swift in Sources */,
 				B5B3768B1FA6182800FC3A07 /* Double.swift in Sources */,
+				758115B025A316F100C3A2B6 /* TimetableLessonTimeCell.swift in Sources */,
 				64C4BCD6233BB45700B135DE /* CampusPlanService.swift in Sources */,
-				75790B62258136EC00C88A49 /* TimetableCreateLessonViewController.swift in Sources */,
 				64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */,
 				B538EF181E1D6AEF0031077C /* Network.swift in Sources */,
 				B5F3F8701FB8552800F0D1DB /* AppLecture.swift in Sources */,
@@ -2594,6 +2601,7 @@
 				642C956D22C93DDD0096EDD2 /* Single+Response.swift in Sources */,
 				645E635C22DCAE8F005F18BF /* Calendar.swift in Sources */,
 				64CC1E8622F2EC2100A45F25 /* AnalyticsViewController.swift in Sources */,
+				758115A625A1F56100C3A2B6 /* UIBarButtonItem.swift in Sources */,
 				64E9B407230045FD00F86767 /* WKWebViewController.swift in Sources */,
 				64093B4322F80D03007138B6 /* StudyGroupSelectionViewCell.swift in Sources */,
 				7505B1ED2580C88500741E4F /* TimetableMainViewController.swift in Sources */,

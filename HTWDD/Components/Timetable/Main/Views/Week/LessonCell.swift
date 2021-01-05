@@ -31,14 +31,14 @@ class LessonCell: UICollectionViewCell {
         layer.cornerRadius = 4
         lessonType.font = UIFont.systemFont(ofSize: 10)
         lessonType.textColor = .white
-        lessonName.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        lessonName.font = UIFont.systemFont(ofSize: 14, weight: .medium)
         lessonName.textColor = .white
         
     }
 
     func configureCell(event: LessonEvent) {
         self.event = event
-        lessonType.text = "Vorlesung"
+        lessonType.text = event.lesson.type.localizedDescription
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
@@ -52,7 +52,7 @@ class LessonCell: UICollectionViewCell {
         lessonName.attributedText = attributedString
         
         
-        self.backgroundColor = "\(event.lesson.name) \(String(event.lesson.professor ?? "")) \(event.lesson.type)".materialColor //.materialColor
+        self.backgroundColor = event.lesson.type.timetableColor
     }
 
 }
