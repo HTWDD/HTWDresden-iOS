@@ -14,7 +14,9 @@ class TimetableWeekViewController: TimetableBaseViewController {
  
     @IBOutlet weak var weekControllsBackgroundView: UIView!
     @IBOutlet weak var timetableWeekView: TimetableWeekView!
-
+    @IBOutlet weak var currentWeekBtn: UIButton!
+    @IBOutlet weak var nextWeekBtn: UIButton!
+    
     lazy var action: Action<Void, [LessonEvent]> = Action { [weak self] (_) -> Observable<[LessonEvent]> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
@@ -42,6 +44,9 @@ class TimetableWeekViewController: TimetableBaseViewController {
                                        visibleTime:Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date())!)
         
         weekControllsBackgroundView.backgroundColor = UIColor.htw.blue
+        
+        currentWeekBtn.setTitle(R.string.localizable.currentWeek(), for: .normal)
+        nextWeekBtn.setTitle(R.string.localizable.nextWeek(), for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -11,7 +11,13 @@ import UIKit
 class TimetableLessonInfoCell: UITableViewCell {
 
     @IBOutlet weak var generalBox: UIView!
+    @IBOutlet weak var generalLabel: UILabel!
+    @IBOutlet weak var lessonNameTextField: HTWTextField!
+    @IBOutlet weak var abbrevationTextField: HTWTextField!
+    @IBOutlet weak var docentNameTextField: HTWTextField!
     @IBOutlet weak var lessonTypeSelectionField: LessonDetailsSelectionField!
+    @IBOutlet weak var roomTextField: HTWTextField!
+    
     weak var lesson: LessonEvent!
     
     override func awakeFromNib() {
@@ -23,53 +29,23 @@ class TimetableLessonInfoCell: UITableViewCell {
             $0.layer.cornerRadius   = 4
         }
         
-        lessonTypeSelectionField.selectionOptions = .lessonType(selection: .none)
-        
-        createPickerView()
-        dismissPickerView()
+        generalLabel.text = R.string.localizable.general()
+        lessonNameTextField.placeholder = R.string.localizable.lessonName()
+        abbrevationTextField.placeholder = R.string.localizable.abbreviation()
+        docentNameTextField.placeholder = R.string.localizable.docentName()
+        lessonTypeSelectionField.placeholder = R.string.localizable.lessonType()
+        lessonTypeSelectionField.selectionOptions = .lectureType(selection: .none)
+        roomTextField.placeholder = R.string.localizable.room()
     }
 }
 
 extension TimetableLessonInfoCell: FromNibLoadable {
 
     func setup(with data: LessonEvent?) {
-        
-    }
-}
-
-extension TimetableLessonInfoCell: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func createPickerView() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        lessonTypeSelectionField.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(selectLessonType))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        lessonTypeSelectionField.inputAccessoryView = toolBar
-    }
-    @objc func selectLessonType() {
-        lessonTypeSelectionField.endEditing(true)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return  LessonType.allValues.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return LessonType.allValues[row].localizedDescription
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lessonTypeSelectionField.text = LessonType.allValues[row].localizedDescription
+        lessonNameTextField.text = data?.lesson.name
+        abbrevationTextField.text = data?.lesson.lessonTag
+        docentNameTextField.text = data?.lesson.professor
+        lessonTypeSelectionField.text = data?.lesson.type.localizedDescription
+        roomTextField.text = data?.lesson.rooms.joined(separator: ", ")
     }
 }

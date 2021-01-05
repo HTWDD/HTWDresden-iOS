@@ -134,6 +134,7 @@
                 <outlet property="calenderWeeksTextField" destination="wfF-qE-Byh" id="7Zt-fD-tRX"/>
                 <outlet property="generalBox" destination="skz-7S-zrh" id="K9v-3T-MeY"/>
                 <outlet property="lessonBlockSelectionView" destination="kl0-Gz-rgY" id="swT-VU-mVf"/>
+                <outlet property="timeLabel" destination="XAT-ag-zhG" id="JLs-6v-tbr"/>
             </connections>
             <point key="canvasLocation" x="185.50724637681162" y="78.683035714285708"/>
         </tableViewCell>

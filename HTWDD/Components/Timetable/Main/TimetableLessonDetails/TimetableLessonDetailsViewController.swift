@@ -30,14 +30,13 @@ class TimetableLessonDetailsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var navigationHeader: UIView!
     @IBOutlet weak var lessonDetailsTable: UITableView!
     @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
     
     override func viewDidLoad() {
         
-        self.title = "Edit Lesson"
+        self.title = R.string.localizable.editLesson()
         
         lessonDetailsTable.dataSource = self
         lessonDetailsTable.tableHeaderView?.isHidden = true
@@ -48,23 +47,41 @@ class TimetableLessonDetailsViewController: UIViewController {
             
         }
         
-        self.view.backgroundColor = UIColor.htw.veryLightGrey
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        self.view.backgroundColor = UIColor .htw.veryLightGrey
         
         items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
         
         styleButtons()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+    }
+    
     private func styleButtons(){
+        closeBtn.setTitle(R.string.localizable.close(), for: .normal)
         closeBtn.layer.cornerRadius = 4
         closeBtn.backgroundColor = UIColor.htw.grey400
+        closeBtn.addTarget(self, action: #selector(close), for: .touchUpInside)
     
+        saveBtn.setTitle(R.string.localizable.save(), for: .normal)
         saveBtn.layer.cornerRadius = 4
         saveBtn.backgroundColor = UIColor.htw.blue
+        saveBtn.addTarget(self, action: #selector(save), for: .touchUpInside)
+    }
+    
+    @objc
+    private func close() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    private func save() {
+        //Save Stuff
+        // TODO
+        
+        close()
     }
 }
 

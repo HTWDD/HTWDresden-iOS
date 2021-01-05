@@ -105,6 +105,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currentWeekBtn" destination="lnR-Xx-Veg" id="ceU-lT-mwL"/>
+                        <outlet property="nextWeekBtn" destination="omO-Bo-cTq" id="qL5-cT-r50"/>
                         <outlet property="timetableWeekView" destination="iUq-OD-h5d" id="eDG-nP-A2f"/>
                         <outlet property="weekControllsBackgroundView" destination="63y-JP-gNb" id="5Cx-0Z-ewb"/>
                     </connections>
@@ -135,9 +137,12 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveTapped:" destination="73W-pL-8wI" eventType="touchUpInside" id="zZC-nh-eK2"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
-                                <rect key="frame" x="167" y="807" width="107" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
+                                <rect key="frame" x="167" y="805" width="107" height="36"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="107" id="KBr-nk-poA"/>
@@ -146,6 +151,9 @@
                                 <state key="normal" title="Close">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="closeTapped:" destination="73W-pL-8wI" eventType="touchUpInside" id="Xcd-VK-8im"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>

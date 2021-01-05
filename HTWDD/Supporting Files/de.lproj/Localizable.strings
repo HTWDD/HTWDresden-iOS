@@ -177,6 +177,8 @@
 "ok"="Okay";
 "close"="Schließen";
 "cancel"="Abbrechen";
+"save"="Speichern";
+"done" = "Fertig";
 "nextStep"="Weiter";
 "letsgo"="Los geht's!";
 "attention"="Achtung ⚠️";
@@ -258,3 +260,31 @@
 "Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
 "Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
 "Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";
+
+"lesson.block.One" = "Vorlesungsblock 1 (7:30 - 9:00)";
+"lesson.block.Two" = "Vorlesungsblock 2 (9:20 - 10:50)";
+"lesson.block.Three" = "Vorlesungsblock 3 (11:10 - 12:40)";
+"lesson.block.Four" = "Vorlesungsblock 4 (13:20 - 14:50)";
+"lesson.block.Five" = "Vorlesungsblock 5 (15:10 - 16:40)";
+"lesson.block.Six" = "Vorlesungsblock 6 (17:00 - 18:30)";
+"lesson.block.Seven" = "Vorlesungsblock 7 (18:40 - 20:10)";
+"lesson.block.Eigth" = "Vorlesungsblock 8 (20:20 - 21:50)";
+
+"CalendarWeek.Every" = "jede KW";
+"CalendarWeek.Even" = "gerade KW";
+"CalendarWeek.Uneven" = "ungerade KW";
+
+"editLesson" = "Vorlesung bearbeiten";
+"general" = "Allgemein";
+"lessonName" = "Lehrveranstaltung";
+"abbreviation" = "Lehrveranstaltung Abkürzung";
+"docentName" = "Dozent(en)";
+"lessonType" = "Art";
+"room" = "Raum";
+"weekRotation" = "Turnus";
+"weekday" = "Tag";
+"lessonBlock" = "Vorlesungsblock";
+"onlyWeeks" = "Nur in Wochen(n)";
+"currentWeek" = "Aktuelle Woche";
+"nextWeek" = "Nächste Woche";
+"time" = "Zeit";

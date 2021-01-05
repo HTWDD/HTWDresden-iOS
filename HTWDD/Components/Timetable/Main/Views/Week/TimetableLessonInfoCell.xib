@@ -150,8 +150,13 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="abbrevationTextField" destination="iiq-JZ-Lyp" id="cf4-v9-08c"/>
+                <outlet property="docentNameTextField" destination="ihr-ES-C8B" id="rIg-me-X8T"/>
                 <outlet property="generalBox" destination="mnN-m8-hdb" id="cVx-AH-QWd"/>
+                <outlet property="generalLabel" destination="h92-IR-pxU" id="3Bj-Ns-DOs"/>
+                <outlet property="lessonNameTextField" destination="Y2E-89-eOn" id="8Sx-hJ-ToO"/>
                 <outlet property="lessonTypeSelectionField" destination="NU5-fn-atA" id="EMZ-XE-hsD"/>
+                <outlet property="roomTextField" destination="Xwe-dt-uR7" id="Kzq-gf-BXC"/>
             </connections>
             <point key="canvasLocation" x="-489.85507246376818" y="-613.39285714285711"/>
         </tableViewCell>

@@ -177,6 +177,8 @@
 "ok"="OK";
 "close"="Close";
 "cancel"="Cancel";
+"save"="Save";
+"done" = "Done";
 "nextStep"="Continue";
 "letsgo"="Let's go!";
 "attention"="Attention ⚠️";
@@ -258,3 +260,31 @@
 "Room.occupancy.free"="This room is currently unoccupied.";
 "Room.occupancy.no.name"="No information about the course name";
 "Room.occupancy.no.dozent"="No information about the lecturer";
+
+"lesson.block.One" = "lesson block 1 (7:30 AM - 9:00 AM)";
+"lesson.block.Two" = "lesson block 2 (9:20 AM - 10:50 AM)";
+"lesson.block.Three" = "lesson block 3 (11:10 AM - 12:40 PM)";
+"lesson.block.Four" = "lesson block 4 (1:20 PM - 2:50 PM)";
+"lesson.block.Five" = "lesson block 5 (3:10 PM - 4:40 PM)";
+"lesson.block.Six" = "lesson block 6 (5:00 PM - 6:30 PM)";
+"lesson.block.Seven" = "lesson block 7 (6:40 PM - 8:10 PM)";
+"lesson.block.Eight" = "lesson block 8 (8:20 PM - 9:50 PM)";
+
+"CalendarWeek.Every" = "ever CW";
+"CalendarWeek.Even" = "even CW";
+"CalendarWeek.Uneven" = "uneven CW";
+
+"editLesson" = "Edit Lesson";
+"general" = "General";
+"lessonName" = "name of lesson";
+"abbreviation" = "name of lesson (short)";
+"docentName" = "name of docent";
+"lessonType" = "lesson type";
+"room" = "room";
+"weekRotation" = "week rotation";
+"weekday" = "weekday";
+"lessonBlock" = "lesson block";
+"onlyWeeks" = "only weeks";
+"currentWeek" = "Current Week";
+"nextWeek" = "Next Week";
+"time" = "Time";
