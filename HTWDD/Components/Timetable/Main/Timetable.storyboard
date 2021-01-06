@@ -137,9 +137,6 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="saveTapped:" destination="73W-pL-8wI" eventType="touchUpInside" id="zZC-nh-eK2"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
                                 <rect key="frame" x="167" y="805" width="107" height="36"/>
@@ -151,9 +148,6 @@
                                 <state key="normal" title="Close">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="closeTapped:" destination="73W-pL-8wI" eventType="touchUpInside" id="Xcd-VK-8im"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>

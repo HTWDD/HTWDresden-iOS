@@ -8,19 +8,24 @@
 
 import UIKit
 
+protocol TimetableLessonDetailsDelegateCellDelegate {
+    
+    func changeDetails(_ newLessonDetails: Lesson)
+}
+
 class TimetableLessonDetailsViewController: UIViewController {
 
     private enum Item {
-        case generalInfo(model: LessonEvent?)
-        case timeInfo(model: LessonEvent?)
+        case generalInfo(model: Lesson)
+        case timeInfo(model: Lesson)
     }
     
     var viewModel: TimetableViewModel!
     var context: AppContext!
-    var lesson: LessonEvent?
+    var lesson: Lesson!
     {
         didSet {
-            lessonDetailsTable.reloadData()
+            items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
         }
     }
     
@@ -48,17 +53,15 @@ class TimetableLessonDetailsViewController: UIViewController {
         }
         
         self.view.backgroundColor = UIColor .htw.veryLightGrey
-        
-        items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
-        
         styleButtons()
+        
+        lesson = Lesson.empty
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    
+    func setup(model: Lesson) {
+        self.lesson = model
     }
-    
+
     private func styleButtons(){
         closeBtn.setTitle(R.string.localizable.close(), for: .normal)
         closeBtn.layer.cornerRadius = 4
@@ -78,9 +81,7 @@ class TimetableLessonDetailsViewController: UIViewController {
     
     @objc
     private func save() {
-        //Save Stuff
-        // TODO
-        
+        TimetableRealm.save(from: lesson)
         close()
     }
 }
@@ -102,13 +103,20 @@ extension TimetableLessonDetailsViewController: UITableViewDataSource {
             
         case .timeInfo(let model):
             let cell = lessonDetailsTable.dequeueReusableCell(TimetableLessonTimeCell.self, for: indexPath)!
+            cell.delegate = self
             cell.setup(with: model)
+            
+            
             return cell
         }
         
     }
-    
-    
+}
+
+extension TimetableLessonDetailsViewController: TimetableLessonDetailsDelegateCellDelegate {
+    func changeDetails(_ newLessonDetails: Lesson) {
+        self.lesson = newLessonDetails
+    }
 }
 
 class HTWTextField: UITextField {

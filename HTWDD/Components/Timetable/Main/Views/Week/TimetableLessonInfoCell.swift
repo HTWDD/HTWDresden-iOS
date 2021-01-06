@@ -18,7 +18,8 @@ class TimetableLessonInfoCell: UITableViewCell {
     @IBOutlet weak var lessonTypeSelectionField: LessonDetailsSelectionField!
     @IBOutlet weak var roomTextField: HTWTextField!
     
-    weak var lesson: LessonEvent!
+    var lesson: Lesson!
+    var delegate: TimetableLessonDetailsDelegateCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,11 +42,11 @@ class TimetableLessonInfoCell: UITableViewCell {
 
 extension TimetableLessonInfoCell: FromNibLoadable {
 
-    func setup(with data: LessonEvent?) {
-        lessonNameTextField.text = data?.lesson.name
-        abbrevationTextField.text = data?.lesson.lessonTag
-        docentNameTextField.text = data?.lesson.professor
-        lessonTypeSelectionField.text = data?.lesson.type.localizedDescription
-        roomTextField.text = data?.lesson.rooms.joined(separator: ", ")
+    func setup(with data: Lesson?) {
+        lessonNameTextField.text = data?.name
+        abbrevationTextField.text = data?.lessonTag
+        docentNameTextField.text = data?.professor
+        lessonTypeSelectionField.text = data?.type.localizedDescription
+        roomTextField.text = data?.rooms.joined(separator: ", ")
     }
 }

@@ -74,6 +74,7 @@ class TimetableViewModel {
                     result.append(.lesson(model: lesson))
                 }
             }
+            
             self?.appedFreedays(&result)
             return result
         }
@@ -110,12 +111,8 @@ class TimetableViewModel {
                 
                 return (keys, values)
         }
-        .map { [weak self] items -> [LessonEvent] in
+        .map { items -> [LessonEvent] in
             var result: [LessonEvent] = []
-            
-            
-            
-            
                 
                 items.values.forEach { lesson in
                     lesson.lessonDays.forEach { lessonDate in

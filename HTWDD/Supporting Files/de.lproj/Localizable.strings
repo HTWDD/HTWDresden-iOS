@@ -268,7 +268,7 @@
 "lesson.block.Five" = "Vorlesungsblock 5 (15:10 - 16:40)";
 "lesson.block.Six" = "Vorlesungsblock 6 (17:00 - 18:30)";
 "lesson.block.Seven" = "Vorlesungsblock 7 (18:40 - 20:10)";
-"lesson.block.Eigth" = "Vorlesungsblock 8 (20:20 - 21:50)";
+"lesson.block.Eight" = "Vorlesungsblock 8 (20:20 - 21:50)";
 
 "CalendarWeek.Every" = "jede KW";
 "CalendarWeek.Even" = "gerade KW";

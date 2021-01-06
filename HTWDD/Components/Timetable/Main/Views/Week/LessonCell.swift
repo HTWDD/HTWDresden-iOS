@@ -48,7 +48,7 @@ class LessonCell: UICollectionViewCell {
             NSAttributedString.Key.paragraphStyle : paragraphStyle,
         ] as [NSAttributedString.Key : Any]
 
-        let attributedString = NSMutableAttributedString(string: event.lesson.lessonTag ?? "", attributes: hyphenAttribute)
+        let attributedString = NSMutableAttributedString(string: event.lesson.name ?? "", attributes: hyphenAttribute)
         lessonName.attributedText = attributedString
         
         

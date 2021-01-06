@@ -15,9 +15,10 @@ class TimetableLessonTimeCell: UITableViewCell {
     @IBOutlet weak var calendarWeekSelectionView: LessonDetailsSelectionField!
     @IBOutlet weak var calendarDaySelectionView: LessonDetailsSelectionField!
     @IBOutlet weak var lessonBlockSelectionView: LessonDetailsSelectionField!
-    @IBOutlet weak var calenderWeeksTextField: HTWTextField!
+    @IBOutlet weak var calendarWeeksTextField: HTWTextField!
     
-    weak var lesson: LessonEvent!
+    var delegate: TimetableLessonDetailsDelegateCellDelegate?
+    var lesson: Lesson!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -39,17 +40,20 @@ class TimetableLessonTimeCell: UITableViewCell {
         lessonBlockSelectionView.placeholder = R.string.localizable.lessonBlock()
         lessonBlockSelectionView.selectionOptions = .lessonBlock(selection: .none)
         
-        calenderWeeksTextField.placeholder = R.string.localizable.onlyWeeks()
+        calendarWeeksTextField.placeholder = R.string.localizable.onlyWeeks()
     }
 }
 
 extension TimetableLessonTimeCell: FromNibLoadable {
 
-    func setup(with data: LessonEvent?) {
+    func setup(with data: Lesson?) {
         
-//        calendarDaySelectionView.text = data?.lesson.day
-//        lessonBlockSelectionView.text = data?.lesson.
-        calenderWeeksTextField.text = data?.lesson.weeksOnly.description
+        guard let data = data else { return }
+        
+        calendarDaySelectionView.text = CalendarWeekDay.allValues[data.day].localizedDescription
+        calendarWeekSelectionView.text = CalendarWeekRotation.allValues[data.week].localizedDescription
+        
+        calendarWeeksTextField.text = data.weeksOnly.map { String($0) }.joined(separator: ", ")
     }
 }
 
@@ -94,6 +98,7 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         toolBar.isUserInteractionEnabled = true
         self.inputAccessoryView = toolBar
     }
+    
     @objc func selectLessonType() {
         self.endEditing(true)
     }
@@ -116,7 +121,7 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         case .lectureType(_): return LessonType.allValues[row].localizedDescription
         case .weekRotation(_): return CalendarWeekRotation.allValues[row].localizedDescription
         case .weekDay(_): return CalendarWeekDay.allValues[row].localizedDescription
-        case .lessonBlock(_): return LessonBlocks.allValues[row].localizedDescription
+        case .lessonBlock(_): return LessonBlock.allValues[row].localizedDescription
         }
     }
     
@@ -126,104 +131,10 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allValues[row] as? LessonType)
         case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allValues[row] as? CalendarWeekRotation)
         case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allValues[row] as? CalendarWeekDay)
-        case .lessonBlock(_): selectionOptions = .lessonBlock(selection: LessonBlocks.allValues[row] as? LessonBlocks)
+        case .lessonBlock(_): selectionOptions = .lessonBlock(selection: LessonBlock.allValues[row] as? LessonBlock)
         case .none: break
         }
         
         self.text = selectionOptions?.localizedDescription ?? ""
-    }
-}
-
-enum LessonDetailsOptions {
-    case lectureType(selection: LessonType?)
-    case weekRotation(selection: CalendarWeekRotation?)
-    case weekDay(selection: CalendarWeekDay?)
-    case lessonBlock(selection: LessonBlocks?)
-    
-    var count: Int {
-        switch self {
-        case .lectureType(_): return LessonType.caseCount
-        case .weekRotation(_): return CalendarWeekRotation.caseCount
-        case .weekDay(_): return CalendarWeekDay.caseCount
-        case .lessonBlock(_): return LessonBlocks.caseCount
-        }
-    }
-    
-    var localizedDescription: String {
-        switch self {
-        case .lectureType(let selection): return selection?.localizedDescription ?? ""
-        case .weekRotation(let selection): return selection?.localizedDescription ?? ""
-        case .weekDay(let selection): return selection?.localizedDescription ?? ""
-        case .lessonBlock(let selection): return selection?.localizedDescription ?? ""
-        }
-    }
-    
-}
-
-enum CalendarWeekRotation: LessonDetailsPickerSelection {
-    case everyWeek
-    case evenWeeks
-    case unevenWeeks
-    
-    static var allValues: [LessonDetailsPickerSelection] { return [everyWeek, evenWeeks, unevenWeeks] }
-    static var caseCount: Int { return allValues.count }
-    
-    var localizedDescription: String {
-    
-        switch self {
-        case .everyWeek: return R.string.localizable.calendarWeekEvery()
-        case .evenWeeks: return R.string.localizable.calendarWeekEven()
-        case .unevenWeeks: return R.string.localizable.calendarWeekUneven()
-        }
-    }
-}
-
-enum CalendarWeekDay: LessonDetailsPickerSelection {
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
-    
-    static var allValues: [LessonDetailsPickerSelection] { return [monday, tuesday, wednesday, thursday, friday] }
-    static var caseCount: Int { return allValues.count }
-    
-    var localizedDescription: String {
-        
-        switch self {
-        case .monday: return R.string.localizable.monday()
-        case .tuesday: return R.string.localizable.tuesday()
-        case .wednesday: return R.string.localizable.wednesday()
-        case .thursday: return R.string.localizable.thursday()
-        case .friday: return R.string.localizable.friday()
-        }
-    }
-}
-
-enum LessonBlocks: LessonDetailsPickerSelection {
-    static var allValues: [LessonDetailsPickerSelection] { return [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock, sixthBlock, seventhBlock, eighthBlock] }
-    static var caseCount: Int { return allValues.count }
-    
-    case firstBlock
-    case secondBlock
-    case thirdBlock
-    case fourthBlock
-    case fifthBlock
-    case sixthBlock
-    case seventhBlock
-    case eighthBlock
-    
-    var localizedDescription: String {
-    
-        switch self {
-        case .firstBlock: return R.string.localizable.lessonBlockOne()
-        case .secondBlock: return R.string.localizable.lessonBlockTwo()
-        case .thirdBlock: return R.string.localizable.lessonBlockThree()
-        case .fourthBlock: return R.string.localizable.lessonBlockFour()
-        case .fifthBlock: return R.string.localizable.lessonBlockFive()
-        case .sixthBlock: return R.string.localizable.lessonBlockSix()
-        case .seventhBlock: return R.string.localizable.lessonBlockSeven()
-        case .eighthBlock: return R.string.localizable.lessonBlockEight()
-        }
     }
 }
