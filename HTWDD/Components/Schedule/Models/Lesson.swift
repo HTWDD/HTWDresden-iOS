@@ -10,20 +10,18 @@ import Foundation
 import UIKit
 
 struct Lesson: Codable {
-    static var empty  = Lesson(id: UUID().uuidString, lessonTag: .none, name: "", type: .unkown, day: 0, beginTime: "", endTime: "", week: 0, weeksOnly: [], professor: .none, rooms: [], lastChanged: "")
-    
-    var id: String
-    var lessonTag: String?
-    var name: String
-    var type: LessonType
-    var day: Int
-    var beginTime: String
-    var endTime: String
-    var week: Int
-    var weeksOnly: [Int]
-    var professor: String?
-    var rooms: [String]
-    var lastChanged: String
+    let id: String
+    let lessonTag: String?
+    let name: String
+    let type: LessonType
+    let day: Int
+    let beginTime: String
+    let endTime: String
+    let week: Int
+    let weeksOnly: [Int]
+    let professor: String?
+    let rooms: [String]
+    let lastChanged: String
     
     var lessonDays: [String] {
         let date = Date()
@@ -59,6 +57,20 @@ extension Lesson: Hashable {
             && lhs.week == rhs.week
     }
     
+}
+
+struct CustomLesson {
+    var id: String?
+    var lessonTag: String?
+    var name: String?
+    var type: LessonType?
+    var day: Int?
+    var lessonBlock: LessonBlock?
+    var week: Int?
+    var weeksOnly: String?
+    var professor: String?
+    var rooms: String?
+    var lastChanged: String?
 }
 
 protocol LessonDetailsPickerSelection {
@@ -142,11 +154,11 @@ enum LessonDetailsOptions {
     
 }
 
-enum CalendarWeekRotation: LessonDetailsPickerSelection {
-    case notSet
-    case everyWeek
-    case evenWeeks
-    case unevenWeeks
+enum CalendarWeekRotation: Int, LessonDetailsPickerSelection {
+    case notSet = 0
+    case everyWeek = 1
+    case evenWeeks = 2
+    case unevenWeeks = 3
     
     static var allValues: [LessonDetailsPickerSelection] { return [notSet, everyWeek, evenWeeks, unevenWeeks] }
     static var caseCount: Int { return allValues.count }
@@ -162,12 +174,12 @@ enum CalendarWeekRotation: LessonDetailsPickerSelection {
     }
 }
 
-enum CalendarWeekDay: LessonDetailsPickerSelection {
-    case monday
-    case tuesday
-    case wednesday
-    case thursday
-    case friday
+enum CalendarWeekDay: Int, LessonDetailsPickerSelection {
+    case monday = 0
+    case tuesday = 1
+    case wednesday = 2
+    case thursday = 3
+    case friday = 4
     
     static var allValues: [LessonDetailsPickerSelection] { return [monday, tuesday, wednesday, thursday, friday] }
     static var caseCount: Int { return allValues.count }
@@ -208,20 +220,32 @@ enum LessonBlock: LessonDetailsPickerSelection {
         }
     }
     
+    var startTime: String {
+        switch self {
+        case .firstBlock: return "07:30"
+        case .secondBlock: return "09:20"
+        case .thirdBlock: return "11:10"
+        case .fourthBlock: return "13:20"
+        case .fifthBlock: return "15:10"
+        case .sixthBlock: return "17:00"
+        case .seventhBlock: return "18:40"
+        case .eighthBlock: return "20:20"
+        }
+    }
+    
+    var endTime: String {
+        switch self {
+        case .firstBlock: return "09:00"
+        case .secondBlock: return "10:50"
+        case .thirdBlock: return "12:40"
+        case .fourthBlock: return "14:50"
+        case .fifthBlock: return "16:40"
+        case .sixthBlock: return "18:30"
+        case .seventhBlock: return "20:10"
+        case .eighthBlock: return "21:50"
+        }
+    }
+    
     static var allValues: [LessonDetailsPickerSelection] { return [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock, sixthBlock, seventhBlock, eighthBlock] }
     static var caseCount: Int { return allValues.count }
-    
-    static func getLessonBlock(startTime: String, endTime: String) -> LessonBlock? {
-        
-        if startTime == "07:30", endTime == "09:00" { return .firstBlock }
-        if startTime == "09:20", endTime == "10:50" { return .secondBlock }
-        if startTime == "11:10", endTime == "12:40" { return .thirdBlock }
-        if startTime == "13:20", endTime == "09:00" { return .fourthBlock }
-        if startTime == "07:30", endTime == "09:00" { return .fifthBlock }
-        if startTime == "07:30", endTime == "09:00" { return .sixthBlock }
-        if startTime == "07:30", endTime == "09:00" { return .seventhBlock }
-        if startTime == "07:30", endTime == "09:00" { return .eighthBlock }
-        
-        return .none
-    }
 }

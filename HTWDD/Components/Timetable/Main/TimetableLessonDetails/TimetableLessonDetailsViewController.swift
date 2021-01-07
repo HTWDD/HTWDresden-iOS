@@ -10,24 +10,19 @@ import UIKit
 
 protocol TimetableLessonDetailsDelegateCellDelegate {
     
-    func changeDetails(_ newLessonDetails: Lesson)
+    func changeDetails(_ newLessonDetails: CustomLesson)
 }
 
 class TimetableLessonDetailsViewController: UIViewController {
 
     private enum Item {
-        case generalInfo(model: Lesson)
-        case timeInfo(model: Lesson)
+        case generalInfo(model: CustomLesson)
+        case timeInfo(model: CustomLesson)
     }
     
     var viewModel: TimetableViewModel!
     var context: AppContext!
-    var lesson: Lesson!
-    {
-        didSet {
-            items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
-        }
-    }
+    var lesson: CustomLesson = CustomLesson()
     
     private var items = [Item]() {
         didSet {
@@ -45,6 +40,7 @@ class TimetableLessonDetailsViewController: UIViewController {
         
         lessonDetailsTable.dataSource = self
         lessonDetailsTable.tableHeaderView?.isHidden = true
+        lessonDetailsTable.keyboardDismissMode = .onDrag
         lessonDetailsTable.apply {
             $0.register(TimetableLessonInfoCell.self)
             $0.register(TimetableLessonTimeCell.self)
@@ -55,11 +51,12 @@ class TimetableLessonDetailsViewController: UIViewController {
         self.view.backgroundColor = UIColor .htw.veryLightGrey
         styleButtons()
         
-        lesson = Lesson.empty
+        items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
     }
     
-    func setup(model: Lesson) {
+    func setup(model: CustomLesson) {
         self.lesson = model
+        items = [.generalInfo(model: lesson), .timeInfo(model: lesson)]
     }
 
     private func styleButtons(){
@@ -81,8 +78,14 @@ class TimetableLessonDetailsViewController: UIViewController {
     
     @objc
     private func save() {
-        TimetableRealm.save(from: lesson)
-        close()
+        
+        print(lesson)
+        
+        
+//        check
+        
+//        TimetableRealm.save(from: lesson)
+//        close()
     }
 }
 
@@ -98,6 +101,7 @@ extension TimetableLessonDetailsViewController: UITableViewDataSource {
         switch items[indexPath.row] {
         case .generalInfo(let model):
             let cell = lessonDetailsTable.dequeueReusableCell(TimetableLessonInfoCell.self, for: indexPath)!
+            cell.delegate = self
             cell.setup(with: model)
             return cell
             
@@ -114,7 +118,7 @@ extension TimetableLessonDetailsViewController: UITableViewDataSource {
 }
 
 extension TimetableLessonDetailsViewController: TimetableLessonDetailsDelegateCellDelegate {
-    func changeDetails(_ newLessonDetails: Lesson) {
+    func changeDetails(_ newLessonDetails: CustomLesson) {
         self.lesson = newLessonDetails
     }
 }

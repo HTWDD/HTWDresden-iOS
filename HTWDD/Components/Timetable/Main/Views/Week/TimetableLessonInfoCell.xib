@@ -41,6 +41,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="lessonNameChanged:" destination="xUW-8r-LXH" eventType="editingDidEnd" id="ye5-jV-o0r"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name of the docent" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihr-ES-C8B" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="161" width="248" height="19"/>
@@ -49,6 +52,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="docentChanged:" destination="xUW-8r-LXH" eventType="editingDidEnd" id="fEV-zR-2Y0"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lecture type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU5-fn-atA" customClass="LessonDetailsSelectionField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="205" width="248" height="19"/>
@@ -97,6 +103,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="roomChanged:" destination="xUW-8r-LXH" eventType="editingDidEnd" id="ebP-oF-mpW"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Abbrevation" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iiq-JZ-Lyp" customClass="HTWTextField" customModule="HTWDD" customModuleProvider="target">
                                 <rect key="frame" x="42" y="117" width="248" height="19"/>
@@ -105,6 +114,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="abbrevationChanged:" destination="xUW-8r-LXH" eventType="editingDidEnd" id="nNp-5w-fvF"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

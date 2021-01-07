@@ -18,7 +18,7 @@ class TimetableLessonTimeCell: UITableViewCell {
     @IBOutlet weak var calendarWeeksTextField: HTWTextField!
     
     var delegate: TimetableLessonDetailsDelegateCellDelegate?
-    var lesson: Lesson!
+    var lesson: CustomLesson!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,12 +33,15 @@ class TimetableLessonTimeCell: UITableViewCell {
         
         calendarWeekSelectionView.placeholder = R.string.localizable.weekRotation()
         calendarWeekSelectionView.selectionOptions = .weekRotation(selection: .none)
+        calendarWeekSelectionView.selectionDelegate = self
         
         calendarDaySelectionView.placeholder = R.string.localizable.weekday()
         calendarDaySelectionView.selectionOptions = .weekDay(selection: .none)
+        calendarDaySelectionView.selectionDelegate = self
         
         lessonBlockSelectionView.placeholder = R.string.localizable.lessonBlock()
         lessonBlockSelectionView.selectionOptions = .lessonBlock(selection: .none)
+        lessonBlockSelectionView.selectionDelegate = self
         
         calendarWeeksTextField.placeholder = R.string.localizable.onlyWeeks()
     }
@@ -46,95 +49,39 @@ class TimetableLessonTimeCell: UITableViewCell {
 
 extension TimetableLessonTimeCell: FromNibLoadable {
 
-    func setup(with data: Lesson?) {
+    func setup(with data: CustomLesson) {
         
-        guard let data = data else { return }
+        self.lesson = data
         
-        calendarDaySelectionView.text = CalendarWeekDay.allValues[data.day].localizedDescription
-        calendarWeekSelectionView.text = CalendarWeekRotation.allValues[data.week].localizedDescription
+        if let day = data.day {
+            calendarDaySelectionView.text = CalendarWeekDay.allValues[day].localizedDescription
+        }
         
-        calendarWeeksTextField.text = data.weeksOnly.map { String($0) }.joined(separator: ", ")
+        if let week = data.week {
+            calendarWeekSelectionView.text = CalendarWeekRotation.allValues[week].localizedDescription
+        }
+        
+        if let lessonBlock = data.lessonBlock {
+            lessonBlockSelectionView.text = lessonBlock.localizedDescription
+        }
+        
+        if let weeksOnly = data.weeksOnly {
+            
+            calendarWeeksTextField.text = weeksOnly.map { String($0) }.joined(separator: ", ")
+        }
     }
 }
 
-class LessonDetailsSelectionField: UITextField {
-    
-    var selectionOptions: LessonDetailsOptions?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        createDropDownIcon()
-        createPickerView()
-        dismissPickerView()
-    }
-    
-    func createDropDownIcon() {
-        let iconView = UIImageView(frame:
-                                    CGRect(x: 10, y: 5, width: 20, height: 20))
-        iconView.image = UIImage(named: "Down")
-        let iconContainerView: UIView = UIView(frame:
-                                                CGRect(x: 20, y: 0, width: 30, height: 30))
-        iconContainerView.addSubview(iconView)
-        
-        rightView = iconContainerView
-        rightViewMode = .always
-    }
-}
-
-extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func createPickerView() {
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        self.inputView = pickerView
-    }
-    
-    func dismissPickerView() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(selectLessonType))
-        toolBar.setItems([button], animated: true)
-        toolBar.isUserInteractionEnabled = true
-        self.inputAccessoryView = toolBar
-    }
-    
-    @objc func selectLessonType() {
-        self.endEditing(true)
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return selectionOptions?.count ?? 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        guard let selectionOptions = selectionOptions else {
-            return ""
-        }
-        
+extension TimetableLessonTimeCell: LessonDetailsSelectionFieldDelegate {
+    func done(_ selectionOptions: LessonDetailsOptions) {
         switch selectionOptions {
-        case .lectureType(_): return LessonType.allValues[row].localizedDescription
-        case .weekRotation(_): return CalendarWeekRotation.allValues[row].localizedDescription
-        case .weekDay(_): return CalendarWeekDay.allValues[row].localizedDescription
-        case .lessonBlock(_): return LessonBlock.allValues[row].localizedDescription
+        case .weekRotation(let selection): lesson.week = selection?.rawValue
+        case .weekDay(let selection): lesson.day = selection?.rawValue
+        case .lessonBlock(let selection): lesson.lessonBlock = selection
+        default: break
         }
+        
+        delegate?.changeDetails(lesson)
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
-        switch selectionOptions {
-        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allValues[row] as? LessonType)
-        case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allValues[row] as? CalendarWeekRotation)
-        case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allValues[row] as? CalendarWeekDay)
-        case .lessonBlock(_): selectionOptions = .lessonBlock(selection: LessonBlock.allValues[row] as? LessonBlock)
-        case .none: break
-        }
-        
-        self.text = selectionOptions?.localizedDescription ?? ""
-    }
 }
