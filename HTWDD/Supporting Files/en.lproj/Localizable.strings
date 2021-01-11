@@ -270,6 +270,7 @@
 "lesson.block.Seven" = "lesson block 7 (6:40 PM - 8:10 PM)";
 "lesson.block.Eight" = "lesson block 8 (8:20 PM - 9:50 PM)";
 
+"CalendarWeek.Once" = "one time";
 "CalendarWeek.Every" = "ever CW";
 "CalendarWeek.Even" = "even CW";
 "CalendarWeek.Uneven" = "uneven CW";

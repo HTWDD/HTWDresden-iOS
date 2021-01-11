@@ -73,7 +73,6 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         case .lectureType(_): return LessonType.allValues[row].localizedDescription
         case .weekRotation(_): return CalendarWeekRotation.allValues[row].localizedDescription
         case .weekDay(_): return CalendarWeekDay.allValues[row].localizedDescription
-        case .lessonBlock(_): return LessonBlock.allValues[row].localizedDescription
         default: return ""
         }
     }
@@ -84,10 +83,14 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allValues[row] as? LessonType)
         case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allValues[row] as? CalendarWeekRotation)
         case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allValues[row] as? CalendarWeekDay)
-        case .lessonBlock(_): selectionOptions = .lessonBlock(selection: LessonBlock.allValues[row] as? LessonBlock)
         default: break
         }
         
         self.text = selectionOptions?.localizedDescription ?? ""
     }
+
+     @objc func cancelDatePicker(){
+        self.endEditing(true)
+      }
+
 }

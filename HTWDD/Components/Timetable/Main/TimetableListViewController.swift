@@ -29,6 +29,8 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.rowHeight            = UITableView.automaticDimension
         }
         
+        tableView.delegate = self
+        
         load()
     }
     
@@ -99,7 +101,10 @@ class TimetableListViewController: TimetableBaseViewController {
         indexer: for (index, element) in items.enumerated() {
             switch element {
             case .header(let model):
-                if model.header == Date().string(format: "dd.MM.yyyy") {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                
+                if let elementDate = dateFormatter.date(from: model.header), elementDate >= Date() {
                     indexOfHeader = index
                     break indexer
                 }
@@ -121,17 +126,42 @@ class TimetableListViewController: TimetableBaseViewController {
             }
             
             return .none
-            
         }
         
         lessons?.removeDuplicates()
         
         return lessons
     }
+    
+    override func getSemesterWeeks() -> [Int] {
+        guard let lessons = getAllLessons() else { return [] }
+        
+        var semesterWeeks: [Int] = []
+        var lessonDateStrings: [String] = []
+        
+        lessons.forEach { lesson in
+            lessonDateStrings.append(contentsOf: lesson.lessonDays)
+        }
+        
+        lessonDateStrings.removeDuplicates()
+        lessonDateStrings.forEach { lessonDate in
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+            if let date = dateFormatter.date(from: lessonDate) {
+                semesterWeeks.append(Calendar.current.component(.weekOfYear, from: date))
+            }
+            
+        }
+        semesterWeeks.removeDuplicates()
+        semesterWeeks.sort()
+        return semesterWeeks
+    }
 }
 
 // MARK: - Timetable Datasource
-extension TimetableListViewController: UITableViewDataSource {
+extension TimetableListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -144,6 +174,7 @@ extension TimetableListViewController: UITableViewDataSource {
             }
         case .lesson(let model):
             return tableView.dequeueReusableCell(TimetableLessonViewCell.self, for: indexPath)!.also {
+                $0.exportDelegate = self
                 $0.setup(with: model)
             }
         case .freeday(let model):
@@ -151,6 +182,22 @@ extension TimetableListViewController: UITableViewDataSource {
                 $0.setup(with: model)
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch (items[indexPath.row]) {
+        case .lesson(let model):
+            let detailsLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
+                $0.context      = context
+                $0.viewModel    = viewModel
+                $0.semseterWeeks = getSemesterWeeks()
+            }
+            
+            detailsLessonViewController.setup(model: model)
+            self.navigationController?.pushViewController(detailsLessonViewController, animated: true)
+        default: break
+        }
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -164,4 +211,24 @@ extension TimetableListViewController: UITableViewDataSource {
         }
     }
     
+}
+
+extension TimetableListViewController: LessonViewCellExportDelegate {
+    func export(_ lesson: Lesson) {
+        
+        let exportMenu = UIAlertController(title: "Vorlesung exportieren", message: "Möchten Sie die Vorlesung in Ihren Kalender exportieren", preferredStyle: .actionSheet)
+        
+        let fullExportAction = UIAlertAction(title: "Alle Vorlesungstermine exportieren", style: .default, handler: { _ in
+  
+            self.viewModel.export(lessons: [lesson])
+            self.showSuccessMessage()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel)
+        
+        exportMenu.addAction(fullExportAction)
+        exportMenu.addAction(cancelAction)
+        
+        self.present(exportMenu, animated: true, completion: nil)
+    }
 }

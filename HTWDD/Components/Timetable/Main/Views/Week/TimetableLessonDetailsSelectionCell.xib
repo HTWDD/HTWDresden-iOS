@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="khk-Ii-TM0" customClass="TimetableLessonDetailsSelectionCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="khk-Ii-TM0" id="bLI-8S-hU9">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRR-oX-noD">
+                        <rect key="frame" x="19" y="0.0" width="376" height="44"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-6j-fz1">
+                                <rect key="frame" x="19" y="14" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="a6Q-1P-NEP"/>
+                                    <constraint firstAttribute="width" constant="16" id="slJ-Wq-o0z"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTt-wD-QEs" customClass="LessonDetailsSelectionField" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="49" y="10" width="313" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Nfz-12-5Sz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CjE-6j-fz1" firstAttribute="leading" secondItem="tRR-oX-noD" secondAttribute="leading" constant="19" id="3d6-A1-ggX"/>
+                            <constraint firstAttribute="trailing" secondItem="RTt-wD-QEs" secondAttribute="trailing" constant="14" id="3dZ-xf-DnP"/>
+                            <constraint firstItem="RTt-wD-QEs" firstAttribute="leading" secondItem="CjE-6j-fz1" secondAttribute="trailing" constant="14" id="KVv-H4-dLE"/>
+                            <constraint firstItem="CjE-6j-fz1" firstAttribute="centerY" secondItem="tRR-oX-noD" secondAttribute="centerY" id="L2F-Mj-R7U"/>
+                            <constraint firstItem="RTt-wD-QEs" firstAttribute="centerY" secondItem="tRR-oX-noD" secondAttribute="centerY" id="LjQ-yu-Ckz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="tRR-oX-noD" firstAttribute="top" secondItem="bLI-8S-hU9" secondAttribute="top" id="9j5-P7-roA"/>
+                    <constraint firstAttribute="bottom" secondItem="tRR-oX-noD" secondAttribute="bottom" id="E8p-hd-NJL"/>
+                    <constraint firstItem="tRR-oX-noD" firstAttribute="leading" secondItem="bLI-8S-hU9" secondAttribute="leading" constant="19" id="KaB-C3-0d8"/>
+                    <constraint firstAttribute="trailing" secondItem="tRR-oX-noD" secondAttribute="trailing" constant="19" id="Xvw-L7-68u"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="iconView" destination="CjE-6j-fz1" id="dF9-fh-Sgf"/>
+                <outlet property="lessonDetailsSelectionField" destination="RTt-wD-QEs" id="1af-uJ-kZ2"/>
+            </connections>
+            <point key="canvasLocation" x="-168" y="-139"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

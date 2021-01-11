@@ -48,6 +48,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     private var containerView = View()
     var viewModel: TimetableViewModel
     var context: AppContext
+    lazy var eventStore = EKEventStore()
     
     private var cachedStyles = [TimetableLayoutStyle: TimetableBaseViewController]()
     private var currentStyle: TimetableLayoutStyle? {
@@ -88,22 +89,21 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         
         switch currentStyle {
         case .list:
-            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
-            
-            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
+            let scrollToTodayBtn = UIBarButtonItem.menuButton(self, action: #selector(scrollToToday), imageName: "Icon_TodayList")
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
+            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
             
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
             
         case .week:
-            let exportBtn = UIBarButtonItem(title: "Export", style: .plain, target: self, action: #selector(scrollToToday))
-            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
+            let exportBtn = UIBarButtonItem.menuButton(self, action: #selector(exportAll), imageName: "Icon_Export")
+            let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icons_List")
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
             
             navigationItem.rightBarButtonItems = [exportBtn, listWeekBtn, addBtn]
             
         default:
-            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
+            let scrollToTodayBtn = UIBarButtonItem.menuButton(self, action: #selector(scrollToToday), imageName: "Icon_TodayList")
             navigationItem.rightBarButtonItems = [scrollToTodayBtn]
         }
     }
@@ -121,32 +121,75 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         let createLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
             $0.context      = context
             $0.viewModel    = viewModel
+            $0.semseterWeeks = currentTimetableViewController?.getSemesterWeeks()
         }
 
         self.navigationController?.pushViewController(createLessonViewController, animated: true)
     }
     
     @objc func exportAll() {
-        let allLessons = currentTimetableViewController?.getAllLessons()
         
-        viewModel.export(lessons: allLessons)
+        eventStore.requestAccess(to: .event) { (granted, error) in
+            
+            guard (granted) && (error == nil) else { return }
+            
+            DispatchQueue.main.async {
+                self.showExportDialog()
+            }
+        }
     }
     
-    private func showCalendarChooser() {
-        let eventStore = EKEventStore()
-        let calendarChooser = EKCalendarChooser(selectionStyle: .single, displayStyle: .allCalendars, entityType: .event, eventStore: eventStore)
+    fileprivate func showExportDialog() {
         
-        calendarChooser.showsDoneButton = true
-        calendarChooser.showsCancelButton = true
-        calendarChooser.delegate = self
-
-        self.present(calendarChooser, animated: true, completion: nil)
+        
+        let exportMenu = UIAlertController(title: "Vorlesung exportieren", message: "Möchten Sie die Vorlesung in Ihren Kalender exportieren", preferredStyle: .actionSheet)
+        
+        let currentWeekExportAction = UIAlertAction(title: "Aktuelle Vorlesungswoche exportieren", style: .default, handler: { _ in
+             
+            self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber))
+            self.currentTimetableViewController?.showSuccessMessage()
+        })
+        
+        let nextWeekExportAction = UIAlertAction(title: "Nächste Vorlesungswoche exportieren", style: .default, handler: { _ in
+            
+            
+            self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber + 1))
+            self.currentTimetableViewController?.showSuccessMessage()
+        })
+        
+        let fullExportAction = UIAlertAction(title: "Komplettes Semester exportieren", style: .default, handler: { _ in
+            
+            self.viewModel.export(lessons: self.currentTimetableViewController?.getAllLessons())
+            self.currentTimetableViewController?.showSuccessMessage()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel)
+        
+        exportMenu.addAction(currentWeekExportAction)
+        exportMenu.addAction(nextWeekExportAction)
+        exportMenu.addAction(fullExportAction)
+        exportMenu.addAction(cancelAction)
+        
+        self.present(exportMenu, animated: true, completion: nil)
+    }
+    
+    private func prepareLessonsForExport(calendarWeek: Int) -> [Lesson] {
+        guard let allLessons = self.currentTimetableViewController?.getAllLessons() else { return [] }
+        
+        var preparedLessons = allLessons.filter { $0.weeksOnly.contains(calendarWeek) }
+        preparedLessons.removeDuplicates()
+        
+        for (index, _) in preparedLessons.enumerated() {
+            preparedLessons[index].weeksOnly = [calendarWeek]
+        }
+        
+        return preparedLessons
     }
     
     private func switchStyle(to style: TimetableLayoutStyle?) {
         guard let style = style else { return }
         UserDefaults.standard.set(style.rawValue, forKey: TimetableLayoutStyle.cachingKey)
-
+        
         if let vc = self.currentTimetableViewController {
             vc.willMove(toParent: nil)
             vc.view.removeFromSuperview()

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LessonViewCellExportDelegate: class {
+    func export(_ lesson: Lesson)
+}
+
 class TimetableLessonViewCell: UITableViewCell {
 
     @IBOutlet weak var main: UIView!
@@ -18,6 +22,9 @@ class TimetableLessonViewCell: UITableViewCell {
     @IBOutlet weak var lblExamBegin: UILabel!
     @IBOutlet weak var lblExamEnd: UILabel!
     @IBOutlet weak var separator: UIView!
+    
+    var lesson: Lesson?
+    weak var exportDelegate: LessonViewCellExportDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,7 +59,17 @@ class TimetableLessonViewCell: UITableViewCell {
         lblExamEnd.apply {
             $0.textColor = UIColor.htw.Label.primary
         }
+        
+        let exportGesture = UILongPressGestureRecognizer(target: self, action: #selector(exportLesson))
+        self.addGestureRecognizer(exportGesture)
     }
+    
+    @objc func exportLesson() {
+        guard let lesson = lesson else { return }
+        
+        exportDelegate?.export(lesson)
+    }
+
 
 }
 
@@ -60,6 +77,9 @@ class TimetableLessonViewCell: UITableViewCell {
 extension TimetableLessonViewCell: FromNibLoadable {
     
     func setup(with model: Lesson) {
+        
+        self.lesson = model
+        
         separator.backgroundColor = "\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
         lblExamName.text    = model.name
         lblExamBegin.text   = String(model.beginTime.prefix(5))

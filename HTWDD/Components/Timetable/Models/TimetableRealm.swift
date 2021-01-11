@@ -32,6 +32,10 @@ class TimetableRealm: Object {
         return false
     }
     
+    override static func primaryKey() -> String? {
+      return "id"
+    }
+    
 }
 
 extension TimetableRealm {
@@ -80,13 +84,44 @@ extension TimetableRealm {
         }
     }
     
-    static func delete(items: [Lesson]) {
+    static func update(from codable: Lesson) {
+        
+        let realm = try! Realm()
+        let objects = realm.objects(TimetableRealm.self).filter("id = %@", codable.id)
+
+        if let object = objects.first {
+            try! realm.write {
+                object.setValue(codable.lessonTag, forKey: "lessonTag")
+                object.setValue(codable.name, forKey: "name")
+                object.setValue(codable.type.rawValue, forKey: "type")
+                object.setValue(codable.day, forKey: "day")
+                object.setValue(codable.beginTime, forKey: "beginTime")
+                object.setValue(codable.endTime, forKey: "endTime")
+                object.setValue(codable.week, forKey: "week")
+                object.weeksOnly.removeAll()
+                codable.weeksOnly.forEach{ week in object.weeksOnly.append(week) }
+                object.setValue(codable.professor, forKey: "professor")
+                object.rooms.removeAll()
+                codable.rooms.forEach{room in object.rooms.append(room) }
+                object.setValue(codable.lastChanged, forKey: "lastChanged")
+            }
+        }
+    }
+    
+    static func exist(id: String) -> Bool {
+        let realm = try! Realm()
+        let objects = realm.objects(TimetableRealm.self).filter("id = %@", id)
+        
+        return objects.first != .none
+    }
+    
+    static func delete(ids: [String]) {
         let realm = try! Realm()
         try! realm.write {
             
-            items.forEach { item in
+            ids.forEach { id in
                 
-                if let realmObject = realm.object(ofType: TimetableRealm.self, forPrimaryKey: item.id) {
+                if let realmObject = realm.object(ofType: TimetableRealm.self, forPrimaryKey: id) {
                     realm.delete(realmObject)
                 }
             }

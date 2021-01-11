@@ -123,43 +123,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="300" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-33-bOI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-33-bOI">
                                 <rect key="frame" x="0.0" y="44" width="414" height="755"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gD-7S-J3M">
-                                <rect key="frame" x="288" y="807" width="107" height="36"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ySx-yv-8hA">
+                                <rect key="frame" x="167" y="807" width="228" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
+                                        <rect key="frame" x="0.0" y="0.0" width="107" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="107" id="KBr-nk-poA"/>
+                                            <constraint firstAttribute="height" constant="36" id="xNG-jT-nOm"/>
+                                        </constraints>
+                                        <state key="normal" title="Close">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2gD-7S-J3M">
+                                        <rect key="frame" x="121" y="0.0" width="107" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="6Ah-gZ-DiZ"/>
+                                            <constraint firstAttribute="width" constant="107" id="mcL-Zv-rfU"/>
+                                        </constraints>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="6Ah-gZ-DiZ"/>
-                                    <constraint firstAttribute="width" constant="107" id="mcL-Zv-rfU"/>
+                                    <constraint firstAttribute="height" constant="36" id="pV0-SD-OXv"/>
                                 </constraints>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdS-Iv-888">
-                                <rect key="frame" x="167" y="807" width="107" height="36"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="107" id="KBr-nk-poA"/>
-                                    <constraint firstAttribute="height" constant="36" id="xNG-jT-nOm"/>
-                                </constraints>
-                                <state key="normal" title="Close">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2gD-7S-J3M" firstAttribute="top" secondItem="D0U-33-bOI" secondAttribute="bottom" constant="8" id="GB1-hB-g38"/>
-                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="2gD-7S-J3M" secondAttribute="bottom" constant="19" id="NGK-c8-MNY"/>
                             <constraint firstItem="D0U-33-bOI" firstAttribute="trailing" secondItem="i2e-Jd-71t" secondAttribute="trailing" id="NaX-4j-Caw"/>
-                            <constraint firstItem="i2e-Jd-71t" firstAttribute="trailing" secondItem="2gD-7S-J3M" secondAttribute="trailing" constant="19" id="YBZ-Dq-iiP"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="ySx-yv-8hA" secondAttribute="bottom" constant="19" id="S5t-xp-iAx"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="trailing" secondItem="ySx-yv-8hA" secondAttribute="trailing" constant="19" id="UR6-98-fXN"/>
+                            <constraint firstItem="ySx-yv-8hA" firstAttribute="top" secondItem="D0U-33-bOI" secondAttribute="bottom" constant="8" symbolic="YES" id="bFQ-7f-aQ2"/>
                             <constraint firstItem="D0U-33-bOI" firstAttribute="top" secondItem="i2e-Jd-71t" secondAttribute="top" id="hg5-ko-Imu"/>
-                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="tdS-Iv-888" secondAttribute="bottom" constant="19" id="jgM-i4-yqX"/>
-                            <constraint firstItem="2gD-7S-J3M" firstAttribute="leading" secondItem="tdS-Iv-888" secondAttribute="trailing" constant="14" id="nQB-WN-KsV"/>
                             <constraint firstItem="D0U-33-bOI" firstAttribute="leading" secondItem="i2e-Jd-71t" secondAttribute="leading" id="oKM-hN-5Pn"/>
                         </constraints>
                     </view>

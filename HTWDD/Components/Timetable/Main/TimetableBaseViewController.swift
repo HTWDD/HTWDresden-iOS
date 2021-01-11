@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class TimetableBaseViewController: UIViewController {
     
     // MARK: - Properties
@@ -44,5 +42,20 @@ class TimetableBaseViewController: UIViewController {
     
     func getAllLessons() -> [Lesson]? {
         fatalError("pls implement")
+    }
+    
+    func getSemesterWeeks() -> [Int] {
+        fatalError("pls implement")
+    }
+    
+    func showSuccessMessage() {
+        let alert = UIAlertController(title: "Erfolgreich exportiert",
+                                    message: nil,
+                                    preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Okay",
+                                      style: .default))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }

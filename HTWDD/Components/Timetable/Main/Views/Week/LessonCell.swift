@@ -9,17 +9,24 @@
 import UIKit
 import JZCalendarWeekView
 
+protocol LessonCellExportDelegate: class {
+    func export(_ lessonEvent: LessonEvent)
+}
+
 class LessonCell: UICollectionViewCell {
 
     @IBOutlet weak var lessonName: UILabel!
     @IBOutlet weak var lessonType: UILabel!
     
     var event: LessonEvent?
+    weak var exportDelegate: LessonCellExportDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         setupBasic()
+        let exportGesture = UILongPressGestureRecognizer(target: self, action: #selector(exportLesson))
+        self.addGestureRecognizer(exportGesture)
     }
 
     func setupBasic() {
@@ -48,11 +55,17 @@ class LessonCell: UICollectionViewCell {
             NSAttributedString.Key.paragraphStyle : paragraphStyle,
         ] as [NSAttributedString.Key : Any]
 
-        let attributedString = NSMutableAttributedString(string: event.lesson.name ?? "", attributes: hyphenAttribute)
+        let attributedString = NSMutableAttributedString(string: event.lesson.lessonTag ?? event.lesson.name, attributes: hyphenAttribute)
         lessonName.attributedText = attributedString
         
         
         self.backgroundColor = event.lesson.type.timetableColor
+    }
+    
+    @objc func exportLesson() {
+        guard let lessonEvent = event else { return }
+        
+        exportDelegate?.export(lessonEvent)
     }
 
 }

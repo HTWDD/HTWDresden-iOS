@@ -8,12 +8,15 @@
 
 extension UIBarButtonItem {
 
-    static func menuButton(_ target: Any?, action: Selector, imageName: String) -> UIBarButtonItem {
+    static func menuButton(_ target: Any?, action: Selector, imageName: String, insets: Bool = true) -> UIBarButtonItem {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: imageName), for: .normal)
-        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         button.addTarget(target, action: action, for: .touchUpInside)
-
+        
+        if insets {
+            button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+        }
+        
         let menuBarItem = UIBarButtonItem(customView: button)
         menuBarItem.customView?.translatesAutoresizingMaskIntoConstraints = false
         menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 24).isActive = true

@@ -18,7 +18,7 @@ struct Lesson: Codable {
     let beginTime: String
     let endTime: String
     let week: Int
-    let weeksOnly: [Int]
+    var weeksOnly: [Int]
     let professor: String?
     let rooms: [String]
     let lastChanged: String
@@ -65,12 +65,34 @@ struct CustomLesson {
     var name: String?
     var type: LessonType?
     var day: Int?
-    var lessonBlock: LessonBlock?
     var week: Int?
-    var weeksOnly: String?
+    var beginTime: String?
+    var endTime: String?
+    var weeksOnly: [Int]?
     var professor: String?
     var rooms: String?
     var lastChanged: String?
+ 
+    var lessonDays: [String] {
+        guard let weeksOnly = weeksOnly, let day = day else { return [] }
+        
+        let date = Date()
+        var lastWeek    = Calendar.current.component(.weekOfYear, from: date)
+        var year        = Calendar.current.component(.year, from: date)
+        let diffWeeks   = zip(weeksOnly.dropFirst(), weeksOnly).map(-).filter({ $0 < 0 })
+        return weeksOnly.map { week -> String in
+            if (diffWeeks.count > 0) {
+                if (lastWeek - week) < -10 {
+                    year -= 1
+                } else if (lastWeek - week) >= abs(diffWeeks.first!) {
+                    year += 1
+                }
+            }
+            let component = DateComponents(weekday: (day % 7) + 1, weekOfYear: week, yearForWeekOfYear: year)
+            lastWeek = week
+            return Calendar.current.date(from: component)!.string(format: "dd.MM.yyyy")
+        }
+    }
 }
 
 protocol LessonDetailsPickerSelection {
@@ -132,14 +154,12 @@ enum LessonDetailsOptions {
     case lectureType(selection: LessonType?)
     case weekRotation(selection: CalendarWeekRotation?)
     case weekDay(selection: CalendarWeekDay?)
-    case lessonBlock(selection: LessonBlock?)
     
     var count: Int {
         switch self {
         case .lectureType(_): return LessonType.caseCount
         case .weekRotation(_): return CalendarWeekRotation.caseCount
         case .weekDay(_): return CalendarWeekDay.caseCount
-        case .lessonBlock(_): return LessonBlock.caseCount
         }
     }
     
@@ -148,25 +168,24 @@ enum LessonDetailsOptions {
         case .lectureType(let selection): return selection?.localizedDescription ?? ""
         case .weekRotation(let selection): return selection?.localizedDescription ?? ""
         case .weekDay(let selection): return selection?.localizedDescription ?? ""
-        case .lessonBlock(let selection): return selection?.localizedDescription ?? ""
         }
     }
     
 }
 
 enum CalendarWeekRotation: Int, LessonDetailsPickerSelection {
-    case notSet = 0
-    case everyWeek = 1
-    case evenWeeks = 2
-    case unevenWeeks = 3
+    case once = 1
+    case everyWeek = 2
+    case evenWeeks = 3
+    case unevenWeeks = 4
     
-    static var allValues: [LessonDetailsPickerSelection] { return [notSet, everyWeek, evenWeeks, unevenWeeks] }
+    static var allValues: [LessonDetailsPickerSelection] { return [once, everyWeek, evenWeeks, unevenWeeks] }
     static var caseCount: Int { return allValues.count }
     
     var localizedDescription: String {
     
         switch self {
-        case .notSet: return ""
+        case .once: return R.string.localizable.calendarWeekOnce()
         case .everyWeek: return R.string.localizable.calendarWeekEvery()
         case .evenWeeks: return R.string.localizable.calendarWeekEven()
         case .unevenWeeks: return R.string.localizable.calendarWeekUneven()
@@ -175,11 +194,11 @@ enum CalendarWeekRotation: Int, LessonDetailsPickerSelection {
 }
 
 enum CalendarWeekDay: Int, LessonDetailsPickerSelection {
-    case monday = 0
-    case tuesday = 1
-    case wednesday = 2
-    case thursday = 3
-    case friday = 4
+    case monday = 1
+    case tuesday = 2
+    case wednesday = 3
+    case thursday = 4
+    case friday = 5
     
     static var allValues: [LessonDetailsPickerSelection] { return [monday, tuesday, wednesday, thursday, friday] }
     static var caseCount: Int { return allValues.count }
@@ -194,58 +213,4 @@ enum CalendarWeekDay: Int, LessonDetailsPickerSelection {
         case .friday: return R.string.localizable.friday()
         }
     }
-}
-
-enum LessonBlock: LessonDetailsPickerSelection {
-    case firstBlock
-    case secondBlock
-    case thirdBlock
-    case fourthBlock
-    case fifthBlock
-    case sixthBlock
-    case seventhBlock
-    case eighthBlock
-    
-    var localizedDescription: String {
-    
-        switch self {
-        case .firstBlock: return R.string.localizable.lessonBlockOne()
-        case .secondBlock: return R.string.localizable.lessonBlockTwo()
-        case .thirdBlock: return R.string.localizable.lessonBlockThree()
-        case .fourthBlock: return R.string.localizable.lessonBlockFour()
-        case .fifthBlock: return R.string.localizable.lessonBlockFive()
-        case .sixthBlock: return R.string.localizable.lessonBlockSix()
-        case .seventhBlock: return R.string.localizable.lessonBlockSeven()
-        case .eighthBlock: return R.string.localizable.lessonBlockEight()
-        }
-    }
-    
-    var startTime: String {
-        switch self {
-        case .firstBlock: return "07:30"
-        case .secondBlock: return "09:20"
-        case .thirdBlock: return "11:10"
-        case .fourthBlock: return "13:20"
-        case .fifthBlock: return "15:10"
-        case .sixthBlock: return "17:00"
-        case .seventhBlock: return "18:40"
-        case .eighthBlock: return "20:20"
-        }
-    }
-    
-    var endTime: String {
-        switch self {
-        case .firstBlock: return "09:00"
-        case .secondBlock: return "10:50"
-        case .thirdBlock: return "12:40"
-        case .fourthBlock: return "14:50"
-        case .fifthBlock: return "16:40"
-        case .sixthBlock: return "18:30"
-        case .seventhBlock: return "20:10"
-        case .eighthBlock: return "21:50"
-        }
-    }
-    
-    static var allValues: [LessonDetailsPickerSelection] { return [firstBlock, secondBlock, thirdBlock, fourthBlock, fifthBlock, sixthBlock, seventhBlock, eighthBlock] }
-    static var caseCount: Int { return allValues.count }
 }

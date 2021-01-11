@@ -9,6 +9,8 @@
 import Foundation
 import RxSwift
 import EventKit
+import RealmSwift
+import Combine
 
 // MARK: - Items
 enum Timetables {
@@ -29,6 +31,7 @@ class TimetableViewModel {
     private let context: HasTimetable
     private lazy var eventStore : EKEventStore = EKEventStore()
     
+    
     // MARK: - Lifecycle
     init(context: HasTimetable) {
         self.context = context
@@ -39,8 +42,9 @@ class TimetableViewModel {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
-                return Dictionary(grouping: items) { $0.lessonDays }
+            .map {[weak self] (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
+                
+                return Dictionary(grouping: self?.appendCustomLessons(items) ?? []) { $0.lessonDays }
             }
             .map { (hMap: Dictionary<[String], [Lesson]>) -> (keys: [String], values: [Lesson]) in
                 let keys = hMap.keys
@@ -75,7 +79,7 @@ class TimetableViewModel {
                 }
             }
             
-            self?.appedFreedays(&result)
+            self?.appendFreedays(&result)
             return result
         }
     }
@@ -84,9 +88,9 @@ class TimetableViewModel {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
-            .map { (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
+            .map { [weak self] (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
                 
-                return Dictionary(grouping: items) { $0.lessonDays }
+                return Dictionary(grouping: self?.appendCustomLessons(items) ?? []) { $0.lessonDays }
             }
             .map { (hMap: Dictionary<[String], [Lesson]>) -> (keys: [String], values: [Lesson]) in
                 let keys = hMap.keys
@@ -125,14 +129,11 @@ class TimetableViewModel {
                     }
                 }
             
-            
-            
-
-            return result //.removingDuplicates()
+            return result
         }
     }
     
-    private func appedFreedays(_ result: inout [Timetables]) {
+    private func appendFreedays(_ result: inout [Timetables]) {
         let headerItems = result.filter { item in
             switch item {
             case .header: return true
@@ -178,7 +179,6 @@ class TimetableViewModel {
         }
     }
     
-    
     func export(lessons: [Lesson]?) {
         
         guard let lessons = lessons else { return }
@@ -213,5 +213,56 @@ class TimetableViewModel {
                 }
             }
         }
+    }
+    
+    func saveCustomLesson(_ customLesson: CustomLesson) -> Bool {
+        
+        guard let name = customLesson.name,
+              let day = customLesson.day,
+              let beginTime = customLesson.beginTime,
+              let endTime = customLesson.endTime,
+              let week = customLesson.week,
+              let weeksOnly = customLesson.weeksOnly
+              
+        else { return false }
+        
+        let newLesson: Lesson = Lesson(id: customLesson.id ?? UUID().uuidString,
+                               lessonTag: customLesson.lessonTag,
+                               name: name,
+                               type: customLesson.type ?? .unkown,
+                               day: day,
+                               beginTime: beginTime,
+                               endTime: endTime,
+                               week: week,
+                               weeksOnly: weeksOnly,
+                               professor: customLesson.professor,
+                               rooms: [customLesson.rooms ?? " "],
+                               lastChanged: Date().localized)
+        
+        if TimetableRealm.exist(id: newLesson.id) {
+            TimetableRealm.update(from: newLesson)
+        } else {
+            TimetableRealm.save(from: newLesson)
+        }
+        
+        return true
+    }
+    
+    private func appendCustomLessons(_ items: [Lesson]) -> [Lesson] {
+        
+        var result = TimetableRealm.read()
+        print("Loading custom lessons")
+        print(result)
+        result.append(contentsOf: items)
+        return result
+    }
+    
+    func deleteCustomLesson(lessonId: String) {
+        TimetableRealm.delete(ids: [lessonId])
+    }
+    
+    func isCustomLesson(id: String) -> Bool {
+        
+        return TimetableRealm.exist(id: id)
     }
 }
