@@ -62,10 +62,17 @@ class TimetableLessonDetailsViewController: UIViewController {
         self.view.backgroundColor = UIColor .htw.veryLightGrey
         styleButtons()
         
-        elements = [
-            [.lessonName, .abbrevation, .professor, .lessonType, .room],
-            [.weekrotation, .day, .startTime, .endTime]
-        ]
+        if isLessonCustomizable {
+            elements = [
+                [.lessonName, .abbrevation, .professor, .lessonType, .room],
+                [.weekrotation, .day, .startTime, .endTime]
+            ]
+        } else {
+            elements = [
+                [.lessonName, .abbrevation, .professor, .lessonType, .room],
+                [.day, .startTime, .endTime]
+            ]
+        }
         
         if isLessonCustomizable, lesson.id != nil {
             let deleteBtn = UIBarButtonItem.menuButton(self, action: #selector(deleteLesson), imageName: "Icon_Delete", insets: false)

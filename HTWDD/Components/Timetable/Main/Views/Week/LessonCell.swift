@@ -39,8 +39,7 @@ class LessonCell: UICollectionViewCell {
         lessonType.font = UIFont.systemFont(ofSize: 10)
         lessonType.textColor = .white
         lessonName.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        lessonName.textColor = .white
-        
+        lessonName.textColor = .white        
     }
 
     func configureCell(event: LessonEvent) {
