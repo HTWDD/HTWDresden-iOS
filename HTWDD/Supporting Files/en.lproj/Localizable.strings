@@ -276,16 +276,33 @@
 "CalendarWeek.Uneven" = "uneven CW";
 
 "editLesson" = "Edit Lesson";
+"lesson" = "Lesson";
 "general" = "General";
-"lessonName" = "name of lesson";
+"lessonName" = "name of lesson*";
 "abbreviation" = "name of lesson (short)";
 "docentName" = "name of docent";
 "lessonType" = "lesson type";
 "room" = "room";
-"weekRotation" = "week rotation";
-"weekday" = "weekday";
+"weekRotation" = "week rotation*";
+"weekday" = "weekday*";
 "lessonBlock" = "lesson block";
 "onlyWeeks" = "only weeks";
 "currentWeek" = "Current Week";
 "nextWeek" = "Next Week";
 "time" = "Time";
+"start.time" = "Start Time*";
+"end.time" = "End Time*";
+
+"export.title" = "Export events";
+"export.message" = "Would you like to export the events to your calendar?";
+"export.current.week" = "Export current week";
+"export.next.week" = "Export next week";
+"export.all" = "Export complete semester";
+"export.single.lesson" = "Export event";
+
+"export.successful" = "Export successful";
+"export.error" = "Error while exporting";
+
+"field.requiered" = "* Required";
+"fill.required.fields.message" = "Notice";
+"fill.required.fields.title" = "Please fill all required fields";

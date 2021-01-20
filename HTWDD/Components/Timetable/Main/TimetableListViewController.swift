@@ -73,6 +73,7 @@ class TimetableListViewController: TimetableBaseViewController {
                 
             self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
             
+            
         }).disposed(by: rx_disposeBag)
         
         action.execute()
@@ -216,9 +217,9 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
 extension TimetableListViewController: LessonViewCellExportDelegate {
     func export(_ lesson: Lesson) {
         
-        let exportMenu = UIAlertController(title: "Vorlesung exportieren", message: "Möchten Sie die Vorlesung in Ihren Kalender exportieren", preferredStyle: .actionSheet)
+        let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
-        let fullExportAction = UIAlertAction(title: "Alle Vorlesungstermine exportieren", style: .default, handler: { _ in
+        let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
   
             self.viewModel.export(lessons: [lesson])
             self.showSuccessMessage()

@@ -22,6 +22,15 @@ class TimetableWeekViewController: TimetableBaseViewController {
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
     
+    var isDarkMode: Bool {
+            if #available(iOS 13.0, *) {
+                return self.traitCollection.userInterfaceStyle == .dark
+            }
+            else {
+                return false
+            }
+        }
+    
     var events: [LessonEvent] = [] {
         didSet {
             reloadData()
@@ -41,7 +50,7 @@ class TimetableWeekViewController: TimetableBaseViewController {
                                        firstDayOfWeek: .Monday,
                                        visibleTime:Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date())!)
         
-        weekControllsBackgroundView.backgroundColor = UIColor.htw.blue
+        weekControllsBackgroundView.backgroundColor = isDarkMode ? .black : UIColor.htw.blue
         
         currentWeekBtn.setTitle(R.string.localizable.currentWeek(), for: .normal)
         nextWeekBtn.setTitle(R.string.localizable.nextWeek(), for: .normal)
@@ -131,9 +140,9 @@ extension TimetableWeekViewController: UICollectionViewDelegate {
 extension TimetableWeekViewController: TimetableWeekViewDelegate {
     func export(_ lessonEvent: LessonEvent) {
         
-        let exportMenu = UIAlertController(title: "Vorlesung exportieren", message: "Möchten Sie die Vorlesung in Ihren Kalender exportieren", preferredStyle: .actionSheet)
+        let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
-        let singleExportAction = UIAlertAction(title: "Einzelne Vorlesung exportieren", style: .default, handler: { _ in
+        let singleExportAction = UIAlertAction(title: R.string.localizable.exportSingleLesson(), style: .default, handler: { _ in
                                      
             let exportSingleLesson = Lesson(id: lessonEvent.lesson.id,
                                             lessonTag: lessonEvent.lesson.lessonTag,
@@ -152,7 +161,7 @@ extension TimetableWeekViewController: TimetableWeekViewDelegate {
             self.showSuccessMessage()
         })
         
-        let fullExportAction = UIAlertAction(title: "Alle Vorlesungstermine exportieren", style: .default, handler: { _ in
+        let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
   
             self.viewModel.export(lessons: [lessonEvent.lesson])
             self.showSuccessMessage()

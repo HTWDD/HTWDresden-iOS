@@ -89,21 +89,21 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         
         switch currentStyle {
         case .list:
-            let scrollToTodayBtn = UIBarButtonItem.menuButton(self, action: #selector(scrollToToday), imageName: "Icon_TodayList")
+            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
-            
+
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
-            
+
         case .week:
             let exportBtn = UIBarButtonItem.menuButton(self, action: #selector(exportAll), imageName: "Icon_Export")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icons_List")
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
-            
+
             navigationItem.rightBarButtonItems = [exportBtn, listWeekBtn, addBtn]
-            
+
         default:
-            let scrollToTodayBtn = UIBarButtonItem.menuButton(self, action: #selector(scrollToToday), imageName: "Icon_TodayList")
+            let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
             navigationItem.rightBarButtonItems = [scrollToTodayBtn]
         }
     }
@@ -142,22 +142,22 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     fileprivate func showExportDialog() {
         
         
-        let exportMenu = UIAlertController(title: "Vorlesung exportieren", message: "Möchten Sie die Vorlesung in Ihren Kalender exportieren", preferredStyle: .actionSheet)
+        let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
-        let currentWeekExportAction = UIAlertAction(title: "Aktuelle Vorlesungswoche exportieren", style: .default, handler: { _ in
+        let currentWeekExportAction = UIAlertAction(title: R.string.localizable.exportCurrentWeek(), style: .default, handler: { _ in
              
             self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber))
             self.currentTimetableViewController?.showSuccessMessage()
         })
         
-        let nextWeekExportAction = UIAlertAction(title: "Nächste Vorlesungswoche exportieren", style: .default, handler: { _ in
+        let nextWeekExportAction = UIAlertAction(title: R.string.localizable.exportNextWeek(), style: .default, handler: { _ in
             
             
             self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber + 1))
             self.currentTimetableViewController?.showSuccessMessage()
         })
         
-        let fullExportAction = UIAlertAction(title: "Komplettes Semester exportieren", style: .default, handler: { _ in
+        let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
             
             self.viewModel.export(lessons: self.currentTimetableViewController?.getAllLessons())
             self.currentTimetableViewController?.showSuccessMessage()

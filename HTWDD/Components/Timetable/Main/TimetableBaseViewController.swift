@@ -49,11 +49,11 @@ class TimetableBaseViewController: UIViewController {
     }
     
     func showSuccessMessage() {
-        let alert = UIAlertController(title: "Erfolgreich exportiert",
+        let alert = UIAlertController(title: R.string.localizable.exportSuccessful(),
                                     message: nil,
                                     preferredStyle: .alert)
 
-        alert.addAction(UIAlertAction(title: "Okay",
+        alert.addAction(UIAlertAction(title: "OK",
                                       style: .default))
         
         self.present(alert, animated: true, completion: nil)

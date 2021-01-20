@@ -18,7 +18,7 @@ protocol TimetableLessonDetailsDelegateCellDelegate: class {
 }
 
 class TimetableLessonDetailsViewController: UIViewController {
-
+    
     var viewModel: TimetableViewModel!
     var context: AppContext!
     var lesson: CustomLesson = CustomLesson()
@@ -42,19 +42,24 @@ class TimetableLessonDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        self.title = R.string.localizable.editLesson()
+        self.title = isLessonCustomizable ? R.string.localizable.editLesson() : R.string.localizable.lesson()
         
         lessonDetailsTable.dataSource = self
         lessonDetailsTable.delegate = self
         lessonDetailsTable.sectionHeaderHeight = 50
         lessonDetailsTable.keyboardDismissMode = .onDrag
         
+        let footer = UILabel()
+        footer.text = "TEST"
+        lessonDetailsTable.tableFooterView = footer
+        
+        
         lessonDetailsTable.apply {
             $0.register(TimetableLessonDetailCell.self)
             $0.register(TimetableLessonDetailsSelectionCell.self)
             $0.register(TimetableLessonDetailTimePickerCell.self)
-            $0.register(SectionHeader.self,
-                   forHeaderFooterViewReuseIdentifier: "sectionSpacer")
+            $0.register(SectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
+            $0.register(RequiredFooter.self, forHeaderFooterViewReuseIdentifier: "requiredFooter")
             $0.backgroundColor = UIColor.htw.veryLightGrey
             
         }
@@ -129,6 +134,11 @@ class TimetableLessonDetailsViewController: UIViewController {
     }
     
     private func showErrorSaving() {
+        let alert = UIAlertController(title: R.string.localizable.fillRequiredFieldsTitle(), message: R.string.localizable.fillRequiredFieldsMessage(), preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
         
     }
     
@@ -149,6 +159,17 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
         
         return sectionHeader
     }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        guard section == 1 else { return .none }
+        
+        let requiredFooter: RequiredFooter = tableView.dequeueReusableHeaderFooterView(withIdentifier: "requiredFooter") as! RequiredFooter
+        requiredFooter.title.text = R.string.localizable.fieldRequiered()
+        
+        return requiredFooter
+    }
+
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
@@ -322,8 +343,8 @@ enum LessonDetailElements {
         case .room: return R.string.localizable.room()
         case .weekrotation: return R.string.localizable.weekRotation()
         case .day: return R.string.localizable.weekday()
-        case .startTime: return "Start Time"
-        case .endTime: return "End Time"
+        case .startTime: return R.string.localizable.startTime()
+        case .endTime: return R.string.localizable.endTime()
         }
     }
     
@@ -352,7 +373,16 @@ class SectionHeader: UITableViewHeaderFooterView {
 
         func configureContents() {
             
-            contentView.backgroundColor = UIColor.htw.veryLightGrey
+            if #available(iOS 12.0, *) {
+                if traitCollection.userInterfaceStyle == .light {
+                    contentView.backgroundColor = UIColor.htw.veryLightGrey
+                }
+            } else {
+                contentView.backgroundColor = UIColor.htw.veryLightGrey
+            }
+            
+            background.backgroundColor = UIColor.htw.cellBackground
+            
             background.translatesAutoresizingMaskIntoConstraints = false
             title.translatesAutoresizingMaskIntoConstraints = false
 
@@ -371,8 +401,38 @@ class SectionHeader: UITableViewHeaderFooterView {
                 title.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -14),
                 title.centerYAnchor.constraint(equalTo: background.centerYAnchor)
             ])
+        }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class RequiredFooter: UITableViewHeaderFooterView {
+    
+    let title = UILabel()
+
+        override init(reuseIdentifier: String?) {
+            super.init(reuseIdentifier: reuseIdentifier)
+            configureContents()
+        }
+
+        func configureContents() {
             
-            background.backgroundColor = .white
+            contentView.backgroundColor = UIColor.htw.veryLightGrey
+            title.translatesAutoresizingMaskIntoConstraints = false
+            title.font = .systemFont(ofSize: 14)
+
+            contentView.addSubview(title)
+
+            NSLayoutConstraint.activate([
+                
+                title.heightAnchor.constraint(equalToConstant: 30),
+                title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+                title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+                title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
+                title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            ])
         }
     
     required init?(coder: NSCoder) {

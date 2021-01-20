@@ -10,26 +10,43 @@ protocol LessonDetailsSelectionFieldDelegate {
     func done( _ selectionOptions: LessonDetailsOptions)
 }
 
-class LessonDetailsSelectionField: UITextField {
+class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
     
     var selectionOptions: LessonDetailsOptions!
     var selectionDelegate: LessonDetailsSelectionFieldDelegate?
     
+    let pickerView = UIPickerView()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+            
+        self.delegate = self
         createDropDownIcon()
         createPickerView()
         dismissPickerView()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        guard textField.text == "" else { return }
+        
+        textField.text = pickerView(pickerView, titleForRow: 0, forComponent: 0)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        selectionDelegate?.done(selectionOptions)
     }
     
     func createDropDownIcon() {
         let iconView = UIImageView(frame:
                                     CGRect(x: 10, y: 5, width: 20, height: 20))
         iconView.image = UIImage(named: "Down")
+        iconView.tintColor = UIColor.htw.Icon.primary
+        
         let iconContainerView: UIView = UIView(frame:
                                                 CGRect(x: 20, y: 0, width: 30, height: 30))
         iconContainerView.addSubview(iconView)
+        
         
         rightView = iconContainerView
         rightViewMode = .always
@@ -39,7 +56,7 @@ class LessonDetailsSelectionField: UITextField {
 extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func createPickerView() {
-        let pickerView = UIPickerView()
+        
         pickerView.delegate = self
         self.inputView = pickerView
     }
@@ -47,13 +64,13 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     func dismissPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(selectLessonType))
+        let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(saveSelection))
         toolBar.setItems([button], animated: true)
         toolBar.isUserInteractionEnabled = true
         self.inputAccessoryView = toolBar
     }
     
-    @objc func selectLessonType() {
+    @objc func saveSelection() {
         self.endEditing(true)
     
         selectionDelegate?.done(selectionOptions)

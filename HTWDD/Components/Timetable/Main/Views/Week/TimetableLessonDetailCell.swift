@@ -10,20 +10,21 @@ class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var lessonDetailTextField: HTWTextField!
+    @IBOutlet weak var main: UIView!
     
     weak var delegate: TimetableLessonDetailsDelegateCellDelegate?
     
     var lessonElement: LessonDetailElements! {
         didSet{
             iconView.image = lessonElement.iconImage
-            iconView.tintColor = .black
+            iconView.tintColor = UIColor.htw.Icon.primary
             lessonDetailTextField.placeholder = lessonElement.placeholder
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        main.backgroundColor = UIColor.htw.cellBackground
         self.selectionStyle = .none
     }
     

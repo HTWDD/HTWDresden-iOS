@@ -10,13 +10,14 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var lessonDetailsSelectionField: TimePickerTextField!
+    @IBOutlet weak var main: UIView!
     
     weak var delegate: TimetableLessonDetailsDelegateCellDelegate?
     
     var lessonElement: LessonDetailElements! {
         didSet{
             iconView.image = lessonElement.iconImage
-            iconView.tintColor = .black
+            iconView.tintColor = UIColor.htw.Icon.primary
             lessonDetailsSelectionField.selectionDelegate = self
             lessonDetailsSelectionField.placeholder = lessonElement.placeholder
             lessonDetailsSelectionField.datePicker.datePickerMode = lessonElement == LessonDetailElements.day ? .date : .time
@@ -25,7 +26,7 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        main.backgroundColor = UIColor.htw.cellBackground
         self.selectionStyle = .none
     }
     
@@ -55,39 +56,54 @@ protocol TimePickerTextFieldDelegate: class {
     func valueChanged(_ newValue: Date)
 }
 
-class TimePickerTextField: UITextField, UIPickerViewDelegate {
+class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegate {
     
     var datePicker = UIDatePicker()
     weak var selectionDelegate: TimePickerTextFieldDelegate?
     
-   override func awakeFromNib() {
-       super.awakeFromNib()
-       
-       createDropDownIcon()
-       createPickerView()
-       dismissPickerView()
-   }
-   
-   func createDropDownIcon() {
-       let iconView = UIImageView(frame:
-                                   CGRect(x: 10, y: 5, width: 20, height: 20))
-       iconView.image = UIImage(named: "Down")
-       let iconContainerView: UIView = UIView(frame:
-                                               CGRect(x: 20, y: 0, width: 30, height: 30))
-       iconContainerView.addSubview(iconView)
-       
-       rightView = iconContainerView
-       rightViewMode = .always
-   }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.delegate = self
+        createDropDownIcon()
+        createPickerView()
+        dismissPickerView()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
 
+        guard textField.text == "" else { return }
+        
+        let timeFormatter = DateFormatter()
+        timeFormatter.timeStyle = .short
+        self.text = timeFormatter.string(from: datePicker.date)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        valueChanged(datePicker)
+    }
+    
+    func createDropDownIcon() {
+        let iconView = UIImageView(frame:
+                                    CGRect(x: 10, y: 5, width: 20, height: 20))
+        iconView.image = UIImage(named: "Down")
+        iconView.tintColor = UIColor.htw.Icon.primary
+        let iconContainerView: UIView = UIView(frame:
+                                                CGRect(x: 20, y: 0, width: 30, height: 30))
+        iconContainerView.addSubview(iconView)
+        
+        rightView = iconContainerView
+        rightViewMode = .always
+    }
+    
     func createPickerView() {
         self.inputView = datePicker
         datePicker.datePickerMode = .time
         if #available(iOS 14, *) {
             datePicker.preferredDatePickerStyle = .wheels
-                    }
+        }
         
-        datePicker.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+        datePicker.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
     }
     
     func dismissPickerView() {

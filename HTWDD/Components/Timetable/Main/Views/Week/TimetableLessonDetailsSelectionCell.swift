@@ -10,13 +10,14 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var lessonDetailsSelectionField: LessonDetailsSelectionField!
+    @IBOutlet weak var main: UIView!
     
     weak var delegate: TimetableLessonDetailsDelegateCellDelegate?
     
     var lessonElement: LessonDetailElements! {
         didSet{
             iconView.image = lessonElement.iconImage
-            iconView.tintColor = .black
+            iconView.tintColor = UIColor.htw.Icon.primary
             lessonDetailsSelectionField.placeholder = lessonElement.placeholder
             lessonDetailsSelectionField.selectionOptions = lessonElement.selectionOption
             lessonDetailsSelectionField.selectionDelegate = self
@@ -25,7 +26,7 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        main.backgroundColor = UIColor.htw.cellBackground
         self.selectionStyle = .none
     }
     

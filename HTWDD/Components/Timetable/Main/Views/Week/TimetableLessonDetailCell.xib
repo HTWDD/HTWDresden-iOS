@@ -64,6 +64,7 @@
             <connections>
                 <outlet property="iconView" destination="mBC-qu-jQZ" id="nDx-4U-9Tt"/>
                 <outlet property="lessonDetailTextField" destination="ZFa-hJ-FEE" id="RoU-yj-Hze"/>
+                <outlet property="main" destination="kd0-4x-ecD" id="HUf-Z2-UkC"/>
             </connections>
             <point key="canvasLocation" x="-288.40579710144931" y="27.790178571428569"/>
         </tableViewCell>

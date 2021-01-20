@@ -58,6 +58,7 @@
             <connections>
                 <outlet property="iconView" destination="7V3-2V-eFm" id="LD9-u2-t9w"/>
                 <outlet property="lessonDetailsSelectionField" destination="4Rb-3v-rMh" id="NcT-N8-UX3"/>
+                <outlet property="main" destination="fzY-Ry-abB" id="PqM-8Q-w5c"/>
             </connections>
             <point key="canvasLocation" x="-225" y="10"/>
         </tableViewCell>

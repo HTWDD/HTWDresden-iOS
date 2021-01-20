@@ -275,17 +275,35 @@
 "CalendarWeek.Even" = "gerade KW";
 "CalendarWeek.Uneven" = "ungerade KW";
 
-"editLesson" = "Vorlesung bearbeiten";
+"editLesson" = "Veranstaltung bearbeiten";
+"lesson" = "Veranstaltung";
 "general" = "Allgemein";
-"lessonName" = "Lehrveranstaltung";
+"lessonName" = "Lehrveranstaltung*";
 "abbreviation" = "Lehrveranstaltung Abkürzung";
 "docentName" = "Dozent(en)";
 "lessonType" = "Art";
 "room" = "Raum";
-"weekRotation" = "Turnus";
-"weekday" = "Tag";
+"weekRotation" = "Turnus*";
+"weekday" = "Tag*";
 "lessonBlock" = "Vorlesungsblock";
 "onlyWeeks" = "Nur in Wochen(n)";
 "currentWeek" = "Aktuelle Woche";
 "nextWeek" = "Nächste Woche";
 "time" = "Zeit";
+"start.time" = "Beginn*";
+"end.time" = "Ende*";
+
+
+"export.title" = "Veranstaltungen exportieren";
+"export.message" = "Möchten Sie die Veranstaltungen in Ihren Kalender exportieren?";
+"export.current.week" = "Aktuelle Woche exportieren";
+"export.next.week" = "Nächste Woche exportieren";
+"export.all" = "Komplettes Semester exportieren";
+"export.single.lesson" = "Veranstaltung exportieren";
+
+"export.successful" = "Export erfolgreich";
+"export.error" = "Fehler beim Export";
+
+"field.requiered" = "* Erforderlich";
+"fill.required.fields.message" = "Bitte erforderlichen Felder ausfüllen";
+"fill.required.fields.title" = "Hinweis";

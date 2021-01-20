@@ -17,6 +17,7 @@ class LessonCell: UICollectionViewCell {
 
     @IBOutlet weak var lessonName: UILabel!
     @IBOutlet weak var lessonType: UILabel!
+    @IBOutlet weak var lessonRoom: UILabel!
     
     var event: LessonEvent?
     weak var exportDelegate: LessonCellExportDelegate?
@@ -39,12 +40,16 @@ class LessonCell: UICollectionViewCell {
         lessonType.font = UIFont.systemFont(ofSize: 10)
         lessonType.textColor = .white
         lessonName.font = UIFont.systemFont(ofSize: 14, weight: .medium)
-        lessonName.textColor = .white        
+        lessonName.textColor = .white
+        lessonRoom.font = UIFont.systemFont(ofSize: 10, weight: .medium)
+        lessonRoom.textColor = .white
     }
 
     func configureCell(event: LessonEvent) {
         self.event = event
+        
         lessonType.text = event.lesson.type.localizedDescription
+        lessonRoom.text = event.lesson.rooms.joined(separator: ", ")
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
@@ -54,9 +59,7 @@ class LessonCell: UICollectionViewCell {
             NSAttributedString.Key.paragraphStyle : paragraphStyle,
         ] as [NSAttributedString.Key : Any]
 
-        let attributedString = NSMutableAttributedString(string: event.lesson.lessonTag ?? event.lesson.name, attributes: hyphenAttribute)
-        lessonName.attributedText = attributedString
-        
+        lessonName.attributedText = NSMutableAttributedString(string: event.lesson.lessonTag ?? event.lesson.name, attributes: hyphenAttribute)
         
         self.backgroundColor = event.lesson.type.timetableColor
     }
