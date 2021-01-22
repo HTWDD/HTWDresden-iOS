@@ -10,7 +10,6 @@ import Foundation
 import RxSwift
 import EventKit
 import RealmSwift
-import Combine
 
 // MARK: - Items
 enum Timetables {
