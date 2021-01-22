@@ -100,7 +100,7 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
         self.inputView = datePicker
         datePicker.datePickerMode = .time
         if #available(iOS 14, *) {
-            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.preferredDatePickerStyle = UIDatePickerStyle.wheels
         }
         
         datePicker.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
