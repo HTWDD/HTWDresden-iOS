@@ -15,7 +15,7 @@ platform :ios do
     xcode_deploy(
       bump_type: options[:bump_type],
       scheme_name: "HTWDD",
-      version: "14.3",
+      version: "12.3",
     )
   end
 end
