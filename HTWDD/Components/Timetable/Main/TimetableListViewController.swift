@@ -27,9 +27,8 @@ class TimetableListViewController: TimetableBaseViewController {
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
+            $0.delegate = self
         }
-        
-        tableView.delegate = self
         
         load()
     }

@@ -17,7 +17,7 @@ private enum TimetableLayoutStyle: Int {
     var title: String {
         switch self {
         case .week:
-            return Loca.Schedule.Style.week
+            return   Loca.Schedule.Style.week
         case .list:
             return Loca.Schedule.Style.list
         }

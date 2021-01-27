@@ -12,7 +12,7 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
     @IBOutlet weak var lessonDetailsSelectionField: LessonDetailsSelectionField!
     @IBOutlet weak var main: UIView!
     
-    weak var delegate: TimetableLessonDetailsDelegateCellDelegate?
+    weak var delegate: TimetableLessonDetailsCellDelegate?
     
     var lessonElement: LessonDetailElements! {
         didSet{
