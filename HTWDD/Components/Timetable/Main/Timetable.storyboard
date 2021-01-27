@@ -1,39 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1H-GM-JHk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="it9-10-GLL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Timetable View Controller-->
-        <scene sceneID="p14-T3-aMD">
+        <scene sceneID="waN-dT-7ka">
             <objects>
-                <tableViewController storyboardIdentifier="TimetableViewController" id="L1H-GM-JHk" customClass="TimetableViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pAi-KE-2OX">
+                <viewController storyboardIdentifier="TimetableViewController" id="it9-10-GLL" customClass="TimetableViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3cC-KV-Cck">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="u8s-ya-hOD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u8s-ya-hOD" id="SAq-RD-eTP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="L1H-GM-JHk" id="IrY-eb-mUx"/>
-                            <outlet property="delegate" destination="L1H-GM-JHk" id="LIH-xA-omA"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tf4-si-Ccd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sGH-ok-S6V">
+                                <rect key="frame" x="0.0" y="44" width="414" height="83"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hinweis" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S54-VB-6yz">
+                                        <rect key="frame" x="20" y="20" width="374" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLU-u8-vmV">
+                                        <rect key="frame" x="192" y="45" width="30" height="30"/>
+                                        <state key="normal" title="Link"/>
+                                        <connections>
+                                            <action selector="openOnlineTimetable:" destination="it9-10-GLL" eventType="touchUpInside" id="iR3-i7-He9"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HST-AG-dXT">
+                                        <rect key="frame" x="0.0" y="82" width="414" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gLU-u8-vmV" firstAttribute="top" secondItem="S54-VB-6yz" secondAttribute="bottom" constant="8" id="GWq-4e-9wM"/>
+                                    <constraint firstAttribute="trailing" secondItem="S54-VB-6yz" secondAttribute="trailing" constant="20" symbolic="YES" id="IYB-dv-RiT"/>
+                                    <constraint firstItem="S54-VB-6yz" firstAttribute="top" secondItem="sGH-ok-S6V" secondAttribute="top" constant="20" symbolic="YES" id="KaT-h0-Z6x"/>
+                                    <constraint firstAttribute="trailing" secondItem="HST-AG-dXT" secondAttribute="trailing" id="aVX-li-s5b"/>
+                                    <constraint firstItem="S54-VB-6yz" firstAttribute="leading" secondItem="sGH-ok-S6V" secondAttribute="leading" constant="20" symbolic="YES" id="chX-4O-Nuo"/>
+                                    <constraint firstItem="gLU-u8-vmV" firstAttribute="centerX" secondItem="sGH-ok-S6V" secondAttribute="centerX" id="kJi-cE-iY5"/>
+                                    <constraint firstAttribute="bottom" secondItem="HST-AG-dXT" secondAttribute="bottom" id="mgj-vx-pUO"/>
+                                    <constraint firstItem="HST-AG-dXT" firstAttribute="top" secondItem="sGH-ok-S6V" secondAttribute="bottom" constant="-1" id="n5E-dv-cxN"/>
+                                    <constraint firstAttribute="bottom" secondItem="gLU-u8-vmV" secondAttribute="bottom" constant="8" id="ncO-hG-peU"/>
+                                    <constraint firstItem="HST-AG-dXT" firstAttribute="leading" secondItem="sGH-ok-S6V" secondAttribute="leading" id="u9S-vI-nyw"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wrq-ag-DYD">
+                                <rect key="frame" x="0.0" y="127" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xIB-r6-pLg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wrq-ag-DYD" firstAttribute="top" secondItem="sGH-ok-S6V" secondAttribute="bottom" id="6iH-27-etB"/>
+                            <constraint firstItem="xIB-r6-pLg" firstAttribute="trailing" secondItem="wrq-ag-DYD" secondAttribute="trailing" id="Ax8-TL-FhL"/>
+                            <constraint firstItem="wrq-ag-DYD" firstAttribute="leading" secondItem="xIB-r6-pLg" secondAttribute="leading" id="DOl-ss-N5W"/>
+                            <constraint firstItem="sGH-ok-S6V" firstAttribute="leading" secondItem="xIB-r6-pLg" secondAttribute="leading" id="HGo-mt-uHZ"/>
+                            <constraint firstItem="sGH-ok-S6V" firstAttribute="top" secondItem="xIB-r6-pLg" secondAttribute="top" id="Hqx-Dg-EHP"/>
+                            <constraint firstItem="xIB-r6-pLg" firstAttribute="trailing" secondItem="sGH-ok-S6V" secondAttribute="trailing" id="RuQ-py-7qd"/>
+                            <constraint firstAttribute="bottom" secondItem="wrq-ag-DYD" secondAttribute="bottom" id="Xcw-8g-1Ge"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="wrq-ag-DYD" id="Nqq-c7-fDe"/>
+                        <outlet property="warningBackground" destination="sGH-ok-S6V" id="LzK-Cw-Bqa"/>
+                        <outlet property="warningLink" destination="gLU-u8-vmV" id="XeQ-iB-COy"/>
+                        <outlet property="warningTimetable" destination="S54-VB-6yz" id="vD2-ql-7ml"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lj1-Zm-K03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-90" y="90"/>
+            <point key="canvasLocation" x="-1151" y="-127"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

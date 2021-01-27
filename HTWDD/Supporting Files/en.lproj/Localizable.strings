@@ -258,3 +258,5 @@
 "Room.occupancy.free"="This room is currently unoccupied.";
 "Room.occupancy.no.name"="No information about the course name";
 "Room.occupancy.no.dozent"="No information about the lecturer";
+"Timetable.Warning.Shift" = "Due to technical problems, there may be shifts in the schedule. Please check your schedule on the HTW website.";
+"Timetable.Warning.Shift.Link" = "Go to the online schedule";

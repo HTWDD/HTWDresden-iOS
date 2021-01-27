@@ -258,3 +258,5 @@
 "Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
 "Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
 "Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";
+"Timetable.Warning.Shift" = "Aufgrund technischer Probleme kann es zu Verschiebungen im Stundenplan kommen. Bitte mit Version der HTW Webseite abgleichen.";
+"Timetable.Warning.Shift.Link" = "Zum Online-Stundenplan";

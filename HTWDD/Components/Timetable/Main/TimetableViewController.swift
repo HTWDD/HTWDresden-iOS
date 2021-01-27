@@ -10,8 +10,13 @@ import UIKit
 import RxSwift
 import Action
 
-class TimetableViewController: UITableViewController, HasSideBarItem {
+class TimetableViewController: UIViewController, HasSideBarItem {
 
+    @IBOutlet weak var warningBackground: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var warningTimetable: UILabel!
+    @IBOutlet weak var warningLink: UIButton!
+    
     // MARK: - Properties
     var viewModel: TimetableViewModel!
     var context: AppContext!
@@ -44,22 +49,31 @@ class TimetableViewController: UITableViewController, HasSideBarItem {
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
+            $0.delegate = self
+            $0.dataSource = self
         }
+        
+        warningBackground.backgroundColor = UIColor.htw.veryLightGrey
+        warningTimetable.text = R.string.localizable.timetableWarningShift()
+        warningLink.setTitle(R.string.localizable.timetableWarningShiftLink(), for: .normal)
         
         load()
     }
   
+    @IBAction func openOnlineTimetable(_ sender: Any) {
+        
+        guard let url = URL(string: "https://www.htw-dresden.de/studium/im-studium/aktuelle-stunden-und-raumplaene")
+        else { return }
+        
+        UIApplication.shared.open(url)
+        
+    }
 }
 
 // MARK: - Setup
 extension TimetableViewController {
     
     private func setup() {
-        
-        refreshControl = UIRefreshControl().also {
-            $0.tintColor = .white
-            $0.rx.bind(to: action, input: ())
-        }
         
         title = R.string.localizable.scheduleTitle()
         
@@ -137,13 +151,13 @@ extension TimetableViewController {
 }
 
 // MARK: - Timetable Datasource
-extension TimetableViewController {
+extension TimetableViewController: UITableViewDataSource, UITableViewDelegate {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch (items[indexPath.row]) {
         case .header(let model):
             return tableView.dequeueReusableCell(TimetableHeaderViewCell.self, for: indexPath)!.also {
@@ -160,7 +174,7 @@ extension TimetableViewController {
         }
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = tableView.contentOffset.y
         if let cell = tableView.visibleCells.compactMap( { $0 as? TimetableFreedayViewCell } ).first {
             let x = cell.imageViewFreeday.frame.origin.x
