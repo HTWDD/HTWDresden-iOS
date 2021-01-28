@@ -10,7 +10,12 @@ import UIKit
 import RxSwift
 import Action
 
-class DashboardViewController: UITableViewController, HasSideBarItem {
+class DashboardViewController: UIViewController, HasSideBarItem {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var warningBackground: UIView!
+    @IBOutlet weak var timetableWarning: UILabel!
+    @IBOutlet weak var timetableWarningLink: UIButton!
     
     // MARK: - Properties
     var context: (HasDashboard & AppContext)!
@@ -44,6 +49,8 @@ class DashboardViewController: UITableViewController, HasSideBarItem {
         tableView.apply {
             $0.estimatedRowHeight   = 100
             $0.rowHeight            = UITableView.automaticDimension
+            $0.delegate = self
+            $0.dataSource = self
         }
         
         load()
@@ -70,17 +77,18 @@ class DashboardViewController: UITableViewController, HasSideBarItem {
         action.execute()
     }
     
+    @IBAction func openOnlineTimetable(_ sender: Any) {
+        guard let url = URL(string: "https://www.htw-dresden.de/studium/im-studium/aktuelle-stunden-und-raumplaene")
+        else { return }
+        
+        UIApplication.shared.open(url)
+    }
 }
 
 // MARK: - Setup
 extension DashboardViewController {
     
     private func setup() {
-        
-        refreshControl = UIRefreshControl().also {
-            $0.tintColor = .white
-            $0.rx.bind(to: action, input: ())
-        }
         
         title = R.string.localizable.dashboardTitle()
         
@@ -100,22 +108,26 @@ extension DashboardViewController {
             $0.register(DashboardGradeEmptyViewCell.self)
         }
         
+        warningBackground.backgroundColor = UIColor.htw.veryLightGrey
+        timetableWarning.text = R.string.localizable.timetableWarningShift()
+        timetableWarningLink.setTitle(R.string.localizable.timetableWarningShiftLink(), for: .normal)
+        
     }
 }
 
 // MARK: - TableView Datasource
-extension DashboardViewController {
+extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - Fixed Reichenbach Canteen
     private var reichenbachCanteen: Canteen {
         return Canteen(id: 80, name: "Mensa Reichenbachstraße", address: "Reichenbachstr. 1, 01069 Dresden, Deutschland", coordinates: [51.0340605791208, 13.7340366840363])
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mItems.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         switch mItems[indexPath.row] {
         case .header(let model):
@@ -146,7 +158,7 @@ extension DashboardViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch mItems[indexPath.row] {
         case .freeDay,
