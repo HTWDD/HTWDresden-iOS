@@ -87,9 +87,9 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         switch selectionOptions {
-        case .lectureType(_): return LessonType.allValues[row].localizedDescription
-        case .weekRotation(_): return CalendarWeekRotation.allValues[row].localizedDescription
-        case .weekDay(_): return CalendarWeekDay.allValues[row].localizedDescription
+        case .lectureType(_): return LessonType.allCases[row].localizedDescription
+        case .weekRotation(_): return CalendarWeekRotation.allCases[row].localizedDescription
+        case .weekDay(_): return CalendarWeekDay.allCases[row].localizedDescription
         default: return ""
         }
     }
@@ -97,9 +97,9 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch selectionOptions {
-        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allValues[row] as? LessonType)
-        case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allValues[row] as? CalendarWeekRotation)
-        case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allValues[row] as? CalendarWeekDay)
+        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCases[row])
+        case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allCases[row])
+        case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allCases[row])
         default: break
         }
         

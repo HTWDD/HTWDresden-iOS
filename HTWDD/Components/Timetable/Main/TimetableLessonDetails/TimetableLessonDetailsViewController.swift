@@ -49,15 +49,13 @@ class TimetableLessonDetailsViewController: UIViewController {
         lessonDetailsTable.sectionHeaderHeight = 50
         lessonDetailsTable.keyboardDismissMode = .onDrag
         
-        lessonDetailsTable.apply {
-            $0.register(TimetableLessonDetailCell.self)
-            $0.register(TimetableLessonDetailsSelectionCell.self)
-            $0.register(TimetableLessonDetailTimePickerCell.self)
-            $0.register(SectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
-            $0.register(RequiredFooter.self, forHeaderFooterViewReuseIdentifier: "requiredFooter")
-            $0.backgroundColor = UIColor.htw.veryLightGrey
-            
-        }
+        
+        lessonDetailsTable.register(TimetableLessonDetailCell.self)
+        lessonDetailsTable.register(TimetableLessonDetailsSelectionCell.self)
+        lessonDetailsTable.register(TimetableLessonDetailTimePickerCell.self)
+        lessonDetailsTable.register(SectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
+        lessonDetailsTable.register(RequiredFooter.self, forHeaderFooterViewReuseIdentifier: "requiredFooter")
+        lessonDetailsTable.backgroundColor = UIColor.htw.veryLightGrey
         
         self.view.backgroundColor = UIColor .htw.veryLightGrey
         styleButtons()
@@ -224,14 +222,16 @@ extension TimetableLessonDetailsViewController: TimetableLessonDetailsCellDelega
     
     func changeValue(forElement: LessonDetailElements, _ newValue: String?) {
         
+        let result: String? = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
+        
         switch forElement {
         
-        case .lessonName: self.lesson.name = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
-        case .abbrevation: self.lesson.lessonTag = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
-        case .professor: self.lesson.professor = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
-        case .room: self.lesson.rooms = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
-        case .startTime: self.lesson.beginTime = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
-        case .endTime: self.lesson.endTime = (newValue?.trimmingCharacters(in: .whitespacesAndNewlines) != "" ? newValue : .none)
+        case .lessonName: self.lesson.name = result
+        case .abbrevation: self.lesson.lessonTag = result
+        case .professor: self.lesson.professor = result
+        case .room: self.lesson.rooms = result
+        case .startTime: self.lesson.beginTime = result
+        case .endTime: self.lesson.endTime = result
             
         default: break
         }

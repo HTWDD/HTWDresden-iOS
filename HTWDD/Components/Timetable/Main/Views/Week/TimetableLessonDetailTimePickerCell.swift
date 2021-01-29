@@ -36,7 +36,9 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
         
         switch lessonElement {
         case .day:
-            lessonDetailsSelectionField.text = model.lessonDays.first
+            if let day = model.day {
+                lessonDetailsSelectionField.text = CalendarWeekDay.allCases[day - 1].localizedDescription
+            }
         case .startTime: lessonDetailsSelectionField.text = String(model.beginTime?.dropLast(3) ?? "")
         case .endTime: lessonDetailsSelectionField.text = String(model.endTime?.dropLast(3) ?? "")
         default: break
@@ -67,7 +69,7 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
         self.delegate = self
         createDropDownIcon()
         createPickerView()
-        dismissPickerView()
+        setupToolbarForPickerView()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -106,7 +108,7 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
         datePicker.addTarget(self, action: #selector(valueChanged), for: .editingChanged)
     }
     
-    func dismissPickerView() {
+    func setupToolbarForPickerView() {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         let button = UIBarButtonItem(title: R.string.localizable.done(), style: .plain, target: self, action: #selector(done))

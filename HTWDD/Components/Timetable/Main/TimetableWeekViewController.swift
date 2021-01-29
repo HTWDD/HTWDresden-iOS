@@ -56,6 +56,13 @@ class TimetableWeekViewController: TimetableBaseViewController {
         nextWeekBtn.setTitle(R.string.localizable.nextWeek(), for: .normal)
         timetableWeekView.collectionView.delegate = self
         timetableWeekView.delegate = self
+        
+        action.elements.subscribe(onNext: { [weak self] items in
+            guard let self = self else { return }
+            self.events = items
+            self.stateView.isHidden = true
+            
+        }).disposed(by: rx_disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,13 +72,6 @@ class TimetableWeekViewController: TimetableBaseViewController {
     }
     
     private func load() {
-        
-        action.elements.subscribe(onNext: { [weak self] items in
-            guard let self = self else { return }
-            self.events = items
-            self.stateView.isHidden = true
-            
-        }).disposed(by: rx_disposeBag)
         
         action.execute()
     }

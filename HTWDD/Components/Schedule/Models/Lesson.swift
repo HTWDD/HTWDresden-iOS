@@ -72,42 +72,15 @@ struct CustomLesson {
     var professor: String?
     var rooms: String?
     var lastChanged: String?
- 
-    var lessonDays: [String] {
-        guard let weeksOnly = weeksOnly, let day = day else { return [] }
-        
-        let date = Date()
-        var lastWeek    = Calendar.current.component(.weekOfYear, from: date)
-        var year        = Calendar.current.component(.year, from: date)
-        let diffWeeks   = zip(weeksOnly.dropFirst(), weeksOnly).map(-).filter({ $0 < 0 })
-        return weeksOnly.map { week -> String in
-            if (diffWeeks.count > 0) {
-                if (lastWeek - week) < -10 {
-                    year -= 1
-                } else if (lastWeek - week) >= abs(diffWeeks.first!) {
-                    year += 1
-                }
-            }
-            let component = DateComponents(weekday: (day % 7) + 1, weekOfYear: week, yearForWeekOfYear: year)
-            lastWeek = week
-            return Calendar.current.date(from: component)!.string(format: "dd.MM.yyyy")
-        }
-    }
 }
 
-protocol LessonDetailsPickerSelection {
-    static var allValues: [LessonDetailsPickerSelection] { get }
-    static var caseCount: Int { get }
+protocol LessonDetailsPickerSelection: CaseIterable {
     var localizedDescription: String { get }
 }
 
 // MARK: - Lessontypes
 enum LessonType: String, Codable, LessonDetailsPickerSelection {
 
-    static var allValues: [LessonDetailsPickerSelection] { return [practical, lesson, exercise, requested, block, unkown] }
-    static var caseCount: Int { return allValues.count }
-    
-    
     case practical
     case lesson
     case exercise
@@ -157,9 +130,9 @@ enum LessonDetailsOptions {
     
     var count: Int {
         switch self {
-        case .lectureType(_): return LessonType.caseCount
-        case .weekRotation(_): return CalendarWeekRotation.caseCount
-        case .weekDay(_): return CalendarWeekDay.caseCount
+        case .lectureType(_): return LessonType.allCases.count
+        case .weekRotation(_): return CalendarWeekRotation.allCases.count
+        case .weekDay(_): return CalendarWeekDay.allCases.count
         }
     }
     
@@ -179,9 +152,6 @@ enum CalendarWeekRotation: Int, LessonDetailsPickerSelection {
     case evenWeeks = 3
     case unevenWeeks = 4
     
-    static var allValues: [LessonDetailsPickerSelection] { return [once, everyWeek, evenWeeks, unevenWeeks] }
-    static var caseCount: Int { return allValues.count }
-    
     var localizedDescription: String {
     
         switch self {
@@ -199,9 +169,6 @@ enum CalendarWeekDay: Int, LessonDetailsPickerSelection {
     case wednesday = 3
     case thursday = 4
     case friday = 5
-    
-    static var allValues: [LessonDetailsPickerSelection] { return [monday, tuesday, wednesday, thursday, friday] }
-    static var caseCount: Int { return allValues.count }
     
     var localizedDescription: String {
         
