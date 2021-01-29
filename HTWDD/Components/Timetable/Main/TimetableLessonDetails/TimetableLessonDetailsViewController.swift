@@ -19,7 +19,7 @@ protocol TimetableLessonDetailsCellDelegate: class {
 
 class TimetableLessonDetailsViewController: UIViewController {
     
-    var viewModel: TimetableViewModel!
+    var viewModel = TimetableDetailsViewModel()
     var context: AppContext!
     var lesson: CustomLesson = CustomLesson()
     var semseterWeeks: [Int]!
@@ -53,7 +53,7 @@ class TimetableLessonDetailsViewController: UIViewController {
         lessonDetailsTable.register(TimetableLessonDetailCell.self)
         lessonDetailsTable.register(TimetableLessonDetailsSelectionCell.self)
         lessonDetailsTable.register(TimetableLessonDetailTimePickerCell.self)
-        lessonDetailsTable.register(SectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
+        lessonDetailsTable.register(TimetableDetailsSectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
         lessonDetailsTable.register(RequiredFooter.self, forHeaderFooterViewReuseIdentifier: "requiredFooter")
         lessonDetailsTable.backgroundColor = UIColor.htw.veryLightGrey
         
@@ -147,7 +147,7 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let sectionHeader: SectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionSpacer") as! SectionHeader
+        let sectionHeader: TimetableDetailsSectionHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "sectionSpacer") as! TimetableDetailsSectionHeader
         sectionHeader.title.text = (section == 0 ? R.string.localizable.general() : R.string.localizable.time())
         
         return sectionHeader
@@ -287,20 +287,6 @@ extension TimetableLessonDetailsViewController: TimetableLessonDetailsCellDelega
     }
 }
 
-class HTWTextField: UITextField {
-    
-    override func draw(_ rect: CGRect) {
-        
-        let border = CALayer()
-        
-        border.backgroundColor = UIColor.htw.lightGrey.cgColor
-        border.frame = CGRect(x: 0, y: frame.size.height * 1.2, width: frame.width, height: 1)
-        
-        layer.addSublayer(border)
-    }
-}
-
-
 enum LessonDetailElements {
     case lessonName
     case abbrevation
@@ -355,53 +341,7 @@ enum LessonDetailElements {
 }
 
 
-class SectionHeader: UITableViewHeaderFooterView {
-    
-    
-    let title = UILabel()
-    let background = UIView()
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        configureContents()
-    }
-    
-    func configureContents() {
-        
-        if #available(iOS 12.0, *) {
-            if traitCollection.userInterfaceStyle == .light {
-                contentView.backgroundColor = UIColor.htw.veryLightGrey
-            }
-        } else {
-            contentView.backgroundColor = UIColor.htw.veryLightGrey
-        }
-        
-        background.backgroundColor = UIColor.htw.cellBackground
-        
-        background.translatesAutoresizingMaskIntoConstraints = false
-        title.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(background)
-        contentView.addSubview(title)
-        
-        NSLayoutConstraint.activate([
-            background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19),
-            background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -19),
-            background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 13),
-            background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            title.heightAnchor.constraint(equalToConstant: 30),
-            title.leadingAnchor.constraint(equalTo: background.leadingAnchor,
-                                           constant: 16),
-            title.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -14),
-            title.centerYAnchor.constraint(equalTo: background.centerYAnchor)
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+
 
 class RequiredFooter: UITableViewHeaderFooterView {
     

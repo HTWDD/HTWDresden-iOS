@@ -22,15 +22,6 @@ class TimetableWeekViewController: TimetableBaseViewController {
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
     
-    var isDarkMode: Bool {
-            if #available(iOS 13.0, *) {
-                return self.traitCollection.userInterfaceStyle == .dark
-            }
-            else {
-                return false
-            }
-        }
-    
     var events: [LessonEvent] = [] {
         didSet {
             reloadData()
@@ -128,7 +119,6 @@ extension TimetableWeekViewController: UICollectionViewDelegate {
         
         let detailsLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
             $0.context      = context
-            $0.viewModel    = viewModel
             $0.semseterWeeks = getSemesterWeeks()
         }
         

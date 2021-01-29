@@ -214,54 +214,11 @@ class TimetableViewModel {
         }
     }
     
-    func saveCustomLesson(_ customLesson: CustomLesson) -> Bool {
-        
-        guard let name = customLesson.name,
-              let day = customLesson.day,
-              let beginTime = customLesson.beginTime,
-              let endTime = customLesson.endTime,
-              let week = customLesson.week,
-              let weeksOnly = customLesson.weeksOnly
-              
-        else { return false }
-        
-        let newLesson: Lesson = Lesson(id: customLesson.id ?? UUID().uuidString,
-                               lessonTag: customLesson.lessonTag,
-                               name: name,
-                               type: customLesson.type ?? .unkown,
-                               day: day,
-                               beginTime: beginTime,
-                               endTime: endTime,
-                               week: week,
-                               weeksOnly: weeksOnly,
-                               professor: customLesson.professor,
-                               rooms: [customLesson.rooms ?? " "],
-                               lastChanged: Date().localized)
-        
-        if TimetableRealm.exist(id: newLesson.id) {
-            TimetableRealm.update(from: newLesson)
-        } else {
-            TimetableRealm.save(from: newLesson)
-        }
-        
-        return true
-    }
-    
     private func appendCustomLessons(_ items: [Lesson]) -> [Lesson] {
         
         var result = TimetableRealm.read()
-        print("Loading custom lessons")
-        print(result)
+        
         result.append(contentsOf: items)
         return result
-    }
-    
-    func deleteCustomLesson(lessonId: String) {
-        TimetableRealm.delete(ids: [lessonId])
-    }
-    
-    func isCustomLesson(id: String) -> Bool {
-        
-        return TimetableRealm.exist(id: id)
     }
 }

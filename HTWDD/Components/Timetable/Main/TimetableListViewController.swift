@@ -189,7 +189,6 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
         case .lesson(let model):
             let detailsLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
                 $0.context      = context
-                $0.viewModel    = viewModel
                 $0.semseterWeeks = getSemesterWeeks()
             }
             

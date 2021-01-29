@@ -82,7 +82,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         title = R.string.localizable.scheduleTitle()
         
         self.view.add(self.containerView)
-        layoutMatchingEdges(self.containerView, self.view)
+        self.view.layoutMatchingEdges(self.containerView)
     }
     
     func updateNavButtons() {
@@ -120,7 +120,6 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         
         let createLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
             $0.context      = context
-            $0.viewModel    = viewModel
             $0.semseterWeeks = currentTimetableViewController?.getSemesterWeeks()
         }
 
@@ -217,7 +216,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         }
 
         self.addTimetableViewController(self.currentTimetableViewController)
-        layoutMatchingEdges(self.currentTimetableViewController?.view, self.containerView)
+        self.containerView.layoutMatchingEdges(self.currentTimetableViewController?.view)
     }
 
     private func addTimetableViewController(_ child: UIViewController?) {
@@ -228,17 +227,6 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
 //        self.updateBarButtonItems(navigationItem: child.navigationItem)
     }
     
-    private let layoutMatchingEdges: (UIView?, UIView) -> Void = {
-        guard let view = $0 else { return }
-        view.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            view.leadingAnchor.constraint(equalTo: $1.leadingAnchor),
-            view.topAnchor.constraint(equalTo: $1.htw.safeAreaLayoutGuide.topAnchor),
-            view.trailingAnchor.constraint(equalTo: $1.trailingAnchor),
-            view.bottomAnchor.constraint(equalTo: $1.bottomAnchor)
-        ])
-    }
 }
 
 extension TimetableMainViewController: EKCalendarChooserDelegate {

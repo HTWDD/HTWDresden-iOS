@@ -9,7 +9,7 @@
 class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
     
     @IBOutlet weak var iconView: UIImageView!
-    @IBOutlet weak var lessonDetailTextField: HTWTextField!
+    @IBOutlet weak var lessonDetailTextField: BottomBorderTextField!
     @IBOutlet weak var main: UIView!
     
     weak var delegate: TimetableLessonDetailsCellDelegate?
@@ -45,7 +45,7 @@ class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
         }
     }
     
-    @IBAction func detailValueChanged(_ sender: HTWTextField) {
+    @IBAction func detailValueChanged(_ sender: BottomBorderTextField) {
         delegate?.changeValue(forElement: lessonElement, sender.text)
     }
 }

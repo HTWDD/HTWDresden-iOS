@@ -13,6 +13,15 @@ fileprivate var vSpinner : UIView?
 
 extension UIViewController {
     
+    var isDarkMode: Bool {
+            if #available(iOS 13.0, *) {
+                return self.traitCollection.userInterfaceStyle == .dark
+            }
+            else {
+                return false
+            }
+        }
+    
     var transition: UIViewControllerTransitioningDelegate? {
         get {
             return objc_getAssociatedObject(self, &transitionKey) as? UIViewControllerTransitioningDelegate
