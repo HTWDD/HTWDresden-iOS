@@ -273,7 +273,7 @@
 		64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64D9D91822E1E497002E71F5 /* DashboardTimeTableViewCell.xib */; };
 		64DBE742233C902700A5BAA2 /* CampusPlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBE741233C902700A5BAA2 /* CampusPlanViewModel.swift */; };
 		64DBE744233CBD6800A5BAA2 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DBE743233CBD6800A5BAA2 /* ZoomableImageView.swift */; };
-		64DF7BF324BDC832003BF814 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 64DF7BF224BDC832003BF814 /* SideMenu */; };
+		64DF7BF324BDC832003BF814 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */; };
 		64E218D622D70C3300004183 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B3768A1FA6182800FC3A07 /* Double.swift */; };
 		64E218D822D722EA00004183 /* CanteenDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218D722D722EA00004183 /* CanteenDetail.swift */; };
 		64E218DB22D7767500004183 /* MealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E218DA22D7767500004183 /* MealsViewController.swift */; };
@@ -331,9 +331,9 @@
 		B538EF071E1D58690031077C /* NSObject+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF061E1D58690031077C /* NSObject+Rx.swift */; };
 		B538EF0A1E1D5BD10031077C /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF091E1D5BD10031077C /* Log.swift */; };
 		B538EF101E1D62040031077C /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF0F1E1D62040031077C /* UserDefaults.swift */; };
-		B538EF121E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF131E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		B538EF151E1D63EA0031077C /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF121E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF131E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		B538EF151E1D63EA0031077C /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		B538EF181E1D6AEF0031077C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF171E1D6AEF0031077C /* Network.swift */; };
 		B538EF1A1E1D761E0031077C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF191E1D761E0031077C /* Course.swift */; };
 		B538EF1C1E1D762E0031077C /* Grade_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = B538EF1B1E1D762E0031077C /* Grade_old.swift */; };
@@ -770,7 +770,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64DF7BF324BDC832003BF814 /* SideMenu in Frameworks */,
+				64DF7BF324BDC832003BF814 /* BuildFile in Frameworks */,
 				6F6BDBEE1ADCCA44A87DEAF4 /* Pods_HTWDD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,9 +779,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B538EF151E1D63EA0031077C /* (null) in Frameworks */,
-				B538EF121E1D63EA0031077C /* (null) in Frameworks */,
-				B538EF131E1D63EA0031077C /* (null) in Frameworks */,
+				B538EF151E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF121E1D63EA0031077C /* BuildFile in Frameworks */,
+				B538EF131E1D63EA0031077C /* BuildFile in Frameworks */,
 				3327A41EDFE82F3EDB344605 /* Pods_HTWDDTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1918,7 +1918,7 @@
 			);
 			name = HTWDD;
 			packageProductDependencies = (
-				64DF7BF224BDC832003BF814 /* SideMenu */,
+				64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */,
 			);
 			productName = HTWDD;
 			productReference = B59FA9871DD09C8400259D7F /* HTWDD.app */;
@@ -2001,7 +2001,7 @@
 			);
 			mainGroup = B59FA97E1DD09C8300259D7F;
 			packageReferences = (
-				64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = B59FA9881DD09C8400259D7F /* Products */;
 			projectDirPath = "";
@@ -2961,7 +2961,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+		64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
 			requirement = {
@@ -2972,9 +2972,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		64DF7BF224BDC832003BF814 /* SideMenu */ = {
+		64DF7BF224BDC832003BF814 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 64DF7BF124BDC832003BF814 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			package = 64DF7BF124BDC832003BF814 /* RemoteSwiftPackageReference */;
 			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */

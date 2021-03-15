@@ -3,8 +3,6 @@ PODS:
     - RxCocoa (< 7.0, >= 5.0)
     - RxSwift (< 7.0, >= 5.0)
   - Alamofire (4.9.1)
-  - Crashlytics (3.14.0):
-    - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
   - Firebase/Analytics (7.8.1):
     - Firebase/Core
@@ -13,6 +11,9 @@ PODS:
     - FirebaseAnalytics (= 7.8.1)
   - Firebase/CoreOnly (7.8.1):
     - FirebaseCore (= 7.8.0)
+  - Firebase/Crashlytics (7.8.1):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 7.8.0)
   - FirebaseAnalytics (7.8.1):
     - FirebaseCore (~> 7.0)
     - FirebaseInstallations (~> 7.0)
@@ -31,6 +32,12 @@ PODS:
     - GoogleUtilities/Environment (~> 7.0)
     - GoogleUtilities/Logger (~> 7.0)
     - nanopb (~> 2.30907.0)
+  - FirebaseCrashlytics (7.8.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleDataTransport (~> 8.0)
+    - nanopb (~> 2.30907.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseInstallations (7.8.0):
     - FirebaseCore (~> 7.0)
     - GoogleUtilities/Environment (~> 7.0)
@@ -108,9 +115,9 @@ PODS:
 
 DEPENDENCIES:
   - Action
-  - Crashlytics
   - Fabric
   - Firebase/Analytics
+  - Firebase/Crashlytics
   - ImageScrollView
   - JZCalendarWeekView
   - KeychainAccess
@@ -129,12 +136,12 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Action
     - Alamofire
-    - Crashlytics
     - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseInstallations
     - GoogleAppMeasurement
     - GoogleDataTransport
@@ -163,12 +170,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Action: 5dc2194f7a0b77857c82a677b0da655f197c005f
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   Firebase: d59ad4129167f9f0d2a4f6c1f0c462254b6002c8
   FirebaseAnalytics: 3b98b563d7d64c07900511198b4805cfd9f9f61c
   FirebaseCore: 049029df3096e5c118917029be7da75ee16f3b1b
   FirebaseCoreDiagnostics: 066f996579cf097bdad3d7dc9a918d6b9e129c50
+  FirebaseCrashlytics: d07e61d85aabc7d38a68f94ff99995f8557ea8d0
   FirebaseInstallations: 7f7ed0e7e27fb51f57291e1876e2ddb1524126c1
   GoogleAppMeasurement: 50a254ee92c1b94fbe2abea7e3da35e4c6dedce0
   GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
@@ -194,6 +201,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Tabman: 1d927ebbea463623dac78f889b32fd1addb8fbe8
 
-PODFILE CHECKSUM: d85a307103f8bd865a542dac4eff504fe2469b01
+PODFILE CHECKSUM: b56adb2a23e916b59abebaa8232582de53ba77e6
 
 COCOAPODS: 1.10.1
