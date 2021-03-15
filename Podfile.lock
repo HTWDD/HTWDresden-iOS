@@ -1,104 +1,109 @@
 PODS:
-  - Action (4.1.0):
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
+  - Action (4.2.0):
+    - RxCocoa (< 7.0, >= 5.0)
+    - RxSwift (< 7.0, >= 5.0)
   - Alamofire (4.9.1)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
-  - Firebase/Analytics (6.33.0):
+  - Firebase/Analytics (7.8.1):
     - Firebase/Core
-  - Firebase/Core (6.33.0):
+  - Firebase/Core (7.8.1):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.8.3)
-  - Firebase/CoreOnly (6.33.0):
-    - FirebaseCore (= 6.10.3)
-  - FirebaseAnalytics (6.8.3):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleAppMeasurement (= 6.8.3)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - FirebaseCore (6.10.3):
-    - FirebaseCoreDiagnostics (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.7.0):
-    - GoogleDataTransport (~> 7.4)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseInstallations (1.7.0):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
+    - FirebaseAnalytics (= 7.8.1)
+  - Firebase/CoreOnly (7.8.1):
+    - FirebaseCore (= 7.8.0)
+  - FirebaseAnalytics (7.8.1):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleAppMeasurement (= 7.8.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30907.0)
+  - FirebaseCore (7.8.0):
+    - FirebaseCoreDiagnostics (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.8.0):
+    - GoogleDataTransport (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30907.0)
+  - FirebaseInstallations (7.8.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
     - PromisesObjC (~> 1.2)
-  - GoogleAppMeasurement (6.8.3):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - GoogleDataTransport (7.4.0):
-    - nanopb (~> 1.30906.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+  - GoogleAppMeasurement (7.8.1):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30907.0)
+  - GoogleDataTransport (8.3.0):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30907.0)
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.3.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.7.2):
+  - GoogleUtilities/Environment (7.3.0):
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.7.2):
+  - GoogleUtilities/Logger (7.3.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.2):
+  - GoogleUtilities/MethodSwizzler (7.3.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.7.2):
+  - GoogleUtilities/Network (7.3.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
+  - "GoogleUtilities/NSData+zlib (7.3.0)"
+  - GoogleUtilities/Reachability (7.3.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
+  - GoogleUtilities/UserDefaults (7.3.0):
     - GoogleUtilities/Logger
-  - ImageScrollView (1.9.1)
-  - KeychainAccess (4.2.1)
-  - lottie-ios (3.1.8)
+  - ImageScrollView (1.9.2)
+  - JZCalendarWeekView (0.7.1)
+  - KeychainAccess (4.2.2)
+  - lottie-ios (3.2.1)
   - Marshal (1.2.7)
   - Moya (13.0.1):
     - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - nanopb (1.30906.0):
-    - nanopb/decode (= 1.30906.0)
-    - nanopb/encode (= 1.30906.0)
-  - nanopb/decode (1.30906.0)
-  - nanopb/encode (1.30906.0)
-  - Pageboy (3.6.1)
-  - PromisesObjC (1.2.10)
-  - R.swift (5.2.2):
-    - R.swift.Library (~> 5.2.0)
-  - R.swift.Library (5.2.0)
-  - Realm (5.4.6):
-    - Realm/Headers (= 5.4.6)
-  - Realm/Headers (5.4.6)
-  - RealmSwift (5.4.6):
-    - Realm (= 5.4.6)
+  - nanopb (2.30907.0):
+    - nanopb/decode (= 2.30907.0)
+    - nanopb/encode (= 2.30907.0)
+  - nanopb/decode (2.30907.0)
+  - nanopb/encode (2.30907.0)
+  - Pageboy (3.6.2)
+  - PromisesObjC (1.2.12)
+  - R.swift (5.4.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - Realm (10.7.2):
+    - Realm/Headers (= 10.7.2)
+  - Realm/Headers (10.7.2)
+  - RealmSwift (10.7.2):
+    - Realm (= 10.7.2)
   - Result (4.1.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxRealm (3.1.0):
-    - RealmSwift (~> 5.2)
-    - RxSwift (~> 5.0)
+  - RxRealm (4.0.2):
+    - Realm (~> 10.2)
+    - RealmSwift (~> 10.2)
+    - RxCocoa (~> 5.1)
+    - RxSwift (~> 5.1)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.2)
   - SwiftKeychainWrapper (4.0.1)
-  - Tabman (2.9.1):
+  - Tabman (2.11.0):
     - Pageboy (~> 3.6.0)
 
 DEPENDENCIES:
@@ -107,6 +112,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase/Analytics
   - ImageScrollView
+  - JZCalendarWeekView
   - KeychainAccess
   - lottie-ios
   - Marshal (~> 1.2)
@@ -134,6 +140,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - ImageScrollView
+    - JZCalendarWeekView
     - KeychainAccess
     - lottie-ios
     - Marshal
@@ -154,38 +161,39 @@ SPEC REPOS:
     - Tabman
 
 SPEC CHECKSUMS:
-  Action: 79e6c5dc91e13eea045ab6744b3e5609086671aa
+  Action: 5dc2194f7a0b77857c82a677b0da655f197c005f
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Crashlytics: 9220f5bc89e7a618df411b4f639389dbfb0e03d2
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
-  Firebase: 8db6f2d1b2c5e2984efba4949a145875a8f65fe5
-  FirebaseAnalytics: 5dd088bd2e67bb9d13dbf792d1164ceaf3052193
-  FirebaseCore: d889d9e12535b7f36ac8bfbf1713a0836a3012cd
-  FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
-  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  GoogleAppMeasurement: 966e88df9d19c15715137bb2ddaf52373f111436
-  GoogleDataTransport: b7f406340a291370045a270c599e53c6fa6ec20f
-  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  ImageScrollView: 21e04457d565405b856e5af3f18ef594ae943b66
-  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
-  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  Firebase: d59ad4129167f9f0d2a4f6c1f0c462254b6002c8
+  FirebaseAnalytics: 3b98b563d7d64c07900511198b4805cfd9f9f61c
+  FirebaseCore: 049029df3096e5c118917029be7da75ee16f3b1b
+  FirebaseCoreDiagnostics: 066f996579cf097bdad3d7dc9a918d6b9e129c50
+  FirebaseInstallations: 7f7ed0e7e27fb51f57291e1876e2ddb1524126c1
+  GoogleAppMeasurement: 50a254ee92c1b94fbe2abea7e3da35e4c6dedce0
+  GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
+  GoogleUtilities: abda45f519bc4073aa1171d2f8742108def46017
+  ImageScrollView: 329f63d29b22f21594250d31536aa83e018571ed
+  JZCalendarWeekView: 586a429ab3fbeef4f98d648ea6b801f57c5495cc
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  Pageboy: 29a2d474ad99404b4d77f325e0ab6d705930a4fb
-  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
-  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
-  Realm: bb8d7be40d0bc92f139c47095124513c489c0baf
-  RealmSwift: c469118d55feccd985f1de12973c6ef5587213ca
+  nanopb: 59221d7f958fb711001e6a449489542d92ae113e
+  Pageboy: cf121b9dd48c63f3f281b2a9ec93d02e0f23879b
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
+  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRealm: 50e5fe5c1f22518205afbb313fbc5580d73bc586
+  RxRealm: cc14831d5527f10fbfe547d0922cae129a07ba9d
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
-  Tabman: 085d89c65be9e883629bdaf5b1453a6397e57846
+  Tabman: 1d927ebbea463623dac78f889b32fd1addb8fbe8
 
-PODFILE CHECKSUM: cb3b079a36be5d049d5af8c159688d043b81b20e
+PODFILE CHECKSUM: d85a307103f8bd865a542dac4eff504fe2469b01
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
