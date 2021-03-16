@@ -84,7 +84,6 @@ extension AppDelegate {
         Analytics.setAnalyticsCollectionEnabled(false)
         if UserDefaults.standard.crashlytics {
             FirebaseApp.configure()
-            Fabric.with([Crashlytics.self])
         }
     }
 }

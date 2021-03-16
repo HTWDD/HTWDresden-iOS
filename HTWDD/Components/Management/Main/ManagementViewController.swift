@@ -32,7 +32,7 @@ class ManagementViewController: UITableViewController, HasSideBarItem {
             $0.addTarget(self, action: #selector(reload), for: .valueChanged)
             $0.tintColor = .white
         }
-
+fatalError()
         title = R.string.localizable.managementTitle()
         tableView.apply {
             $0.separatorStyle = .none
