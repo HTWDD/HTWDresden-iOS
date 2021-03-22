@@ -72,7 +72,6 @@ PODS:
   - GoogleUtilities/UserDefaults (7.3.1):
     - GoogleUtilities/Logger
   - ImageScrollView (1.9.2)
-  - JZCalendarWeekView (0.7.1)
   - KeychainAccess (4.2.2)
   - lottie-ios (3.2.1)
   - Marshal (1.2.7)
@@ -117,7 +116,6 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Crashlytics
   - ImageScrollView
-  - JZCalendarWeekView
   - KeychainAccess
   - lottie-ios
   - Marshal (~> 1.2)
@@ -144,7 +142,6 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - ImageScrollView
-    - JZCalendarWeekView
     - KeychainAccess
     - lottie-ios
     - Marshal
@@ -177,7 +174,6 @@ SPEC CHECKSUMS:
   GoogleDataTransport: b006084b73915a42c28a3466961a4edda3065da6
   GoogleUtilities: e1d9ed4e544fc32a93e00e721400cbc3f377200d
   ImageScrollView: 329f63d29b22f21594250d31536aa83e018571ed
-  JZCalendarWeekView: 586a429ab3fbeef4f98d648ea6b801f57c5495cc
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   Marshal: ef480864a6af10a63f67be7e55bb5d8fe67a16d9
@@ -197,6 +193,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   Tabman: 1d927ebbea463623dac78f889b32fd1addb8fbe8
 
-PODFILE CHECKSUM: dd8fcfc3bb2ccb16b9e5d4da6bd45cd3d0f91485
+PODFILE CHECKSUM: a26d435075f2c6de167b6df5235c1132fa4d3699
 
 COCOAPODS: 1.10.1
