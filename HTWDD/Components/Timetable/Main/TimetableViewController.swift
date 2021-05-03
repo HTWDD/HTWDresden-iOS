@@ -63,7 +63,7 @@ extension TimetableViewController {
         
         title = R.string.localizable.scheduleTitle()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrolToToday))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
         
         tableView.apply {
             $0.separatorStyle   = .none
@@ -86,7 +86,7 @@ extension TimetableViewController {
                 self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.scheduleNoResultsTitle(), message: R.string.localizable.scheduleNoResultsMessage(), hint: nil, action: nil))
                 self.items = []
             } else {
-                self.scrolToToday(notAnimated: true)
+                self.scrollToToday(notAnimated: true)
             }
             
         }).disposed(by: rx_disposeBag)
@@ -114,24 +114,31 @@ extension TimetableViewController {
         present(viewController, animated: true, completion: nil)
     }
     
-    @objc private func scrolToToday(notAnimated: Bool = true) {
-        if !items.isEmpty {
-            var indexOfHeader: Int = 0
-            indexer: for (index, element) in items.enumerated() {
-                switch element {
-                case .header(let model):
-                    if model.header == Date().string(format: "dd.MM.yyyy") {
-                        indexOfHeader = index
-                        break indexer
-                    }
-                default: break
+    @objc private func scrollToToday(notAnimated: Bool = true) {
+        guard !items.isEmpty else { return }
+        
+        var indexOfHeader: Int = 0
+        indexer: for (index, element) in items.enumerated() {
+            switch element {
+            case .header(let model):
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                
+                let today = Date().localDate
+                
+                if let elementDate = dateFormatter.date(from: model.header)?.localDate,
+                   ( today.components.calendar?.isDateInToday(elementDate) ?? false || elementDate >= today ) {
+                    
+                    indexOfHeader = index
+                    break indexer
                 }
+                
+            default: break
             }
-            
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
-                self.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
-            }
+        }
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
         }
     }
 }
