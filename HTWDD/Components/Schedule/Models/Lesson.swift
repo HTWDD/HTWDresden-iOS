@@ -23,6 +23,10 @@ struct Lesson: Codable {
     let rooms: [String]
     let lastChanged: String
     
+    var isElective: Bool {
+        type == .electiveLesson || type == .electiveExercise || type == .electivePractical
+    }
+    
     var lessonDays: [String] {
         let date = Date()
         var lastWeek    = Calendar.current.component(.weekOfYear, from: date)
@@ -82,27 +86,32 @@ protocol LessonDetailsPickerSelection: CaseIterable {
 enum LessonType: String, Codable, LessonDetailsPickerSelection {
 
     case practical
+    case electivePractical
     case lesson
+    case electiveLesson
     case exercise
+    case electiveExercise
     case requested
     case block
+    case project
     case unkown
     
     var localizedDescription: String {
         switch self {
-        case .practical: return R.string.localizable.scheduleLectureTypePractical()
-        case .lesson: return R.string.localizable.scheduleLectureTypeLecture()
-        case .exercise: return R.string.localizable.scheduleLectureTypeExercise()
+        case .practical, .electivePractical: return R.string.localizable.scheduleLectureTypePractical()
+        case .lesson, .electiveLesson: return R.string.localizable.scheduleLectureTypeLecture()
+        case .exercise, .electiveExercise: return R.string.localizable.scheduleLectureTypeExercise()
         case .requested: return R.string.localizable.scheduleLectureTypeRequested()
         case .block: return R.string.localizable.scheduleLectureTypeBlock()
+        case .project: return R.string.localizable.scheduleLectureTypeProject()
         case .unkown: return R.string.localizable.scheduleLectureTypeUnknown()
         }
     }
     
     var timetableColor: UIColor {
         switch self {
-        case .lesson: return UIColor.htw.red_300
-        case .exercise: return UIColor.htw.green_300
+        case .lesson, .electiveLesson: return UIColor.htw.red_300
+        case .exercise, .electiveExercise: return UIColor.htw.green_300
         case .block: return UIColor.htw.blue_grey_300
         default: return UIColor.htw.indigo_400
         }
@@ -112,11 +121,15 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         let container = try decoder.singleValueContainer().decode(String.self)
         
         switch container {
-        case let str where str.hasPrefix("V"): self = .lesson
-        case let str where str.hasPrefix("Ü"): self = .exercise
-        case let str where str.hasPrefix("P"): self = .practical
+        case let str where str.elementsEqual("V(p)"): self = .lesson
+        case let str where str.elementsEqual("V(w)"): self = .electiveLesson
+        case let str where str.elementsEqual("Ü(p)"): self = .exercise
+        case let str where str.elementsEqual("Ü(f)"): self = .electiveExercise
+        case let str where str.elementsEqual("Pr(p)"): self = .practical
+        case let str where str.elementsEqual("Pr(w)"): self = .electivePractical
         case let str where str.hasPrefix("Buchung"): self = .requested
         case let str where str.hasPrefix("Block"): self = .block
+        case let str where str.hasPrefix("Projekt"): self = .project
         default:
             self = .unkown
         }

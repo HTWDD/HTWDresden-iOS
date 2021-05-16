@@ -19,6 +19,7 @@ class TimetableLessonViewCell: UITableViewCell {
     @IBOutlet weak var lblExaminer: UILabel!
     @IBOutlet weak var lblExamType: BadgeLabel!
     @IBOutlet weak var lblExamRooms: BadgeLabel!
+    @IBOutlet weak var lblExamElective: BadgeLabel!
     @IBOutlet weak var lblExamBegin: UILabel!
     @IBOutlet weak var lblExamEnd: UILabel!
     @IBOutlet weak var separator: UIView!
@@ -52,6 +53,11 @@ class TimetableLessonViewCell: UITableViewCell {
             $0.backgroundColor  = UIColor.htw.Material.blue
         }
         
+        lblExamElective.apply {
+            $0.backgroundColor  = UIColor.htw.Material.green
+            $0.textColor        = .white
+        }
+        
         lblExamBegin.apply {
             $0.textColor = UIColor.htw.Label.primary
         }
@@ -80,13 +86,20 @@ extension TimetableLessonViewCell: FromNibLoadable {
         
         self.lesson = model
         
-        separator.backgroundColor = "\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
+        separator.backgroundColor = model.type.timetableColor
         lblExamName.text    = model.name
         lblExamBegin.text   = String(model.beginTime.prefix(5))
         lblExamEnd.text     = String(model.endTime.prefix(5))
         lblExaminer.text    = model.professor?.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
         lblExamRooms.text   = String(model.rooms.description.dropFirst().dropLast()).replacingOccurrences(of: "\"", with: "")
         lblExamType.text    = model.type.localizedDescription
+        
+        switch model.type {
+        case .electiveLesson, .electiveExercise, .electivePractical:
+            lblExamElective.isHidden = false
+        default:
+            lblExamElective.isHidden = true
+        }
     }
     
 }

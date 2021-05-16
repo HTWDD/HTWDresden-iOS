@@ -9,7 +9,7 @@
 import UIKit
 import JZCalendarWeekView
 
-protocol TimetableWeekViewDelegate: class {
+protocol TimetableWeekViewDelegate: AnyObject {
     func export(_ lessonEvent: LessonEvent)
 }
 

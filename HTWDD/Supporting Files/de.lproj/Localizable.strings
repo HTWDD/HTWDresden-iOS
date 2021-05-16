@@ -68,9 +68,11 @@
 "Schedule.Settings.Cell.subtitle"="%@: %@–%@";
 
 "Schedule.LectureType.lecture"="Vorlesung";
+"Schedule.LectureType.elective.lecture"="Wahlpflicht";
 "Schedule.LectureType.practical"="Praktikum";
 "Schedule.LectureType.exercise"="Übung";
 "Schedule.LectureType.block"="Block";
+"Schedule.LectureType.project"="Projekt";
 "Schedule.LectureType.requested"="Buchung-angefragt";
 "Schedule.LectureType.unknown"="Unbekannt";
 "Schedule.current.lesson"="Aktuell";

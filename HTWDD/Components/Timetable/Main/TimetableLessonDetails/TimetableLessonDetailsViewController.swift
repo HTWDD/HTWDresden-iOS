@@ -94,6 +94,11 @@ class TimetableLessonDetailsViewController: UIViewController {
         self.lesson.weeksOnly = model.weeksOnly
         self.lesson.professor = model.professor
         self.lesson.rooms = model.rooms.joined(separator: ", ")
+        
+        if model.isElective {
+            let hideBtn = UIBarButtonItem.menuButton(self, action: #selector(deleteLesson), imageName: "Icons_Eye", insets: false)
+            navigationItem.rightBarButtonItems = [hideBtn]
+        }
     }
     
     private func styleButtons(){
