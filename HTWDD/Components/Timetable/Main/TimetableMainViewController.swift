@@ -90,7 +90,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         switch currentStyle {
         case .list:
             let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
-            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
+            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(addLesson), imageName: "Icon_Plus")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
 
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
@@ -98,7 +98,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         case .week:
             let exportBtn = UIBarButtonItem.menuButton(self, action: #selector(exportAll), imageName: "Icon_Export")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icons_List")
-            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(createLesson), imageName: "Icon_Plus")
+            let addBtn = UIBarButtonItem.menuButton(self, action: #selector(addLesson), imageName: "Icon_Plus")
 
             navigationItem.rightBarButtonItems = [exportBtn, listWeekBtn, addBtn]
 
@@ -116,7 +116,36 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         self.currentStyle?.toggle()
     }
     
-    @objc func createLesson() {
+    @objc func addLesson() {
+        let addLessonMenu = UIAlertController(title: "Veranstaltung hinzufügen", message: nil, preferredStyle: .actionSheet)
+        
+        let addElectiveLessonAction = UIAlertAction(title: "Wahlpflichtfach", style: .default, handler: { _ in
+            self.addElectiveLesson()
+        })
+        
+        let addCustomLessonAction = UIAlertAction(title: "Eigene Veranstaltung", style: .default, handler: { _ in
+            self.createLesson()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel)
+        
+        addLessonMenu.addAction(addElectiveLessonAction)
+        addLessonMenu.addAction(addCustomLessonAction)
+        addLessonMenu.addAction(cancelAction)
+        
+        self.present(addLessonMenu, animated: true, completion: nil)
+    }
+    
+    private func addElectiveLesson() {
+        
+        let electiveLessonViewController = R.storyboard.timetable.timetableElectiveLessonSelectionViewController()!.also {
+            $0.viewModel      = TimetableElectiveLessonSelectionViewModel(context: context) 
+        }
+        
+        self.navigationController?.pushViewController(electiveLessonViewController, animated: true)
+    }
+    
+    private func createLesson() {
         
         let createLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
             $0.context      = context
@@ -139,7 +168,6 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     }
     
     fileprivate func showExportDialog() {
-        
         
         let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         

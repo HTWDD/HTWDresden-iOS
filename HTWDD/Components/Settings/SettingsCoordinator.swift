@@ -23,6 +23,7 @@ protocol SettingsCoordinatorRoutingDelegate: class {
     func showPrivacy()
     func showGithub()
     func resetData()
+    func resetHidden()
 }
 
 class SettingsCoordinator: Coordinator {
@@ -125,6 +126,17 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
             $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
                 guard let self = self else { return }
                 self.delegate?.deleteAllData()
+            }))
+            $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
+        }
+        settingsViewController.present(alert, animated: true, completion: nil)
+    }
+    
+    func resetHidden() {
+        let alert = UIAlertController(title: "Ausgeblendete Veranstaltungen zurücksetzen", message: "Möchtest Du wirklich alle ausgeblendete Veranstaltungen zurüvcksetzen?", preferredStyle: .alert).also {
+            $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
+                guard let self = self else { return }
+                
             }))
             $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
         }

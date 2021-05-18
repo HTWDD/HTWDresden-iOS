@@ -313,6 +313,10 @@
 		758350DA2588E312000B3FF3 /* LessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 758350D92588E312000B3FF3 /* LessonCell.xib */; };
 		75862FE925A6F6D3000B2108 /* LessonDetailsSelectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75862FE825A6F6D3000B2108 /* LessonDetailsSelectionField.swift */; };
 		758686E42591E7D100DE608F /* TimetableWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758686E32591E7D100DE608F /* TimetableWeekView.swift */; };
+		7591361226542BE600EFF779 /* TimetableElectiveLessonSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591361126542BE600EFF779 /* TimetableElectiveLessonSelectionViewController.swift */; };
+		759136142654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759136132654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift */; };
+		7591361626544F8800EFF779 /* TimetableElectiveLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591361526544F8800EFF779 /* TimetableElectiveLessonCell.swift */; };
+		759136182654519C00EFF779 /* TimetableElectiveLessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759136172654519C00EFF779 /* TimetableElectiveLessonCell.xib */; };
 		75A75D7025A856E60057289F /* TimetableLessonDetailsSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A75D6F25A856E60057289F /* TimetableLessonDetailsSelectionCell.xib */; };
 		75A75D7825A858550057289F /* TimetableLessonDetailsSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A75D7725A858550057289F /* TimetableLessonDetailsSelectionCell.swift */; };
 		75A75D7D25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A75D7C25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib */; };
@@ -685,6 +689,10 @@
 		758350D92588E312000B3FF3 /* LessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LessonCell.xib; sourceTree = "<group>"; };
 		75862FE825A6F6D3000B2108 /* LessonDetailsSelectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailsSelectionField.swift; sourceTree = "<group>"; };
 		758686E32591E7D100DE608F /* TimetableWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekView.swift; sourceTree = "<group>"; };
+		7591361126542BE600EFF779 /* TimetableElectiveLessonSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElectiveLessonSelectionViewController.swift; sourceTree = "<group>"; };
+		759136132654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElectiveLessonSelectionViewModel.swift; sourceTree = "<group>"; };
+		7591361526544F8800EFF779 /* TimetableElectiveLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElectiveLessonCell.swift; sourceTree = "<group>"; };
+		759136172654519C00EFF779 /* TimetableElectiveLessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableElectiveLessonCell.xib; sourceTree = "<group>"; };
 		75A75D6F25A856E60057289F /* TimetableLessonDetailsSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailsSelectionCell.xib; sourceTree = "<group>"; };
 		75A75D7725A858550057289F /* TimetableLessonDetailsSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonDetailsSelectionCell.swift; sourceTree = "<group>"; };
 		75A75D7C25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailTimePickerCell.xib; sourceTree = "<group>"; };
@@ -1471,6 +1479,7 @@
 		64E7DB592343464700540FED /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7591361026542BB800EFF779 /* TimetableElectiveLessonSelection */,
 				75E20F2F258CBF1300FA6DF4 /* TimetableLessonDetails */,
 				64E7DB5C2343466D00540FED /* Timetable.storyboard */,
 				7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */,
@@ -1497,6 +1506,7 @@
 			children = (
 				64E7DB60234346BD00540FED /* TimetableViewModel.swift */,
 				757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */,
+				759136132654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1538,6 +1548,16 @@
 				64C5883324124499003DFDA8 /* TimetableFreedayViewCell.xib */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		7591361026542BB800EFF779 /* TimetableElectiveLessonSelection */ = {
+			isa = PBXGroup;
+			children = (
+				7591361126542BE600EFF779 /* TimetableElectiveLessonSelectionViewController.swift */,
+				7591361526544F8800EFF779 /* TimetableElectiveLessonCell.swift */,
+				759136172654519C00EFF779 /* TimetableElectiveLessonCell.xib */,
+			);
+			path = TimetableElectiveLessonSelection;
 			sourceTree = "<group>";
 		};
 		75E20F2F258CBF1300FA6DF4 /* TimetableLessonDetails */ = {
@@ -2166,6 +2186,7 @@
 				64BAFB122341FF3E00292501 /* DashboardHeaderViewCell.xib in Resources */,
 				6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */,
 				64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */,
+				759136182654519C00EFF779 /* TimetableElectiveLessonCell.xib in Resources */,
 				6493710923428D6A00EC7195 /* DashboardTimeTableNoStudyTokenViewCell.xib in Resources */,
 				6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */,
 				640DC15322FB659F00E9ED9A /* Exam.storyboard in Resources */,
@@ -2587,6 +2608,7 @@
 				640FC57422F4182B0090E210 /* StudyGroupViewController.swift in Sources */,
 				1F7E32101FA7BB3900CCBDD6 /* ScheduleWeekLayout.swift in Sources */,
 				B52A9B591DDB173600313FC3 /* ViewController.swift in Sources */,
+				759136142654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift in Sources */,
 				B5D3E8381FA5E6C10055782D /* GradeCoordinator.swift in Sources */,
 				1FC1BDD41FADDF1C007F9D06 /* SettingsService.swift in Sources */,
 				1FA92C711FEACC7400A88B0D /* UIColor.swift in Sources */,
@@ -2637,6 +2659,7 @@
 				B5BE728A1E6C86A600D05B6D /* EventPeriod.swift in Sources */,
 				757CB0CC25C457710082F411 /* TimetableDetailsViewModel.swift in Sources */,
 				B5EA53721E7FD25C00183E07 /* AnimatedViewControllerTransition.swift in Sources */,
+				7591361626544F8800EFF779 /* TimetableElectiveLessonCell.swift in Sources */,
 				B5A069102042E7BF0067B8D2 /* GradeAverageCell.swift in Sources */,
 				1F7E32091FA7B84000CCBDD6 /* ScheduleListVC.swift in Sources */,
 				39FB084D1E9E57A2001CC2F5 /* GradeDataSource.swift in Sources */,
@@ -2648,6 +2671,7 @@
 				B5D3E83C1FA5E8D50055782D /* ScheduleService.swift in Sources */,
 				1F88748F1F8FB2BF00EE6492 /* OnboardStudygroupViewController.swift in Sources */,
 				5B6B4FF6209B693E00A572F8 /* URL.swift in Sources */,
+				7591361226542BE600EFF779 /* TimetableElectiveLessonSelectionViewController.swift in Sources */,
 				B5EF95851FAF7C8A006BC7D1 /* GenericBasicTableViewDataSource.swift in Sources */,
 				B55507101E601AE300C16F5F /* Lecture.swift in Sources */,
 				64E7DB632343471F00540FED /* TimetableService.swift in Sources */,

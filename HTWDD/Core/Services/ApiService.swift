@@ -112,6 +112,13 @@ extension ApiService {
             .map { try $0.map([Lesson].self) }
     }
     
+    func requestElectiveLessons() -> Observable<[Lesson]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.electiveLessons))
+            .filter(statusCodes: 200...299)
+            .asObservable()
+            .map { try $0.map([Lesson].self) }
+    }
+    
     // MARK: - Management
     func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
         return provider.rx.request(MultiTarget(HTWRestApi.semesterPlaning))

@@ -35,6 +35,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var imprintCell: UITableViewCell!
     @IBOutlet weak var trashCell: UITableViewCell!
     @IBOutlet weak var privacyCell: UITableViewCell!
+    @IBOutlet weak var resetHiddenCell: UITableViewCell!
     
     // MARK: - Header Cells
     @IBOutlet weak var lblAccountHeader: UILabel!
@@ -96,6 +97,7 @@ extension SettingsViewController {
         emailCell.backgroundColor       = UIColor.htw.cellBackground
         imprintCell.backgroundColor     = UIColor.htw.cellBackground
         trashCell.backgroundColor       = UIColor.htw.cellBackground
+        resetHiddenCell.backgroundColor       = UIColor.htw.cellBackground
         privacyCell.backgroundColor     = UIColor.htw.cellBackground
         
         tableView.apply {
@@ -253,6 +255,7 @@ extension SettingsViewController {
         case "impressumCell": delegate?.showImpressum()
         case "privacyCell": delegate?.showPrivacy()
         case "trashCell": delegate?.resetData()
+        case "resetHiddenCell": delegate?.resetHidden()
         default:
             break
         }

@@ -12,6 +12,7 @@ import Moya
 // MARK: - Endpoints
 enum HTWRestApi {
     case timeTable(year: String, major: String, group: String)
+    case electiveLessons
     case semesterPlaning
     case rooms(room: String)
     case studyGroups
@@ -33,10 +34,11 @@ extension HTWRestApi: TargetType {
             return URL(string: "https://rubu2.rz.htw-dresden.de/API/v0")!
         }
     }
-    
+
     var path: String {
         switch self {
         case .timeTable: return "/studentTimetable.php"
+        case .electiveLessons: return "/studentTimetable.php"
         case .semesterPlaning: return "/semesterplan.json"
         case .rooms: return "/roomTimetable.php"
         case .studyGroups: return "/studyGroups.php"
@@ -64,6 +66,8 @@ extension HTWRestApi: TargetType {
             return .requestParameters(parameters: ["Stg": "\(major.urlEscaped)", "StgNr": "\(group.urlEscaped)", "StgJhr": "\(year.urlEscaped)", "AbSc": "\(grade.urlEscaped)"], encoding: URLEncoding.default)
         case .grades(_, let examinationRegulations, let majorNumber, let graduationNumber):
             return .requestParameters(parameters: ["POVersion" : "\(examinationRegulations)", "StgNr": majorNumber, "AbschlNr": graduationNumber], encoding: URLEncoding.default)
+        case .electiveLessons:
+            return .requestParameters(parameters: ["all" : "true"], encoding: URLEncoding.default)
         default:
             return .requestPlain
         }

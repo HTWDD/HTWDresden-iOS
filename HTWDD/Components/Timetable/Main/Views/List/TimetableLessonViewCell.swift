@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LessonViewCellExportDelegate: class {
+protocol LessonViewCellExportDelegate: AnyObject {
     func export(_ lesson: Lesson)
 }
 
