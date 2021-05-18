@@ -3,7 +3,7 @@ default_platform(:ios)
 platform :ios do
   lane :test do
     xcode_test(
-      version: "12.3",
+      version: "12.5",
       scheme_name: "HTWDD"
     ) 
   end
@@ -15,7 +15,7 @@ platform :ios do
     xcode_deploy(
       bump_type: options[:bump_type],
       scheme_name: "HTWDD",
-      version: "12.3",
+      version: "12.5",
     )
   end
 end
