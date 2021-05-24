@@ -24,6 +24,7 @@ class TimetableRealm: Object {
     @objc dynamic var professor: String?    = ""
     let rooms: List<String>   = List<String>()
     @objc dynamic var lastChanged: String   = ""
+    @objc dynamic var isHidden: Bool        = false
     
     override func isEqual(_ object: Any?) -> Bool {
         if let object = object as? ExamRealm {
@@ -104,6 +105,7 @@ extension TimetableRealm {
                 object.rooms.removeAll()
                 codable.rooms.forEach{room in object.rooms.append(room) }
                 object.setValue(codable.lastChanged, forKey: "lastChanged")
+                object.setValue(codable.isHidden, forKey: "isHidden")
             }
         }
     }

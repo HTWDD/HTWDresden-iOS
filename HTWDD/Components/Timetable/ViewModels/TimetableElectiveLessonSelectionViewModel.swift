@@ -21,6 +21,7 @@ class TimetableElectiveLessonSelectionViewModel {
     func loadElectiveLessons() -> Observable<[Lesson]> {
         return context
             .timetableService.requestElectiveLessons()
+            .map { $0.sorted(by: { a, b in a.name < b.name }) }
     }
     
     func saveElectiveLesson(selected lesson: Lesson) {

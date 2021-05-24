@@ -22,6 +22,7 @@ struct Lesson: Codable {
     let professor: String?
     let rooms: [String]
     let lastChanged: String
+    var isHidden: Bool? = false
     
     var isElective: Bool {
         type == .electiveLesson || type == .electiveExercise || type == .electivePractical

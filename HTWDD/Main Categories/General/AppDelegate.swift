@@ -69,11 +69,14 @@ extension AppDelegate {
     // MARK: - Realm
     func realmConfiguration() {
         let config = Realm.Configuration(
-            schemaVersion: 1,
+            schemaVersion: 2,
             migrationBlock: { migration, oldSchemaVersion in
-                if oldSchemaVersion < 1 {
+                if oldSchemaVersion < 2 {
+                    migration.enumerateObjects(ofType: TimetableRealm.className()) { oldObject, newObject in
+                        newObject!["isHidden"] = false
+                    }
                 }
-        })
+            })
         Realm.Configuration.defaultConfiguration = config
         let _ = try! Realm()
     }
