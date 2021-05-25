@@ -255,7 +255,7 @@ extension SettingsViewController {
         case "impressumCell": delegate?.showImpressum()
         case "privacyCell": delegate?.showPrivacy()
         case "trashCell": delegate?.resetData()
-        case "resetHiddenCell": delegate?.resetHidden()
+        case "resetHiddenCell": delegate?.showResetHiddenDialog()
         default:
             break
         }

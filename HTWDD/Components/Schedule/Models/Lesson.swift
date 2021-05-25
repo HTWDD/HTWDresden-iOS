@@ -77,6 +77,7 @@ struct CustomLesson {
     var professor: String?
     var rooms: String?
     var lastChanged: String?
+    var ishidden: Bool? = false
 }
 
 protocol LessonDetailsPickerSelection: CaseIterable {

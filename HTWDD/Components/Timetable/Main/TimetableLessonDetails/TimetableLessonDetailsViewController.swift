@@ -96,7 +96,7 @@ class TimetableLessonDetailsViewController: UIViewController {
         self.lesson.rooms = model.rooms.joined(separator: ", ")
         
         if model.isElective {
-            let hideBtn = UIBarButtonItem.menuButton(self, action: #selector(deleteLesson), imageName: "Icons_Eye", insets: false)
+            let hideBtn = UIBarButtonItem.menuButton(self, action: #selector(hideElectiveLesson), imageName: "Icons_Eye", insets: false)
             navigationItem.rightBarButtonItems = [hideBtn]
         }
     }
@@ -144,6 +144,15 @@ class TimetableLessonDetailsViewController: UIViewController {
         guard let lessonId = lesson.id else { return }
         
         viewModel.deleteCustomLesson(lessonId: lessonId)
+        close()
+    }
+    
+    @objc func hideElectiveLesson() {
+        guard let lessonId = lesson.id else { return }
+        
+        let electiveLesson = Lesson(id: lessonId, lessonTag: lesson.lessonTag, name: lesson.name!, type: lesson.type!, day: lesson.day!, beginTime: lesson.beginTime!, endTime: lesson.endTime!, week: lesson.week!, weeksOnly: lesson.weeksOnly!, professor: lesson.professor, rooms: [lesson.rooms!], lastChanged: "lesson.lastChanged", isHidden: true)
+        
+        viewModel.hideElectiveLesson(selected: electiveLesson)
         close()
     }
 }

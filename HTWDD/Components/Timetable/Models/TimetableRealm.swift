@@ -53,7 +53,7 @@ extension TimetableRealm {
         
         searchResultSet.forEach { searchResult in
             
-            let newItem : Lesson = Lesson(id: searchResult.id, lessonTag: searchResult.lessonTag, name: searchResult.name, type: LessonType(rawValue: searchResult.type) ?? .unkown, day: searchResult.day, beginTime: searchResult.beginTime, endTime: searchResult.endTime, week: searchResult.week, weeksOnly: searchResult.weeksOnly.toArray(), professor: searchResult.professor, rooms: searchResult.rooms.toArray(), lastChanged: searchResult.lastChanged)
+            let newItem : Lesson = Lesson(id: searchResult.id, lessonTag: searchResult.lessonTag, name: searchResult.name, type: LessonType(rawValue: searchResult.type) ?? .unkown, day: searchResult.day, beginTime: searchResult.beginTime, endTime: searchResult.endTime, week: searchResult.week, weeksOnly: searchResult.weeksOnly.toArray(), professor: searchResult.professor, rooms: searchResult.rooms.toArray(), lastChanged: searchResult.lastChanged, isHidden: searchResult.isHidden)
             
             result.append(newItem)
         }
@@ -63,10 +63,11 @@ extension TimetableRealm {
     
     static func save(from codable: Lesson) {
         let realm = try! Realm()
-        
+        print("TEST FUCK!")
         let id = codable.id
         let realmModel = realm.objects(TimetableRealm.self).filter { $0.id == id }.first ?? TimetableRealm()
         try! realm.write {
+            print("Fuck this")
             realm.add(realmModel.also { model in
                 model.id            = id
                 model.lessonTag     = codable.lessonTag
@@ -80,6 +81,7 @@ extension TimetableRealm {
                 model.professor     = codable.professor
                 codable.rooms.forEach{room in model.rooms.append(room) }
                 model.lastChanged   = codable.lastChanged
+                model.isHidden      = codable.isHidden ?? false
             })
             
         }

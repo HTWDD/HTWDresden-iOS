@@ -51,4 +51,16 @@ class TimetableDetailsViewModel {
         
         return TimetableRealm.exist(id: id)
     }
+    
+    func hideElectiveLesson(selected lesson: Lesson) {
+        
+        var hiddenLesson = lesson
+        hiddenLesson.isHidden = true
+        
+        if TimetableRealm.exist(id: hiddenLesson.id) {
+            TimetableRealm.update(from: hiddenLesson)
+        } else {
+            TimetableRealm.save(from: hiddenLesson)
+        }
+    }
 }

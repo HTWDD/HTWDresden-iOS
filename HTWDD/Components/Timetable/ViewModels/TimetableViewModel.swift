@@ -41,6 +41,9 @@ class TimetableViewModel {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .map { [weak self] (items: [Lesson]) -> [Lesson] in
+                self?.removeHiddenLessons(items) ?? []
+            }
             .map {[weak self] (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
                 
                 return Dictionary(grouping: self?.appendCustomLessons(items) ?? []) { $0.lessonDays }
@@ -87,6 +90,9 @@ class TimetableViewModel {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .map { [weak self] (items: [Lesson]) -> [Lesson] in
+                self?.removeHiddenLessons(items) ?? []
+            }
             .map { [weak self] (items: [Lesson]) -> Dictionary<[String], [Lesson]> in
                 
                 return Dictionary(grouping: self?.appendCustomLessons(items) ?? []) { $0.lessonDays }
@@ -216,9 +222,17 @@ class TimetableViewModel {
     
     private func appendCustomLessons(_ items: [Lesson]) -> [Lesson] {
         
-        var result = TimetableRealm.read()
+        var result = TimetableRealm.read().filter { $0.isHidden == false }
         
         result.append(contentsOf: items)
         return result
+    }
+    
+    private func removeHiddenLessons(_ items: [Lesson]) -> [Lesson] {
+        let hiddenLessons = TimetableRealm.read().filter { $0.isHidden == true }
+        
+        return items.filter { lesson in
+            hiddenLessons.first(where: {$0.id == lesson.id}) == nil
+        }
     }
 }

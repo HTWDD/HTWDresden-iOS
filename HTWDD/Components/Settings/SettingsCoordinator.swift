@@ -23,7 +23,7 @@ protocol SettingsCoordinatorRoutingDelegate: class {
     func showPrivacy()
     func showGithub()
     func resetData()
-    func resetHidden()
+    func showResetHiddenDialog()
 }
 
 class SettingsCoordinator: Coordinator {
@@ -132,14 +132,19 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
         settingsViewController.present(alert, animated: true, completion: nil)
     }
     
-    func resetHidden() {
+    func showResetHiddenDialog() {
         let alert = UIAlertController(title: "Ausgeblendete Veranstaltungen zurücksetzen", message: "Möchtest Du wirklich alle ausgeblendete Veranstaltungen zurüvcksetzen?", preferredStyle: .alert).also {
             $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
-                guard let self = self else { return }
-                
+                self?.resetHidden()
             }))
             $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
         }
         settingsViewController.present(alert, animated: true, completion: nil)
+    }
+    
+    private func resetHidden() {
+        let hiddenLessonsIds = TimetableRealm.read().map { $0.id }
+        
+        TimetableRealm.delete(ids: hiddenLessonsIds)
     }
 }
