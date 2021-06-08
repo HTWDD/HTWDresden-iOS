@@ -82,7 +82,14 @@ extension Date {
     var components: DateComponents {
         return Calendar.current.dateComponents(in: TimeZone.current, from: self)
     }
+    
+    var localDate: Date {
+        let timeZoneOffset = Double(TimeZone.current.secondsFromGMT(for: self))
+        guard let localDate = Calendar.current.date(byAdding: .second, value: Int(timeZoneOffset), to: self) else {return Date()}
 
+        return localDate
+    }
+ 
     func daysSince(other day: Date) -> Int {
         let cal = Calendar.current
         let components = cal.dateComponents([.day], from: day, to: self)

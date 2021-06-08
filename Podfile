@@ -37,10 +37,7 @@ target 'HTWDD' do
   
   # Firebase
   pod 'Firebase/Analytics'
-  
-  # Pods for PodTest
-  pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   
   # TabMan
   pod 'Tabman'
