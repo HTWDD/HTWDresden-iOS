@@ -35,6 +35,7 @@ class TimetableElectiveLessonSelectionViewController: UIViewController {
             searchController.obscuresBackgroundDuringPresentation = false
             searchController.searchBar.placeholder = "Suchen"
             searchController.searchBar.searchTextField.backgroundColor = .white
+            navigationItem.hidesSearchBarWhenScrolling = false
             
             navigationItem.searchController = searchController
             definesPresentationContext = true
