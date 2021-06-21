@@ -116,7 +116,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         self.currentStyle?.toggle()
     }
     
-    @objc func addLesson() {
+    @objc func addLesson(_ sender: UIButton) {
         let addLessonMenu = UIAlertController(title: "Veranstaltung hinzufügen", message: nil, preferredStyle: .actionSheet)
         
         let addElectiveLessonAction = UIAlertAction(title: "Wahlpflichtfach", style: .default, handler: { _ in
@@ -132,6 +132,11 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         addLessonMenu.addAction(addElectiveLessonAction)
         addLessonMenu.addAction(addCustomLessonAction)
         addLessonMenu.addAction(cancelAction)
+        
+        if let popoverController = addLessonMenu.popoverPresentationController {
+            popoverController.sourceView = sender.imageView
+            popoverController.sourceRect = CGRect(x: sender.imageView?.bounds.midX ?? 0, y: sender.imageView?.bounds.midY ?? 0, width: 0, height: 0)
+          }
         
         self.present(addLessonMenu, animated: true, completion: nil)
     }

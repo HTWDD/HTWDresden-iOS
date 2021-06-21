@@ -22,6 +22,7 @@ struct Lesson: Codable {
     let professor: String?
     let rooms: [String]
     let lastChanged: String
+    var isStudiesIntegrale: Bool?
     var isHidden: Bool? = false
     
     var isElective: Bool {
@@ -45,6 +46,23 @@ struct Lesson: Codable {
             lastWeek = week
             return Calendar.current.date(from: component)!.string(format: "dd.MM.yyyy")
         }
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case lessonTag
+        case name
+        case type
+        case day
+        case beginTime
+        case endTime
+        case week
+        case weeksOnly
+        case professor
+        case rooms
+        case lastChanged
+        case isStudiesIntegrale = "studiumIntegrale"
+        case isHidden
     }
 }
 

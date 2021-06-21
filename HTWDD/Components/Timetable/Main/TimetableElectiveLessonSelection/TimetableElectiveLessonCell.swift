@@ -66,6 +66,7 @@ class TimetableElectiveLessonCell: UITableViewCell, FromNibLoadable {
         lblExaminer.text    = lesson.professor?.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
         lblExamDay.text     = CalendarWeekDay(rawValue: lesson.day)?.localizedDescription
         lblExamType.text    = lesson.type.localizedDescription
+        lblExamIntegrale.isHidden = lesson.isStudiesIntegrale != true
     }
 }
 
