@@ -141,15 +141,30 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         let container = try decoder.singleValueContainer().decode(String.self)
         
         switch container {
-        case let str where str.elementsEqual("V(p)"): self = .lesson
-        case let str where str.elementsEqual("V(w)"): self = .electiveLesson
-        case let str where str.elementsEqual("Ü(p)"): self = .exercise
-        case let str where str.elementsEqual("Ü(f)"): self = .electiveExercise
-        case let str where str.elementsEqual("Pr(p)"): self = .practical
-        case let str where str.elementsEqual("Pr(w)"): self = .electivePractical
-        case let str where str.hasPrefix("Buchung"): self = .requested
-        case let str where str.hasPrefix("Block"): self = .block
-        case let str where str.hasPrefix("Projekt"): self = .project
+        case let str where str.hasPrefix("V"):
+            if str.contains("(w)") {
+                self = .electiveLesson
+            } else {
+                self = .lesson
+            }
+            
+        case let str where str.hasPrefix("Ü"):
+            if str.contains("(w)") {
+                self = .electiveExercise
+            } else {
+                self = .exercise
+            }
+            
+        case let str where str.hasPrefix("P"):
+            if str.contains("(w)") {
+                self = .electivePractical
+            } else {
+                self = .practical
+            }
+        case let str where str.hasPrefix("Buchung"):
+            self = .requested
+        case let str where str.hasPrefix("Block"):
+            self = .block
         default:
             self = .unkown
         }

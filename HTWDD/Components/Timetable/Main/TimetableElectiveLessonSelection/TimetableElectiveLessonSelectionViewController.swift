@@ -82,7 +82,7 @@ class TimetableElectiveLessonSelectionViewController: UIViewController {
                 dayFilter = day.localizedDescription.lowercased().contains(searchText.lowercased())
             }
             
-            let studiesIntegraleFilter = "studiumintegrale".contains(searchText.lowercased().replacingOccurrences(of: " ", with: ""))
+            let studiesIntegraleFilter = "studiumintegrale".contains(searchText.lowercased().replacingOccurrences(of: " ", with: "")) && lesson.isStudiesIntegrale ?? false
             
             return  nameFilter || professorFilter || dayFilter || studiesIntegraleFilter
         }
