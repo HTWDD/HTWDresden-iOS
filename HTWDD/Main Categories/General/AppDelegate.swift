@@ -12,11 +12,11 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     private var appCoordinator: AppCoordinator?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         analyticsAndCrashlytics()
@@ -26,16 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         Tracker.track(.start)
-
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-
-		self.appCoordinator = AppCoordinator(window: window)
-		self.window = window
-
-//		self.stylizeUI()
+        
+        self.appCoordinator = AppCoordinator(window: window)
+        self.window = window
+        
+        //		self.stylizeUI()
         
         UserDefaults.standard.saveAppVersion()
-
+        UserDefaults.standard.saveFirstLaunchDate()
+        
         realmConfiguration()
         
         return true
@@ -44,15 +45,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         Tracker.track(.open)
     }
-
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         self.appCoordinator?.goTo(controller: .schedule)
         return true
     }
     
     
-	// MARK: - UI Apperance
-	private func stylizeUI() {
+    // MARK: - UI Apperance
+    private func stylizeUI() {
         UIRefreshControl.appearance().tintColor = .white
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().barTintColor = UIColor.htw.blue
@@ -60,7 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 11.0, *) {
             UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         }
-	}
+    }
 }
 
 // MARK: - Bootup
@@ -84,6 +85,7 @@ extension AppDelegate {
     // MARK: - Crashlytics
     private func analyticsAndCrashlytics() {
         Analytics.setAnalyticsCollectionEnabled(false)
+        
         if UserDefaults.standard.crashlytics {
             FirebaseApp.configure()
         }

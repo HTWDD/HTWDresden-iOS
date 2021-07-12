@@ -47,7 +47,31 @@ class DashboardViewController: UITableViewController, HasSideBarItem {
         }
         
         load()
+        askForCrashlyticsPermission()
+    }
+    
+    private func askForCrashlyticsPermission() {
         
+        guard !UserDefaults.standard.crashlytics,
+        !UserDefaults.standard.crashlyticsAsked,
+              let firstLaunch = UserDefaults.standard.firstLaunchDate,
+              firstLaunch.timeIntervalSinceNow.days > 3 else {
+            return
+        }
+        
+        UserDefaults.standard.crashlyticsAsked = true
+        
+        let alert = UIAlertController(title: "Crashlytics", message: "Bitte helft uns mit anonymen Crashreports die App weiter zu verbesser. Ihr könnt die Funktion in den Einstellungen jederzeit deaktivieren.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Crashlytics deaktivieren", style: .cancel, handler: { _ in
+            UserDefaults.standard.crashlytics = false
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Crashlytics aktivieren", style: .default, handler: { _ in
+            UserDefaults.standard.crashlytics = true
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     private func load() {

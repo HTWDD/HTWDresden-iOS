@@ -11,8 +11,10 @@ import Foundation
 extension UserDefaults {
     
     enum Key: String {
+        case firstLaunched       = "HTW.App.First.Launched"
         case analytics          = "HTW.Analytics.Enabled"
         case crashlytics        = "HTW.Crashlytics.Enabled"
+        case crashlyticsAsked   = "HTW.Crashlytics.Asked"
         case needsOnboarding    = "HTW.Onboarding.Needs"
     }
     
@@ -44,6 +46,14 @@ extension UserDefaults {
         self.set(appVersion, forKey: "HTW_APP_VERSION")
     }
     
+    func saveFirstLaunchDate() {
+        guard self.firstLaunchDate == nil else {
+            return
+        }
+        
+        self.firstLaunchDate = Date()
+    }
+    
     var analytics: Bool {
         get {
             return value(forKey: .analytics) ?? false
@@ -61,6 +71,26 @@ extension UserDefaults {
             set(newValue, forKey: .crashlytics)
         }
     }
+    
+    var crashlyticsAsked: Bool {
+        get {
+            return value(forKey: .crashlyticsAsked) ?? false
+        }
+        set {
+            set(newValue, forKey: .crashlytics)
+        }
+    }
+    
+    var firstLaunchDate: Date? {
+        get {
+            return value(forKey: .firstLaunched)
+        }
+        set {
+            set(newValue, forKey: .firstLaunched)
+        }
+    }
+    
+    
     
     var needsOnboarding: Bool {
         get {
