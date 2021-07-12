@@ -38,7 +38,7 @@ class TimetableDetailsViewModel {
                                        weeksOnly: weeksOnly,
                                        professor: customLesson.professor,
                                        rooms: [customLesson.rooms ?? " "],
-                                       lastChanged: Date().localized)
+                                       lastChanged: Date().localized, isStudiesIntegrale: false)
         
         if TimetableRealm.exist(id: newLesson.id) {
             TimetableRealm.update(from: newLesson)

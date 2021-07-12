@@ -302,6 +302,8 @@
 		7505B1ED2580C88500741E4F /* TimetableMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */; };
 		752093D125A75E3D001EC3E5 /* TimetableLessonDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752093D025A75E3D001EC3E5 /* TimetableLessonDetailCell.xib */; };
 		752093D625A75E47001EC3E5 /* TimetableLessonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752093D525A75E47001EC3E5 /* TimetableLessonDetailCell.swift */; };
+		753E674A269C921C00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
+		753E674B269C928B00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
 		755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A741C257A679300C284A2 /* TimetableWeekViewController.swift */; };
 		757CB0CC25C457710082F411 /* TimetableDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */; };
 		757CB0D125C45C3B0082F411 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0D025C45C3B0082F411 /* BottomBorderTextField.swift */; };
@@ -678,6 +680,7 @@
 		7505B1EC2580C88500741E4F /* TimetableMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableMainViewController.swift; sourceTree = "<group>"; };
 		752093D025A75E3D001EC3E5 /* TimetableLessonDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailCell.xib; sourceTree = "<group>"; };
 		752093D525A75E47001EC3E5 /* TimetableLessonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonDetailCell.swift; sourceTree = "<group>"; };
+		753E6749269C921C00077F60 /* LessonAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonAttributes.swift; sourceTree = "<group>"; };
 		755A741C257A679300C284A2 /* TimetableWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekViewController.swift; sourceTree = "<group>"; };
 		757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsViewModel.swift; sourceTree = "<group>"; };
 		757CB0D025C45C3B0082F411 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
@@ -1591,6 +1594,7 @@
 				B50EB4F41E6ACB3E0022E40C /* Lecture_TestCase.swift */,
 				B5F3F86F1FB8552800F0D1DB /* AppLecture.swift */,
 				B52DF0D91E70A8870095C854 /* Week.swift */,
+				753E6749269C921C00077F60 /* LessonAttributes.swift */,
 				B50EB4EE1E6A1DAA0022E40C /* ScheduleDataSource.swift */,
 				6481AEF522E5A4770068A8C3 /* Lesson.swift */,
 			);
@@ -2419,6 +2423,7 @@
 				64E218E122D85BBB00004183 /* CanteenDetail.swift in Sources */,
 				1F8E20DC1FB34F1900347DB6 /* Week.swift in Sources */,
 				1F8E20DD1FB34F4E00347DB6 /* EventDate.swift in Sources */,
+				753E674B269C928B00077F60 /* LessonAttributes.swift in Sources */,
 				1F8E20C91FB34E6F00347DB6 /* Service.swift in Sources */,
 				1FB3FFD91FFE5E6700EE695F /* LayoutGuide.swift in Sources */,
 				1F8E20C71FB34E6200347DB6 /* PersistenceService.swift in Sources */,
@@ -2590,6 +2595,7 @@
 				1F7E32101FA7BB3900CCBDD6 /* ScheduleWeekLayout.swift in Sources */,
 				B52A9B591DDB173600313FC3 /* ViewController.swift in Sources */,
 				759136142654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift in Sources */,
+				753E674A269C921C00077F60 /* LessonAttributes.swift in Sources */,
 				B5D3E8381FA5E6C10055782D /* GradeCoordinator.swift in Sources */,
 				1FC1BDD41FADDF1C007F9D06 /* SettingsService.swift in Sources */,
 				1FA92C711FEACC7400A88B0D /* UIColor.swift in Sources */,

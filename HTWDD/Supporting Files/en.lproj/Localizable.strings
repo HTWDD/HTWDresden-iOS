@@ -186,6 +186,7 @@
 "yes"="Yes";
 "loading"="Loading…";
 "add"="Add";
+"searchbar.placeholder" = "Search";
 
 "visit_website"="Visit the website";
 
@@ -307,3 +308,5 @@
 "field.requiered" = "* Required";
 "fill.required.fields.message" = "Notice";
 "fill.required.fields.title" = "Please fill all required fields";
+
+"elective.lesson.selection.title" = "Choose an lesson";

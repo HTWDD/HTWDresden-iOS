@@ -9,7 +9,6 @@
 import Foundation
 class TimetableDetailsSectionHeader: UITableViewHeaderFooterView {
     
-    
     let title = UILabel()
     let background = UIView()
     

@@ -28,12 +28,12 @@ class TimetableElectiveLessonSelectionViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.title = "Wähle eine Veranstaltung"
+        self.title = R.string.localizable.electiveLessonSelectionTitle()
         
         if #available(iOS 13.0, *) {
             searchController.searchResultsUpdater = self
             searchController.obscuresBackgroundDuringPresentation = false
-            searchController.searchBar.placeholder = "Suchen"
+            searchController.searchBar.placeholder = R.string.localizable.searchbarPlaceholder()
             searchController.searchBar.searchTextField.backgroundColor = .white
             navigationItem.hidesSearchBarWhenScrolling = false
             
@@ -51,7 +51,7 @@ class TimetableElectiveLessonSelectionViewController: UIViewController {
             self.navigationController?.navigationBar.prefersLargeTitles = false
         }
         
-        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Schließen", style: .plain, target: self, action: #selector(close))
+        self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.close(), style: .plain, target: self, action: #selector(close))
         
         viewModel.loadElectiveLessons()
             .observeOn(MainScheduler.instance)
@@ -106,7 +106,6 @@ extension TimetableElectiveLessonSelectionViewController: UITableViewDataSource 
 extension TimetableElectiveLessonSelectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.saveElectiveLesson(selected: filteredElectiveLessons[indexPath.row])
-        
         self.navigationController?.popViewController(animated: true)
     }
 }

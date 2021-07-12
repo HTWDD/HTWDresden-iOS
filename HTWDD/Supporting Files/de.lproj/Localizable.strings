@@ -186,6 +186,7 @@
 "yes"="Ja";
 "loading"="Laden…";
 "add"="Hinzufügen";
+"searchbar.placeholder" = "Suchen";
 
 "visit_website"="Website besuchen";
 
@@ -308,3 +309,5 @@
 "field.requiered" = "* Erforderlich";
 "fill.required.fields.message" = "Bitte erforderlichen Felder ausfüllen";
 "fill.required.fields.title" = "Hinweis";
+
+"elective.lesson.selection.title" = "Wähle eine Veranstaltung";
