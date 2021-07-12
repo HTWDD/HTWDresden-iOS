@@ -31,7 +31,9 @@ class TimetableLessonDetailsViewController: UIViewController {
     }
     
     private var isLessonCustomizable: Bool {
-        guard let id = lesson.id else { return true }
+        guard let id = lesson.id else {
+            return true
+        }
         
         return viewModel.isCustomLesson(id: id)
     }
