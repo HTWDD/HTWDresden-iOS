@@ -149,6 +149,10 @@
 "Settings.items.account.subtitle"="Access and study group data";
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics and Crashlytics";
+"Settings.reset.elective.lessons"="Reset elective lessons information";
+"Settings.reset.elective.lessons.alert.title"="Reset elective lessons";
+"Settings.reset.elective.lessons.alert.message"="Do you want to reset all elective lessons";
+
 
 "Network.error.title"="Error";
 "Network.error.message"="Something went wrong loading the data.";

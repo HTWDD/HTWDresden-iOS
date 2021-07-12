@@ -476,12 +476,13 @@
                         <outlet property="lblImpressum" destination="eUp-Re-MXE" id="IBq-cm-XqY"/>
                         <outlet property="lblLogin" destination="VwI-GU-Cw7" id="FI2-Fe-coz"/>
                         <outlet property="lblPrivacy" destination="fNk-tt-bFJ" id="1fz-Ww-9Zs"/>
+                        <outlet property="lblResetElectiveLessons" destination="I1B-Nr-sHj" id="cNk-CD-gOW"/>
                         <outlet property="lblResetHeader" destination="7Ow-CO-mXS" id="1tg-pL-tPP"/>
                         <outlet property="lblResetSubheader" destination="85r-W2-bCJ" id="H75-Wy-kak"/>
                         <outlet property="lblStudyGroup" destination="3h8-Xh-gtm" id="iAG-zn-ztT"/>
                         <outlet property="loginCell" destination="ZL8-T5-rYg" id="llN-Ez-b30"/>
                         <outlet property="privacyCell" destination="Jtx-Dr-R98" id="Bbt-g0-LZJ"/>
-                        <outlet property="resetHiddenCell" destination="Kht-Hp-Dc2" id="dub-SS-eAg"/>
+                        <outlet property="resetElectiveLessonCell" destination="Kht-Hp-Dc2" id="dub-SS-eAg"/>
                         <outlet property="studyGroupCell" destination="zEN-Nh-52w" id="rzJ-MN-wP7"/>
                         <outlet property="trashCell" destination="PeO-qM-fLd" id="Y2C-8g-ihw"/>
                     </connections>

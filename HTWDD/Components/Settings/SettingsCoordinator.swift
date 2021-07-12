@@ -133,7 +133,7 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
     }
     
     func showResetHiddenDialog() {
-        let alert = UIAlertController(title: "Ausgeblendete Veranstaltungen zurücksetzen", message: "Möchtest Du wirklich alle ausgeblendete Veranstaltungen zurüvcksetzen?", preferredStyle: .alert).also {
+        let alert = UIAlertController(title: R.string.localizable.settingsResetElectiveLessonsAlertTitle(), message: R.string.localizable.settingsResetElectiveLessonsAlertMessage(), preferredStyle: .alert).also {
             $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
                 self?.resetHidden()
             }))

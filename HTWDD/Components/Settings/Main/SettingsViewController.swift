@@ -25,6 +25,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var lblImpressum: UILabel!
     @IBOutlet weak var lblDelete: UILabel!
     @IBOutlet weak var lblPrivacy: UILabel!
+    @IBOutlet weak var lblResetElectiveLessons: UILabel!
     
     // MARK: - Cells
     @IBOutlet weak var studyGroupCell: UITableViewCell!
@@ -35,7 +36,7 @@ class SettingsViewController: UITableViewController, HasSideBarItem {
     @IBOutlet weak var imprintCell: UITableViewCell!
     @IBOutlet weak var trashCell: UITableViewCell!
     @IBOutlet weak var privacyCell: UITableViewCell!
-    @IBOutlet weak var resetHiddenCell: UITableViewCell!
+    @IBOutlet weak var resetElectiveLessonCell: UITableViewCell!
     
     // MARK: - Header Cells
     @IBOutlet weak var lblAccountHeader: UILabel!
@@ -97,7 +98,7 @@ extension SettingsViewController {
         emailCell.backgroundColor       = UIColor.htw.cellBackground
         imprintCell.backgroundColor     = UIColor.htw.cellBackground
         trashCell.backgroundColor       = UIColor.htw.cellBackground
-        resetHiddenCell.backgroundColor       = UIColor.htw.cellBackground
+        resetElectiveLessonCell.backgroundColor       = UIColor.htw.cellBackground
         privacyCell.backgroundColor     = UIColor.htw.cellBackground
         
         tableView.apply {
@@ -140,6 +141,11 @@ extension SettingsViewController {
         }
         lblDelete.apply {
             $0.text         = R.string.localizable.settingsItemsDeleteAll()
+            $0.textColor    = UIColor.htw.Label.primary
+        }
+        
+        lblResetElectiveLessons.apply {
+            $0.text         = R.string.localizable.settingsResetElectiveLessons()
             $0.textColor    = UIColor.htw.Label.primary
         }
         

@@ -149,6 +149,9 @@
 "Settings.items.account.subtitle"="Zugangs- und Studiengruppendaten";
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics und Crashlytics";
+"Settings.reset.elective.lessons"="Anzeige der Wahlpflichtveranstaltungen zurücksetzen";
+"Settings.reset.elective.lessons.alert.title"="Wahlpflichtveranstaltungen zurücksetzen";
+"Settings.reset.elective.lessons.alert.message"="Möchtest Du wirklich alle Wahlpflichtveranstaltungen zurüvcksetzen?";
 
 "Network.error.title"="Fehler";
 "Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";
