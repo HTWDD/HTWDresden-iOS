@@ -77,7 +77,7 @@ extension UserDefaults {
             return value(forKey: .crashlyticsAsked) ?? false
         }
         set {
-            set(newValue, forKey: .crashlytics)
+            set(newValue, forKey: .crashlyticsAsked)
         }
     }
     
