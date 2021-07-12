@@ -72,7 +72,6 @@
 "Schedule.LectureType.practical"="Practical";
 "Schedule.LectureType.exercise"="Exercise";
 "Schedule.LectureType.block"="Block";
-"Schedule.LectureType.project"="Project";
 "Schedule.LectureType.requested"="Requested";
 "Schedule.LectureType.unknown"="Unknown";
 "Schedule.current.lesson"="Current";

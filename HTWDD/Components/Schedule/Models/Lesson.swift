@@ -104,7 +104,6 @@ protocol LessonDetailsPickerSelection: CaseIterable {
 
 // MARK: - Lessontypes
 enum LessonType: String, Codable, LessonDetailsPickerSelection {
-
     case practical
     case electivePractical
     case lesson
@@ -113,7 +112,6 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
     case electiveExercise
     case requested
     case block
-    case project
     case unkown
     
     var localizedDescription: String {
@@ -123,7 +121,6 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         case .exercise, .electiveExercise: return R.string.localizable.scheduleLectureTypeExercise()
         case .requested: return R.string.localizable.scheduleLectureTypeRequested()
         case .block: return R.string.localizable.scheduleLectureTypeBlock()
-        case .project: return R.string.localizable.scheduleLectureTypeProject()
         case .unkown: return R.string.localizable.scheduleLectureTypeUnknown()
         }
     }
@@ -136,6 +133,8 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         default: return UIColor.htw.indigo_400
         }
     }
+    
+    static var allCases: [LessonType] = [.lesson, .practical, .exercise, requested, .block]
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer().decode(String.self)
