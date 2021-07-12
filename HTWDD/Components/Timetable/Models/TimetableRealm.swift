@@ -63,11 +63,9 @@ extension TimetableRealm {
     
     static func save(from codable: Lesson) {
         let realm = try! Realm()
-        print("TEST FUCK!")
         let id = codable.id
         let realmModel = realm.objects(TimetableRealm.self).filter { $0.id == id }.first ?? TimetableRealm()
         try! realm.write {
-            print("Fuck this")
             realm.add(realmModel.also { model in
                 model.id            = id
                 model.lessonTag     = codable.lessonTag
@@ -107,7 +105,7 @@ extension TimetableRealm {
                 object.rooms.removeAll()
                 codable.rooms.forEach{room in object.rooms.append(room) }
                 object.setValue(codable.lastChanged, forKey: "lastChanged")
-                object.setValue(codable.isHidden, forKey: "isHidden")
+                object.setValue(codable.isHidden ?? false, forKey: "isHidden")
             }
         }
     }
