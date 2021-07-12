@@ -73,12 +73,11 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-
-        guard textField.text == "" else { return }
+        guard textField.text == "" else {
+            return
+        }
         
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeStyle = .short
-        self.text = timeFormatter.string(from: datePicker.date)
+        self.valueChanged(datePicker)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

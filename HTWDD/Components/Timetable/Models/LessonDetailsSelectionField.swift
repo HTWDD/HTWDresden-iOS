@@ -19,7 +19,7 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-            
+        
         self.delegate = self
         createDropDownIcon()
         createPickerView()
@@ -30,7 +30,14 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
         
         guard textField.text == "" else { return }
         
-        textField.text = pickerView(pickerView, titleForRow: 0, forComponent: 0)
+        switch selectionOptions {
+        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCases.first)
+        case .weekRotation(_): selectionOptions = .weekRotation(selection: .once)
+        case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allCases.first)
+        default: break
+        }
+        
+        self.text = selectionOptions?.localizedDescription ?? ""
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -72,8 +79,6 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     
     @objc func saveSelection() {
         self.endEditing(true)
-    
-        selectionDelegate?.done(selectionOptions)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -105,9 +110,9 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
         
         self.text = selectionOptions?.localizedDescription ?? ""
     }
-
-     @objc func cancelDatePicker(){
+    
+    @objc func cancelDatePicker(){
         self.endEditing(true)
-      }
-
+    }
+    
 }

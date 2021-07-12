@@ -22,23 +22,23 @@ class TimetableDetailsViewModel {
               let endTime = customLesson.endTime,
               let week = customLesson.week,
               let weeksOnly = customLesson.weeksOnly
-              
+        
         else { return false }
         
         let customId: String = customLesson.id ?? "\(customPrefix)\(UUID().uuidString)"
         
         let newLesson: Lesson = Lesson(id: customId,
-                               lessonTag: customLesson.lessonTag,
-                               name: name,
-                               type: customLesson.type ?? .unkown,
-                               day: day,
-                               beginTime: beginTime,
-                               endTime: endTime,
-                               week: week,
-                               weeksOnly: weeksOnly,
-                               professor: customLesson.professor,
-                               rooms: [customLesson.rooms ?? " "],
-                               lastChanged: Date().localized)
+                                       lessonTag: customLesson.lessonTag,
+                                       name: name,
+                                       type: customLesson.type ?? .unkown,
+                                       day: day,
+                                       beginTime: beginTime,
+                                       endTime: endTime,
+                                       week: week,
+                                       weeksOnly: weeksOnly,
+                                       professor: customLesson.professor,
+                                       rooms: [customLesson.rooms ?? " "],
+                                       lastChanged: Date().localized)
         
         if TimetableRealm.exist(id: newLesson.id) {
             TimetableRealm.update(from: newLesson)
