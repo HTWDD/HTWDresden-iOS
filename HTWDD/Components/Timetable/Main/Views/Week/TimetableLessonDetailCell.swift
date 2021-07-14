@@ -24,6 +24,7 @@ class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         main.backgroundColor = UIColor.htw.cellBackground
         self.selectionStyle = .none
     }
@@ -33,7 +34,6 @@ class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
         lessonDetailTextField.isEnabled = isEditable
         
         switch lessonElement {
-        
         case .lessonName:
             lessonDetailTextField.text = model.name
         case .abbrevation:

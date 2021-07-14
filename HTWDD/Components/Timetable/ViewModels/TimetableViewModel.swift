@@ -22,14 +22,12 @@ enum FreeDays {
     case noLesson
 }
 
-
 // MARK: - ViewModel
 class TimetableViewModel {
     
     // MARK: - Properties
     private let context: HasTimetable
     private lazy var eventStore : EKEventStore = EKEventStore()
-    
     
     // MARK: - Lifecycle
     init(context: HasTimetable) {
@@ -70,20 +68,20 @@ class TimetableViewModel {
                     }
                 
                 return (keys, values)
-        }
-        .map { [weak self] items -> [Timetables] in
-            var result: [Timetables] = []
-            
-            items.keys.forEach { date in
-                result.append(.header(model: TimetableHeader(header: date, subheader: date)))
-                items.values.filter { $0.lessonDays.contains(date) }.forEach { lesson in
-                    result.append(.lesson(model: lesson))
-                }
             }
-            
-            self?.appendFreedays(&result)
-            return result
-        }
+            .map { [weak self] items -> [Timetables] in
+                var result: [Timetables] = []
+                
+                items.keys.forEach { date in
+                    result.append(.header(model: TimetableHeader(header: date, subheader: date)))
+                    items.values.filter { $0.lessonDays.contains(date) }.forEach { lesson in
+                        result.append(.lesson(model: lesson))
+                    }
+                }
+                
+                self?.appendFreedays(&result)
+                return result
+            }
     }
     
     func load() -> Observable<[LessonEvent]> {
@@ -119,9 +117,9 @@ class TimetableViewModel {
                     }
                 
                 return (keys, values)
-        }
-        .map { items -> [LessonEvent] in
-            var result: [LessonEvent] = []
+            }
+            .map { items -> [LessonEvent] in
+                var result: [LessonEvent] = []
                 
                 items.values.forEach { lesson in
                     lesson.lessonDays.forEach { lessonDate in
@@ -133,9 +131,9 @@ class TimetableViewModel {
                         }
                     }
                 }
-            
-            return result
-        }
+                
+                return result
+            }
     }
     
     private func appendFreedays(_ result: inout [Timetables]) {
@@ -146,8 +144,8 @@ class TimetableViewModel {
             }
         }
         
-        
         if let first = headerItems.first {
+            
             switch first {
             case .header(let model):
                 do {
@@ -166,6 +164,7 @@ class TimetableViewModel {
         }
         
         if let last = headerItems.last {
+            
             switch last {
             case .header(let model):
                 do {
@@ -186,7 +185,9 @@ class TimetableViewModel {
     
     func export(lessons: [Lesson]?) {
         
-        guard let lessons = lessons else { return }
+        guard let lessons = lessons else {
+            return
+        }
         
         eventStore.requestAccess(to: .event) { (granted, error) in
             
@@ -213,7 +214,6 @@ class TimetableViewModel {
                         } catch let error as NSError {
                             print("failed to save event with error : \(error)")
                         }
-                        
                     }
                 }
             }

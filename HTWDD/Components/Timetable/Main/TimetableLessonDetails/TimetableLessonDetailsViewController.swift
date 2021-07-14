@@ -9,7 +9,7 @@
 import RxSwift
 import UIKit
 
-protocol TimetableLessonDetailsCellDelegate: class {
+protocol TimetableLessonDetailsCellDelegate: AnyObject {
     
     func changeValue(forElement: LessonDetailElements,_ newValue: String?)
     func changeValue(forElement: LessonDetailElements,_ newValue: Int?)
@@ -51,7 +51,6 @@ class TimetableLessonDetailsViewController: UIViewController {
         lessonDetailsTable.sectionHeaderHeight = 50
         lessonDetailsTable.keyboardDismissMode = .onDrag
         
-        
         lessonDetailsTable.register(TimetableLessonDetailCell.self)
         lessonDetailsTable.register(TimetableLessonDetailsSelectionCell.self)
         lessonDetailsTable.register(TimetableLessonDetailTimePickerCell.self)
@@ -80,7 +79,6 @@ class TimetableLessonDetailsViewController: UIViewController {
         }
         
         saveBtn.isHidden = !isLessonCustomizable
-        
     }
     
     func setup(model: Lesson) {
@@ -139,7 +137,6 @@ class TimetableLessonDetailsViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
         self.present(alert, animated: true)
-        
     }
     
     @objc func deleteLesson() {
@@ -179,11 +176,9 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
         return requiredFooter
     }
     
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         elements.count
@@ -267,7 +262,6 @@ extension TimetableLessonDetailsViewController: TimetableLessonDetailsCellDelega
             case CalendarWeekRotation.once.rawValue: lesson.weeksOnly = []
             default: lesson.weeksOnly = []
             }
-            
         case .day:
             lesson.day = newValue
         default:break
@@ -287,19 +281,15 @@ extension TimetableLessonDetailsViewController: TimetableLessonDetailsCellDelega
             lesson.weeksOnly = [Calendar.current.component(.weekOfYear, from: date)]
             lesson.day = Calendar.current.component(.weekday, from: date) - 1
         case .startTime:
-            
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "HH:mm:00"
             lesson.beginTime = timeFormatter.string(from: date)
-            
         case .endTime:
             let timeFormatter = DateFormatter()
             timeFormatter.dateFormat = "HH:mm:00"
             lesson.endTime = timeFormatter.string(from: date)
         default: break
         }
-        
-        
     }
 }
 
@@ -355,9 +345,6 @@ enum LessonDetailElements {
         }
     }
 }
-
-
-
 
 class RequiredFooter: UITableViewHeaderFooterView {
     

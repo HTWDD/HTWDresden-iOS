@@ -16,7 +16,6 @@ class TimetableFreedayViewCell: UITableViewCell {
     @IBOutlet weak var imageViewFreeday: UIImageView!
     @IBOutlet weak var lblFreeday: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -45,6 +44,7 @@ class TimetableFreedayViewCell: UITableViewCell {
 }
 
 extension TimetableFreedayViewCell: FromNibLoadable {
+    
     func setup(with model: FreeDays) {
         switch model {
         case .noLesson:

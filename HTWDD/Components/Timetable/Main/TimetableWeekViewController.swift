@@ -11,7 +11,7 @@ import Action
 import RxSwift
 
 class TimetableWeekViewController: TimetableBaseViewController {
- 
+    
     @IBOutlet weak var weekControllsBackgroundView: UIView!
     @IBOutlet weak var timetableWeekView: TimetableWeekView!
     @IBOutlet weak var currentWeekBtn: UIButton!
@@ -28,7 +28,6 @@ class TimetableWeekViewController: TimetableBaseViewController {
         }
     }
     
-    
     override func setup() {}
     
     override func viewDidLoad() {
@@ -38,8 +37,8 @@ class TimetableWeekViewController: TimetableBaseViewController {
                                         setDate: Date().dateOfWeek(for: .beginn),
                                         allEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events),
                                         scrollType: .pageScroll,
-                                       firstDayOfWeek: .Monday,
-                                       visibleTime:Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date())!)
+                                        firstDayOfWeek: .Monday,
+                                        visibleTime:Calendar.current.date(bySettingHour: 7, minute: 15, second: 0, of: Date())!)
         
         weekControllsBackgroundView.backgroundColor = isDarkMode ? .black : UIColor.htw.blue
         
@@ -58,7 +57,7 @@ class TimetableWeekViewController: TimetableBaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         load()
     }
     
@@ -68,7 +67,7 @@ class TimetableWeekViewController: TimetableBaseViewController {
     }
     
     override func reloadData(){
-
+        
         timetableWeekView.forceReload(reloadEvents: JZWeekViewHelper.getIntraEventsByDate(originalEvents: events))
     }
     
@@ -82,7 +81,7 @@ class TimetableWeekViewController: TimetableBaseViewController {
     }
     
     override func getAllLessons() -> [Lesson]? {
-       return events.map { event in
+        return events.map { event in
             event.lesson
         }
     }
@@ -128,12 +127,13 @@ extension TimetableWeekViewController: UICollectionViewDelegate {
 }
 
 extension TimetableWeekViewController: TimetableWeekViewDelegate {
+    
     func export(_ lessonEvent: LessonEvent) {
         
         let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
         let singleExportAction = UIAlertAction(title: R.string.localizable.exportSingleLesson(), style: .default, handler: { _ in
-                                     
+            
             let exportSingleLesson = Lesson(id: lessonEvent.lesson.id,
                                             lessonTag: lessonEvent.lesson.lessonTag,
                                             name: lessonEvent.lesson.name,
@@ -152,7 +152,7 @@ extension TimetableWeekViewController: TimetableWeekViewDelegate {
         })
         
         let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
-  
+            
             self.viewModel.export(lessons: [lessonEvent.lesson])
             self.showSuccessMessage()
         })

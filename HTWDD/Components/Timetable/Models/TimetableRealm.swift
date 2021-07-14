@@ -34,9 +34,8 @@ class TimetableRealm: Object {
     }
     
     override static func primaryKey() -> String? {
-      return "id"
+        return "id"
     }
-    
 }
 
 extension TimetableRealm {
@@ -44,10 +43,11 @@ extension TimetableRealm {
     static func read() -> [Lesson] {
         
         let realm = try! Realm()
-        
         let searchResultSet = realm.objects(TimetableRealm.self)
         
-        guard searchResultSet.count > 0 else { return [] }
+        guard searchResultSet.count > 0 else {
+            return []
+        }
         
         var result: [Lesson] = []
         
@@ -62,9 +62,11 @@ extension TimetableRealm {
     }
     
     static func save(from codable: Lesson) {
+        
         let realm = try! Realm()
         let id = codable.id
         let realmModel = realm.objects(TimetableRealm.self).filter { $0.id == id }.first ?? TimetableRealm()
+        
         try! realm.write {
             realm.add(realmModel.also { model in
                 model.id            = id
@@ -81,7 +83,6 @@ extension TimetableRealm {
                 model.lastChanged   = codable.lastChanged
                 model.isHidden      = codable.isHidden ?? false
             })
-            
         }
     }
     
@@ -89,7 +90,7 @@ extension TimetableRealm {
         
         let realm = try! Realm()
         let objects = realm.objects(TimetableRealm.self).filter("id = %@", codable.id)
-
+        
         if let object = objects.first {
             try! realm.write {
                 object.setValue(codable.lessonTag, forKey: "lessonTag")

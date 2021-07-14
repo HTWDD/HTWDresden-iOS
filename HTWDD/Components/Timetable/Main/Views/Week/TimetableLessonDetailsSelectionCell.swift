@@ -35,7 +35,6 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
         lessonDetailsSelectionField.isEnabled = isEditable
         
         switch lessonElement! {
-        
         case .lessonType:
             lessonDetailsSelectionField.text = model.type?.localizedDescription
         case .weekrotation:
@@ -50,10 +49,10 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
 }
 
 extension TimetableLessonDetailsSelectionCell: LessonDetailsSelectionFieldDelegate {
+    
     func done(_ selectionOptions: LessonDetailsOptions) {
         
         switch selectionOptions {
-        
         case .lectureType(let selection): delegate?.changeValue(selection)
         case .weekRotation(let selection): delegate?.changeValue(forElement: lessonElement, selection?.rawValue)
         case .weekDay(let selection): delegate?.changeValue(forElement: lessonElement, selection?.rawValue)

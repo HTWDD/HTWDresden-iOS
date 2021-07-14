@@ -10,12 +10,12 @@ import UIKit
 import SafariServices
 import MessageUI
 
-protocol SettingsCoordinatorDelegate: class {
+protocol SettingsCoordinatorDelegate: AnyObject {
     func deleteAllData()
 }
 
 // MARK: - Settings Coordinator Delegate
-protocol SettingsCoordinatorRoutingDelegate: class {
+protocol SettingsCoordinatorRoutingDelegate: AnyObject {
     func showSelectStudyGroup(completion: @escaping () -> Void)
     func showLogin(completion: @escaping () -> Void)
     func showMail()

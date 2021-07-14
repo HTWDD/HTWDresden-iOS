@@ -44,7 +44,18 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         }
     }
     
-    static var allCases: [LessonType] = [.lesson, .practical, .exercise, requested, .block]
+    var isElective: Bool {
+        switch self {
+        case .electiveLesson, .electiveExercise, .electivePractical:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    static var allCasesWithoutDuplicates: [LessonType] {
+        allCases.filter { !$0.isElective }
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer().decode(String.self)
@@ -87,7 +98,7 @@ enum LessonDetailsOptions {
     
     var count: Int {
         switch self {
-        case .lectureType(_): return LessonType.allCases.count
+        case .lectureType(_): return LessonType.allCasesWithoutDuplicates.count
         case .weekRotation(_): return CalendarWeekRotation.allCases.count
         case .weekDay(_): return CalendarWeekDay.allCases.count
         }

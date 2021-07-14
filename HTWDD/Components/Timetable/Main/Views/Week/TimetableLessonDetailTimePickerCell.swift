@@ -26,6 +26,7 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         main.backgroundColor = UIColor.htw.cellBackground
         self.selectionStyle = .none
     }
@@ -47,14 +48,14 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
 }
 
 extension TimetableLessonDetailTimePickerCell: TimePickerTextFieldDelegate {
+    
     func valueChanged(_ newValue: Date) {
         print(newValue)
         delegate?.changeValue(forElement: lessonElement, newValue)
     }
-    
 }
 
-protocol TimePickerTextFieldDelegate: class {
+protocol TimePickerTextFieldDelegate: AnyObject {
     func valueChanged(_ newValue: Date)
 }
 
@@ -133,5 +134,4 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
     @objc func done() {
         self.endEditing(true)
     }
-    
 }

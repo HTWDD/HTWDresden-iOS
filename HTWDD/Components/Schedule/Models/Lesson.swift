@@ -25,7 +25,7 @@ struct Lesson: Codable {
     var isHidden: Bool? = false
     
     var isElective: Bool {
-        type == .electiveLesson || type == .electiveExercise || type == .electivePractical
+        type.isElective
     }
     
     var lessonDays: [String] {
@@ -78,7 +78,6 @@ extension Lesson: Hashable {
             && lhs.day == rhs.day
             && lhs.week == rhs.week
     }
-    
 }
 
 struct CustomLesson {

@@ -28,10 +28,12 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        guard textField.text == "" else { return }
+        guard textField.text == "" else {
+            return
+        }
         
         switch selectionOptions {
-        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCases.first)
+        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCasesWithoutDuplicates.first)
         case .weekRotation(_): selectionOptions = .weekRotation(selection: .once)
         case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allCases.first)
         default: break
@@ -53,7 +55,6 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
         let iconContainerView: UIView = UIView(frame:
                                                 CGRect(x: 20, y: 0, width: 30, height: 30))
         iconContainerView.addSubview(iconView)
-        
         
         rightView = iconContainerView
         rightViewMode = .always
@@ -92,7 +93,7 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         switch selectionOptions {
-        case .lectureType(_): return LessonType.allCases[row].localizedDescription
+        case .lectureType(_): return LessonType.allCasesWithoutDuplicates[row].localizedDescription
         case .weekRotation(_): return CalendarWeekRotation.allCases[row].localizedDescription
         case .weekDay(_): return CalendarWeekDay.allCases[row].localizedDescription
         default: return ""
@@ -102,7 +103,7 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         switch selectionOptions {
-        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCases[row])
+        case .lectureType(_): selectionOptions = .lectureType(selection: LessonType.allCasesWithoutDuplicates[row])
         case .weekRotation(_): selectionOptions = .weekRotation(selection: CalendarWeekRotation.allCases[row])
         case .weekDay(_): selectionOptions = .weekDay(selection: CalendarWeekDay.allCases[row])
         default: break
@@ -114,5 +115,4 @@ extension LessonDetailsSelectionField: UIPickerViewDelegate, UIPickerViewDataSou
     @objc func cancelDatePicker(){
         self.endEditing(true)
     }
-    
 }

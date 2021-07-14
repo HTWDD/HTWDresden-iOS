@@ -16,36 +16,38 @@ protocol TimetableWeekViewDelegate: AnyObject {
 class TimetableWeekView: JZBaseWeekView {
     
     var isDarkMode: Bool {
-            if #available(iOS 13.0, *) {
-                return self.traitCollection.userInterfaceStyle == .dark
-            }
-            else {
-                return false
-            }
+        if #available(iOS 13.0, *) {
+            return self.traitCollection.userInterfaceStyle == .dark
         }
-
+        else {
+            return false
+        }
+    }
+    
     weak var delegate: TimetableWeekViewDelegate?
     
     override func registerViewClasses() {
         super.registerViewClasses()
         
         self.collectionView.register(UINib(nibName: "LessonCell", bundle: nil), forCellWithReuseIdentifier: "LessonCell")
-        
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LessonCell", for: indexPath) as? LessonCell,
-            let event = getCurrentEvent(with: indexPath) as? LessonEvent {
+           let event = getCurrentEvent(with: indexPath) as? LessonEvent {
             cell.configureCell(event: event)
             cell.exportDelegate = self
             return cell
         }
+        
         preconditionFailure("LessonCell should be casted")
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let cell = super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
-
+        
         switch kind {
         case JZSupplementaryViewKinds.currentTimeline:
             break
@@ -53,13 +55,13 @@ class TimetableWeekView: JZBaseWeekView {
             cell.backgroundColor = isDarkMode ? .black : .white
             cell.tintColor = .white
         }
-
+        
         return cell
     }
     
     override func setup() {
         super.setup()
-
+        
         setColors()
     }
     
@@ -75,10 +77,10 @@ class TimetableWeekView: JZBaseWeekView {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-            super.traitCollectionDidChange(previousTraitCollection)
-
-            setColors()
-        }
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        setColors()
+    }
 }
 
 extension TimetableWeekView: LessonCellExportDelegate {

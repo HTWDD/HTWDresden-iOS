@@ -75,8 +75,6 @@ class TimetableLessonViewCell: UITableViewCell {
         
         exportDelegate?.export(lesson)
     }
-
-
 }
 
 // MARK: - Loadable
@@ -101,5 +99,4 @@ extension TimetableLessonViewCell: FromNibLoadable {
             lblExamElective.isHidden = true
         }
     }
-    
 }

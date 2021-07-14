@@ -49,7 +49,6 @@ class TimetableListViewController: TimetableBaseViewController {
         }
     }
 
-    
     private func load() {
         
         action.elements.subscribe(onNext: { [weak self] items in
@@ -63,7 +62,6 @@ class TimetableListViewController: TimetableBaseViewController {
             } else {
                 self.scrollToToday(notAnimated: true)
             }
-            
         }).disposed(by: rx_disposeBag)
         
         action.errors.subscribe(onNext: { [weak self] error in
@@ -71,7 +69,6 @@ class TimetableListViewController: TimetableBaseViewController {
             self.items = []
                 
             self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
-            
             
         }).disposed(by: rx_disposeBag)
         
@@ -84,9 +81,13 @@ class TimetableListViewController: TimetableBaseViewController {
         viewController.modalPresentationStyle = .overCurrentContext
         viewController.modalTransitionStyle = .crossDissolve
         viewController.delegateClosure = { [weak self] in
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
+            
             self.load()
         }
+        
         present(viewController, animated: true, completion: nil)
     }
     
@@ -95,7 +96,9 @@ class TimetableListViewController: TimetableBaseViewController {
     }
     
     override func scrollToToday(notAnimated: Bool = true) {
-        guard !items.isEmpty else { return }
+        guard !items.isEmpty else {
+            return
+        }
         
         var indexOfHeader: Int = 0
         indexer: for (index, element) in items.enumerated() {
@@ -152,7 +155,6 @@ class TimetableListViewController: TimetableBaseViewController {
             if let date = dateFormatter.date(from: lessonDate) {
                 semesterWeeks.append(Calendar.current.component(.weekOfYear, from: date))
             }
-            
         }
         semesterWeeks.removeDuplicates()
         semesterWeeks.sort()
@@ -167,6 +169,7 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch (items[indexPath.row]) {
         case .header(let model):
             return tableView.dequeueReusableCell(TimetableHeaderViewCell.self, for: indexPath)!.also {
@@ -185,6 +188,7 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         switch (items[indexPath.row]) {
         case .lesson(let model):
             let detailsLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
@@ -200,6 +204,7 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let offsetY = tableView.contentOffset.y
         if let cell = tableView.visibleCells.compactMap( { $0 as? TimetableFreedayViewCell } ).first {
             let x = cell.imageViewFreeday.frame.origin.x
@@ -213,6 +218,7 @@ extension TimetableListViewController: UITableViewDataSource, UITableViewDelegat
 }
 
 extension TimetableListViewController: LessonViewCellExportDelegate {
+    
     func export(_ lesson: Lesson) {
         
         let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)

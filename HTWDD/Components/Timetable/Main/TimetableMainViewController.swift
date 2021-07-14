@@ -13,7 +13,7 @@ import RxSwift
 
 private enum TimetableLayoutStyle: Int {
     case list = 0, week = 1
-
+    
     var title: String {
         switch self {
         case .week:
@@ -22,17 +22,16 @@ private enum TimetableLayoutStyle: Int {
             return   R.string.localizable.scheduleStyleList()
         }
     }
-
-    static let all = [TimetableLayoutStyle.list, .week]
     
+    static let all = [TimetableLayoutStyle.list, .week]
     static let cachingKey = "\(TimetableLayoutStyle.self)_cache"
     
     mutating func toggle() {
         switch self {
-            case .week:
-                self = .list
-            case .list:
-                self = .week
+        case .week:
+            self = .list
+        case .list:
+            self = .week
         }
     }
 }
@@ -58,7 +57,6 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
     }
     
     init(context: AppContext) {
-        
         self.context = context
         self.viewModel = TimetableViewModel(context: context)
         
@@ -92,16 +90,14 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
             let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(addLesson), imageName: "Icon_Plus")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icon_Calendar")
-
+            
             navigationItem.rightBarButtonItems = [scrollToTodayBtn, listWeekBtn, addBtn]
-
         case .week:
             let exportBtn = UIBarButtonItem.menuButton(self, action: #selector(exportAll), imageName: "Icon_Export")
             let listWeekBtn = UIBarButtonItem.menuButton(self, action: #selector(toggleLayout), imageName: "Icons_List")
             let addBtn = UIBarButtonItem.menuButton(self, action: #selector(addLesson), imageName: "Icon_Plus")
-
+            
             navigationItem.rightBarButtonItems = [exportBtn, listWeekBtn, addBtn]
-
         default:
             let scrollToTodayBtn = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
             navigationItem.rightBarButtonItems = [scrollToTodayBtn]
@@ -136,7 +132,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         if let popoverController = addLessonMenu.popoverPresentationController {
             popoverController.sourceView = sender.imageView
             popoverController.sourceRect = CGRect(x: sender.imageView?.bounds.midX ?? 0, y: sender.imageView?.bounds.midY ?? 0, width: 0, height: 0)
-          }
+        }
         
         self.present(addLessonMenu, animated: true, completion: nil)
     }
@@ -156,7 +152,7 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
             $0.context      = context
             $0.semseterWeeks = currentTimetableViewController?.getSemesterWeeks()
         }
-
+        
         self.navigationController?.pushViewController(createLessonViewController, animated: true)
     }
     
@@ -164,7 +160,9 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         
         eventStore.requestAccess(to: .event) { (granted, error) in
             
-            guard (granted) && (error == nil) else { return }
+            guard (granted) && (error == nil) else {
+                return
+            }
             
             DispatchQueue.main.async {
                 self.showExportDialog()
@@ -177,13 +175,12 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
         let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
         let currentWeekExportAction = UIAlertAction(title: R.string.localizable.exportCurrentWeek(), style: .default, handler: { _ in
-             
+            
             self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber))
             self.currentTimetableViewController?.showSuccessMessage()
         })
         
         let nextWeekExportAction = UIAlertAction(title: R.string.localizable.exportNextWeek(), style: .default, handler: { _ in
-            
             
             self.viewModel.export(lessons: self.prepareLessonsForExport(calendarWeek: Date().weekNumber + 1))
             self.currentTimetableViewController?.showSuccessMessage()
@@ -227,11 +224,12 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
             vc.view.removeFromSuperview()
             vc.removeFromParent()
         }
-
+        
         if let cached = self.cachedStyles[style] {
             self.currentTimetableViewController = cached
         } else {
             let newController: TimetableBaseViewController
+            
             switch style {
             case .week:
                 newController = R.storyboard.timetable.timetableWeekViewController()!.also {
@@ -240,35 +238,35 @@ final class TimetableMainViewController: ViewController, HasSideBarItem {
                 }
             case .list:
                 newController = R.storyboard.timetable.timetableListViewController()!.also {
-                                $0.context      = context
-                                $0.viewModel    = viewModel
-                            }
+                    $0.context      = context
+                    $0.viewModel    = viewModel
+                }
             }
+            
             self.cachedStyles[style] = newController
             self.currentTimetableViewController = newController
         }
-
+        
         self.addTimetableViewController(self.currentTimetableViewController)
         self.containerView.layoutMatchingEdges(self.currentTimetableViewController?.view)
     }
-
+    
     private func addTimetableViewController(_ child: UIViewController?) {
         guard let child = child else { return }
         self.addChild(child)
         self.containerView.add(child.view)
         child.didMove(toParent: self)
-//        self.updateBarButtonItems(navigationItem: child.navigationItem)
     }
     
 }
 
 extension TimetableMainViewController: EKCalendarChooserDelegate {
     func calendarChooserDidFinish(_ calendarChooser: EKCalendarChooser) {
-            print(calendarChooser.selectedCalendars)
-            dismiss(animated: true, completion: nil)
+        print(calendarChooser.selectedCalendars)
+        dismiss(animated: true, completion: nil)
     }
     
     func calendarChooserDidCancel(_ calendarChooser: EKCalendarChooser) {
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

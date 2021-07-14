@@ -9,27 +9,27 @@
 import UIKit
 import JZCalendarWeekView
 
-protocol LessonCellExportDelegate: class {
+protocol LessonCellExportDelegate: AnyObject {
     func export(_ lessonEvent: LessonEvent)
 }
 
 class LessonCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var lessonName: UILabel!
     @IBOutlet weak var lessonType: UILabel!
     @IBOutlet weak var lessonRoom: UILabel!
     
     var event: LessonEvent?
     weak var exportDelegate: LessonCellExportDelegate?
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         setupBasic()
         let exportGesture = UILongPressGestureRecognizer(target: self, action: #selector(exportLesson))
         self.addGestureRecognizer(exportGesture)
     }
-
+    
     func setupBasic() {
         self.clipsToBounds = true
         layer.shadowColor = UIColor.black.cgColor
@@ -44,7 +44,7 @@ class LessonCell: UICollectionViewCell {
         lessonRoom.font = UIFont.systemFont(ofSize: 10, weight: .medium)
         lessonRoom.textColor = .white
     }
-
+    
     func configureCell(event: LessonEvent) {
         self.event = event
         
@@ -54,11 +54,11 @@ class LessonCell: UICollectionViewCell {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.hyphenationFactor = 1.0
         paragraphStyle.alignment = .center
-
+        
         let hyphenAttribute = [
             NSAttributedString.Key.paragraphStyle : paragraphStyle,
         ] as [NSAttributedString.Key : Any]
-
+        
         lessonName.attributedText = NSMutableAttributedString(string: event.lesson.lessonTag ?? event.lesson.name, attributes: hyphenAttribute)
         
         self.backgroundColor = event.lesson.type.timetableColor
@@ -69,5 +69,4 @@ class LessonCell: UICollectionViewCell {
         
         exportDelegate?.export(lessonEvent)
     }
-
 }
