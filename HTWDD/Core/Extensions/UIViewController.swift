@@ -14,13 +14,13 @@ fileprivate var vSpinner : UIView?
 extension UIViewController {
     
     var isDarkMode: Bool {
-            if #available(iOS 13.0, *) {
-                return self.traitCollection.userInterfaceStyle == .dark
-            }
-            else {
-                return false
-            }
+        if #available(iOS 13.0, *) {
+            return self.traitCollection.userInterfaceStyle == .dark
         }
+        else {
+            return false
+        }
+    }
     
     var transition: UIViewControllerTransitioningDelegate? {
         get {
@@ -31,14 +31,14 @@ extension UIViewController {
             self.transitioningDelegate = newValue
         }
     }
-
+    
     func inNavigationController() -> NavigationController {
         if let n = self.navigationController as? NavigationController {
             return n
         }
         return NavigationController(rootViewController: self)
     }
-
+    
     var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

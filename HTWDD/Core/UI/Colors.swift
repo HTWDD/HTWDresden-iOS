@@ -9,7 +9,7 @@
 import UIKit.UIColor
 
 extension UIColor {
-
+    
     convenience init(hex: UInt, alpha: CGFloat = 1.0) {
         self.init(
             red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
@@ -18,25 +18,25 @@ extension UIColor {
             alpha: alpha
         )
     }
-
-	func hex() -> UInt {
-		var r: CGFloat = 0
-		var g: CGFloat = 0
-		var b: CGFloat = 0
-		
-		self.getRed(&r, green: &g, blue: &b, alpha: nil)
-		
-		let rh: UInt = UInt(r * 255)
-		let gh: UInt = UInt(g * 255)
-		let bh: UInt = UInt(b * 255)
-		
-		return (rh << 16) + (gh << 8) + bh
-	}
+    
+    func hex() -> UInt {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        
+        self.getRed(&r, green: &g, blue: &b, alpha: nil)
+        
+        let rh: UInt = UInt(r * 255)
+        let gh: UInt = UInt(g * 255)
+        let bh: UInt = UInt(b * 255)
+        
+        return (rh << 16) + (gh << 8) + bh
+    }
 }
 
 // MARK: - HTW Colors
 extension HTWNamespace where Base: UIColor {
-
+    
     struct Label {
         static var primary: UIColor {
             if #available(iOS 11.0, *) {
@@ -86,7 +86,7 @@ extension HTWNamespace where Base: UIColor {
     struct Icon {
         static var primary: UIColor {
             if #available(iOS 11.0, *) {
-               return UIColor(named: "IconPrimary")!
+                return UIColor(named: "IconPrimary")!
             }
             return UIColor(hex: 0x444444)
         }
@@ -95,28 +95,28 @@ extension HTWNamespace where Base: UIColor {
     struct Material {
         static var green: UIColor {
             if #available(iOS 11.0, *) {
-               return UIColor(named: "GreenMaterial")!
+                return UIColor(named: "GreenMaterial")!
             }
             return UIColor(hex: 0x4CAF50)
         }
         
         static var red: UIColor {
             if #available(iOS 11.0, *) {
-               return UIColor(named: "RedMaterial")!
+                return UIColor(named: "RedMaterial")!
             }
             return UIColor(hex: 0xF44336)
         }
         
         static var blue: UIColor {
             if #available(iOS 11.0, *) {
-               return UIColor(named: "BlueMaterial")!
+                return UIColor(named: "BlueMaterial")!
             }
             return UIColor(hex: 0x2196F3)
         }
         
         static var orange: UIColor {
             if #available(iOS 11.0, *) {
-               return UIColor(named: "OrangeMaterial")!
+                return UIColor(named: "OrangeMaterial")!
             }
             return UIColor(hex: 0xFF9800)
         }
@@ -161,7 +161,7 @@ extension HTWNamespace where Base: UIColor {
         return UIColor(hex: 0x0288D1)
     }
     
-    static var blue_grey_300: UIColor {
+    static var blueGrey300: UIColor {
         return UIColor(hex: 0x90a4ae)
     }
     
@@ -181,54 +181,53 @@ extension HTWNamespace where Base: UIColor {
         return UIColor(hex: 0x43A047)
     }
     
-    static var green_300: UIColor {
+    static var green300: UIColor {
         return UIColor(hex: 0x4caf50)
     }
-        
-        
-	static var red: UIColor {
-		return UIColor(hex: 0xC21717)
-	}
+    
+    static var red: UIColor {
+        return UIColor(hex: 0xC21717)
+    }
     
     static var redMaterial: UIColor {
         return UIColor(hex: 0xF44336)
     }
     
-    static var red_300: UIColor {
+    static var red300: UIColor {
         return UIColor(hex: 0xff5252)
     }
-	
-	static var yellow: UIColor {
-		return UIColor(hex: 0xf1c40f)
-	}
-
+    
+    static var yellow: UIColor {
+        return UIColor(hex: 0xf1c40f)
+    }
+    
     static var textBody: UIColor {
         return UIColor(hex: 0x7F7F7F)
     }
-
+    
     static var textHeadline: UIColor {
         return UIColor(hex: 0x000000)
     }
-
+    
     static var lightBlue: UIColor {
         return UIColor(hex: 0x5060F5)
     }
-
+    
     static var martianRed: UIColor {
         return UIColor(hex: 0xE35D50)
     }
     
-	static var veryLightGrey: UIColor {
+    static var veryLightGrey: UIColor {
         if #available(iOS 11.0, *) {
             return UIColor(named: "Background")!
         }
         return UIColor(hex: 0xf2f1f6)
-	}
-
-	static var lightGrey: UIColor {
-		return UIColor(hex: 0xE7E7E7)
-	}
-	
+    }
+    
+    static var lightGrey: UIColor {
+        return UIColor(hex: 0xE7E7E7)
+    }
+    
     static var grey: UIColor {
         return UIColor(hex: 0x8F8F8F)
     }
@@ -244,11 +243,11 @@ extension HTWNamespace where Base: UIColor {
     static var grey600: UIColor {
         return UIColor(hex: 0x757575)
     }
-
+    
     static var mediumGrey: UIColor {
         return UIColor(hex: 0x5A5A5A)
     }
-
+    
     static var darkGrey: UIColor {
         return UIColor(hex: 0x474747)
     }
@@ -265,27 +264,27 @@ extension HTWNamespace where Base: UIColor {
         return UIColor(hex: 0x9C27B0)
     }
     
-    static var indigo_400: UIColor {
+    static var indigo400: UIColor {
         return UIColor(hex: 0x5c6bc0)
     }
-	
-	static var scheduleColors: [UIColor] {
-		let colors = [
-			UIColor(hex: 0xC21717),
-			UIColor(hex: 0xf39c12),
-			UIColor(hex: 0x8e44ad),
-			UIColor(hex: 0x27ae60),
-			UIColor(hex: 0xe74c3c),
-			UIColor(hex: 0xF0C987),
-			UIColor(hex: 0x3498db),
-			UIColor(hex: 0x2ecc71),
-			UIColor(hex: 0x9097C0),
-			UIColor(hex: 0xf1c40f),
-			UIColor(hex: 0x2c3e50),
-			UIColor(hex: 0xc0392b)
-		]
-		return colors
-	}
+    
+    static var scheduleColors: [UIColor] {
+        let colors = [
+            UIColor(hex: 0xC21717),
+            UIColor(hex: 0xf39c12),
+            UIColor(hex: 0x8e44ad),
+            UIColor(hex: 0x27ae60),
+            UIColor(hex: 0xe74c3c),
+            UIColor(hex: 0xF0C987),
+            UIColor(hex: 0x3498db),
+            UIColor(hex: 0x2ecc71),
+            UIColor(hex: 0x9097C0),
+            UIColor(hex: 0xf1c40f),
+            UIColor(hex: 0x2c3e50),
+            UIColor(hex: 0xc0392b)
+        ]
+        return colors
+    }
     
     static var materialColors: [UIColor] {
         return [

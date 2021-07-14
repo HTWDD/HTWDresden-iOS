@@ -115,13 +115,13 @@ extension SemesterPlaning {
               let ePeriod = object.examsPeriod,
               let rPeriod = object.reregistration else { return nil }
         
-            return SemesterPlaning(year: object.year,
-                                   type: type,
-                                   period: Period.map(from: sPeriod),
-                                   freeDays: FreeDay.map(from: object.freeDays),
-                                   lecturePeriod:  Period.map(from: lPeriod),
-                                   examsPeriod:  Period.map(from: ePeriod),
-                                   reregistration:  Period.map(from: rPeriod))
+        return SemesterPlaning(year: object.year,
+                               type: type,
+                               period: Period.map(from: sPeriod),
+                               freeDays: FreeDay.map(from: object.freeDays),
+                               lecturePeriod:  Period.map(from: lPeriod),
+                               examsPeriod:  Period.map(from: ePeriod),
+                               reregistration:  Period.map(from: rPeriod))
         
     }
 }

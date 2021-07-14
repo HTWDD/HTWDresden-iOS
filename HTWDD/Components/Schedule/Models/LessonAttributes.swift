@@ -37,10 +37,10 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
     
     var timetableColor: UIColor {
         switch self {
-        case .lesson, .electiveLesson: return UIColor.htw.red_300
-        case .exercise, .electiveExercise: return UIColor.htw.green_300
-        case .block: return UIColor.htw.blue_grey_300
-        default: return UIColor.htw.indigo_400
+        case .lesson, .electiveLesson: return UIColor.htw.red300
+        case .exercise, .electiveExercise: return UIColor.htw.green300
+        case .block: return UIColor.htw.blueGrey300
+        default: return UIColor.htw.indigo400
         }
     }
     
