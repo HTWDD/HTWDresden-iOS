@@ -76,6 +76,7 @@
 "Schedule.LectureType.unknown"="Unknown";
 "Schedule.current.lesson"="Current";
 "Schedule.next.lesson"="Next";
+"Schedule.LectureType.custom.lecture"="Custom";
 
 "Canteen.title"="Canteen";
 "Canteen.pluralTitle"="Canteens";
@@ -121,6 +122,8 @@
 "Exams.ExamType.oral"="Oral";
 "Exams.ExamType.apl"="APL";
 
+"Exams.Currently.Unavailable.Message" = "The exam section is currently not available. We're working on a solution.";
+
 "Settings.title"="Settings";
 
 "Settings.items.setSchedule.title"="Change studygroup";
@@ -149,9 +152,9 @@
 "Settings.items.account.subtitle"="Access and study group data";
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics and Crashlytics";
-"Settings.reset.elective.lessons"="Reset elective lessons information";
-"Settings.reset.elective.lessons.alert.title"="Reset elective lessons";
-"Settings.reset.elective.lessons.alert.message"="Do you want to reset all elective lessons";
+"Settings.reset.elective.lessons"="Reset elective lecture information";
+"Settings.reset.elective.lessons.alert.title"="Reset elective lecture";
+"Settings.reset.elective.lessons.alert.message"="Do you want to reset all elective lecture";
 
 
 "Network.error.title"="Error";
@@ -267,31 +270,31 @@
 "Room.occupancy.no.name"="No information about the course name";
 "Room.occupancy.no.dozent"="No information about the lecturer";
 
-"lesson.block.One" = "lesson block 1 (7:30 AM - 9:00 AM)";
-"lesson.block.Two" = "lesson block 2 (9:20 AM - 10:50 AM)";
-"lesson.block.Three" = "lesson block 3 (11:10 AM - 12:40 PM)";
-"lesson.block.Four" = "lesson block 4 (1:20 PM - 2:50 PM)";
-"lesson.block.Five" = "lesson block 5 (3:10 PM - 4:40 PM)";
-"lesson.block.Six" = "lesson block 6 (5:00 PM - 6:30 PM)";
-"lesson.block.Seven" = "lesson block 7 (6:40 PM - 8:10 PM)";
-"lesson.block.Eight" = "lesson block 8 (8:20 PM - 9:50 PM)";
+"lesson.block.One" = "lecture block 1 (7:30 AM - 9:00 AM)";
+"lesson.block.Two" = "lecture block 2 (9:20 AM - 10:50 AM)";
+"lesson.block.Three" = "lecture block 3 (11:10 AM - 12:40 PM)";
+"lesson.block.Four" = "lecture block 4 (1:20 PM - 2:50 PM)";
+"lesson.block.Five" = "lecture block 5 (3:10 PM - 4:40 PM)";
+"lesson.block.Six" = "lecture block 6 (5:00 PM - 6:30 PM)";
+"lesson.block.Seven" = "lecture block 7 (6:40 PM - 8:10 PM)";
+"lesson.block.Eight" = "lecture block 8 (8:20 PM - 9:50 PM)";
 
 "CalendarWeek.Once" = "one time";
 "CalendarWeek.Every" = "ever CW";
 "CalendarWeek.Even" = "even CW";
 "CalendarWeek.Uneven" = "uneven CW";
 
-"editLesson" = "Edit Lesson";
-"lesson" = "Lesson";
+"editLesson" = "Edit lecture";
+"lesson" = "lecture";
 "general" = "General";
-"lessonName" = "name of lesson*";
-"abbreviation" = "name of lesson (short)";
+"lessonName" = "name of lecture*";
+"abbreviation" = "name of lecture (short)";
 "docentName" = "name of docent";
-"lessonType" = "lesson type";
+"lessonType" = "lecture type";
 "room" = "room";
 "weekRotation" = "week rotation*";
 "weekday" = "weekday*";
-"lessonBlock" = "lesson block";
+"lessonBlock" = "lecture block";
 "onlyWeeks" = "only weeks";
 "currentWeek" = "Current Week";
 "nextWeek" = "Next Week";
@@ -313,4 +316,4 @@
 "fill.required.fields.message" = "Notice";
 "fill.required.fields.title" = "Please fill all required fields";
 
-"elective.lesson.selection.title" = "Choose an lesson";
+"elective.lesson.selection.title" = "Choose a lecture";

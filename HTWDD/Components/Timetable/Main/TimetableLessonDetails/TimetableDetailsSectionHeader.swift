@@ -36,12 +36,12 @@ class TimetableDetailsSectionHeader: UITableViewHeaderFooterView {
         contentView.addSubview(title)
         
         NSLayoutConstraint.activate([
-            background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19),
-            background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -19),
+            background.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            background.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 13),
             background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
-            title.heightAnchor.constraint(equalToConstant: 30),
+            title.heightAnchor.constraint(equalToConstant: 20),
             title.leadingAnchor.constraint(equalTo: background.leadingAnchor,
                                            constant: 16),
             title.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -14),

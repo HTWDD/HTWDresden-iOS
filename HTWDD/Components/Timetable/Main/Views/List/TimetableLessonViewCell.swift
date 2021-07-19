@@ -19,7 +19,7 @@ class TimetableLessonViewCell: UITableViewCell {
     @IBOutlet weak var lblExaminer: UILabel!
     @IBOutlet weak var lblExamType: BadgeLabel!
     @IBOutlet weak var lblExamRooms: BadgeLabel!
-    @IBOutlet weak var lblExamElective: BadgeLabel!
+    @IBOutlet weak var lblExamAdditionalInfo: BadgeLabel!
     @IBOutlet weak var lblExamBegin: UILabel!
     @IBOutlet weak var lblExamEnd: UILabel!
     @IBOutlet weak var separator: UIView!
@@ -53,8 +53,7 @@ class TimetableLessonViewCell: UITableViewCell {
             $0.backgroundColor  = UIColor.htw.Material.blue
         }
         
-        lblExamElective.apply {
-            $0.backgroundColor  = UIColor.htw.Material.green
+        lblExamAdditionalInfo.apply {
             $0.textColor        = .white
         }
         
@@ -89,14 +88,23 @@ extension TimetableLessonViewCell: FromNibLoadable {
         lblExamBegin.text   = String(model.beginTime.prefix(5))
         lblExamEnd.text     = String(model.endTime.prefix(5))
         lblExaminer.text    = model.professor?.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
-        lblExamRooms.text   = String(model.rooms.description.dropFirst().dropLast()).replacingOccurrences(of: "\"", with: "")
+
+        let rooms = model.rooms.joined(separator: ", ")
+        lblExamRooms.text   = rooms
+        lblExamRooms.isHidden = !(rooms.trimmingCharacters(in: .whitespacesAndNewlines).count > 0)
+        
         lblExamType.text    = model.type.localizedDescription
         
-        switch model.type {
-        case .electiveLesson, .electiveExercise, .electivePractical:
-            lblExamElective.isHidden = false
-        default:
-            lblExamElective.isHidden = true
+        if model.isElective {
+            lblExamAdditionalInfo.backgroundColor  = UIColor.htw.Material.green
+            lblExamAdditionalInfo.text = R.string.localizable.scheduleLectureTypeElectiveLecture()
+            lblExamAdditionalInfo.isHidden = false
+        } else if model.isCustom {
+            lblExamAdditionalInfo.backgroundColor  = UIColor.htw.Material.orange
+            lblExamAdditionalInfo.text = R.string.localizable.scheduleLectureTypeCustomLecture()
+            lblExamAdditionalInfo.isHidden = false
+        } else {
+            lblExamAdditionalInfo.isHidden = true
         }
     }
 }

@@ -10,10 +10,6 @@ import RealmSwift
 
 class TimetableDetailsViewModel {
     
-    var customPrefix: String {
-        "custom_"
-    }
-    
     func saveCustomLesson(_ customLesson: CustomLesson) -> Bool {
         
         guard let name = customLesson.name,
@@ -25,7 +21,7 @@ class TimetableDetailsViewModel {
         
         else { return false }
         
-        let customId: String = customLesson.id ?? "\(customPrefix)\(UUID().uuidString)"
+        let customId: String = customLesson.id ?? "\(Lesson.customLessonPrefix)\(UUID().uuidString)"
         
         let newLesson: Lesson = Lesson(id: customId,
                                        lessonTag: customLesson.lessonTag,
@@ -37,7 +33,7 @@ class TimetableDetailsViewModel {
                                        week: week,
                                        weeksOnly: weeksOnly,
                                        professor: customLesson.professor,
-                                       rooms: [customLesson.rooms ?? " "],
+                                       rooms: [customLesson.rooms ?? ""],
                                        lastChanged: Date().localized, isStudiesIntegrale: false)
         
         if TimetableRealm.exist(id: newLesson.id) {
@@ -55,7 +51,7 @@ class TimetableDetailsViewModel {
     
     func isCustomLesson(id: String) -> Bool {
         
-        return id.hasPrefix(customPrefix)
+        return id.hasPrefix(Lesson.customLessonPrefix)
     }
     
     func hideElectiveLesson(selected lesson: Lesson) {

@@ -9,6 +9,8 @@
 import Foundation
 
 struct Lesson: Codable {
+    static let  customLessonPrefix: String = "custom_"
+    
     let id: String
     let lessonTag: String?
     let name: String
@@ -26,6 +28,10 @@ struct Lesson: Codable {
     
     var isElective: Bool {
         type.isElective
+    }
+    
+    var isCustom: Bool {
+        id.hasPrefix(Lesson.customLessonPrefix)
     }
     
     var lessonDays: [String] {

@@ -23,7 +23,7 @@ protocol SettingsCoordinatorRoutingDelegate: AnyObject {
     func showPrivacy()
     func showGithub()
     func resetData()
-    func showResetHiddenDialog()
+    func showResetElectiveDialog()
 }
 
 class SettingsCoordinator: Coordinator {
@@ -132,19 +132,21 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
         settingsViewController.present(alert, animated: true, completion: nil)
     }
     
-    func showResetHiddenDialog() {
+    func showResetElectiveDialog() {
         let alert = UIAlertController(title: R.string.localizable.settingsResetElectiveLessonsAlertTitle(), message: R.string.localizable.settingsResetElectiveLessonsAlertMessage(), preferredStyle: .alert).also {
             $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
-                self?.resetHidden()
+                self?.resetElectiveLessons()
             }))
             $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
         }
         settingsViewController.present(alert, animated: true, completion: nil)
     }
     
-    private func resetHidden() {
-        let hiddenLessonsIds = TimetableRealm.read().map { $0.id }
+    private func resetElectiveLessons() {
+        let electiveLessonsIds = TimetableRealm.read()
+            .filter({ !$0.id.hasPrefix(Lesson.customLessonPrefix) })
+            .map { $0.id }
         
-        TimetableRealm.delete(ids: hiddenLessonsIds)
+        TimetableRealm.delete(ids: electiveLessonsIds)
     }
 }

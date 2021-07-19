@@ -32,7 +32,7 @@ class TimetableLessonDetailsSelectionCell: UITableViewCell, FromNibLoadable {
     
     func setup(model: CustomLesson, isEditable: Bool) {
         
-        lessonDetailsSelectionField.isEnabled = isEditable
+        lessonDetailsSelectionField.setup(isEditable: isEditable)
         
         switch lessonElement! {
         case .lessonType:

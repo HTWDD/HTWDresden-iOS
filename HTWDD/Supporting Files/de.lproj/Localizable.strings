@@ -76,6 +76,7 @@
 "Schedule.LectureType.unknown"="Unbekannt";
 "Schedule.current.lesson"="Aktuell";
 "Schedule.next.lesson"="Nächste";
+"Schedule.LectureType.custom.lecture"="Eigene";
 
 "Canteen.title"="Mensa";
 "Canteen.pluralTitle"="Mensen";
@@ -121,6 +122,8 @@
 "Exams.ExamType.oral"="Mündlich";
 "Exams.ExamType.apl"="APL";
 
+"Exams.Currently.Unavailable.Message" = "Die Prüfungsansicht wird überarbeitet und ist vorerst nicht verfügbar.";
+
 "Settings.title"="Einstellungen";
 
 "Settings.items.setSchedule.title"="Studiengruppe ändern";
@@ -151,7 +154,7 @@
 "Settings.items.google.subtitle"="Analytics und Crashlytics";
 "Settings.reset.elective.lessons"="Anzeige der Wahlpflichtveranstaltungen zurücksetzen";
 "Settings.reset.elective.lessons.alert.title"="Wahlpflichtveranstaltungen zurücksetzen";
-"Settings.reset.elective.lessons.alert.message"="Möchtest Du wirklich alle Wahlpflichtveranstaltungen zurüvcksetzen?";
+"Settings.reset.elective.lessons.alert.message"="Möchtest Du wirklich alle Wahlpflichtveranstaltungen zurücksetzen?";
 
 "Network.error.title"="Fehler";
 "Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";

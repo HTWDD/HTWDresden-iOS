@@ -21,9 +21,17 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
         super.awakeFromNib()
         
         self.delegate = self
-        createDropDownIcon()
         createPickerView()
         dismissPickerView()
+    }
+    
+    func setup(isEditable: Bool) {
+        guard isEditable else {
+            self.isEnabled = false
+            return
+        }
+        
+        createDropDownIcon()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -47,17 +55,20 @@ class LessonDetailsSelectionField: UITextField, UITextFieldDelegate {
     }
     
     func createDropDownIcon() {
-        let iconView = UIImageView(frame:
-                                    CGRect(x: 10, y: 5, width: 20, height: 20))
-        iconView.image = UIImage(named: "Down")
-        iconView.tintColor = UIColor.htw.Icon.primary
+        let dropDownIcon = UIImage(named: "Down")
         
-        let iconContainerView: UIView = UIView(frame:
-                                                CGRect(x: 20, y: 0, width: 30, height: 30))
-        iconContainerView.addSubview(iconView)
+        let button = UIButton(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
+        button.addTarget(self, action: #selector(iconTapped), for: .touchUpInside)
+                                                
+        button.setImage(dropDownIcon, for: .normal)
+        button.tintColor = UIColor.htw.Icon.primary
         
-        rightView = iconContainerView
+        rightView = button
         rightViewMode = .always
+    }
+    
+    @objc private func iconTapped() {
+        self.becomeFirstResponder()
     }
 }
 

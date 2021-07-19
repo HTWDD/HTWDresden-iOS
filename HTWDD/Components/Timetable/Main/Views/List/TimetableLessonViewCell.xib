@@ -120,8 +120,8 @@
             <viewLayoutGuide key="safeArea" id="kIr-wf-dOp"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lblExamAdditionalInfo" destination="g1m-jI-zda" id="xOr-G8-dJa"/>
                 <outlet property="lblExamBegin" destination="3xc-36-geK" id="YTU-ex-IHM"/>
-                <outlet property="lblExamElective" destination="g1m-jI-zda" id="xOr-G8-dJa"/>
                 <outlet property="lblExamEnd" destination="ijV-21-Qsr" id="1YS-cf-k8T"/>
                 <outlet property="lblExamName" destination="zgH-Wu-zyj" id="g7y-NH-o3A"/>
                 <outlet property="lblExamRooms" destination="UlO-vO-hof" id="orN-Ce-HIy"/>

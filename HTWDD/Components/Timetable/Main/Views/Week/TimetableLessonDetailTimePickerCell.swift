@@ -33,7 +33,7 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
     
     func setup(model: CustomLesson, isEditable: Bool) {
         
-        lessonDetailsSelectionField.isEnabled = isEditable
+        lessonDetailsSelectionField.setup(isEditable: isEditable)
         
         switch lessonElement {
         case .day:
@@ -68,9 +68,16 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
         super.awakeFromNib()
         
         self.delegate = self
-        createDropDownIcon()
         createPickerView()
         setupToolbarForPickerView()
+    }
+    
+    func setup(isEditable: Bool) {
+        guard isEditable else {
+            self.isEnabled = false
+            return
+        }
+        createDropDownIcon()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -86,16 +93,20 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
     }
     
     func createDropDownIcon() {
-        let iconView = UIImageView(frame:
-                                    CGRect(x: 10, y: 5, width: 20, height: 20))
-        iconView.image = UIImage(named: "Down")
-        iconView.tintColor = UIColor.htw.Icon.primary
-        let iconContainerView: UIView = UIView(frame:
-                                                CGRect(x: 20, y: 0, width: 30, height: 30))
-        iconContainerView.addSubview(iconView)
+        let dropDownIcon = UIImage(named: "Down")
         
-        rightView = iconContainerView
+        let button = UIButton(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
+        button.addTarget(self, action: #selector(iconTapped), for: .touchUpInside)
+                                                
+        button.setImage(dropDownIcon, for: .normal)
+        button.tintColor = UIColor.htw.Icon.primary
+        
+        rightView = button
         rightViewMode = .always
+    }
+    
+    @objc private func iconTapped() {
+        self.becomeFirstResponder()
     }
     
     func createPickerView() {

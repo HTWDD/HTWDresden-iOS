@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRR-oX-noD">
-                        <rect key="frame" x="19" y="0.0" width="376" height="44"/>
+                        <rect key="frame" x="8" y="0.0" width="398" height="44"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-6j-fz1">
                                 <rect key="frame" x="19" y="14" width="16" height="16"/>
@@ -28,7 +28,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTt-wD-QEs" customClass="LessonDetailsSelectionField" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="49" y="10" width="313" height="24"/>
+                                <rect key="frame" x="49" y="10" width="335" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Nfz-12-5Sz"/>
                                 </constraints>
@@ -50,8 +50,8 @@
                 <constraints>
                     <constraint firstItem="tRR-oX-noD" firstAttribute="top" secondItem="bLI-8S-hU9" secondAttribute="top" id="9j5-P7-roA"/>
                     <constraint firstAttribute="bottom" secondItem="tRR-oX-noD" secondAttribute="bottom" id="E8p-hd-NJL"/>
-                    <constraint firstItem="tRR-oX-noD" firstAttribute="leading" secondItem="bLI-8S-hU9" secondAttribute="leading" constant="19" id="KaB-C3-0d8"/>
-                    <constraint firstAttribute="trailing" secondItem="tRR-oX-noD" secondAttribute="trailing" constant="19" id="Xvw-L7-68u"/>
+                    <constraint firstItem="tRR-oX-noD" firstAttribute="leading" secondItem="bLI-8S-hU9" secondAttribute="leading" constant="8" id="KaB-C3-0d8"/>
+                    <constraint firstAttribute="trailing" secondItem="tRR-oX-noD" secondAttribute="trailing" constant="8" id="Xvw-L7-68u"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

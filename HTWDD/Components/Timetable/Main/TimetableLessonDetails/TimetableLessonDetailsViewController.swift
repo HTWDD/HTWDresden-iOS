@@ -180,6 +180,14 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
         return 50
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        guard section == 1 else {
+            return 0
+        }
+        
+        return 50
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         elements.count
     }
@@ -366,8 +374,8 @@ class RequiredFooter: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
             
             title.heightAnchor.constraint(equalToConstant: 30),
-            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
+            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
             title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kd0-4x-ecD">
-                        <rect key="frame" x="19" y="0.0" width="376" height="52"/>
+                        <rect key="frame" x="8" y="0.0" width="398" height="52"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mBC-qu-jQZ">
                                 <rect key="frame" x="19" y="18" width="16" height="16"/>
@@ -27,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFa-hJ-FEE" customClass="BottomBorderTextField" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="49" y="14" width="313" height="24"/>
+                                <rect key="frame" x="49" y="14" width="335" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="I8K-g0-fmD"/>
                                 </constraints>
@@ -54,8 +56,8 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="kd0-4x-ecD" secondAttribute="bottom" id="TfW-ds-EXA"/>
                     <constraint firstItem="kd0-4x-ecD" firstAttribute="top" secondItem="M6c-Y9-ptS" secondAttribute="top" id="gcx-fg-5wL"/>
-                    <constraint firstItem="kd0-4x-ecD" firstAttribute="leading" secondItem="M6c-Y9-ptS" secondAttribute="leading" constant="19" id="iKJ-VX-t0C"/>
-                    <constraint firstAttribute="trailing" secondItem="kd0-4x-ecD" secondAttribute="trailing" constant="19" id="k4p-k1-Owz"/>
+                    <constraint firstItem="kd0-4x-ecD" firstAttribute="leading" secondItem="M6c-Y9-ptS" secondAttribute="leading" constant="8" id="iKJ-VX-t0C"/>
+                    <constraint firstAttribute="trailing" secondItem="kd0-4x-ecD" secondAttribute="trailing" constant="8" id="k4p-k1-Owz"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -147,6 +147,7 @@ extension SettingsViewController {
         lblResetElectiveLessons.apply {
             $0.text         = R.string.localizable.settingsResetElectiveLessons()
             $0.textColor    = UIColor.htw.Label.primary
+            $0.numberOfLines = 2
         }
         
         // Header Cells
@@ -261,7 +262,7 @@ extension SettingsViewController {
         case "impressumCell": delegate?.showImpressum()
         case "privacyCell": delegate?.showPrivacy()
         case "trashCell": delegate?.resetData()
-        case "resetHiddenCell": delegate?.showResetHiddenDialog()
+        case "resetHiddenCell": delegate?.showResetElectiveDialog()
         default:
             break
         }
