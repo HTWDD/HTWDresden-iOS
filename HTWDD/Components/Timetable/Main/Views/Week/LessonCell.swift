@@ -62,7 +62,7 @@ class LessonCell: UICollectionViewCell {
         lessonName.attributedText = NSMutableAttributedString(string: event.lesson.lessonTag ?? event.lesson.name, attributes: hyphenAttribute)
         
         if event.lesson.isCustom {
-            self.backgroundColor = .htw.Material.orange
+            self.backgroundColor = UIColor.htw.Material.orange
         } else {
             self.backgroundColor = event.lesson.type.timetableColor
         }
