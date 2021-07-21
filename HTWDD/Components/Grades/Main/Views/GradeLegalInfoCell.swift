@@ -10,12 +10,18 @@ import UIKit
 
 class GradeLegalInfoCell: UITableViewCell, FromNibLoadable {
 
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lblLegalInfo: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         contentView.backgroundColor = .clear
+        
+        mainView.apply {
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
+        }
         
         lblLegalInfo.text = R.string.localizable.gradesLegalInfo()
     }
