@@ -107,7 +107,8 @@ class TimetableListViewController: TimetableBaseViewController {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd.MM.yyyy"
                 
-                if let elementDate = dateFormatter.date(from: model.header), elementDate >= Date() {
+                if let elementDate = dateFormatter.date(from: model.header),
+                   elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
                     indexOfHeader = index
                     break indexer
                 }

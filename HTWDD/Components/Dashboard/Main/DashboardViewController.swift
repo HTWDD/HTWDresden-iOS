@@ -106,7 +106,7 @@ extension DashboardViewController {
         
         guard !UserDefaults.standard.crashlytics,
         !UserDefaults.standard.crashlyticsAsked,
-              let firstLaunch = UserDefaults.standard.firstLaunchDate,
+        let firstLaunch: Date = UserDefaults.standard.firstLaunchDate,
               Int(Date().timeIntervalSince(firstLaunch) / 86400) > 3 else {
             return
         }

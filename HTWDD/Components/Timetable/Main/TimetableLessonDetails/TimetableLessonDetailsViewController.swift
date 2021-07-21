@@ -75,17 +75,21 @@ class TimetableLessonDetailsViewController: UIViewController {
             ]
         }
         
-        if isLessonCustomizable, lesson.id != nil {
-            let deleteBtn = UIBarButtonItem.menuButton(self, action: #selector(deleteLesson), imageName: "Icon_Delete", insets: false)
-            navigationItem.rightBarButtonItems = [deleteBtn]
-        }
+        var barItems: [UIBarButtonItem] = []
         
         if isLessonCustomizable {
-            
-            let saveBtn = UIBarButtonItem(title: R.string.localizable.save(), style: .plain, target: self, action: #selector(save))
+
+            let saveBtn = UIBarButtonItem.menuButton(self, action: #selector(save), imageName: "Icon_Checkmark", insets: false)
             saveBtn.width = 110
-            navigationItem.rightBarButtonItems = [saveBtn]
+            barItems.append(saveBtn)
         }
+        
+        if isLessonCustomizable, lesson.id != nil {
+            let deleteBtn = UIBarButtonItem.menuButton(self, action: #selector(deleteLesson), imageName: "Icon_Delete", insets: false)
+            barItems.append(deleteBtn)
+        }
+        
+        navigationItem.rightBarButtonItems = barItems
     }
     
     func setup(model: Lesson) {
