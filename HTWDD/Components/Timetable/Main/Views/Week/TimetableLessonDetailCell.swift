@@ -32,6 +32,7 @@ class TimetableLessonDetailCell: UITableViewCell, FromNibLoadable {
     func setup(model: CustomLesson, isEditable: Bool) {
         
         lessonDetailTextField.isEnabled = isEditable
+        lessonDetailTextField.showBottomBorder = isEditable
         
         switch lessonElement {
         case .lessonName:

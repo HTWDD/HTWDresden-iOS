@@ -8,7 +8,12 @@
 
 class BottomBorderTextField: UITextField {
     
+    var showBottomBorder: Bool = true
+    
     override func draw(_ rect: CGRect) {
+        guard showBottomBorder else {
+            return
+        }
         
         let border = CALayer()
         
