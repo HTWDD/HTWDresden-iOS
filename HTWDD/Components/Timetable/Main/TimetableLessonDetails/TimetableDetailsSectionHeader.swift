@@ -29,6 +29,12 @@ class TimetableDetailsSectionHeader: UITableViewHeaderFooterView {
         
         background.backgroundColor = UIColor.htw.cellBackground
         
+        if #available(iOS 11.0, *) {
+            background.layer.cornerRadius = 6
+            background.layer.masksToBounds = true
+            background.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
         

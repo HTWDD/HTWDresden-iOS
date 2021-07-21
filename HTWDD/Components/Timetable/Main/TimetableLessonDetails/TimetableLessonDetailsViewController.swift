@@ -39,12 +39,14 @@ class TimetableLessonDetailsViewController: UIViewController {
     }
     
     @IBOutlet weak var lessonDetailsTable: UITableView!
-    @IBOutlet weak var saveBtn: UIButton!
-    @IBOutlet weak var closeBtn: UIButton!
     
     override func viewDidLoad() {
         
         self.title = isLessonCustomizable ? R.string.localizable.editLesson() : R.string.localizable.lesson()
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
         
         lessonDetailsTable.dataSource = self
         lessonDetailsTable.delegate = self
@@ -56,10 +58,10 @@ class TimetableLessonDetailsViewController: UIViewController {
         lessonDetailsTable.register(TimetableLessonDetailTimePickerCell.self)
         lessonDetailsTable.register(TimetableDetailsSectionHeader.self, forHeaderFooterViewReuseIdentifier: "sectionSpacer")
         lessonDetailsTable.register(RequiredFooter.self, forHeaderFooterViewReuseIdentifier: "requiredFooter")
+        lessonDetailsTable.register(EmptyFooter.self, forHeaderFooterViewReuseIdentifier: "emptyFooter")
         lessonDetailsTable.backgroundColor = UIColor.htw.veryLightGrey
         
         self.view.backgroundColor = UIColor .htw.veryLightGrey
-        styleButtons()
         
         if isLessonCustomizable {
             elements = [
@@ -78,7 +80,12 @@ class TimetableLessonDetailsViewController: UIViewController {
             navigationItem.rightBarButtonItems = [deleteBtn]
         }
         
-        saveBtn.isHidden = !isLessonCustomizable
+        if isLessonCustomizable {
+            
+            let saveBtn = UIBarButtonItem(title: R.string.localizable.save(), style: .plain, target: self, action: #selector(save))
+            saveBtn.width = 110
+            navigationItem.rightBarButtonItems = [saveBtn]
+        }
     }
     
     func setup(model: Lesson) {
@@ -101,19 +108,6 @@ class TimetableLessonDetailsViewController: UIViewController {
         }
     }
     
-    private func styleButtons(){
-        closeBtn.setTitle(R.string.localizable.close(), for: .normal)
-        closeBtn.layer.cornerRadius = 4
-        closeBtn.backgroundColor = UIColor.htw.grey400
-        closeBtn.addTarget(self, action: #selector(close), for: .touchUpInside)
-        
-        saveBtn.setTitle(R.string.localizable.save(), for: .normal)
-        saveBtn.layer.cornerRadius = 4
-        saveBtn.backgroundColor = UIColor.htw.blue
-        saveBtn.addTarget(self, action: #selector(save), for: .touchUpInside)
-    }
-    
-    @objc
     private func close() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -168,12 +162,16 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
-        guard section == 1 else { return .none }
-        
-        let requiredFooter: RequiredFooter = tableView.dequeueReusableHeaderFooterView(withIdentifier: "requiredFooter") as! RequiredFooter
-        requiredFooter.title.text = R.string.localizable.fieldRequiered()
-        
-        return requiredFooter
+        if section == 1 {
+            let requiredFooter: RequiredFooter = tableView.dequeueReusableHeaderFooterView(withIdentifier: "requiredFooter") as! RequiredFooter
+            requiredFooter.title.text = R.string.localizable.fieldRequiered()
+            
+            return requiredFooter
+        } else {
+            let emptyFooter: EmptyFooter = tableView.dequeueReusableHeaderFooterView(withIdentifier: "emptyFooter") as! EmptyFooter
+            
+            return emptyFooter
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -182,7 +180,7 @@ extension TimetableLessonDetailsViewController: UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         guard section == 1 else {
-            return 0
+            return 10
         }
         
         return 50
@@ -351,37 +349,5 @@ enum LessonDetailElements {
         case .day: return .weekDay(selection: .none)
         default: return .none
         }
-    }
-}
-
-class RequiredFooter: UITableViewHeaderFooterView {
-    
-    let title = UILabel()
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        configureContents()
-    }
-    
-    func configureContents() {
-        
-        contentView.backgroundColor = UIColor.htw.veryLightGrey
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.font = .systemFont(ofSize: 14)
-        
-        contentView.addSubview(title)
-        
-        NSLayoutConstraint.activate([
-            
-            title.heightAnchor.constraint(equalToConstant: 30),
-            title.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            title.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            title.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -14),
-            title.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-        ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

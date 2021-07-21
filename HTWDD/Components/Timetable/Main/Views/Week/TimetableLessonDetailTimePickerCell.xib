@@ -21,14 +21,14 @@
                         <rect key="frame" x="8" y="0.0" width="398" height="44"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7V3-2V-eFm">
-                                <rect key="frame" x="19" y="14" width="16" height="16"/>
+                                <rect key="frame" x="12" y="14" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="FTw-hi-p31"/>
                                     <constraint firstAttribute="width" constant="16" id="Oye-mK-EC9"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Rb-3v-rMh" customClass="TimePickerTextField" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="49" y="10" width="335" height="24"/>
+                                <rect key="frame" x="40" y="10" width="346" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="q1C-FD-6W2"/>
                                 </constraints>
@@ -40,9 +40,9 @@
                         <constraints>
                             <constraint firstItem="7V3-2V-eFm" firstAttribute="centerY" secondItem="fzY-Ry-abB" secondAttribute="centerY" id="2Ju-no-sTN"/>
                             <constraint firstItem="4Rb-3v-rMh" firstAttribute="centerY" secondItem="fzY-Ry-abB" secondAttribute="centerY" id="AHg-jk-4wa"/>
-                            <constraint firstAttribute="trailing" secondItem="4Rb-3v-rMh" secondAttribute="trailing" constant="14" id="LEt-TZ-UGT"/>
-                            <constraint firstItem="7V3-2V-eFm" firstAttribute="leading" secondItem="fzY-Ry-abB" secondAttribute="leading" constant="19" id="feX-bU-2g7"/>
-                            <constraint firstItem="4Rb-3v-rMh" firstAttribute="leading" secondItem="7V3-2V-eFm" secondAttribute="trailing" constant="14" id="ltu-HJ-kev"/>
+                            <constraint firstAttribute="trailing" secondItem="4Rb-3v-rMh" secondAttribute="trailing" constant="12" id="LEt-TZ-UGT"/>
+                            <constraint firstItem="7V3-2V-eFm" firstAttribute="leading" secondItem="fzY-Ry-abB" secondAttribute="leading" constant="12" id="feX-bU-2g7"/>
+                            <constraint firstItem="4Rb-3v-rMh" firstAttribute="leading" secondItem="7V3-2V-eFm" secondAttribute="trailing" constant="12" id="ltu-HJ-kev"/>
                         </constraints>
                     </view>
                 </subviews>

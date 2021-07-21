@@ -305,6 +305,7 @@
 		753E674A269C921C00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
 		753E674B269C928B00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
 		755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A741C257A679300C284A2 /* TimetableWeekViewController.swift */; };
+		7564D9DA26A81C110080D923 /* TimetableDetailsFooters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564D9D926A81C110080D923 /* TimetableDetailsFooters.swift */; };
 		757CB0CC25C457710082F411 /* TimetableDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */; };
 		757CB0D125C45C3B0082F411 /* BottomBorderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0D025C45C3B0082F411 /* BottomBorderTextField.swift */; };
 		757CB0D625C45EC60082F411 /* TimetableDetailsSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0D525C45EC60082F411 /* TimetableDetailsSectionHeader.swift */; };
@@ -682,6 +683,7 @@
 		752093D525A75E47001EC3E5 /* TimetableLessonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonDetailCell.swift; sourceTree = "<group>"; };
 		753E6749269C921C00077F60 /* LessonAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonAttributes.swift; sourceTree = "<group>"; };
 		755A741C257A679300C284A2 /* TimetableWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekViewController.swift; sourceTree = "<group>"; };
+		7564D9D926A81C110080D923 /* TimetableDetailsFooters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsFooters.swift; sourceTree = "<group>"; };
 		757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsViewModel.swift; sourceTree = "<group>"; };
 		757CB0D025C45C3B0082F411 /* BottomBorderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextField.swift; sourceTree = "<group>"; };
 		757CB0D525C45EC60082F411 /* TimetableDetailsSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsSectionHeader.swift; sourceTree = "<group>"; };
@@ -998,7 +1000,6 @@
 				B5EF95731FADB389006BC7D1 /* ExamsCoordinator.swift */,
 				1F864E671FB73229002AA79B /* Main */,
 				B5EF95881FAF8752006BC7D1 /* Models */,
-				640DC15A22FBF6B600E9ED9A /* ViewModels */,
 			);
 			path = Exams;
 			sourceTree = "<group>";
@@ -1174,13 +1175,6 @@
 				640DB2FE22E9EDE30083078E /* RoomRealm.swift */,
 			);
 			path = Realm;
-			sourceTree = "<group>";
-		};
-		640DC15A22FBF6B600E9ED9A /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		640F0D7722FC62DA002887AA /* Realm */ = {
@@ -1568,6 +1562,7 @@
 			children = (
 				75E20F30258CBF2800FA6DF4 /* TimetableLessonDetailsViewController.swift */,
 				757CB0D525C45EC60082F411 /* TimetableDetailsSectionHeader.swift */,
+				7564D9D926A81C110080D923 /* TimetableDetailsFooters.swift */,
 			);
 			path = TimetableLessonDetails;
 			sourceTree = "<group>";
@@ -2546,6 +2541,7 @@
 				6414B74B22FADA0000988AAA /* KeychainService.swift in Sources */,
 				64093B3F22F803C8007138B6 /* StudyGroupSelectionViewController.swift in Sources */,
 				64DBE744233CBD6800A5BAA2 /* ZoomableImageView.swift in Sources */,
+				7564D9DA26A81C110080D923 /* TimetableDetailsFooters.swift in Sources */,
 				6493710823428D6A00EC7195 /* DashboardTimeTableNoStudyTokenViewCell.swift in Sources */,
 				1F77AD1B1F8FA67D00351A73 /* OnboardWelcomeViewController.swift in Sources */,
 				649371042342836000EC7195 /* DasboardLessonViewCell.swift in Sources */,

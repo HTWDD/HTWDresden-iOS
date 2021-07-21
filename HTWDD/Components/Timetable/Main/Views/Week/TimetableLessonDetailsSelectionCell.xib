@@ -21,14 +21,14 @@
                         <rect key="frame" x="8" y="0.0" width="398" height="44"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CjE-6j-fz1">
-                                <rect key="frame" x="19" y="14" width="16" height="16"/>
+                                <rect key="frame" x="12" y="14" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="a6Q-1P-NEP"/>
                                     <constraint firstAttribute="width" constant="16" id="slJ-Wq-o0z"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RTt-wD-QEs" customClass="LessonDetailsSelectionField" customModule="HTWDD" customModuleProvider="target">
-                                <rect key="frame" x="49" y="10" width="335" height="24"/>
+                                <rect key="frame" x="40" y="10" width="346" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Nfz-12-5Sz"/>
                                 </constraints>
@@ -38,9 +38,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CjE-6j-fz1" firstAttribute="leading" secondItem="tRR-oX-noD" secondAttribute="leading" constant="19" id="3d6-A1-ggX"/>
-                            <constraint firstAttribute="trailing" secondItem="RTt-wD-QEs" secondAttribute="trailing" constant="14" id="3dZ-xf-DnP"/>
-                            <constraint firstItem="RTt-wD-QEs" firstAttribute="leading" secondItem="CjE-6j-fz1" secondAttribute="trailing" constant="14" id="KVv-H4-dLE"/>
+                            <constraint firstItem="CjE-6j-fz1" firstAttribute="leading" secondItem="tRR-oX-noD" secondAttribute="leading" constant="12" id="3d6-A1-ggX"/>
+                            <constraint firstAttribute="trailing" secondItem="RTt-wD-QEs" secondAttribute="trailing" constant="12" id="3dZ-xf-DnP"/>
+                            <constraint firstItem="RTt-wD-QEs" firstAttribute="leading" secondItem="CjE-6j-fz1" secondAttribute="trailing" constant="12" id="KVv-H4-dLE"/>
                             <constraint firstItem="CjE-6j-fz1" firstAttribute="centerY" secondItem="tRR-oX-noD" secondAttribute="centerY" id="L2F-Mj-R7U"/>
                             <constraint firstItem="RTt-wD-QEs" firstAttribute="centerY" secondItem="tRR-oX-noD" secondAttribute="centerY" id="LjQ-yu-Ckz"/>
                         </constraints>

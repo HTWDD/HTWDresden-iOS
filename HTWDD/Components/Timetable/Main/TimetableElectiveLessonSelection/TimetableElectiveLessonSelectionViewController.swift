@@ -46,6 +46,7 @@ class TimetableElectiveLessonSelectionViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(TimetableElectiveLessonCell.self)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = false
