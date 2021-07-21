@@ -115,7 +115,7 @@ extension DashboardViewController {
         
         let alert = UIAlertController(title: R.string.localizable.onboardingCrashlyticsHelpQuestion(), message: "\(R.string.localizable.onboardingCrashlyticsDescription()) \(R.string.localizable.onboardingCrashlyticsRevokeDescription())", preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: R.string.localizable.no(), style: .default, handler: { _ in
             UserDefaults.standard.crashlytics = true
         }))
         

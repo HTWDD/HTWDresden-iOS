@@ -72,6 +72,7 @@ extension GradesViewController {
             $0.register(GradeAverageViewCell.self)
             $0.register(GradeHeaderViewCell.self)
             $0.register(GradeViewCell.self)
+            $0.register(GradeLegalInfoCell.self)
         }
         
     }
@@ -84,6 +85,7 @@ extension GradesViewController {
                 guard let self = self else { return }
                 if let items = event.element {
                     self.items = items
+                    self.items.append(.legalInfo)
                     self.stateView.isHidden = true
                     
                     self.hideAverageCell()
@@ -157,6 +159,9 @@ extension GradesViewController {
             
             let cell = tableView.dequeueReusableCell(GradeAverageViewCell.self, for: indexPath)!
             cell.setup(with: model)
+            return cell
+        case .legalInfo:
+            let cell = tableView.dequeueReusableCell(GradeLegalInfoCell.self, for: indexPath)!
             return cell
         }
     }

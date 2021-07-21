@@ -13,6 +13,7 @@ enum Grades {
     case average(model: GradeAverage)
     case header(model: GradeHeader)
     case grade(model: Grade)
+    case legalInfo
 }
 
 class GradesViewModel {

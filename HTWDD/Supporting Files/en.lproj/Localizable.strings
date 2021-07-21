@@ -191,6 +191,7 @@
 "letsgo"="Let's go!";
 "attention"="Attention ⚠️";
 "yes"="Yes";
+"no"="No";
 "loading"="Loading…";
 "add"="Add";
 "searchbar.placeholder" = "Search";
@@ -238,6 +239,10 @@
 "Grades.no.credentials.title"="No login data";
 "Grades.no.credentials.message"="Please enter you login data, so that i can show you your grades";
 "Grades.header.subtitle"="Ø %.2f (%d credits)";
+"Grades.legal.info"="Info:
+The information in the app is not legally binding, the grade portal (QIS) is legally binding!
+
+You can also find all information (e.g. sick note) in the grade portal (QIS).";
 
 "CampusPlan.title" = "Campus plan";
 "CampusPlan.buildings" = "%d Buildings";

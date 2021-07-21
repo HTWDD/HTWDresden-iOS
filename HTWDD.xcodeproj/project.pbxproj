@@ -304,6 +304,8 @@
 		752093D625A75E47001EC3E5 /* TimetableLessonDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752093D525A75E47001EC3E5 /* TimetableLessonDetailCell.swift */; };
 		753E674A269C921C00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
 		753E674B269C928B00077F60 /* LessonAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753E6749269C921C00077F60 /* LessonAttributes.swift */; };
+		7550025126A84B010039B591 /* GradeLegalInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7550025026A84B010039B591 /* GradeLegalInfoCell.xib */; };
+		7550025326A84B670039B591 /* GradeLegalInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7550025226A84B670039B591 /* GradeLegalInfoCell.swift */; };
 		755A741D257A679300C284A2 /* TimetableWeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A741C257A679300C284A2 /* TimetableWeekViewController.swift */; };
 		7564D9DA26A81C110080D923 /* TimetableDetailsFooters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7564D9D926A81C110080D923 /* TimetableDetailsFooters.swift */; };
 		757CB0CC25C457710082F411 /* TimetableDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */; };
@@ -682,6 +684,8 @@
 		752093D025A75E3D001EC3E5 /* TimetableLessonDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailCell.xib; sourceTree = "<group>"; };
 		752093D525A75E47001EC3E5 /* TimetableLessonDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonDetailCell.swift; sourceTree = "<group>"; };
 		753E6749269C921C00077F60 /* LessonAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonAttributes.swift; sourceTree = "<group>"; };
+		7550025026A84B010039B591 /* GradeLegalInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GradeLegalInfoCell.xib; sourceTree = "<group>"; };
+		7550025226A84B670039B591 /* GradeLegalInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeLegalInfoCell.swift; sourceTree = "<group>"; };
 		755A741C257A679300C284A2 /* TimetableWeekViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableWeekViewController.swift; sourceTree = "<group>"; };
 		7564D9D926A81C110080D923 /* TimetableDetailsFooters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsFooters.swift; sourceTree = "<group>"; };
 		757CB0CB25C457710082F411 /* TimetableDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -1050,6 +1054,8 @@
 				6407C9982340F453009E7C91 /* GradeHeaderViewCell.xib */,
 				6407C99D23412D36009E7C91 /* GradeAverageViewCell.swift */,
 				6407C99E23412D36009E7C91 /* GradeAverageViewCell.xib */,
+				7550025026A84B010039B591 /* GradeLegalInfoCell.xib */,
+				7550025226A84B670039B591 /* GradeLegalInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -2179,6 +2185,7 @@
 				64C4BCE2233BBAB700B135DE /* CampusPlanViewCell.xib in Resources */,
 				640FC57222F359090090E210 /* BarchartsGrey.json in Resources */,
 				64EBEE5122F0431400B5D21B /* RoomOccupanciesCollectionViewCell.xib in Resources */,
+				7550025126A84B010039B591 /* GradeLegalInfoCell.xib in Resources */,
 				64BAFB202342517A00292501 /* DashboardGradeEmptyViewCell.xib in Resources */,
 				B59FA9921DD09C8400259D7F /* Assets.xcassets in Resources */,
 				64BAFB122341FF3E00292501 /* DashboardHeaderViewCell.xib in Resources */,
@@ -2675,6 +2682,7 @@
 				641A4AD42344E96E0018ACFD /* UIStackView.swift in Sources */,
 				B5D3E83A1FA5E7630055782D /* ScheduleCoordinator.swift in Sources */,
 				6410F72D22D629E800AA3BA1 /* Meal.swift in Sources */,
+				7550025326A84B670039B591 /* GradeLegalInfoCell.swift in Sources */,
 				6466EB3223CDB494004E8EF0 /* UIScrollView.swift in Sources */,
 				64E7DB6E234351ED00540FED /* TimetableHeaderViewCell.swift in Sources */,
 				39FB084B1E9E5375001CC2F5 /* TableViewCell.swift in Sources */,

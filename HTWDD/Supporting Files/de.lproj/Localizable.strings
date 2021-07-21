@@ -190,6 +190,7 @@
 "letsgo"="Los geht's!";
 "attention"="Achtung ⚠️";
 "yes"="Ja";
+"no"="Nein";
 "loading"="Laden…";
 "add"="Hinzufügen";
 "searchbar.placeholder" = "Suchen";
@@ -237,6 +238,10 @@
 "Grades.no.credentials.title"="Keine Zugangsdaten";
 "Grades.no.credentials.message"="Bitte trage deine Zugangsdaten ein, damit ich Dir Noten anzeigen kann.";
 "Grades.header.subtitle"="Ø %.2f (%d Credits)";
+"Grades.legal.info"="Hinweis:
+Die Informationen in der App sind unverbindlich, rechtsverbindlich ist das Notenportal (QIS)!
+
+Alle Hinweise (z.B. zu Krankmeldungen) finden Sie ebenfalls im Notenportal (QIS).";
 
 "CampusPlan.title" = "Campusplan";
 "CampusPlan.buildings" = "%d Gebäude";
