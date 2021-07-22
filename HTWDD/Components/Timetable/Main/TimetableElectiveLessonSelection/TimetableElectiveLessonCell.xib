@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="84" id="H1Q-cL-mU5" customClass="TimetableElectiveLessonCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H1Q-cL-mU5" id="Pzv-Q8-IMw">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcu-J0-Ren">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modul" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVD-hJ-bso">
+                                <rect key="frame" x="62" y="8" width="344" height="22"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Typ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBT-ZZ-aAz" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="62" y="62" width="20.5" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Tag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sj7-Tn-etP" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="90.5" y="62" width="20" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXU-bC-6vf">
+                                <rect key="frame" x="50" y="8" width="4" height="68"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="4" id="WY2-Bz-fHo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uD-e9-dFf">
+                                <rect key="frame" x="8" y="8" width="34" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="pAK-FG-Ogk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYb-Ki-Wv3">
+                                <rect key="frame" x="9" y="62" width="32" height="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Dozent" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwq-Q2-WPz">
+                                <rect key="frame" x="62" y="38" width="344" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Studium Integrale" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k5-4W-c7t" userLabel="Lbl Exam Elective" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="118.5" y="62" width="97.5" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6k5-4W-c7t" firstAttribute="centerY" secondItem="SBT-ZZ-aAz" secondAttribute="centerY" id="Eqj-t1-kVi"/>
+                            <constraint firstItem="VXU-bC-6vf" firstAttribute="leading" secondItem="9uD-e9-dFf" secondAttribute="trailing" constant="8" id="JGK-kU-2Nu"/>
+                            <constraint firstItem="Wwq-Q2-WPz" firstAttribute="leading" secondItem="VXU-bC-6vf" secondAttribute="trailing" constant="8" id="LeI-yP-X3o"/>
+                            <constraint firstAttribute="trailing" secondItem="jVD-hJ-bso" secondAttribute="trailing" constant="8" id="Qh8-Gb-fcn"/>
+                            <constraint firstItem="Sj7-Tn-etP" firstAttribute="leading" secondItem="SBT-ZZ-aAz" secondAttribute="trailing" constant="8" id="RSW-UV-2QN"/>
+                            <constraint firstItem="9uD-e9-dFf" firstAttribute="top" secondItem="VXU-bC-6vf" secondAttribute="top" id="Rj2-wd-0lB"/>
+                            <constraint firstItem="Sj7-Tn-etP" firstAttribute="centerY" secondItem="SBT-ZZ-aAz" secondAttribute="centerY" id="SuM-hx-bxT"/>
+                            <constraint firstItem="VXU-bC-6vf" firstAttribute="top" secondItem="zcu-J0-Ren" secondAttribute="top" constant="8" id="U0E-jZ-qRO"/>
+                            <constraint firstAttribute="bottom" secondItem="SBT-ZZ-aAz" secondAttribute="bottom" constant="8" id="VYB-gO-bHc"/>
+                            <constraint firstItem="9uD-e9-dFf" firstAttribute="leading" secondItem="zcu-J0-Ren" secondAttribute="leading" constant="8" id="WQM-QU-QEY"/>
+                            <constraint firstItem="jVD-hJ-bso" firstAttribute="leading" secondItem="VXU-bC-6vf" secondAttribute="trailing" constant="8" id="Yoi-ax-6m7"/>
+                            <constraint firstItem="SBT-ZZ-aAz" firstAttribute="top" secondItem="Wwq-Q2-WPz" secondAttribute="bottom" constant="8" id="ZMp-io-Zjf"/>
+                            <constraint firstItem="xYb-Ki-Wv3" firstAttribute="bottom" secondItem="VXU-bC-6vf" secondAttribute="bottom" id="ek6-nt-r2I"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6k5-4W-c7t" secondAttribute="trailing" constant="8" id="fN7-gK-Bqv"/>
+                            <constraint firstAttribute="bottom" secondItem="VXU-bC-6vf" secondAttribute="bottom" constant="8" id="hJh-PE-gNe"/>
+                            <constraint firstItem="Wwq-Q2-WPz" firstAttribute="top" secondItem="jVD-hJ-bso" secondAttribute="bottom" constant="8" id="hL4-Jd-79T"/>
+                            <constraint firstAttribute="trailing" secondItem="Wwq-Q2-WPz" secondAttribute="trailing" constant="8" id="hSJ-g5-Scv"/>
+                            <constraint firstItem="SBT-ZZ-aAz" firstAttribute="leading" secondItem="VXU-bC-6vf" secondAttribute="trailing" constant="8" id="kad-Ac-uRh"/>
+                            <constraint firstItem="xYb-Ki-Wv3" firstAttribute="centerX" secondItem="9uD-e9-dFf" secondAttribute="centerX" id="q8G-Kp-S8B"/>
+                            <constraint firstItem="jVD-hJ-bso" firstAttribute="top" secondItem="zcu-J0-Ren" secondAttribute="top" constant="8" id="qKz-5o-VTt"/>
+                            <constraint firstItem="6k5-4W-c7t" firstAttribute="leading" secondItem="Sj7-Tn-etP" secondAttribute="trailing" constant="8" id="tRk-vw-EmR"/>
+                            <constraint firstAttribute="bottom" secondItem="Sj7-Tn-etP" secondAttribute="bottom" constant="8" id="x0U-kU-WAN"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hasDropShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zcu-J0-Ren" secondAttribute="trailing" id="3K0-Ic-F99"/>
+                    <constraint firstItem="zcu-J0-Ren" firstAttribute="leading" secondItem="Pzv-Q8-IMw" secondAttribute="leading" id="7ec-Gp-svU"/>
+                    <constraint firstAttribute="bottom" secondItem="zcu-J0-Ren" secondAttribute="bottom" id="8F1-My-X0N"/>
+                    <constraint firstItem="zcu-J0-Ren" firstAttribute="top" secondItem="Pzv-Q8-IMw" secondAttribute="top" id="zx4-pZ-1AK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblExamBegin" destination="9uD-e9-dFf" id="iS4-tm-1I5"/>
+                <outlet property="lblExamDay" destination="Sj7-Tn-etP" id="VDq-8D-EIq"/>
+                <outlet property="lblExamEnd" destination="xYb-Ki-Wv3" id="YdZ-S7-9kX"/>
+                <outlet property="lblExamIntegrale" destination="6k5-4W-c7t" id="8A9-3M-SDh"/>
+                <outlet property="lblExamName" destination="jVD-hJ-bso" id="6E5-1y-izJ"/>
+                <outlet property="lblExamType" destination="SBT-ZZ-aAz" id="dNa-Zh-KCG"/>
+                <outlet property="lblExaminer" destination="Wwq-Q2-WPz" id="BDK-jL-Ui1"/>
+                <outlet property="main" destination="zcu-J0-Ren" id="1mD-5Y-WcC"/>
+                <outlet property="separator" destination="VXU-bC-6vf" id="uyO-hN-rJF"/>
+            </connections>
+            <point key="canvasLocation" x="-238" y="-114"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

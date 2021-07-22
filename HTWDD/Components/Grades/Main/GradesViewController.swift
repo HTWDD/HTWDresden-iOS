@@ -12,7 +12,7 @@ import Action
 import Moya
 
 class GradesViewController: UITableViewController, HasSideBarItem {
-
+    
     // MARK: - Properties
     var context: AppContext!
     var viewModel: GradesViewModel!
@@ -72,6 +72,7 @@ extension GradesViewController {
             $0.register(GradeAverageViewCell.self)
             $0.register(GradeHeaderViewCell.self)
             $0.register(GradeViewCell.self)
+            $0.register(GradeLegalInfoCell.self)
         }
         
     }
@@ -84,13 +85,16 @@ extension GradesViewController {
                 guard let self = self else { return }
                 if let items = event.element {
                     self.items = items
+                    self.items.append(.legalInfo)
                     self.stateView.isHidden = true
+                    
+                    self.hideAverageCell()
                     
                     if items.isEmpty {
                         self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.gradesNoResultsTitle(), message: R.string.localizable.gradesNoResultsMessage(), hint: nil, action: nil))
                     }
                 }
-        }.disposed(by: rx_disposeBag)
+            }.disposed(by: rx_disposeBag)
         
         action
             .errors
@@ -103,10 +107,20 @@ extension GradesViewController {
                 default:
                     self.stateView.setup(with: EmptyResultsView.Configuration(icon: "😖", title: R.string.localizable.gradesNoCredentialsTitle(), message: R.string.localizable.gradesNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
                 }
-               
+                
             }).disposed(by: rx_disposeBag)
         
         action.execute()
+    }
+    
+    private func hideAverageCell() {
+        self.items.removeAll(where: {
+            if case .average = $0 {
+                return true
+            }
+            
+            return false
+        })
     }
     
     @objc private func onTap() {
@@ -142,8 +156,12 @@ extension GradesViewController {
             cell.setup(with: model)
             return cell
         case .average(let model):
+            
             let cell = tableView.dequeueReusableCell(GradeAverageViewCell.self, for: indexPath)!
             cell.setup(with: model)
+            return cell
+        case .legalInfo:
+            let cell = tableView.dequeueReusableCell(GradeLegalInfoCell.self, for: indexPath)!
             return cell
         }
     }

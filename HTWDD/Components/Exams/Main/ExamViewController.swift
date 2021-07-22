@@ -42,7 +42,8 @@ class ExamViewController: UITableViewController, HasSideBarItem {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
         }
-        load()
+        
+        self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoResultsTitle(), message: R.string.localizable.examsCurrentlyUnavailableMessage(), hint: nil, action: nil))
     }
     
     override func viewDidLayoutSubviews() {

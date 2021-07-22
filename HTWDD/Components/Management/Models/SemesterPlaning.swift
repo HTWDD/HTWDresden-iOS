@@ -35,6 +35,10 @@ struct SemesterPlaning: Codable {
     let lecturePeriod: Period
     let examsPeriod: Period
     let reregistration: Period
+    
+    func isCurrentSemester() -> Bool {
+        return period.isInPeriod(date: Date())
+    }
 }
 
 // MARK: - Period
@@ -58,6 +62,17 @@ struct Period: Codable {
         } catch {
             Log.error(error)
             return ""
+        }
+    }
+    
+    func isInPeriod(date: Date) -> Bool {
+        do {
+            let dateFormat = "yyyy-MM-dd"
+            let startPeriod = try Date.from(string: beginDay, format: dateFormat)
+            let endPeriod   = try Date.from(string: endDay, format: dateFormat)
+            return date.isBetween(startPeriod, and: endPeriod)
+        } catch {
+            return false
         }
     }
 }
@@ -93,23 +108,21 @@ struct FreeDay: Codable {
 
 extension SemesterPlaning {
     static func map(from object: SemesterPlaningRealm?) -> SemesterPlaning? {
-        guard let object = object else { return nil }
-        if let type = SemesterPlaning.SemeterType(rawValue: object.type),
-            let sPeriod = object.period,
-            let lPeriod = object.lecturePeriod,
-            let ePeriod = object.examsPeriod,
-            let rPeriod = object.reregistration {
-            
-            return SemesterPlaning(year: object.year,
-                                   type: type,
-                                   period: Period.map(from: sPeriod),
-                                   freeDays: FreeDay.map(from: object.freeDays),
-                                   lecturePeriod:  Period.map(from: lPeriod),
-                                   examsPeriod:  Period.map(from: ePeriod),
-                                   reregistration:  Period.map(from: rPeriod))
-        } else {
-           return nil
-        }
+        guard let object = object,
+              let type = SemesterPlaning.SemeterType(rawValue: object.type),
+              let sPeriod = object.period,
+              let lPeriod = object.lecturePeriod,
+              let ePeriod = object.examsPeriod,
+              let rPeriod = object.reregistration else { return nil }
+        
+        return SemesterPlaning(year: object.year,
+                               type: type,
+                               period: Period.map(from: sPeriod),
+                               freeDays: FreeDay.map(from: object.freeDays),
+                               lecturePeriod:  Period.map(from: lPeriod),
+                               examsPeriod:  Period.map(from: ePeriod),
+                               reregistration:  Period.map(from: rPeriod))
+        
     }
 }
 

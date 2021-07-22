@@ -9,9 +9,9 @@
 import Foundation
 
 struct Lesson: Codable {
+    static let  customLessonPrefix: String = "custom_"
     
     let id: String
-//    let moduleId: String?
     let lessonTag: String?
     let name: String
     let type: LessonType
@@ -19,10 +19,20 @@ struct Lesson: Codable {
     let beginTime: String
     let endTime: String
     let week: Int
-    let weeksOnly: [Int]
+    var weeksOnly: [Int]
     let professor: String?
     let rooms: [String]
     let lastChanged: String
+    var isStudiesIntegrale: Bool?
+    var isHidden: Bool? = false
+    
+    var isElective: Bool {
+        type.isElective
+    }
+    
+    var isCustom: Bool {
+        id.hasPrefix(Lesson.customLessonPrefix)
+    }
     
     var lessonDays: [String] {
         let date = Date()
@@ -43,42 +53,22 @@ struct Lesson: Codable {
         }
     }
     
-    // MARK: - Lessontypes
-    enum LessonType: String, Codable {
-        case practical
-        case lesson
-        case exercise
-        case requested
-        case block
-        case unkown
-        
-        var localizedDescription: String {
-            switch self {
-            case .practical: return R.string.localizable.scheduleLectureTypePractical()
-            case .lesson: return R.string.localizable.scheduleLectureTypeLecture()
-            case .exercise: return R.string.localizable.scheduleLectureTypeExercise()
-            case .requested: return R.string.localizable.scheduleLectureTypeRequested()
-            case .block: return R.string.localizable.scheduleLectureTypeBlock()
-            case .unkown: return R.string.localizable.scheduleLectureTypeUnknown()
-            }
-        }
-        
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer().decode(String.self)
-            
-            switch container {
-            case let str where str.hasPrefix("V"): self = .lesson
-            case let str where str.hasPrefix("Ü"): self = .exercise
-            case let str where str.hasPrefix("P"): self = .practical
-            case let str where str.hasPrefix("Buchung"): self = .requested
-            case let str where str.hasPrefix("Block"): self = .block
-            default:
-                self = .unkown
-            }
-        }
-       
+    enum CodingKeys: String, CodingKey {
+        case id
+        case lessonTag
+        case name
+        case type
+        case day
+        case beginTime
+        case endTime
+        case week
+        case weeksOnly
+        case professor
+        case rooms
+        case lastChanged
+        case isStudiesIntegrale = "studiumIntegrale"
+        case isHidden
     }
-    
 }
 
 // MARK: - Hashable
@@ -94,5 +84,20 @@ extension Lesson: Hashable {
             && lhs.day == rhs.day
             && lhs.week == rhs.week
     }
-    
+}
+
+struct CustomLesson {
+    var id: String?
+    var lessonTag: String?
+    var name: String?
+    var type: LessonType?
+    var day: Int?
+    var week: Int?
+    var beginTime: String?
+    var endTime: String?
+    var weeksOnly: [Int]?
+    var professor: String?
+    var rooms: String?
+    var lastChanged: String?
+    var ishidden: Bool? = false
 }

@@ -47,7 +47,7 @@ class DashboardViewController: UITableViewController, HasSideBarItem {
         }
         
         load()
-        
+        askForCrashlyticsPermission()
     }
     
     private func load() {
@@ -100,6 +100,30 @@ extension DashboardViewController {
             $0.register(DashboardGradeEmptyViewCell.self)
         }
         
+    }
+    
+    private func askForCrashlyticsPermission() {
+        
+        guard !UserDefaults.standard.crashlytics,
+        !UserDefaults.standard.crashlyticsAsked,
+        let firstLaunch: Date = UserDefaults.standard.firstLaunchDate,
+              Int(Date().timeIntervalSince(firstLaunch) / 86400) > 3 else {
+            return
+        }
+        
+        UserDefaults.standard.crashlyticsAsked = true
+        
+        let alert = UIAlertController(title: R.string.localizable.onboardingCrashlyticsHelpQuestion(), message: "\(R.string.localizable.onboardingCrashlyticsDescription()) \(R.string.localizable.onboardingCrashlyticsRevokeDescription())", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: R.string.localizable.no(), style: .default, handler: { _ in
+            UserDefaults.standard.crashlytics = true
+        }))
+        
+        alert.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .cancel, handler: { _ in
+            UserDefaults.standard.crashlytics = false
+        }))
+        
+        self.present(alert, animated: true)
     }
 }
 

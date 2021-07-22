@@ -17,12 +17,7 @@ class TimetableCoordinator: Coordinator {
     private let context: Service
     var rootViewController: UIViewController { return timetableViewController }
     var childCoordinators: [Coordinator] = []
-    private lazy var timetableViewController: TimetableViewController = {
-        return R.storyboard.timetable.timetableViewController()!.also {
-            $0.context      = context
-            $0.viewModel    = TimetableViewModel(context: context)
-        }
-    }()
+    private lazy var timetableViewController = TimetableMainViewController(context: context)
     
     // MARK: - Lifecycle
     init(context: Service) {

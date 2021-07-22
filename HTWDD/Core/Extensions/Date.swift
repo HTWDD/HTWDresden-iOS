@@ -35,6 +35,14 @@ extension Date {
         c.timeZone = TimeZone.autoupdatingCurrent
         return Calendar.current.date(from: c)
     }
+    
+    static func from(time: String, date: String) -> Date? {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss dd.MM.yyyy"
+        
+        return dateFormatter.date(from: time + " " + date)
+    }
 
     func string(format: String) -> String {
         return dateFormatter(format: format).string(from: self)

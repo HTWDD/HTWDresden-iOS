@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LessonViewCellExportDelegate: AnyObject {
+    func export(_ lesson: Lesson)
+}
+
 class TimetableLessonViewCell: UITableViewCell {
 
     @IBOutlet weak var main: UIView!
@@ -15,9 +19,13 @@ class TimetableLessonViewCell: UITableViewCell {
     @IBOutlet weak var lblExaminer: UILabel!
     @IBOutlet weak var lblExamType: BadgeLabel!
     @IBOutlet weak var lblExamRooms: BadgeLabel!
+    @IBOutlet weak var lblExamAdditionalInfo: BadgeLabel!
     @IBOutlet weak var lblExamBegin: UILabel!
     @IBOutlet weak var lblExamEnd: UILabel!
     @IBOutlet weak var separator: UIView!
+    
+    var lesson: Lesson?
+    weak var exportDelegate: LessonViewCellExportDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +53,10 @@ class TimetableLessonViewCell: UITableViewCell {
             $0.backgroundColor  = UIColor.htw.Material.blue
         }
         
+        lblExamAdditionalInfo.apply {
+            $0.textColor        = .white
+        }
+        
         lblExamBegin.apply {
             $0.textColor = UIColor.htw.Label.primary
         }
@@ -52,21 +64,47 @@ class TimetableLessonViewCell: UITableViewCell {
         lblExamEnd.apply {
             $0.textColor = UIColor.htw.Label.primary
         }
+        
+        let exportGesture = UILongPressGestureRecognizer(target: self, action: #selector(exportLesson))
+        self.addGestureRecognizer(exportGesture)
     }
-
+    
+    @objc func exportLesson() {
+        guard let lesson = lesson else { return }
+        
+        exportDelegate?.export(lesson)
+    }
 }
 
 // MARK: - Loadable
 extension TimetableLessonViewCell: FromNibLoadable {
     
     func setup(with model: Lesson) {
-        separator.backgroundColor = "\(model.name) \(String(model.professor ?? "")) \(model.type)".materialColor
+        
+        self.lesson = model
+        
+        separator.backgroundColor = model.type.timetableColor
         lblExamName.text    = model.name
         lblExamBegin.text   = String(model.beginTime.prefix(5))
         lblExamEnd.text     = String(model.endTime.prefix(5))
         lblExaminer.text    = model.professor?.nilWhenEmpty ?? R.string.localizable.roomOccupancyNoDozent()
-        lblExamRooms.text   = String(model.rooms.description.dropFirst().dropLast()).replacingOccurrences(of: "\"", with: "")
+
+        let rooms = model.rooms.joined(separator: ", ")
+        lblExamRooms.text   = rooms
+        lblExamRooms.isHidden = !(rooms.trimmingCharacters(in: .whitespacesAndNewlines).count > 0)
+        
         lblExamType.text    = model.type.localizedDescription
+        
+        if model.isElective {
+            lblExamAdditionalInfo.backgroundColor  = UIColor.htw.Material.green
+            lblExamAdditionalInfo.text = R.string.localizable.scheduleLectureTypeElectiveLecture()
+            lblExamAdditionalInfo.isHidden = false
+        } else if model.isCustom {
+            lblExamAdditionalInfo.backgroundColor  = UIColor.htw.Material.orange
+            lblExamAdditionalInfo.text = R.string.localizable.scheduleLectureTypeCustomLecture()
+            lblExamAdditionalInfo.isHidden = false
+        } else {
+            lblExamAdditionalInfo.isHidden = true
+        }
     }
-    
 }

@@ -35,6 +35,9 @@ class TimetableService: Service {
         }
     }
     
+    func requestElectiveLessons() -> Observable<[Lesson]> {
+        return apiService.requestElectiveLessons()
+    }
 }
 
 // MARK: - HasTimetable
