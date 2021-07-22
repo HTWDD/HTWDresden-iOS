@@ -11,6 +11,7 @@ import RxSwift
 class TimetableListViewController: TimetableBaseViewController {
 
     @IBOutlet var tableView: UITableView!
+    private var initalLoading: Bool = true
     var items: [Timetables] = [] {
         didSet {
             reloadData()
@@ -30,6 +31,10 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.rowHeight            = UITableView.automaticDimension
             $0.delegate = self
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
         
         load()
     }
@@ -60,8 +65,9 @@ class TimetableListViewController: TimetableBaseViewController {
             if items.isEmpty {
                 self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.scheduleNoResultsTitle(), message: R.string.localizable.scheduleNoResultsMessage(), hint: nil, action: nil))
                 self.items = []
-            } else {
+            } else if self.initalLoading {
                 self.scrollToToday(notAnimated: true)
+                self.initalLoading = false
             }
         }).disposed(by: rx_disposeBag)
         

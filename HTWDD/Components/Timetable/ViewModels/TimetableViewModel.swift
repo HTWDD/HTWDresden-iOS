@@ -185,9 +185,11 @@ class TimetableViewModel {
     
     func export(lessons: [Lesson]?) {
         
-        guard let lessons = lessons else {
+        guard var lessons = lessons else {
             return
         }
+        
+        lessons.removeDuplicates()
         
         eventStore.requestAccess(to: .event) { (granted, error) in
             
