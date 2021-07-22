@@ -22,8 +22,9 @@ class TimetableListViewController: TimetableBaseViewController {
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
