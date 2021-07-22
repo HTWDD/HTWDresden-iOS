@@ -38,11 +38,35 @@ class TimetableLessonDetailTimePickerCell: UITableViewCell, FromNibLoadable {
         switch lessonElement {
         case .day:
             if let day = model.day {
-                lessonDetailsSelectionField.text = CalendarWeekDay.allCases[day - 1].localizedDescription
+                if model.week == CalendarWeekRotation.once.rawValue, let weeksOnly = model.weeksOnly {
+                    let lessonDates = self.getLessonDates(weeksOnly: weeksOnly, day: day)
+                    lessonDetailsSelectionField.text = lessonDates.first
+                } else {
+                    lessonDetailsSelectionField.text = CalendarWeekDay.allCases[day - 1].localizedDescription
+                }
             }
         case .startTime: lessonDetailsSelectionField.text = String(model.beginTime?.dropLast(3) ?? "")
         case .endTime: lessonDetailsSelectionField.text = String(model.endTime?.dropLast(3) ?? "")
         default: break
+        }
+    }
+    
+    private func getLessonDates(weeksOnly: [Int], day: Int) -> [String] {
+        let date = Date()
+        var lastWeek    = Calendar.current.component(.weekOfYear, from: date)
+        var year        = Calendar.current.component(.year, from: date)
+        let diffWeeks   = zip(weeksOnly.dropFirst(), weeksOnly).map(-).filter({ $0 < 0 })
+        return weeksOnly.map { week -> String in
+            if (diffWeeks.count > 0) {
+                if (lastWeek - week) < -10 {
+                    year -= 1
+                } else if (lastWeek - week) >= abs(diffWeeks.first!) {
+                    year += 1
+                }
+            }
+            let component = DateComponents(weekday: (day % 7) + 1, weekOfYear: week, yearForWeekOfYear: year)
+            lastWeek = week
+            return Calendar.current.date(from: component)!.string(format: "dd.MM.yyyy")
         }
     }
 }
@@ -97,7 +121,7 @@ class TimePickerTextField: UITextField, UIPickerViewDelegate, UITextFieldDelegat
         
         let button = UIButton(frame: CGRect(x: 20, y: 0, width: 30, height: 30))
         button.addTarget(self, action: #selector(iconTapped), for: .touchUpInside)
-                                                
+        
         button.setImage(dropDownIcon, for: .normal)
         button.tintColor = UIColor.htw.Icon.primary
         
