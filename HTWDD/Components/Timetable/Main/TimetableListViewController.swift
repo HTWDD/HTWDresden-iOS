@@ -5,65 +5,45 @@
 //  Created by Mustafa Karademir on 01.10.19.
 //  Copyright © 2019 HTW Dresden. All rights reserved.
 //
-
-import UIKit
-import RxSwift
 import Action
+import RxSwift
 
-class TimetableViewController: UITableViewController, HasSideBarItem {
+class TimetableListViewController: TimetableBaseViewController {
 
-    // MARK: - Properties
-    var viewModel: TimetableViewModel!
-    var context: AppContext!
-    
-    private var items: [Timetables] = [] {
+    @IBOutlet var tableView: UITableView!
+    private var initalLoading: Bool = true
+    var items: [Timetables] = [] {
         didSet {
-            tableView.reloadData()
+            reloadData()
         }
     }
     
-    private lazy var action: Action<Void, [Timetables]> = Action { [weak self] (_) -> Observable<[Timetables]> in
+    lazy var action: Action<Void, [Timetables]> = Action { [weak self] (_) -> Observable<[Timetables]> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
     
-    private let stateView: EmptyResultsView = {
-        return EmptyResultsView().also {
-            $0.isHidden = true
-        }
-    }()
-    
-    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
         tableView.apply {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
+            $0.delegate = self
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
         
         load()
     }
-  
-}
-
-// MARK: - Setup
-extension TimetableViewController {
     
-    private func setup() {
-        
+    override func setup() {
         refreshControl = UIRefreshControl().also {
             $0.tintColor = .white
             $0.rx.bind(to: action, input: ())
         }
-        
-        title = R.string.localizable.scheduleTitle()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.canteenToday(), style: .plain, target: self, action: #selector(scrollToToday))
         
         tableView.apply {
             $0.separatorStyle   = .none
@@ -74,7 +54,7 @@ extension TimetableViewController {
             $0.register(TimetableFreedayViewCell.self)
         }
     }
-    
+
     private func load() {
         
         action.elements.subscribe(onNext: { [weak self] items in
@@ -85,10 +65,10 @@ extension TimetableViewController {
             if items.isEmpty {
                 self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.scheduleNoResultsTitle(), message: R.string.localizable.scheduleNoResultsMessage(), hint: nil, action: nil))
                 self.items = []
-            } else {
+            } else if self.initalLoading {
                 self.scrollToToday(notAnimated: true)
+                self.initalLoading = false
             }
-            
         }).disposed(by: rx_disposeBag)
         
         action.errors.subscribe(onNext: { [weak self] error in
@@ -108,14 +88,24 @@ extension TimetableViewController {
         viewController.modalPresentationStyle = .overCurrentContext
         viewController.modalTransitionStyle = .crossDissolve
         viewController.delegateClosure = { [weak self] in
-            guard let self = self else { return }
+            guard let self = self else {
+                return
+            }
+            
             self.load()
         }
+        
         present(viewController, animated: true, completion: nil)
     }
     
-    @objc private func scrollToToday(notAnimated: Bool = true) {
-        guard !items.isEmpty else { return }
+    override func reloadData(){
+        tableView.reloadData()
+    }
+    
+    override func scrollToToday(notAnimated: Bool = true) {
+        guard !items.isEmpty else {
+            return
+        }
         
         var indexOfHeader: Int = 0
         indexer: for (index, element) in items.enumerated() {
@@ -124,15 +114,11 @@ extension TimetableViewController {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd.MM.yyyy"
                 
-                let today = Date().localDate
-                
-                if let elementDate = dateFormatter.date(from: model.header)?.localDate,
-                   ( today.components.calendar?.isDateInToday(elementDate) ?? false || elementDate >= today ) {
-                    
+                if let elementDate = dateFormatter.date(from: model.header),
+                   elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
                     indexOfHeader = index
                     break indexer
                 }
-                
             default: break
             }
         }
@@ -141,16 +127,57 @@ extension TimetableViewController {
             self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
         }
     }
+    
+    override func getAllLessons() -> [Lesson]? {
+        
+        var lessons: [Lesson]? = items.compactMap {
+        
+            if case .lesson(let model) = $0 {
+                return model
+            }
+            
+            return .none
+        }
+        
+        lessons?.removeDuplicates()
+        
+        return lessons
+    }
+    
+    override func getSemesterWeeks() -> [Int] {
+        guard let lessons = getAllLessons() else { return [] }
+        
+        var semesterWeeks: [Int] = []
+        var lessonDateStrings: [String] = []
+        
+        lessons.forEach { lesson in
+            lessonDateStrings.append(contentsOf: lesson.lessonDays)
+        }
+        
+        lessonDateStrings.removeDuplicates()
+        lessonDateStrings.forEach { lessonDate in
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+            if let date = dateFormatter.date(from: lessonDate) {
+                semesterWeeks.append(Calendar.current.component(.weekOfYear, from: date))
+            }
+        }
+        semesterWeeks.removeDuplicates()
+        semesterWeeks.sort()
+        return semesterWeeks
+    }
 }
 
 // MARK: - Timetable Datasource
-extension TimetableViewController {
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension TimetableListViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch (items[indexPath.row]) {
         case .header(let model):
             return tableView.dequeueReusableCell(TimetableHeaderViewCell.self, for: indexPath)!.also {
@@ -158,6 +185,7 @@ extension TimetableViewController {
             }
         case .lesson(let model):
             return tableView.dequeueReusableCell(TimetableLessonViewCell.self, for: indexPath)!.also {
+                $0.exportDelegate = self
                 $0.setup(with: model)
             }
         case .freeday(let model):
@@ -167,7 +195,24 @@ extension TimetableViewController {
         }
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch (items[indexPath.row]) {
+        case .lesson(let model):
+            let detailsLessonViewController = R.storyboard.timetable.timetableLessonDetailsViewController()!.also {
+                $0.context      = context
+                $0.semseterWeeks = getSemesterWeeks()
+            }
+            
+            detailsLessonViewController.setup(model: model)
+            self.navigationController?.pushViewController(detailsLessonViewController, animated: true)
+        default: break
+        }
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let offsetY = tableView.contentOffset.y
         if let cell = tableView.visibleCells.compactMap( { $0 as? TimetableFreedayViewCell } ).first {
             let x = cell.imageViewFreeday.frame.origin.x
@@ -178,4 +223,25 @@ extension TimetableViewController {
         }
     }
     
+}
+
+extension TimetableListViewController: LessonViewCellExportDelegate {
+    
+    func export(_ lesson: Lesson) {
+        
+        let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
+        
+        let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
+  
+            self.viewModel.export(lessons: [lesson])
+            self.showSuccessMessage()
+        })
+        
+        let cancelAction = UIAlertAction(title: R.string.localizable.cancel(), style: .cancel)
+        
+        exportMenu.addAction(fullExportAction)
+        exportMenu.addAction(cancelAction)
+        
+        self.present(exportMenu, animated: true, completion: nil)
+    }
 }

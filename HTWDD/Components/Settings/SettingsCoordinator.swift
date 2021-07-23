@@ -10,12 +10,12 @@ import UIKit
 import SafariServices
 import MessageUI
 
-protocol SettingsCoordinatorDelegate: class {
+protocol SettingsCoordinatorDelegate: AnyObject {
     func deleteAllData()
 }
 
 // MARK: - Settings Coordinator Delegate
-protocol SettingsCoordinatorRoutingDelegate: class {
+protocol SettingsCoordinatorRoutingDelegate: AnyObject {
     func showSelectStudyGroup(completion: @escaping () -> Void)
     func showLogin(completion: @escaping () -> Void)
     func showMail()
@@ -23,6 +23,7 @@ protocol SettingsCoordinatorRoutingDelegate: class {
     func showPrivacy()
     func showGithub()
     func resetData()
+    func showResetElectiveDialog()
 }
 
 class SettingsCoordinator: Coordinator {
@@ -129,5 +130,23 @@ extension SettingsCoordinator: SettingsCoordinatorRoutingDelegate {
             $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
         }
         settingsViewController.present(alert, animated: true, completion: nil)
+    }
+    
+    func showResetElectiveDialog() {
+        let alert = UIAlertController(title: R.string.localizable.settingsResetElectiveLessonsAlertTitle(), message: R.string.localizable.settingsResetElectiveLessonsAlertMessage(), preferredStyle: .alert).also {
+            $0.addAction(UIAlertAction(title: R.string.localizable.yes(), style: .default, handler: { [weak self] _ in
+                self?.resetElectiveLessons()
+            }))
+            $0.addAction(UIAlertAction(title: R.string.localizable.cancel(), style: .cancel, handler: nil))
+        }
+        settingsViewController.present(alert, animated: true, completion: nil)
+    }
+    
+    private func resetElectiveLessons() {
+        let electiveLessonsIds = TimetableRealm.read()
+            .filter({ !$0.id.hasPrefix(Lesson.customLessonPrefix) })
+            .map { $0.id }
+        
+        TimetableRealm.delete(ids: electiveLessonsIds)
     }
 }

@@ -45,9 +45,15 @@ class ManagementService: Service {
         let realm = try! Realm()
         
         if let rModel = realm.objects(SemesterPlaningRealm.self).last {
+            
             return Observable.from(optional: rModel)
                 .map {
-                    [Item.semesterPlan(model: SemesterPlaning.map(from: $0)!)]
+                    if let semesterPlaning = SemesterPlaning.map(from: $0), semesterPlaning.isCurrentSemester() {
+                        return [Item.semesterPlan(model: semesterPlaning)]
+                    } else {
+                        return []
+                    }
+                    
                 }.catchErrorJustReturn([])
         }
         return Observable.just([])
@@ -58,14 +64,7 @@ class ManagementService: Service {
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
-                    do {
-                        let dateFormat = "yyyy-MM-dd"
-                        let startPeriod = try Date.from(string: $0.period.beginDay, format: dateFormat)
-                        let endPeriod   = try Date.from(string: $0.period.endDay, format: dateFormat)
-                        return Date().isBetween(startPeriod, and: endPeriod)
-                    } catch {
-                        return false
-                    }
+                    return  $0.period.isInPeriod(date: Date())
                 }.first
             }.subscribe { plan in
                 guard let sPlan = plan.element else { return }

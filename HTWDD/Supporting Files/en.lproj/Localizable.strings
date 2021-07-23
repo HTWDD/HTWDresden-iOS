@@ -68,6 +68,7 @@
 "Schedule.Settings.Cell.subtitle"="%@: %@–%@";
 
 "Schedule.LectureType.lecture"="Lecture";
+"Schedule.LectureType.elective.lecture"="Elective";
 "Schedule.LectureType.practical"="Practical";
 "Schedule.LectureType.exercise"="Exercise";
 "Schedule.LectureType.block"="Block";
@@ -75,6 +76,7 @@
 "Schedule.LectureType.unknown"="Unknown";
 "Schedule.current.lesson"="Current";
 "Schedule.next.lesson"="Next";
+"Schedule.LectureType.custom.lecture"="Custom";
 
 "Canteen.title"="Canteen";
 "Canteen.pluralTitle"="Canteens";
@@ -120,6 +122,8 @@
 "Exams.ExamType.oral"="Oral";
 "Exams.ExamType.apl"="APL";
 
+"Exams.Currently.Unavailable.Message" = "The exam section is currently not available. We're working on a solution.";
+
 "Settings.title"="Settings";
 
 "Settings.items.setSchedule.title"="Change studygroup";
@@ -148,6 +152,10 @@
 "Settings.items.account.subtitle"="Access and study group data";
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics and Crashlytics";
+"Settings.reset.elective.lessons"="Reset elective lecture information";
+"Settings.reset.elective.lessons.alert.title"="Reset elective lecture";
+"Settings.reset.elective.lessons.alert.message"="Do you want to reset all elective lecture";
+
 
 "Network.error.title"="Error";
 "Network.error.message"="Something went wrong loading the data.";
@@ -177,12 +185,16 @@
 "ok"="OK";
 "close"="Close";
 "cancel"="Cancel";
+"save"="Save";
+"done" = "Done";
 "nextStep"="Continue";
 "letsgo"="Let's go!";
 "attention"="Attention ⚠️";
 "yes"="Yes";
+"no"="No";
 "loading"="Loading…";
 "add"="Add";
+"searchbar.placeholder" = "Search";
 
 "visit_website"="Visit the website";
 
@@ -227,6 +239,8 @@
 "Grades.no.credentials.title"="No login data";
 "Grades.no.credentials.message"="Please enter you login data, so that i can show you your grades";
 "Grades.header.subtitle"="Ø %.2f (%d credits)";
+"Grades.legal.info"="The information in the app is not legally binding, the grade portal (QIS) is legally binding!
+You can also find all information (e.g. sick note) in the grade portal (QIS).";
 
 "CampusPlan.title" = "Campus plan";
 "CampusPlan.buildings" = "%d Buildings";
@@ -258,3 +272,51 @@
 "Room.occupancy.free"="This room is currently unoccupied.";
 "Room.occupancy.no.name"="No information about the course name";
 "Room.occupancy.no.dozent"="No information about the lecturer";
+
+"lesson.block.One" = "lecture block 1 (7:30 AM - 9:00 AM)";
+"lesson.block.Two" = "lecture block 2 (9:20 AM - 10:50 AM)";
+"lesson.block.Three" = "lecture block 3 (11:10 AM - 12:40 PM)";
+"lesson.block.Four" = "lecture block 4 (1:20 PM - 2:50 PM)";
+"lesson.block.Five" = "lecture block 5 (3:10 PM - 4:40 PM)";
+"lesson.block.Six" = "lecture block 6 (5:00 PM - 6:30 PM)";
+"lesson.block.Seven" = "lecture block 7 (6:40 PM - 8:10 PM)";
+"lesson.block.Eight" = "lecture block 8 (8:20 PM - 9:50 PM)";
+
+"CalendarWeek.Once" = "one time";
+"CalendarWeek.Every" = "ever CW";
+"CalendarWeek.Even" = "even CW";
+"CalendarWeek.Uneven" = "uneven CW";
+
+"editLesson" = "Edit lecture";
+"lesson" = "lecture";
+"general" = "General";
+"lessonName" = "name of lecture*";
+"abbreviation" = "name of lecture (short)";
+"docentName" = "name of docent";
+"lessonType" = "lecture type";
+"room" = "room";
+"weekRotation" = "week rotation*";
+"weekday" = "weekday*";
+"lessonBlock" = "lecture block";
+"onlyWeeks" = "only weeks";
+"currentWeek" = "Current Week";
+"nextWeek" = "Next Week";
+"time" = "Time";
+"start.time" = "Start Time*";
+"end.time" = "End Time*";
+
+"export.title" = "Export events";
+"export.message" = "Would you like to export the events to your calendar?";
+"export.current.week" = "Export current week";
+"export.next.week" = "Export next week";
+"export.all" = "Export complete semester";
+"export.single.lesson" = "Export event";
+
+"export.successful" = "Export successful";
+"export.error" = "Error while exporting";
+
+"field.requiered" = "* Required";
+"fill.required.fields.message" = "Notice";
+"fill.required.fields.title" = "Please fill all required fields";
+
+"elective.lesson.selection.title" = "Choose a lecture";

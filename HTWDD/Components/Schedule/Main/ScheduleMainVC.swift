@@ -16,9 +16,9 @@ private enum ScheduleLayoutStyle: Int {
 	var title: String {
 		switch self {
 		case .week:
-			return Loca.Schedule.Style.week
+            return R.string.localizable.scheduleStyleWeek()
 		case .list:
-			return Loca.Schedule.Style.list
+			return R.string.localizable.scheduleStyleList()
 		}
 	}
 

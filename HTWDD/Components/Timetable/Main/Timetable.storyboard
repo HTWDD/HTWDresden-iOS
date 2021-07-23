@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L1H-GM-JHk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IhI-4D-ZfO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Timetable View Controller-->
+        <!--Timetable List View Controller-->
         <scene sceneID="p14-T3-aMD">
             <objects>
-                <tableViewController storyboardIdentifier="TimetableViewController" id="L1H-GM-JHk" customClass="TimetableViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TimetableListViewController" id="L1H-GM-JHk" customClass="TimetableListViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pAi-KE-2OX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="u8s-ya-hOD">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u8s-ya-hOD" id="SAq-RD-eTP">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -30,10 +32,168 @@
                             <outlet property="delegate" destination="L1H-GM-JHk" id="LIH-xA-omA"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="pAi-KE-2OX" id="8ap-Jg-tc7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tf4-si-Ccd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-90" y="90"/>
         </scene>
+        <!--Timetable Week View Controller-->
+        <scene sceneID="Y6o-Wz-P5U">
+            <objects>
+                <viewController storyboardIdentifier="TimetableWeekViewController" id="vPj-aR-RhV" customClass="TimetableWeekViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fEm-aa-BcI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUq-OD-h5d" customClass="TimetableWeekView" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="414" height="805"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="63y-JP-gNb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="47"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-HY-mjb">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnR-Xx-Veg">
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="47"/>
+                                                <state key="normal" title="Current Week">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setCurrentWeek:" destination="vPj-aR-RhV" eventType="touchUpInside" id="isV-Pv-lhn"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omO-Bo-cTq">
+                                                <rect key="frame" x="219" y="0.0" width="195" height="47"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Next Week">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setNextWeek:" destination="vPj-aR-RhV" eventType="touchUpInside" id="iDL-VO-KuK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="fs5-su-cZv"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vYB-HY-mjb" firstAttribute="top" secondItem="63y-JP-gNb" secondAttribute="top" id="1GN-hf-bGW"/>
+                                    <constraint firstAttribute="height" constant="47" id="33B-6Y-Yz2"/>
+                                    <constraint firstAttribute="bottom" secondItem="vYB-HY-mjb" secondAttribute="bottom" id="4JS-90-Ixp"/>
+                                    <constraint firstAttribute="trailing" secondItem="vYB-HY-mjb" secondAttribute="trailing" id="NZc-ra-VYc"/>
+                                    <constraint firstItem="vYB-HY-mjb" firstAttribute="leading" secondItem="63y-JP-gNb" secondAttribute="leading" id="mzQ-OB-qgY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3fd-hY-OO2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iUq-OD-h5d" firstAttribute="leading" secondItem="fEm-aa-BcI" secondAttribute="leading" id="855-B9-pDf"/>
+                            <constraint firstItem="63y-JP-gNb" firstAttribute="leading" secondItem="fEm-aa-BcI" secondAttribute="leading" id="L1a-jV-UP3"/>
+                            <constraint firstAttribute="trailing" secondItem="63y-JP-gNb" secondAttribute="trailing" id="So0-Ck-aPx"/>
+                            <constraint firstItem="63y-JP-gNb" firstAttribute="top" secondItem="3fd-hY-OO2" secondAttribute="top" id="bxT-vp-ymW"/>
+                            <constraint firstAttribute="bottom" secondItem="iUq-OD-h5d" secondAttribute="bottom" id="p1x-HX-8gU"/>
+                            <constraint firstItem="iUq-OD-h5d" firstAttribute="top" secondItem="63y-JP-gNb" secondAttribute="bottom" id="pt6-rI-qYh"/>
+                            <constraint firstAttribute="trailing" secondItem="iUq-OD-h5d" secondAttribute="trailing" id="xny-kV-Dg0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currentWeekBtn" destination="lnR-Xx-Veg" id="ceU-lT-mwL"/>
+                        <outlet property="nextWeekBtn" destination="omO-Bo-cTq" id="qL5-cT-r50"/>
+                        <outlet property="timetableWeekView" destination="iUq-OD-h5d" id="eDG-nP-A2f"/>
+                        <outlet property="weekControllsBackgroundView" destination="63y-JP-gNb" id="5Cx-0Z-ewb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wm3-OB-7Qu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800.00000000000011" y="89.732142857142847"/>
+        </scene>
+        <!--Timetable Lesson Details View Controller-->
+        <scene sceneID="JII-s5-U7M">
+            <objects>
+                <viewController storyboardIdentifier="TimetableLessonDetailsViewController" id="73W-pL-8wI" customClass="TimetableLessonDetailsViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xz6-IJ-D3j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0U-33-bOI">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="i2e-Jd-71t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="trailing" secondItem="i2e-Jd-71t" secondAttribute="trailing" id="NaX-4j-Caw"/>
+                            <constraint firstItem="i2e-Jd-71t" firstAttribute="bottom" secondItem="D0U-33-bOI" secondAttribute="bottom" id="hV0-OO-Llo"/>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="top" secondItem="i2e-Jd-71t" secondAttribute="top" id="hg5-ko-Imu"/>
+                            <constraint firstItem="D0U-33-bOI" firstAttribute="leading" secondItem="i2e-Jd-71t" secondAttribute="leading" id="oKM-hN-5Pn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lessonDetailsTable" destination="D0U-33-bOI" id="6S5-o7-NLQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zTq-gf-5Ec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3092.753623188406" y="89.732142857142847"/>
+        </scene>
+        <!--Timetable Elective Lesson Selection View Controller-->
+        <scene sceneID="sXl-d5-EEK">
+            <objects>
+                <viewController storyboardIdentifier="TimetableElectiveLessonSelectionViewController" id="V5k-j4-bT6" customClass="TimetableElectiveLessonSelectionViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LJK-2C-4eG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MaZ-LK-Az3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YcO-SX-1qL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="MaZ-LK-Az3" secondAttribute="bottom" id="0tm-Zq-v5S"/>
+                            <constraint firstItem="MaZ-LK-Az3" firstAttribute="leading" secondItem="YcO-SX-1qL" secondAttribute="leading" id="9KV-rM-bpX"/>
+                            <constraint firstItem="MaZ-LK-Az3" firstAttribute="top" secondItem="YcO-SX-1qL" secondAttribute="top" id="fud-xZ-MKB"/>
+                            <constraint firstItem="YcO-SX-1qL" firstAttribute="trailing" secondItem="MaZ-LK-Az3" secondAttribute="trailing" id="vLi-SD-iGA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MaZ-LK-Az3" id="XDz-th-ijp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MK2-MH-RNB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3936" y="90"/>
+        </scene>
+        <!--Timetable Main View Controller-->
+        <scene sceneID="Jcr-e7-Tw1">
+            <objects>
+                <viewController storyboardIdentifier="TimetableMainViewController" id="IhI-4D-ZfO" customClass="TimetableMainViewController" customModule="HTWDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZBV-TN-EXU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KrQ-Eg-mL3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bVe-5p-mSp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="318" y="-639"/>
+        </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

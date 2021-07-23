@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="186" id="TWK-Xp-VD4" customClass="GradeLegalInfoCell" customModule="HTWDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TWK-Xp-VD4" id="ofQ-fT-ANF">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Tj-Rp-rt7">
+                        <rect key="frame" x="8" y="8" width="398" height="170"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bF6-Hv-U46">
+                                <rect key="frame" x="8" y="8" width="382" height="154"/>
+                                <string key="text">
+Die Informationen in der App sind unverbindlich, rechtsverbindlich ist das Notenportal (QIS)!
+Alle Hinweise (z.B. zu Krankmeldungen) finden Sie ebenfalls im Notenportal (QIS).</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bF6-Hv-U46" firstAttribute="leading" secondItem="8Tj-Rp-rt7" secondAttribute="leading" constant="8" id="0Jb-rd-vt1"/>
+                            <constraint firstAttribute="trailing" secondItem="bF6-Hv-U46" secondAttribute="trailing" constant="8" id="EkW-jU-18R"/>
+                            <constraint firstItem="bF6-Hv-U46" firstAttribute="top" secondItem="8Tj-Rp-rt7" secondAttribute="top" constant="8" id="lkA-C6-TgK"/>
+                            <constraint firstAttribute="bottom" secondItem="bF6-Hv-U46" secondAttribute="bottom" constant="8" id="xZo-tS-nxR"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8Tj-Rp-rt7" firstAttribute="leading" secondItem="ofQ-fT-ANF" secondAttribute="leading" constant="8" id="8C0-e7-vIw"/>
+                    <constraint firstAttribute="trailing" secondItem="8Tj-Rp-rt7" secondAttribute="trailing" constant="8" id="A2k-7q-cJb"/>
+                    <constraint firstItem="8Tj-Rp-rt7" firstAttribute="top" secondItem="ofQ-fT-ANF" secondAttribute="top" constant="8" id="C14-De-gFK"/>
+                    <constraint firstAttribute="bottom" secondItem="8Tj-Rp-rt7" secondAttribute="bottom" constant="8" id="ig1-ls-MEB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="lblLegalInfo" destination="bF6-Hv-U46" id="zAS-gU-j1S"/>
+                <outlet property="mainView" destination="8Tj-Rp-rt7" id="yTd-k3-ZMQ"/>
+            </connections>
+            <point key="canvasLocation" x="-384.05797101449281" y="147.32142857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

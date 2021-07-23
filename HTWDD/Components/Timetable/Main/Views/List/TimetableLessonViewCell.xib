@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -40,7 +41,7 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcD-4x-idf">
                                 <rect key="frame" x="50" y="8" width="4" height="72"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="4" id="N0t-G5-jhj"/>
                                 </constraints>
@@ -71,8 +72,14 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Wahlpflicht" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1m-jI-zda" userLabel="Lbl Exam Elective" customClass="BadgeLabel" customModule="HTWDD" customModuleProvider="target">
+                                <rect key="frame" x="129.5" y="66" width="63" height="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="UlO-vO-hof" firstAttribute="leading" secondItem="HM1-4x-aXl" secondAttribute="trailing" constant="8" id="0RA-ZP-tGV"/>
                             <constraint firstItem="3xc-36-geK" firstAttribute="leading" secondItem="g6V-A1-WRv" secondAttribute="leading" constant="8" id="1EM-Il-5on"/>
@@ -84,14 +91,16 @@
                             <constraint firstAttribute="bottom" secondItem="xcD-4x-idf" secondAttribute="bottom" constant="8" id="Dhc-XG-ME0"/>
                             <constraint firstAttribute="trailing" secondItem="zgH-Wu-zyj" secondAttribute="trailing" constant="8" id="Gor-zT-1SJ"/>
                             <constraint firstAttribute="bottom" secondItem="HM1-4x-aXl" secondAttribute="bottom" constant="8" id="HuI-gu-3a1"/>
+                            <constraint firstItem="g1m-jI-zda" firstAttribute="leading" secondItem="UlO-vO-hof" secondAttribute="trailing" constant="8" id="IQH-gO-LJn"/>
                             <constraint firstItem="ijV-21-Qsr" firstAttribute="bottom" secondItem="xcD-4x-idf" secondAttribute="bottom" id="RDH-37-aFl"/>
                             <constraint firstItem="zgH-Wu-zyj" firstAttribute="top" secondItem="g6V-A1-WRv" secondAttribute="top" constant="8" id="Xcr-px-Oe2"/>
                             <constraint firstItem="3xc-36-geK" firstAttribute="top" secondItem="xcD-4x-idf" secondAttribute="top" id="YoU-Hp-hk4"/>
                             <constraint firstItem="HM1-4x-aXl" firstAttribute="top" secondItem="rgS-QN-aTP" secondAttribute="bottom" constant="8" id="ci1-AY-HnM"/>
                             <constraint firstAttribute="trailing" secondItem="rgS-QN-aTP" secondAttribute="trailing" constant="8" id="gmk-TJ-iQM"/>
+                            <constraint firstItem="g1m-jI-zda" firstAttribute="centerY" secondItem="HM1-4x-aXl" secondAttribute="centerY" id="m3k-3P-kcu"/>
                             <constraint firstItem="xcD-4x-idf" firstAttribute="top" secondItem="g6V-A1-WRv" secondAttribute="top" constant="8" id="oM6-Q2-U9p"/>
                             <constraint firstItem="xcD-4x-idf" firstAttribute="leading" secondItem="3xc-36-geK" secondAttribute="trailing" constant="8" id="q5u-bz-5PL"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UlO-vO-hof" secondAttribute="trailing" constant="8" id="sFw-LE-4B9"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g1m-jI-zda" secondAttribute="trailing" constant="8" id="rGa-MS-tYE"/>
                             <constraint firstItem="zgH-Wu-zyj" firstAttribute="leading" secondItem="xcD-4x-idf" secondAttribute="trailing" constant="8" id="v0Q-nN-buA"/>
                             <constraint firstAttribute="bottom" secondItem="UlO-vO-hof" secondAttribute="bottom" constant="8" id="zaz-zT-OUA"/>
                         </constraints>
@@ -108,9 +117,10 @@
                     <constraint firstAttribute="bottom" secondItem="g6V-A1-WRv" secondAttribute="bottom" constant="4" id="YgY-my-ah2"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="kIr-wf-dOp"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lblExamAdditionalInfo" destination="g1m-jI-zda" id="xOr-G8-dJa"/>
                 <outlet property="lblExamBegin" destination="3xc-36-geK" id="YTU-ex-IHM"/>
                 <outlet property="lblExamEnd" destination="ijV-21-Qsr" id="1YS-cf-k8T"/>
                 <outlet property="lblExamName" destination="zgH-Wu-zyj" id="g7y-NH-o3A"/>
@@ -123,4 +133,12 @@
             <point key="canvasLocation" x="137.68115942028987" y="146.65178571428569"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

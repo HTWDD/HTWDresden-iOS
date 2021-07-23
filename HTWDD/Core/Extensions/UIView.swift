@@ -46,7 +46,19 @@ extension UIView {
             transform?($0)
         }
     }
+    
+    func layoutMatchingEdges(_ view: UIView?) {
+        guard let view = view else { return }
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
 
+        NSLayoutConstraint.activate([
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            view.topAnchor.constraint(equalTo: self.htw.safeAreaLayoutGuide.topAnchor),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
+    }
 }
 
 extension HTWNamespace where Base: UIView {

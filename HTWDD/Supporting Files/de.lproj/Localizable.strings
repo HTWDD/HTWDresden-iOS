@@ -68,6 +68,7 @@
 "Schedule.Settings.Cell.subtitle"="%@: %@–%@";
 
 "Schedule.LectureType.lecture"="Vorlesung";
+"Schedule.LectureType.elective.lecture"="Wahlpflicht";
 "Schedule.LectureType.practical"="Praktikum";
 "Schedule.LectureType.exercise"="Übung";
 "Schedule.LectureType.block"="Block";
@@ -75,6 +76,7 @@
 "Schedule.LectureType.unknown"="Unbekannt";
 "Schedule.current.lesson"="Aktuell";
 "Schedule.next.lesson"="Nächste";
+"Schedule.LectureType.custom.lecture"="Eigene";
 
 "Canteen.title"="Mensa";
 "Canteen.pluralTitle"="Mensen";
@@ -120,6 +122,8 @@
 "Exams.ExamType.oral"="Mündlich";
 "Exams.ExamType.apl"="APL";
 
+"Exams.Currently.Unavailable.Message" = "Die Prüfungsansicht wird überarbeitet und ist vorerst nicht verfügbar.";
+
 "Settings.title"="Einstellungen";
 
 "Settings.items.setSchedule.title"="Studiengruppe ändern";
@@ -148,6 +152,9 @@
 "Settings.items.account.subtitle"="Zugangs- und Studiengruppendaten";
 "Settings.items.google.title"="Google Inc.";
 "Settings.items.google.subtitle"="Analytics und Crashlytics";
+"Settings.reset.elective.lessons"="Anzeige der Wahlpflichtveranstaltungen zurücksetzen";
+"Settings.reset.elective.lessons.alert.title"="Wahlpflichtveranstaltungen zurücksetzen";
+"Settings.reset.elective.lessons.alert.message"="Möchtest Du wirklich alle Wahlpflichtveranstaltungen zurücksetzen?";
 
 "Network.error.title"="Fehler";
 "Network.error.message"="Beim Laden der Daten ist etwas schief gelaufen.";
@@ -177,12 +184,16 @@
 "ok"="Okay";
 "close"="Schließen";
 "cancel"="Abbrechen";
+"save"="Speichern";
+"done" = "Fertig";
 "nextStep"="Weiter";
 "letsgo"="Los geht's!";
 "attention"="Achtung ⚠️";
 "yes"="Ja";
+"no"="Nein";
 "loading"="Laden…";
 "add"="Hinzufügen";
+"searchbar.placeholder" = "Suchen";
 
 "visit_website"="Website besuchen";
 
@@ -227,6 +238,8 @@
 "Grades.no.credentials.title"="Keine Zugangsdaten";
 "Grades.no.credentials.message"="Bitte trage deine Zugangsdaten ein, damit ich Dir Noten anzeigen kann.";
 "Grades.header.subtitle"="Ø %.2f (%d Credits)";
+"Grades.legal.info"="Die Informationen in der App sind unverbindlich, rechtsverbindlich ist das Notenportal (QIS)!
+Alle Hinweise (z.B. zu Krankmeldungen) finden Sie ebenfalls im Notenportal (QIS).";
 
 "CampusPlan.title" = "Campusplan";
 "CampusPlan.buildings" = "%d Gebäude";
@@ -258,3 +271,52 @@
 "Room.occupancy.free"="Dieser Raum ist derzeit nicht belegt.";
 "Room.occupancy.no.name"="Keine Angabe zum Kursnamen";
 "Room.occupancy.no.dozent"="Keine Angabe zum Dozenten";
+
+"lesson.block.One" = "Vorlesungsblock 1 (7:30 - 9:00)";
+"lesson.block.Two" = "Vorlesungsblock 2 (9:20 - 10:50)";
+"lesson.block.Three" = "Vorlesungsblock 3 (11:10 - 12:40)";
+"lesson.block.Four" = "Vorlesungsblock 4 (13:20 - 14:50)";
+"lesson.block.Five" = "Vorlesungsblock 5 (15:10 - 16:40)";
+"lesson.block.Six" = "Vorlesungsblock 6 (17:00 - 18:30)";
+"lesson.block.Seven" = "Vorlesungsblock 7 (18:40 - 20:10)";
+"lesson.block.Eight" = "Vorlesungsblock 8 (20:20 - 21:50)";
+
+"CalendarWeek.Once" = "einmalig";
+"CalendarWeek.Every" = "jede KW";
+"CalendarWeek.Even" = "gerade KW";
+"CalendarWeek.Uneven" = "ungerade KW";
+
+"editLesson" = "Veranstaltung bearbeiten";
+"lesson" = "Veranstaltung";
+"general" = "Allgemein";
+"lessonName" = "Lehrveranstaltung*";
+"abbreviation" = "Lehrveranstaltung Abkürzung";
+"docentName" = "Dozent(en)";
+"lessonType" = "Art";
+"room" = "Raum";
+"weekRotation" = "Turnus*";
+"weekday" = "Tag*";
+"lessonBlock" = "Vorlesungsblock";
+"onlyWeeks" = "Nur in Wochen(n)";
+"currentWeek" = "Aktuelle Woche";
+"nextWeek" = "Nächste Woche";
+"time" = "Zeit";
+"start.time" = "Beginn*";
+"end.time" = "Ende*";
+
+
+"export.title" = "Veranstaltungen exportieren";
+"export.message" = "Möchten Sie die Veranstaltungen in Ihren Kalender exportieren?";
+"export.current.week" = "Aktuelle Woche exportieren";
+"export.next.week" = "Nächste Woche exportieren";
+"export.all" = "Komplettes Semester exportieren";
+"export.single.lesson" = "Veranstaltung exportieren";
+
+"export.successful" = "Export erfolgreich";
+"export.error" = "Fehler beim Export";
+
+"field.requiered" = "* Erforderlich";
+"fill.required.fields.message" = "Bitte erforderlichen Felder ausfüllen";
+"fill.required.fields.title" = "Hinweis";
+
+"elective.lesson.selection.title" = "Wähle eine Veranstaltung";

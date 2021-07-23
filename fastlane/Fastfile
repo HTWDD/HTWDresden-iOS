@@ -12,6 +12,15 @@ default_platform(:ios)
 
 platform :ios do
   lane :fly do |options|
+    # authenticate
+    app_store_connect_api_key(
+      key_id: "F55KPLHFMH",
+      issuer_id: "fd8b7a35-c495-4ce2-bc6f-48d31dcf1ca4",
+      key_filepath: "./AuthKey.p8",
+      duration: 1200,
+      in_house: false,
+    )
+
     xcode_deploy(
       bump_type: options[:bump_type],
       scheme_name: "HTWDD",
