@@ -85,7 +85,7 @@ extension GradesViewController {
                 guard let self = self else { return }
                 if let items = event.element {
                     self.items = items
-                    self.items.append(.legalInfo)
+                    self.items.insert(.legalInfo, at: 0)
                     self.stateView.isHidden = true
                     
                     self.hideAverageCell()
