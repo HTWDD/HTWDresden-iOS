@@ -101,7 +101,7 @@
 "Canteen.Meal.note.vegatarian"="Vegetarian";
 "Canteen.Meal.price.students"="%.2f €";
 "Canteen.Meal.price.noStudents"="Price for students: N/A";
-"Canteen.Meal.price.students"="%.2f €";
+"Canteen.Meal.price.employee"="%.2f €";
 "Canteen.Meal.price.noEmployee"="Price for employee: N/A";
 "Canteen.Meal.count.plural"="%d meals";
 "Canteen.Meal.count"="%d meal";
