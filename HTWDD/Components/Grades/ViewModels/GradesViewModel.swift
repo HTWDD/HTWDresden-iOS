@@ -32,7 +32,8 @@ class GradesViewModel {
             .map { result in
                 
                 guard let legalNote = result.0.grades,
-                      legalNote.isEmpty == false else {
+                      legalNote.isEmpty == false,
+                      result.1.count > 0 else {
                           return result.1
                       }
                 
@@ -41,7 +42,6 @@ class GradesViewModel {
                 
                 return mutableValues
             }
-                
     }
     
     func loadLegalNotes() -> Observable<Notes> {

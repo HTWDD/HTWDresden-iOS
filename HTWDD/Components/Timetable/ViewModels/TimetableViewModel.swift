@@ -35,7 +35,20 @@ class TimetableViewModel {
     }
     
     // MARK: - Request
-    func load() -> Observable<[Timetables]> {
+    func load() -> Observable<(String?, [Timetables])> {
+        Observable.combineLatest(loadLegalNotes(), loadTimetable())
+            .map { result in
+                (result.0.timetable, result.1)
+            }
+    }
+    
+    
+    func loadLegalNotes() -> Observable<Notes> {
+        return context
+            .timetableService.requestLegalNotes()
+    }
+    
+    func loadTimetable() -> Observable<[Timetables]> {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))

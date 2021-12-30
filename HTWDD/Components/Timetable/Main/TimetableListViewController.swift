@@ -9,16 +9,29 @@ import Action
 import RxSwift
 
 class TimetableListViewController: TimetableBaseViewController {
-
+    
+    @IBOutlet weak var noteMainView: UIView!
+    @IBOutlet weak var noteLabel: UILabel!
+    @IBOutlet weak var noteCellView: UIView!
+    
     @IBOutlet var tableView: UITableView!
+    
     private var initalLoading: Bool = true
+    
+    var note: String? {
+        didSet {
+            noteLabel.text = note
+            noteMainView.isHidden = note?.isEmpty ?? true
+        }
+    }
+    
     var items: [Timetables] = [] {
         didSet {
             reloadData()
         }
     }
     
-    lazy var action: Action<Void, [Timetables]> = Action { [weak self] (_) -> Observable<[Timetables]> in
+    lazy var action: Action<Void, (String?, [Timetables])> = Action { [weak self] (_) -> Observable<(String?, [Timetables])> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
@@ -30,11 +43,18 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.estimatedRowHeight   = 200
             $0.rowHeight            = UITableView.automaticDimension
             $0.delegate = self
+            $0.dataSource = self
         }
+        
+        noteCellView.apply {
+            $0.layer.cornerRadius   = 4
+            $0.backgroundColor      = UIColor.htw.cellBackground
+        }
+        noteMainView.backgroundColor = UIColor.htw.veryLightGrey
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
+        super.viewDidAppear(animated)
         
         load()
     }
@@ -54,15 +74,16 @@ class TimetableListViewController: TimetableBaseViewController {
             $0.register(TimetableFreedayViewCell.self)
         }
     }
-
+    
     private func load() {
         
-        action.elements.subscribe(onNext: { [weak self] items in
+        action.elements.subscribe(onNext: { [weak self] data in
             guard let self = self else { return }
-            self.items = items
+            self.note = data.0
+            self.items = data.1
             self.stateView.isHidden = true
             
-            if items.isEmpty {
+            if self.items.isEmpty {
                 self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🥺", title: R.string.localizable.scheduleNoResultsTitle(), message: R.string.localizable.scheduleNoResultsMessage(), hint: nil, action: nil))
                 self.items = []
             } else if self.initalLoading {
@@ -74,7 +95,7 @@ class TimetableListViewController: TimetableBaseViewController {
         action.errors.subscribe(onNext: { [weak self] error in
             guard let self = self else { return }
             self.items = []
-                
+            
             self.stateView.setup(with: EmptyResultsView.Configuration(icon: "🤯", title: R.string.localizable.examsNoCredentialsTitle(), message: R.string.localizable.examsNoCredentialsMessage(), hint: R.string.localizable.add(), action: UITapGestureRecognizer(target: self, action: #selector(self.onTap))))
             
         }).disposed(by: rx_disposeBag)
@@ -108,20 +129,20 @@ class TimetableListViewController: TimetableBaseViewController {
         }
         
         var indexOfHeader: Int = 0
-        indexer: for (index, element) in items.enumerated() {
-            switch element {
-            case .header(let model):
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd.MM.yyyy"
-                
-                if let elementDate = dateFormatter.date(from: model.header),
-                   elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
-                    indexOfHeader = index
-                    break indexer
-                }
-            default: break
+    indexer: for (index, element) in items.enumerated() {
+        switch element {
+        case .header(let model):
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            
+            if let elementDate = dateFormatter.date(from: model.header),
+               elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
+                indexOfHeader = index
+                break indexer
             }
+        default: break
         }
+    }
         
         DispatchQueue.main.async { [weak self] in
             self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)
@@ -131,7 +152,7 @@ class TimetableListViewController: TimetableBaseViewController {
     override func getAllLessons() -> [Lesson]? {
         
         var lessons: [Lesson]? = items.compactMap {
-        
+            
             if case .lesson(let model) = $0 {
                 return model
             }
@@ -232,7 +253,7 @@ extension TimetableListViewController: LessonViewCellExportDelegate {
         let exportMenu = UIAlertController(title: R.string.localizable.exportTitle(), message: R.string.localizable.exportMessage(), preferredStyle: .actionSheet)
         
         let fullExportAction = UIAlertAction(title: R.string.localizable.exportAll(), style: .default, handler: { _ in
-  
+            
             self.viewModel.export(lessons: [lesson])
             self.showSuccessMessage()
         })
