@@ -85,7 +85,6 @@ extension GradesViewController {
                 guard let self = self else { return }
                 if let items = event.element {
                     self.items = items
-                    self.items.insert(.legalInfo, at: 0)
                     self.stateView.isHidden = true
                     
                     self.hideAverageCell()
@@ -160,8 +159,9 @@ extension GradesViewController {
             let cell = tableView.dequeueReusableCell(GradeAverageViewCell.self, for: indexPath)!
             cell.setup(with: model)
             return cell
-        case .legalInfo:
+        case .legalInfo(let message):
             let cell = tableView.dequeueReusableCell(GradeLegalInfoCell.self, for: indexPath)!
+            cell.setup(with: message)
             return cell
         }
     }

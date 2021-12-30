@@ -13,7 +13,7 @@ enum Grades {
     case average(model: GradeAverage)
     case header(model: GradeHeader)
     case grade(model: Grade)
-    case legalInfo
+    case legalInfo(message: String)
 }
 
 class GradesViewModel {
@@ -28,6 +28,29 @@ class GradesViewModel {
     
     // MARK: - Load
     func load() -> Observable<[Grades]> {
+        Observable.combineLatest(loadLegalNotes(), loadGrades())
+            .map { result in
+                
+                guard let legalNote = result.0.grades,
+                      legalNote.isEmpty == false else {
+                          return result.1
+                      }
+                
+                var mutableValues = result.1
+                mutableValues.insert(.legalInfo(message: legalNote), at: 0)
+                
+                return mutableValues
+            }
+                
+    }
+    
+    func loadLegalNotes() -> Observable<Notes> {
+        return context
+            .gradeService.requestLegalNotes()
+    }
+    
+    func loadGrades() -> Observable<[Grades]> {
+        
         return requestCourses()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .flatMap { (courses: [Course]) -> Observable<[[Grade]]> in

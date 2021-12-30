@@ -163,6 +163,13 @@ extension ApiService {
             .filter(statusCodes: 200...299)
             .map { try $0.map([Exam].self) }
     }
+    
+    func requestLegalNotes() -> Single<Notes> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "notes")))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map(Notes.self) }
+    }
 }
 
 
