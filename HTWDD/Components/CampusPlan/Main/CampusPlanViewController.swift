@@ -12,7 +12,7 @@ import RxSwift
 class CampusPlanViewController: UITableViewController, HasSideBarItem {
     
     // MARK: - Properties
-    var context: HasCampusPlan!
+    var context: HasApiService!
     var viewModel: CampusPlanViewModel!
     private var items = [CampusPlan]() {
         didSet {

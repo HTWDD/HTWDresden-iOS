@@ -320,3 +320,5 @@ You can also find all information (e.g. sick note) in the grade portal (QIS).";
 "fill.required.fields.title" = "Please fill all required fields";
 
 "elective.lesson.selection.title" = "Choose a lecture";
+
+"device.language" = "en";

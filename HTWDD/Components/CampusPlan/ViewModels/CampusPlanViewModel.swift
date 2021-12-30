@@ -12,14 +12,14 @@ import RxSwift
 class CampusPlanViewModel {
  
     // MARK: - Properties
-    private let context: HasCampusPlan
+    private let context: HasApiService
     
     // MARK: - Lifecycle
-    init(context: HasCampusPlan) {
+    init(context: HasApiService) {
         self.context = context
     }
     
     func load() -> Single<[CampusPlan]> {
-        return context.campusPlanService.loadCampusPlan()
+        return context.apiService.getCampusPlan()
     }
 }

@@ -320,3 +320,5 @@ Alle Hinweise (z.B. zu Krankmeldungen) finden Sie ebenfalls im Notenportal (QIS)
 "fill.required.fields.title" = "Hinweis";
 
 "elective.lesson.selection.title" = "Wähle eine Veranstaltung";
+
+"device.language" = "de";

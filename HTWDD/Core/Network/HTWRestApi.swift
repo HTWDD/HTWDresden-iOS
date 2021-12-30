@@ -8,17 +8,18 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 // MARK: - Endpoints
 enum HTWRestApi {
     case timeTable(year: String, major: String, group: String)
     case electiveLessons
-    case semesterPlaning
     case rooms(room: String)
     case studyGroups
     case courses(auth: String)
     case grades(auth: String, examinationRegulations: Int, majorNumber: String, graduationNumber: String)
     case exams(year: String, major: String, group: String, grade: String)
+    case administrativeDocs(name: String)
 }
 
 // MARK: - Endpoint Handling
@@ -30,6 +31,8 @@ extension HTWRestApi: TargetType {
             return URL(string: "https://wwwqis.htw-dresden.de/appservice/v2")!
         case .exams:
             return URL(string: "http://www2.htw-dresden.de/~app/API")!
+        case .administrativeDocs:
+            return URL(string: "https://rubu2.rz.htw-dresden.de/api/v1/docs")!
         default:
             return URL(string: "https://rubu2.rz.htw-dresden.de/API/v0")!
         }
@@ -39,12 +42,12 @@ extension HTWRestApi: TargetType {
         switch self {
         case .timeTable: return "/studentTimetable.php"
         case .electiveLessons: return "/studentTimetable.php"
-        case .semesterPlaning: return "/semesterplan.json"
         case .rooms: return "/roomTimetable.php"
         case .studyGroups: return "/studyGroups.php"
         case .courses: return "/getcourses"
         case .grades: return "/getgrades"
         case .exams: return "/GetExams.php"
+        case .administrativeDocs(let name): return "/\(name)"
         }
     }
     
@@ -68,6 +71,8 @@ extension HTWRestApi: TargetType {
             return .requestParameters(parameters: ["POVersion" : "\(examinationRegulations)", "StgNr": majorNumber, "AbschlNr": graduationNumber], encoding: URLEncoding.default)
         case .electiveLessons:
             return .requestParameters(parameters: ["all" : "true"], encoding: URLEncoding.default)
+        case .administrativeDocs:
+            return .requestParameters(parameters: ["language" : R.string.localizable.deviceLanguage()], encoding: URLEncoding.default)
         default:
             return .requestPlain
         }

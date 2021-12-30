@@ -21,13 +21,17 @@ struct OfficeHour: Codable {
     enum DayType: String, Codable {
         case monday     = "Mo"
         case tuesday    = "Di"
+        case wednesday  = "Mi"
         case thursday   = "Do"
+        case friday     = "Fr"
         
         var localizedDescription: String {
             switch self {
             case .monday: return R.string.localizable.monday()
             case .tuesday: return R.string.localizable.tuesday()
+            case .wednesday: return R.string.localizable.wednesday()
             case .thursday: return R.string.localizable.thursday()
+            case .friday: return R.string.localizable.friday()
             }
         }
     }
