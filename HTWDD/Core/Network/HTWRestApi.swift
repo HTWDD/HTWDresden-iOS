@@ -19,7 +19,20 @@ enum HTWRestApi {
     case courses(auth: String)
     case grades(auth: String, examinationRegulations: Int, majorNumber: String, graduationNumber: String)
     case exams(year: String, major: String, group: String, grade: String)
-    case administrativeDocs(name: String)
+    case administrativeDocs(doc: AdministrativeDoc)
+}
+
+enum AdministrativeDoc: String {
+    case semesterPlanning = "semesterplan"
+    case studentAdministration = "studentadministration"
+    case principalExamOffice = "principalexamoffice"
+    case stuRaHTW = "sturahtw"
+    case campusPlan = "campusplan"
+    case legalNotes = "notes"
+    
+    var name: String {
+        self.rawValue
+    }
 }
 
 // MARK: - Endpoint Handling
@@ -47,7 +60,7 @@ extension HTWRestApi: TargetType {
         case .courses: return "/getcourses"
         case .grades: return "/getgrades"
         case .exams: return "/GetExams.php"
-        case .administrativeDocs(let name): return "/\(name)"
+        case .administrativeDocs(let doc): return doc.name
         }
     }
     

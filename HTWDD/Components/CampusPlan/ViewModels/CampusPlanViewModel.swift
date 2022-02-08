@@ -20,6 +20,6 @@ class CampusPlanViewModel {
     }
     
     func load() -> Single<[CampusPlan]> {
-        return context.apiService.getCampusPlan()
+        return context.apiService.requestCampusPlan()
     }
 }

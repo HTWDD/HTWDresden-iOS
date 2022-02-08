@@ -16,7 +16,7 @@ class GradesViewController: UITableViewController, HasSideBarItem {
     // MARK: - Properties
     var context: AppContext!
     var viewModel: GradesViewModel!
-    private var items: [Grades] = [] {
+    private var items: [GradeCellType] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -27,7 +27,7 @@ class GradesViewController: UITableViewController, HasSideBarItem {
         }
     }()
     
-    private lazy var action: Action<Void, [Grades]> = Action { [weak self] (_) -> Observable<[Grades]> in
+    private lazy var action: Action<Void, [GradeCellType]> = Action { [weak self] (_) -> Observable<[GradeCellType]> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }

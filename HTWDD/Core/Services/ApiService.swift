@@ -89,36 +89,36 @@ extension ApiService {
     }
     
     // MARK: - Management
-    func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "semesterplan")))
+    func requestSemesterPlaning() -> Observable<[SemesterPlaning]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .semesterPlanning)))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([SemesterPlaning].self) }
     }
     
-    func getStudentAdministration() -> Single<StudentAdministration> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "studentadministration")))
+    func requestStudentAdministration() -> Single<StudentAdministration> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .studentAdministration)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map(StudentAdministration.self) }
     }
     
-    func getPrincipalExamOffice() -> Single<PrincipalExamOffice> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "principalexamoffice")))
+    func requestPrincipalExamOffice() -> Single<PrincipalExamOffice> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .principalExamOffice)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map(PrincipalExamOffice.self) }
     }
     
-    func getStuRaHTW() -> Single<StuRaHTW> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "sturahtw")))
+    func requestStuRaHTW() -> Single<StuRaHTW> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .stuRaHTW)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map(StuRaHTW.self) }
     }
     
-    func getCampusPlan() -> Single<[CampusPlan]> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "campusplan")))
+    func requestCampusPlan() -> Single<[CampusPlan]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .campusPlan)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([CampusPlan].self) }
@@ -165,7 +165,7 @@ extension ApiService {
     }
     
     func requestLegalNotes() -> Single<Notes> {
-        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(name: "notes")))
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .legalNotes)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map(Notes.self) }

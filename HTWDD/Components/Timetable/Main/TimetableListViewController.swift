@@ -31,7 +31,7 @@ class TimetableListViewController: TimetableBaseViewController {
         }
     }
     
-    lazy var action: Action<Void, (String?, [Timetables])> = Action { [weak self] (_) -> Observable<(String?, [Timetables])> in
+    lazy var action: Action<Void, TimetableViewModel.Data> = Action { [weak self] (_) -> Observable<TimetableViewModel.Data> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
@@ -79,8 +79,8 @@ class TimetableListViewController: TimetableBaseViewController {
         
         action.elements.subscribe(onNext: { [weak self] data in
             guard let self = self else { return }
-            self.note = data.0
-            self.items = data.1
+            self.note = data.legalNote
+            self.items = data.timetables
             self.stateView.isHidden = true
             
             if self.items.isEmpty {
