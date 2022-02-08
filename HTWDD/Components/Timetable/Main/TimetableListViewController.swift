@@ -129,20 +129,20 @@ class TimetableListViewController: TimetableBaseViewController {
         }
         
         var indexOfHeader: Int = 0
-    indexer: for (index, element) in items.enumerated() {
-        switch element {
-        case .header(let model):
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy"
-            
-            if let elementDate = dateFormatter.date(from: model.header),
-               elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
-                indexOfHeader = index
-                break indexer
+        indexer: for (index, element) in items.enumerated() {
+            switch element {
+            case .header(let model):
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "dd.MM.yyyy"
+                
+                if let elementDate = dateFormatter.date(from: model.header),
+                   elementDate.localDate >= Calendar.current.startOfDay(for: Date().localDate) {
+                    indexOfHeader = index
+                    break indexer
+                }
+            default: break
             }
-        default: break
         }
-    }
         
         DispatchQueue.main.async { [weak self] in
             self?.tableView.scrollToRow(at: IndexPath(row: indexOfHeader, section: 0), at: .top, animated: !notAnimated)

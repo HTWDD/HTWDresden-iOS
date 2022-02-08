@@ -30,7 +30,6 @@ class TimetableViewModel {
         let timetables: [Timetables]
     }
     
-    
     // MARK: - Properties
     private let context: HasTimetable
     private lazy var eventStore : EKEventStore = EKEventStore()
@@ -47,7 +46,6 @@ class TimetableViewModel {
                 Data(legalNote: notes.timetableNote, timetables: timetables)
             }
     }
-    
     
     func loadLegalNotes() -> Observable<Notes> {
         return context
