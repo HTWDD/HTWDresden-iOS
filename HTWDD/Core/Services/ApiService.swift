@@ -11,37 +11,6 @@ import Moya
 import RxSwift
 import Alamofire
 
-// MARK: - JSON
-fileprivate var studentAdministrationData: Data {
-    // Loading data from file /Supporting Files/Assets/StudenAdministration.json
-    do {
-        guard let json = R.file.studentAdministrationJson() else { return Data() }
-        return try Data(contentsOf: json)
-    } catch {
-        return Data()
-    }
-}
-
-fileprivate var principalExamOfficeData: Data {
-    // Loading data from file /Supporting Files/Assets/PrincipalExamOffice.json
-    do {
-        guard let json = R.file.principalExamOfficeJson() else { return Data() }
-        return try Data(contentsOf: json)
-    } catch {
-        return Data()
-    }
-}
-
-fileprivate var stuRaHTWData: Data {
-    // Loading data from file /Supporting Files/Assets/StuRaHTW.json
-    do {
-        guard let json = R.file.stuRaHTWJson() else { return Data() }
-        return try Data(contentsOf: json)
-    } catch {
-        return Data()
-    }
-}
-
 // MARK: Caching
 protocol CachePolicyGettable {
     var cachePolicy: URLRequest.CachePolicy { get }
@@ -120,53 +89,39 @@ extension ApiService {
     }
     
     // MARK: - Management
-    func getSemesterPlaning() -> Observable<[SemesterPlaning]> {
-        return provider.rx.request(MultiTarget(HTWRestApi.semesterPlaning))
+    func requestSemesterPlaning() -> Observable<[SemesterPlaning]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .semesterPlanning)))
             .filter(statusCodes: 200...299)
             .asObservable()
             .map { try $0.map([SemesterPlaning].self) }
     }
     
-    func getStudentAdministration() -> Single<StudentAdministration> {
-        return Observable.create { observer in
-                do {
-                    observer.onNext(try JSONDecoder().decode(StudentAdministration.self, from: studentAdministrationData))
-                    observer.onCompleted()
-                } catch {
-                    observer.onError(error)
-                }
-                return Disposables.create()
-            }
+    func requestStudentAdministration() -> Single<StudentAdministration> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .studentAdministration)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
-            .asSingle()
+            .filter(statusCodes: 200...299)
+            .map { try $0.map(StudentAdministration.self) }
     }
     
-    func getPrincipalExamOffice() -> Single<PrincipalExamOffice> {
-        return Observable.create { observer in
-                do {
-                    observer.onNext(try JSONDecoder().decode(PrincipalExamOffice.self, from: principalExamOfficeData))
-                    observer.onCompleted()
-                } catch {
-                    observer.onError(error)
-                }
-                return Disposables.create()
-            }
+    func requestPrincipalExamOffice() -> Single<PrincipalExamOffice> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .principalExamOffice)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
-            .asSingle()
+            .filter(statusCodes: 200...299)
+            .map { try $0.map(PrincipalExamOffice.self) }
     }
     
-    func getStuRaHTW() -> Single<StuRaHTW> {
-        return Observable.create  { observer in
-                do {
-                    observer.onNext(try JSONDecoder().decode(StuRaHTW.self, from: stuRaHTWData))
-                    observer.onCompleted()
-                } catch {
-                    observer.onError(error)
-                }
-                return Disposables.create()
-            }
+    func requestStuRaHTW() -> Single<StuRaHTW> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .stuRaHTW)))
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
-            .asSingle()
+            .filter(statusCodes: 200...299)
+            .map { try $0.map(StuRaHTW.self) }
+    }
+    
+    func requestCampusPlan() -> Single<[CampusPlan]> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .campusPlan)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map([CampusPlan].self) }
     }
     
     // MARK: - Room Occupancy
@@ -207,6 +162,13 @@ extension ApiService {
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .filter(statusCodes: 200...299)
             .map { try $0.map([Exam].self) }
+    }
+    
+    func requestLegalNotes() -> Single<Notes> {
+        return provider.rx.request(MultiTarget(HTWRestApi.administrativeDocs(doc: .legalNotes)))
+            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .filter(statusCodes: 200...299)
+            .map { try $0.map(Notes.self) }
     }
 }
 

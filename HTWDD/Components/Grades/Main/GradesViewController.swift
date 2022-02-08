@@ -16,7 +16,7 @@ class GradesViewController: UITableViewController, HasSideBarItem {
     // MARK: - Properties
     var context: AppContext!
     var viewModel: GradesViewModel!
-    private var items: [Grades] = [] {
+    private var items: [GradeCellType] = [] {
         didSet {
             tableView.reloadData()
         }
@@ -27,7 +27,7 @@ class GradesViewController: UITableViewController, HasSideBarItem {
         }
     }()
     
-    private lazy var action: Action<Void, [Grades]> = Action { [weak self] (_) -> Observable<[Grades]> in
+    private lazy var action: Action<Void, [GradeCellType]> = Action { [weak self] (_) -> Observable<[GradeCellType]> in
         guard let self = self else { return Observable.empty() }
         return self.viewModel.load().observeOn(MainScheduler.instance)
     }
@@ -85,7 +85,6 @@ extension GradesViewController {
                 guard let self = self else { return }
                 if let items = event.element {
                     self.items = items
-                    self.items.insert(.legalInfo, at: 0)
                     self.stateView.isHidden = true
                     
                     self.hideAverageCell()
@@ -160,8 +159,9 @@ extension GradesViewController {
             let cell = tableView.dequeueReusableCell(GradeAverageViewCell.self, for: indexPath)!
             cell.setup(with: model)
             return cell
-        case .legalInfo:
+        case .legalInfo(let message):
             let cell = tableView.dequeueReusableCell(GradeLegalInfoCell.self, for: indexPath)!
+            cell.setup(with: message)
             return cell
         }
     }

@@ -25,6 +25,11 @@ enum FreeDays {
 // MARK: - ViewModel
 class TimetableViewModel {
     
+    struct Data {
+        let legalNote: String?
+        let timetables: [Timetables]
+    }
+    
     // MARK: - Properties
     private let context: HasTimetable
     private lazy var eventStore : EKEventStore = EKEventStore()
@@ -35,7 +40,19 @@ class TimetableViewModel {
     }
     
     // MARK: - Request
-    func load() -> Observable<[Timetables]> {
+    func load() -> Observable<Data> {
+        Observable.combineLatest(loadLegalNotes(), loadTimetable())
+            .map { (notes, timetables) in
+                Data(legalNote: notes.timetableNote, timetables: timetables)
+            }
+    }
+    
+    func loadLegalNotes() -> Observable<Notes> {
+        return context
+            .timetableService.requestLegalNotes()
+    }
+    
+    func loadTimetable() -> Observable<[Timetables]> {
         context
             .timetableService.requestTimetable()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))

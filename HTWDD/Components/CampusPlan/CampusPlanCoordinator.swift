@@ -11,7 +11,7 @@ import Foundation
 class CampusPlanCoordinator: Coordinator {
     
     // MARK: - Typealias
-    typealias Service = HasCampusPlan
+    typealias Service = HasApiService
     
     // MARK: - Properties
     let context: Service

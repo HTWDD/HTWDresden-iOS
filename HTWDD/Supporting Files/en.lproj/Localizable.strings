@@ -239,8 +239,6 @@
 "Grades.no.credentials.title"="No login data";
 "Grades.no.credentials.message"="Please enter you login data, so that i can show you your grades";
 "Grades.header.subtitle"="Ø %.2f (%d credits)";
-"Grades.legal.info"="The information in the app is not legally binding, the grade portal (QIS) is legally binding!
-You can also find all information (e.g. sick note) in the grade portal (QIS).";
 
 "CampusPlan.title" = "Campus plan";
 "CampusPlan.buildings" = "%d Buildings";
@@ -320,3 +318,5 @@ You can also find all information (e.g. sick note) in the grade portal (QIS).";
 "fill.required.fields.title" = "Please fill all required fields";
 
 "elective.lesson.selection.title" = "Choose a lecture";
+
+"device.language" = "en";
