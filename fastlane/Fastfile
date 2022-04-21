@@ -3,7 +3,7 @@ default_platform(:ios)
 platform :ios do
   lane :test do
     xcode_test(
-      version: "13.2",
+      version: "13.3.1",
       scheme_name: "HTWDD"
     ) 
   end
