@@ -9,11 +9,11 @@
 import Foundation
 import RxSwift
 
-enum Grades {
+enum GradeCellType {
     case average(model: GradeAverage)
     case header(model: GradeHeader)
     case grade(model: Grade)
-    case legalInfo
+    case legalInfo(message: String)
 }
 
 class GradesViewModel {
@@ -27,7 +27,30 @@ class GradesViewModel {
     }
     
     // MARK: - Load
-    func load() -> Observable<[Grades]> {
+    func load() -> Observable<[GradeCellType]> {
+        Observable.combineLatest(loadLegalNotes(), loadGrades())
+            .map { (notes, grades) in
+                
+                guard let legalNote = notes.gradesNote,
+                      legalNote.isEmpty == false,
+                      grades.count > 0 else {
+                          return grades
+                      }
+                
+                var values = grades
+                values.insert(.legalInfo(message: legalNote), at: 0)
+                
+                return values
+            }
+    }
+    
+    func loadLegalNotes() -> Observable<Notes> {
+        return context
+            .gradeService.requestLegalNotes()
+    }
+    
+    func loadGrades() -> Observable<[GradeCellType]> {
+        
         return requestCourses()
             .observeOn(SerialDispatchQueueScheduler(qos: .background))
             .flatMap { (courses: [Course]) -> Observable<[[Grade]]> in
@@ -42,8 +65,8 @@ class GradesViewModel {
             .map { (grades: [Grade]) -> Dictionary<Int, [Grade]> in
                 return Dictionary(grouping: grades) { $0.semester }
             }
-            .map { [unowned self] (hMap: Dictionary<Int, [Grade]>) -> [Grades] in
-                var result: [Grades] = []
+            .map { [unowned self] (hMap: Dictionary<Int, [Grade]>) -> [GradeCellType] in
+                var result: [GradeCellType] = []
                 
                 if (!hMap.isEmpty) {
                     //

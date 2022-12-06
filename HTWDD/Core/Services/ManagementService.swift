@@ -60,7 +60,7 @@ class ManagementService: Service {
     }
     
     fileprivate func requestSemesterPlaning() {
-        apiService.getSemesterPlaning()
+        apiService.requestSemesterPlaning()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { result in
                 result.filter {
@@ -73,21 +73,21 @@ class ManagementService: Service {
     }
     
     fileprivate func loadStudentAdminstration() -> Observable<[Item]> {
-        return apiService.getStudentAdministration()
+        return apiService.requestStudentAdministration()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.studenAdministation(model: $0)] }
     }
     
     fileprivate func loadPrincipalOffice() -> Observable<[Item]> {
-        return apiService.getPrincipalExamOffice()
+        return apiService.requestPrincipalExamOffice()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.principalExamOffice(model: $0)] }
     }
     
     fileprivate func loadStuRaHTW() -> Observable<[Item]> {
-        return apiService.getStuRaHTW()
+        return apiService.requestStuRaHTW()
             .asObservable()
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .map { [Item.stuRaHTW(model: $0)] }

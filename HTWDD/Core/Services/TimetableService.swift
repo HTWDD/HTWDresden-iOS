@@ -38,6 +38,11 @@ class TimetableService: Service {
     func requestElectiveLessons() -> Observable<[Lesson]> {
         return apiService.requestElectiveLessons()
     }
+    
+    func requestLegalNotes() -> Observable<Notes> {
+        return apiService.requestLegalNotes()
+            .asObservable()
+    }
 }
 
 // MARK: - HasTimetable

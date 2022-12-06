@@ -36,6 +36,11 @@ class GradeService: Service {
         return apiService.requestGrades(auth: auth, course: course).asObservable()
     }
     
+    func requestLegalNotes() -> Observable<Notes> {
+        return apiService.requestLegalNotes()
+            .asObservable()
+    }
+    
     
     enum Const {
         static let gradesCacheKey = "gradesCacheKey"

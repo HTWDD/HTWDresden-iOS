@@ -22,8 +22,10 @@ class GradeLegalInfoCell: UITableViewCell, FromNibLoadable {
             $0.layer.cornerRadius   = 4
             $0.backgroundColor      = UIColor.htw.cellBackground
         }
-        
-        lblLegalInfo.text = R.string.localizable.gradesLegalInfo()
+    }
+    
+    func setup(with message: String) {
+        lblLegalInfo.text = message
     }
 
 }

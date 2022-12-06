@@ -29,6 +29,11 @@ class ExamService {
             return Observable.error(NSError(domain: "HTW.StudyToken.Not.Found", code: 704, userInfo: nil))
         }
     }
+    
+    func requestLegalNotes() -> Observable<Notes> {
+        return apiService.requestLegalNotes()
+            .asObservable()
+    }
 }
 
 // MARK: - Exam Serviceable

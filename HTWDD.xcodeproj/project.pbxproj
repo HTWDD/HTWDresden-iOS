@@ -102,10 +102,7 @@
 		6403694922CA0CA700FD49EA /* StudentAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694822CA0CA700FD49EA /* StudentAdministration.swift */; };
 		6403694F22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694D22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift */; };
 		6403695022CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */; };
-		6403695222CA4EBF00FD49EA /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
-		6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
 		6403695622CA528300FD49EA /* PrincipalExamOffice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695522CA528300FD49EA /* PrincipalExamOffice.swift */; };
-		6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
 		6403695A22CA5D1A00FD49EA /* StuRaHTW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695922CA5D1A00FD49EA /* StuRaHTW.swift */; };
 		6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */; };
 		6403695E22CA5E6800FD49EA /* StuRaHTWViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */; };
@@ -116,9 +113,6 @@
 		6405917E22CB438B00AA5613 /* StudentAdministration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6403694822CA0CA700FD49EA /* StudentAdministration.swift */; };
 		6405918022CC7EAE00AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405917F22CC7EAE00AA5613 /* R.generated.swift */; };
 		6405918522CC830800AA5613 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918422CC830800AA5613 /* R.generated.swift */; };
-		6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695722CA53A100FD49EA /* StudentAdministration.json */; };
-		6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */; };
-		6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */ = {isa = PBXBuildFile; fileRef = 6403695322CA50F300FD49EA /* StuRaHTW.json */; };
 		6405918C22CCB2DD00AA5613 /* SemesterPlaningRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6405918B22CCB2DD00AA5613 /* SemesterPlaningRealm.swift */; };
 		6407C9952340E49E009E7C91 /* GradeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6407C9932340E49E009E7C91 /* GradeViewCell.swift */; };
 		6407C9962340E49E009E7C91 /* GradeViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6407C9942340E49E009E7C91 /* GradeViewCell.xib */; };
@@ -253,10 +247,6 @@
 		64C4BCCF233BB1CD00B135DE /* CampusPlanCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCCE233BB1CD00B135DE /* CampusPlanCoordinator.swift */; };
 		64C4BCD1233BB23800B135DE /* CampusPlan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64C4BCD0233BB23800B135DE /* CampusPlan.storyboard */; };
 		64C4BCD4233BB27D00B135DE /* CampusPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCD3233BB27D00B135DE /* CampusPlanViewController.swift */; };
-		64C4BCD6233BB45700B135DE /* CampusPlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCD5233BB45700B135DE /* CampusPlanService.swift */; };
-		64C4BCD7233BB4F000B135DE /* CampusPlanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCD5233BB45700B135DE /* CampusPlanService.swift */; };
-		64C4BCDC233BBA7E00B135DE /* CampusPlan.json in Resources */ = {isa = PBXBuildFile; fileRef = 64C4BCDB233BBA7E00B135DE /* CampusPlan.json */; };
-		64C4BCDD233BBA7E00B135DE /* CampusPlan.json in Resources */ = {isa = PBXBuildFile; fileRef = 64C4BCDB233BBA7E00B135DE /* CampusPlan.json */; };
 		64C4BCE0233BBAB700B135DE /* CampusPlanViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCDE233BBAB700B135DE /* CampusPlanViewCell.swift */; };
 		64C4BCE2233BBAB700B135DE /* CampusPlanViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C4BCDF233BBAB700B135DE /* CampusPlanViewCell.xib */; };
 		64C4BCE6233BBB8F00B135DE /* CampusPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64C4BCE5233BBB8F00B135DE /* CampusPlan.swift */; };
@@ -322,6 +312,8 @@
 		759136142654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759136132654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift */; };
 		7591361626544F8800EFF779 /* TimetableElectiveLessonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7591361526544F8800EFF779 /* TimetableElectiveLessonCell.swift */; };
 		759136182654519C00EFF779 /* TimetableElectiveLessonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 759136172654519C00EFF779 /* TimetableElectiveLessonCell.xib */; };
+		75961601277DCB7200E0DAE8 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75961600277DCB7200E0DAE8 /* Notes.swift */; };
+		75961602277DCC2900E0DAE8 /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75961600277DCB7200E0DAE8 /* Notes.swift */; };
 		75A75D7025A856E60057289F /* TimetableLessonDetailsSelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A75D6F25A856E60057289F /* TimetableLessonDetailsSelectionCell.xib */; };
 		75A75D7825A858550057289F /* TimetableLessonDetailsSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A75D7725A858550057289F /* TimetableLessonDetailsSelectionCell.swift */; };
 		75A75D7D25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75A75D7C25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib */; };
@@ -515,10 +507,7 @@
 		6403694822CA0CA700FD49EA /* StudentAdministration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentAdministration.swift; sourceTree = "<group>"; };
 		6403694D22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalExamOfficeViewCell.swift; sourceTree = "<group>"; };
 		6403694E22CA4E7200FD49EA /* PrincipalExamOfficeViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrincipalExamOfficeViewCell.xib; sourceTree = "<group>"; };
-		6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PrincipalExamOffice.json; sourceTree = "<group>"; };
-		6403695322CA50F300FD49EA /* StuRaHTW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StuRaHTW.json; sourceTree = "<group>"; };
 		6403695522CA528300FD49EA /* PrincipalExamOffice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipalExamOffice.swift; sourceTree = "<group>"; };
-		6403695722CA53A100FD49EA /* StudentAdministration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StudentAdministration.json; sourceTree = "<group>"; };
 		6403695922CA5D1A00FD49EA /* StuRaHTW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTW.swift; sourceTree = "<group>"; };
 		6403695B22CA5E6800FD49EA /* StuRaHTWViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuRaHTWViewCell.swift; sourceTree = "<group>"; };
 		6403695C22CA5E6800FD49EA /* StuRaHTWViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StuRaHTWViewCell.xib; sourceTree = "<group>"; };
@@ -641,8 +630,6 @@
 		64C4BCCE233BB1CD00B135DE /* CampusPlanCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlanCoordinator.swift; sourceTree = "<group>"; };
 		64C4BCD0233BB23800B135DE /* CampusPlan.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CampusPlan.storyboard; sourceTree = "<group>"; };
 		64C4BCD3233BB27D00B135DE /* CampusPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlanViewController.swift; sourceTree = "<group>"; };
-		64C4BCD5233BB45700B135DE /* CampusPlanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlanService.swift; sourceTree = "<group>"; };
-		64C4BCDB233BBA7E00B135DE /* CampusPlan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CampusPlan.json; sourceTree = "<group>"; };
 		64C4BCDE233BBAB700B135DE /* CampusPlanViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlanViewCell.swift; sourceTree = "<group>"; };
 		64C4BCDF233BBAB700B135DE /* CampusPlanViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampusPlanViewCell.xib; sourceTree = "<group>"; };
 		64C4BCE5233BBB8F00B135DE /* CampusPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusPlan.swift; sourceTree = "<group>"; };
@@ -702,6 +689,7 @@
 		759136132654340F00EFF779 /* TimetableElectiveLessonSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElectiveLessonSelectionViewModel.swift; sourceTree = "<group>"; };
 		7591361526544F8800EFF779 /* TimetableElectiveLessonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableElectiveLessonCell.swift; sourceTree = "<group>"; };
 		759136172654519C00EFF779 /* TimetableElectiveLessonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableElectiveLessonCell.xib; sourceTree = "<group>"; };
+		75961600277DCB7200E0DAE8 /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		75A75D6F25A856E60057289F /* TimetableLessonDetailsSelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailsSelectionCell.xib; sourceTree = "<group>"; };
 		75A75D7725A858550057289F /* TimetableLessonDetailsSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimetableLessonDetailsSelectionCell.swift; sourceTree = "<group>"; };
 		75A75D7C25A85E920057289F /* TimetableLessonDetailTimePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimetableLessonDetailTimePickerCell.xib; sourceTree = "<group>"; };
@@ -981,6 +969,7 @@
 		1FC21DC51F8F949F003E244F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				759615FF277DCB6900E0DAE8 /* Common */,
 				64C4BCCC233BB18600B135DE /* CampusPlan */,
 				B5B376841FA6176E00FC3A07 /* Canteen */,
 				6420E97F22E06A5600F13AD3 /* Dashboard */,
@@ -1086,7 +1075,6 @@
 			isa = PBXGroup;
 			children = (
 				6403693C22C9F0E400FD49EA /* ApiService.swift */,
-				64C4BCD5233BB45700B135DE /* CampusPlanService.swift */,
 				6410F72522D5C86800AA3BA1 /* CanteenService.swift */,
 				6420E98822E06D3700F13AD3 /* DashboardService.swift */,
 				6413289922FD4CB20065301F /* ExamService.swift */,
@@ -1097,17 +1085,6 @@
 				64E7DB622343471F00540FED /* TimetableService.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		6403694A22CA256A00FD49EA /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				64C4BCDB233BBA7E00B135DE /* CampusPlan.json */,
-				6403695722CA53A100FD49EA /* StudentAdministration.json */,
-				6403695122CA4EBF00FD49EA /* PrincipalExamOffice.json */,
-				6403695322CA50F300FD49EA /* StuRaHTW.json */,
-			);
-			path = Assets;
 			sourceTree = "<group>";
 		};
 		6405917B22CB3BF000AA5613 /* Supporting Files */ = {
@@ -1563,6 +1540,14 @@
 			path = TimetableElectiveLessonSelection;
 			sourceTree = "<group>";
 		};
+		759615FF277DCB6900E0DAE8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				75961600277DCB7200E0DAE8 /* Notes.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		75E20F2F258CBF1300FA6DF4 /* TimetableLessonDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -1615,7 +1600,6 @@
 		B52A9B4C1DDB15FE00313FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6403694A22CA256A00FD49EA /* Assets */,
 				B59FA9911DD09C8400259D7F /* Assets.xcassets */,
 				64E40B862334BFBA0075B7B1 /* Color.xcassets */,
 				B59FA9961DD09C8400259D7F /* Info.plist */,
@@ -2125,13 +2109,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64C4BCDD233BBA7E00B135DE /* CampusPlan.json in Resources */,
-				6405918922CC85A500AA5613 /* StuRaHTW.json in Resources */,
 				640306F922E8A83B00099D68 /* GoogleService-Info.plist in Resources */,
 				1F4BD5301FAFA58F007E0817 /* Today.storyboard in Resources */,
-				6405918722CC859F00AA5613 /* StudentAdministration.json in Resources */,
 				1FD757611FB4D72D007F9CA1 /* Localizable.strings in Resources */,
-				6405918822CC85A200AA5613 /* PrincipalExamOffice.json in Resources */,
 				6466EB3323CDD12A004E8EF0 /* Color.xcassets in Resources */,
 				1F1491B61FB456F70011B114 /* Assets.xcassets in Resources */,
 				1F4BD5361FAFA895007E0817 /* InfoPlist.strings in Resources */,
@@ -2150,7 +2130,6 @@
 				B5111E171E71E68F00D68155 /* Localizable.strings in Resources */,
 				642E5C2422F18FF200D3A886 /* PulseBlue.json in Resources */,
 				6420E98322E06BCE00F13AD3 /* Dashboard.storyboard in Resources */,
-				64C4BCDC233BBA7E00B135DE /* CampusPlan.json in Resources */,
 				640DB2F822E99BA90083078E /* RoomOccupancy.storyboard in Resources */,
 				649371052342836000EC7195 /* DasboardLessonViewCell.xib in Resources */,
 				6410F72422D5BE9400AA3BA1 /* Canteen.storyboard in Resources */,
@@ -2166,10 +2145,8 @@
 				6414B74822FAB4BB00988AAA /* FinishGrey.json in Resources */,
 				64E40B872334BFBA0075B7B1 /* Color.xcassets in Resources */,
 				642E5C1D22F1829C00D3A886 /* Onboarding.storyboard in Resources */,
-				6403695822CA53A100FD49EA /* StudentAdministration.json in Resources */,
 				640306F822E8A83B00099D68 /* GoogleService-Info.plist in Resources */,
 				64C4BCD1233BB23800B135DE /* CampusPlan.storyboard in Resources */,
-				6403695222CA4EBF00FD49EA /* PrincipalExamOffice.json in Resources */,
 				6407C9A023412D36009E7C91 /* GradeAverageViewCell.xib in Resources */,
 				642E5C2222F18B5700D3A886 /* PulseGreen.json in Resources */,
 				6412011922BA2BFA00B2090A /* SideMenu.storyboard in Resources */,
@@ -2193,7 +2170,6 @@
 				64D9D91A22E1E497002E71F5 /* DashboardTimeTableViewCell.xib in Resources */,
 				759136182654519C00EFF779 /* TimetableElectiveLessonCell.xib in Resources */,
 				6493710923428D6A00EC7195 /* DashboardTimeTableNoStudyTokenViewCell.xib in Resources */,
-				6403695422CA50F300FD49EA /* StuRaHTW.json in Resources */,
 				640DC15322FB659F00E9ED9A /* Exam.storyboard in Resources */,
 				640CFFA122E639100078C99A /* DashboardGradeViewCell.xib in Resources */,
 				641A4AD2234484F50018ACFD /* MealViewCell.xib in Resources */,
@@ -2431,6 +2407,7 @@
 				1F8E20C71FB34E6200347DB6 /* PersistenceService.swift in Sources */,
 				1F8E20CF1FB34EB000347DB6 /* Lecture.swift in Sources */,
 				1F8E20CB1FB34E9000347DB6 /* Grade_old.swift in Sources */,
+				75961602277DCC2900E0DAE8 /* Notes.swift in Sources */,
 				6413289B22FD505B0065301F /* ExamService.swift in Sources */,
 				1F8E20D21FB34ECF00347DB6 /* Date.swift in Sources */,
 				1F4BD53C1FAFABDD007E0817 /* String.swift in Sources */,
@@ -2466,7 +2443,6 @@
 				6403694122C9F62E00FD49EA /* Single+Response.swift in Sources */,
 				1F8E20E31FB34F9D00347DB6 /* CodableDictionary.swift in Sources */,
 				1F4BD53E1FAFAD63007E0817 /* HTWNamespace.swift in Sources */,
-				64C4BCD7233BB4F000B135DE /* CampusPlanService.swift in Sources */,
 				6481AEF722E5ABF20068A8C3 /* Lesson.swift in Sources */,
 				1F8E20E81FB3507800347DB6 /* DateComponents.swift in Sources */,
 				1F8E20CE1FB34EAA00347DB6 /* SemesterInformation.swift in Sources */,
@@ -2489,7 +2465,6 @@
 			files = (
 				B59879C01FB0F67800320091 /* BadgeLabel.swift in Sources */,
 				B5B3768B1FA6182800FC3A07 /* Double.swift in Sources */,
-				64C4BCD6233BB45700B135DE /* CampusPlanService.swift in Sources */,
 				64EBEE5022F0431400B5D21B /* RoomOccupanciesCollectionViewCell.swift in Sources */,
 				B538EF181E1D6AEF0031077C /* Network.swift in Sources */,
 				B5F3F8701FB8552800F0D1DB /* AppLecture.swift in Sources */,
@@ -2558,6 +2533,7 @@
 				6403695D22CA5E6800FD49EA /* StuRaHTWViewCell.swift in Sources */,
 				B538EF0A1E1D5BD10031077C /* Log.swift in Sources */,
 				6410F72A22D5D0C200AA3BA1 /* CanteenViewCell.swift in Sources */,
+				75961601277DCB7200E0DAE8 /* Notes.swift in Sources */,
 				B52133B91DEF0DB100955D29 /* GradeMainVC.swift in Sources */,
 				6403695622CA528300FD49EA /* PrincipalExamOffice.swift in Sources */,
 				B52329011FB890B5000C4F44 /* ImageLoader.swift in Sources */,

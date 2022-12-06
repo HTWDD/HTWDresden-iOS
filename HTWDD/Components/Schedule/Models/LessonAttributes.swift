@@ -62,21 +62,21 @@ enum LessonType: String, Codable, LessonDetailsPickerSelection {
         
         switch container {
         case let str where str.hasPrefix("V"):
-            if str.contains("(w)") {
+            if str.contains("w") {
                 self = .electiveLesson
             } else {
                 self = .lesson
             }
             
         case let str where str.hasPrefix("Ü"):
-            if str.contains("(w)") {
+            if str.contains("w") {
                 self = .electiveExercise
             } else {
                 self = .exercise
             }
             
         case let str where str.hasPrefix("P"):
-            if str.contains("(w)") {
+            if str.contains("w") {
                 self = .electivePractical
             } else {
                 self = .practical

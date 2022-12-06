@@ -84,7 +84,6 @@ extension AppDelegate {
     
     // MARK: - Crashlytics
     private func analyticsAndCrashlytics() {
-        Analytics.setAnalyticsCollectionEnabled(false)
         
         if UserDefaults.standard.crashlytics {
             FirebaseApp.configure()
